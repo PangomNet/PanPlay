@@ -1,0 +1,18 @@
+BETA 1-5:
+-	Beim Anklicken der Aktuellen Sendung im Hauptbildschirm wird der Senderplan geöffnet
+-	Die Menüpunkte „Sendeplan“ & „Über “ sind nun nicht mehr im Dropdown, sondern werden direkt im Hauptmenü oben angezeigt, sowie die Bildschirmgröße dies ermöglicht.
+-	Im Fenster „Über “ und im Menüpunkt wird nun der Anzeigename statt der Rohname verwendet (Beispiel: „Über Eins“ statt „Über eins“)
+-	Anzeigefehler, der dazu führte, dass Firefox den Anzeigebereich der gesamten Webseite auf 24px beschränkte, ist behoben.
+-	Zusätzlich zu fehlenden Parametern, erkennt der Player nun auch, wenn der Audiostream unterbrochen wurde, oder nicht aufgebaut werden kann. Der Player prüft im laut.fm-Modus sodann, ob der Dienst korrekt arbeitet. Die Antwort dieser Anfrage wird interpretiert und der Nutzer erhält Tipps zur Fehlerbehebung.
+-	Im Menü sind nun Icons hinzugefügt worden.
+-	Im Fenster für die Titelhistorie wird der erste Song hervorgehoben, da Aufgrund der API-Logik der erste Song der Antwort immer der aktuell spielende ist.
+-	Der Player liefert nun OpenGraphTags aus. Diese werden vor allem von Socisl-Media-Kanälen aber auch von Foren wie Discuss benutzt. So kann ein Link in einen Informationsblock umgewandelt werden, der über die Quelle aufklärt und darauf verlinkt.
+
+BETA 6:
+- Convoyer ist derzeit wieder deaktiviert, da nicht mehr funktionfähig, es wird mit Tooltips und Elipssis gearbeitet. Convoyer kommt in einer zunkünftigen Version vielleicht zurück.
+- Variable "colors" wurde durch "theme" abgelöst. "theme" erlaubt das wählen eines voreingestellten Styles durch die angabe seiner Beezeichnung (theme=light). IM Stanardardmodus wird immer ein dunkles Thema geladen. Ein helles Thema kann über "theme=light" geladen werden. Eine noch mehr verdunkeltes Thema kann mit "theme=moredark" geladen werden. Außerdem werden hierüber Spezialthemen geladen. Als Beispiel: Mit "theme=win2000" kann ein an den Windows 2000-Desktop erinnerndes Thema geladen werden.
+- Der Sendeplan wird nun nicht mehr in einem Akkordion, sondern in einer einfacheren Tabansicht geladen und der aktuelle Wochentag wird automatisch angezeigt.
+- Im Fenster über den Sender wird nun die Sendergrafik angezeigt und der Slogan angezeigt.
+
+BETA 7:
+- Theming-Eninge-Verfahren verbessert für bessere Erkennung
