@@ -12,5 +12,5 @@ Zurzeit wurde Version 0.0.1.0 (Abelia) als letzte Stabile-Alpha-Version veröffe
 (Diese Version von oOPlay ist noch nicht in der lage außerhalb der Infrastruktur von 'oop.ownonline.eu' zu arbeiten!) Sie können oOPlay über die CDN-Lösung verwenden: https://oop.ownonline.eu/play?lfmstream=simliveradio
 
 ### Aktuell in der Entwicklung:
-Zurzeit wird an Version 0.0.1.1 (Allium) gearbeitet. Die 
-(Diese Version von oOPlay ist noch nicht in der lage außerhalb der Infrastruktur von 'oop.ownonline.eu' zu arbeiten!)  CDN-Lösung verwenden: https://oop.ownonline.eu/play/0-0-1-1/?lfmstream=simliveradio
+Zurzeit wird an einer neuen Version gearbeitet. Zuletzut wurde der Prerelease 0.0.1.2 (Begonia) hochgeladen.
+(Diese Version von oOPlay ist noch nicht in der lage außerhalb der Infrastruktur von 'oop.ownonline.eu' zu arbeiten!)  CDN-Lösung verwenden: https://oop.ownonline.eu/play/0-0-1-2/?lfmstream=simliveradio
