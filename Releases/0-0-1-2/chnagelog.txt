@@ -1,3 +1,14 @@
+0.0.1.2 Begonia (TESTRELEASE)
+-	Neue Engine zum Teil eingebunden. Weitere Umstellungen geplant.
+-	Font-Awesome LTS-Version festgelegt. oOPlay bleibt nun bei der im April 2024 aktuellen 5.14 LTS-Version, auto-Update durch den Server 	wurde herausgepatcht. Dies verringert die Ladezeit enorm.
+-	Neue Albumcover für Laut-FM-Modus.
+-	Neue Albumcover speziell für Metatdata-API (nur Laut.fm)
+-	Neues Hintergrundbild je nach Metadaten des Songs.
+-	In der Mobilen Ansicht wird nicht mehr der Sendername sondern nur das Logo angezeigt. Stattdessen gibt es nun drei Quick-Buttons für 	Sendeplan, Titelhistorie und Senderinfos
+
+0.0.1.1 Alium (TESTRELEASE)
+-	MediaMetadate API. Funktionierende Übergabe von Meta-Tags an Android und Windows und co nachgeliefert.
+
 BETA 1-5:
 -	Beim Anklicken der Aktuellen Sendung im Hauptbildschirm wird der Senderplan geöffnet
 -	Die Menüpunkte „Sendeplan“ & „Über “ sind nun nicht mehr im Dropdown, sondern werden direkt im Hauptmenü oben angezeigt, sowie die Bildschirmgröße dies ermöglicht.
