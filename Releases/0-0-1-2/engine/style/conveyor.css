@@ -1,0 +1,23 @@
+.text-container {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+
+
+.marquee {
+  animation: marquee linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  50% {
+    transform: translateX(-10%); /* Text wird um 25% nach links verschoben */
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
