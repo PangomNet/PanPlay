@@ -9,8 +9,12 @@ Erfahre mehr über oOPlay auf https://oop.ownonline.eu/
 
 ## Aktuelle Version:
 Zurzeit wurde Version 0.0.1.0 (Abelia) als letzte Stabile-Alpha-Version veröffentlicht!
-(Diese Version von oOPlay ist noch nicht in der lage außerhalb der Infrastruktur von 'oop.ownonline.eu' zu arbeiten!) Sie können oOPlay über die CDN-Lösung verwenden: https://oop.ownonline.eu/play?lfmstream=simliveradio
+- Sie können oOPlay über die CDN-Lösung verwenden: [oOPlay Aufrufen](https://oop.ownonline.eu/play?lfmstream=simliveradio) 
+- Alternative können Sie die Dateien für oOPlay 0.0.1.0 [hier abrufen](https://github.com/ownOnline/oOPlay/tree/e2cdd11398e8cf01043fa619d98725c5afdf9c53/Releases/0-0-1-0)
+- Ein Chnagelog finden Sie [hier](https://github.com/ownOnline/oOPlay/blob/e2cdd11398e8cf01043fa619d98725c5afdf9c53/Releases/0-0-1-0/chnagelog.txt)
 
-### Aktuell in der Entwicklung:
-Zurzeit wird an einer neuen Version gearbeitet. Zuletzut wurde der Prerelease 0.0.1.2 (Begonia) hochgeladen.
-(Diese Version von oOPlay ist noch nicht in der lage außerhalb der Infrastruktur von 'oop.ownonline.eu' zu arbeiten!)  CDN-Lösung verwenden: https://oop.ownonline.eu/play/0-0-1-2/?lfmstream=simliveradio
+### Letzter Pre-Release:
+Der Letzte veröffnetlichte Test-Release ist [Version 0.0.1.3 Cameilla](https://github.com/ownOnline/oOPlay/releases/tag/v0.0.1.3)
+
+#### Aktuell in der Entwicklung:
+Zurzeit wird an Version 0.0.1.4 gearbeitet. Sehen Sie den Entwicklungsfortschritt [hier](https://github.com/ownOnline/oOPlay/tree/e2cdd11398e8cf01043fa619d98725c5afdf9c53/Releases/_currentdevcandidate).
