@@ -26,13 +26,14 @@
           }
           
  
-         body, html, nav, .btn-close, .accordion, .accordion-item, .accordion-button, .dropdown-menu{
-             background-color: $backgroundColor;
-             color: $textColor !important;
-             backdrop-filter: blur($blurfactor);
-             background-size: cover;
-     
-         }
+          body, html, nav, .btn-close, .accordion, .accordion-item, .accordion-button, .dropdown-menu {
+            background-color: $backgroundColor;
+            color: $textColor !important;
+            backdrop-filter: blur($blurfactor);
+            -webkit-backdrop-filter: blur($blurfactor); /* Für Safari */
+            background-size: cover;
+        }
+
         figcaption
             background-color: #ffffff00;
             color: $textColor !important;
@@ -73,7 +74,8 @@
  
          #topnavbar, #playercontrolbar, .modal-content, .modal-footer, .modal-header, #oop_player{
              background-color:rgba($baropacity) !important;
-             backdrop-filter: blur(100px);
+             -webkit-backdrop-filter: blur(100px);
+             backdrop-filter: blur(100px)
          }
  
          #oolfm_currentshow, #oolfm_songcover, #oolfm_current_song { 
@@ -88,7 +90,9 @@
              z-index: -100;
              width: 100%;
              height: 100vh;
+             -webkit-backdrop-filter: blur(25px); /* Für Safari */
              backdrop-filter: blur(25px);
+
          }
      </style>";
 ?>

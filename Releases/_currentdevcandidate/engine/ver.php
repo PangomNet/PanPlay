@@ -1,10 +1,10 @@
 <?php 
 $pro_name = 'oOPlay';
-$pro_version = '0.0.1.4';
-$pro_version_name = 'Daffodil';
+$pro_version = '0.0.1.5';
+$pro_version_name = 'Eucalyptus';
 $pro_license = 'MIT-Lizenz';
 $pro_license_url = 'https://www.tldrlegal.com/license/mit-license';
-$pro_releasedate = '20.05.2024';
+$pro_releasedate = '25.05.2024';
 $pro_company = 'ownonline/Patrick Schneider';
 $pro_company_url = 'https:/ownonline.eu/';
 $pro_copyright = '2024';
@@ -24,7 +24,7 @@ echo $extensions_credits;
 echo "</div></div>";
 
 
- // echo "<br><br><div class='alert bg-danger'>⚠ Unstabiler Prerelaese " . $pro_version ."<hr>Diese Version von '". $pro_name. "' ist eine Vorabveröffentlichung, welche einzig und alleine zur Verfolgung des Entwicklungsfortschrittes gedacht ist. Ein Produktiveinsatz ist nicht empfohlen.</div>"; 
+  echo "<br><br><div class='alert bg-danger'>⚠ Unstabiler Prerelaese " . $pro_version ."<hr>Diese Version von '". $pro_name. "' ist eine Vorabveröffentlichung, welche einzig und alleine zur Verfolgung des Entwicklungsfortschrittes gedacht ist. Ein Produktiveinsatz ist nicht empfohlen.</div>"; 
  
  
 echo "<br>Weitere Informationen zu 'oOPlay' finden Sie auf der <a target='_blank' href='https://oop.ownonline.eu/?ver=" . $pro_version ."'>Dokumentationsseite.</a></small>";

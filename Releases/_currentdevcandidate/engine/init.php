@@ -1,26 +1,34 @@
 <?php
 
+echo "<!DOCTYPE html>";
+echo "<html lang='de'>";
+echo "<html prefix='og: https://ogp.me/ns#'>";
+echo "<title>oOPlay - Player</title>";
+
+// set global vars
+// bluescreen vars:
+
 
 // Funktion zum Auslösen des Bluescreens
 function bluescreen($error_code, $reason, $copyowner, $copyowner_url)
 {
     // Pfade zu den Header- und Footer-Dateien
-    $header_path = 'engine/error/pages/bluescreen-head.html';
-    $footer_path = 'engine/error/pages/bluescreen-bottom.html';
+    $blus_header_path = 'engine/error/pages/bluescreen-head.html';
+    $blus_footer_path = 'engine/error/pages/bluescreen-bottom.html';
 
     // Header und Footer aus den Dateien laden
-    $header = file_get_contents($header_path);
-    $footer = file_get_contents($footer_path);
+    $blus_header = file_get_contents($blus_header_path);
+    $blus_footer = file_get_contents($blus_footer_path);
 
     // Hier implementierst du den Code für den Bluescreen
     // Zum Beispiel:
-    echo $header;
+    echo $blus_header;
     echo '<span jsselect="heading" jsvalues=".innerHTML:msg" jstcache="14">\'oOPlay\' hat einen Serverfehler verursacht</span>';
     echo '<a id="error-information-button" class="hidden" onclick="toggleErrorInformationPopup();" jstcache="0"></a>';
     echo '</h1>';
     echo '<p jsselect="summary" jsvalues=".innerHTML:msg" jstcache="3"><b><u>SERVER-Exception: ' . htmlspecialchars($reason) . '</u></b><br><br>Erklärung: \'oOPlay\' hat mit der Methode \'required\' auf ein nicht existentes Dokument auf diesem Server verwiesen. Der Server konnte diese Anfrage nicht verarbeiten und hat den Vorgang abgebrochen.<br><br>';
     echo '<br><br>Navigieren Sie zur vorherigen Seite zurück. Wenn das Problem weiterhin besteht, informieren Sie den Serverbetreiber (<a href="' . htmlspecialchars($copyowner_url) . '" target="_blank">' . htmlspecialchars($copyowner) . '</a>). </p>';
-    echo $footer;
+    echo $blus_footer;
     exit;
 }
 
@@ -92,11 +100,4 @@ require('engine/extensions/ext-loader.php');
 ///////////////// EXTENSIONS
 
 
-
-// START > WEBAPI
-if ($playermode === 'web') {
-        require('engine/webapi.php');
-    }
-
-// ENDE > WEBAPI
 ?>

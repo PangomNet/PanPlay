@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="de">
-<html prefix="og: https://ogp.me/ns#">
-<title>oOPlay - Player</title>
+<?php
+// init page
+ require('engine/init.php');
 
-<!-- LOADING ENGINE -->
-<?php require('engine/init.php');?>
+// setvariab
+
+?>
+
+
+
+
 
 
 
@@ -32,13 +36,6 @@
 <meta property="og:site_name" content="oOPlay von OwnOnline" />
 <meta property="og:image" content="rscs/favicons/apple-touch-icon.png" />
 
-<style>
-  #topnavbar,
-#playercontrolbar {
-    visibility: hidden;
-    display: none; /* Element ausblenden und Platz freigeben */
-}
-  </style>
 
 
 <!----------------------------------------------- UITHEMEHANDLER ------------------------------------->
@@ -58,9 +55,9 @@
 
 </head>
 <body id="oop_body">
-<div class="loader-body" id="loader">
+<!-- <div class="loader-body" id="loader">
 	<div class="loader"></div>
-</div>
+</div> -->
 
 <oop_div id="oop_base-container" class="container-fluid">
     
@@ -91,10 +88,10 @@
 
          
 
-        <audio id="oop_audio" autoplay volume="0.3">
+        <audio id="oop_audio" autoplay preload="none" volume="0.3">
             <source src="<?php echo htmlspecialchars($streamUrl); ?>" type="audio/mpeg">
             It seems your browser does not support the audio element. Consider Help on the Web or contact the oOPlay-Developer on <a href="https://github.com/ownOnline/oOPlay/">GitHub</a>.
-        </audio>
+</audio>
         
  
  
@@ -184,9 +181,9 @@ if (file_exists($custom_neterr)) {
     
 <!---------------------------- LOAD ALL FPR MAINPACKAGE JS ------------------->
 <!---------------------------.... LOAD boostrapbundle js ---------------------->
-<script src="src/assets/js/bootstrapbundel.js" ></script>
+<script src="rscs/javascript/bootstrapbundel.js" ></script>
 <!-----------------------.......-- LOAD CAST JS ---------------------------------->
- <script src="src/assets/castlibloader.php"></script>
+ <script src="engine/castlibloader.php"></script>
 
  <!----------------------------------- LOAD MAINPACKAGE JS ------------------->
 <script>
@@ -370,15 +367,30 @@ oop_audio.addEventListener("pause", function() {
 updatePlayPauseButton();
 
 // Überprüfung des Autoplay-Status nach einer kurzen Verzögerung
-setTimeout(autoplayCheck, 1000); 
+setTimeout(autoplayCheck, 1000);
 
 function autoplayCheck() {
     if (oop_audio.autoplay && oop_audio.paused) {
-        oop_audio.play();
-        
-        updatePlayPauseButton();
+        oop_audio.play()
+            .then(() => {
+                updatePlayPauseButton();
+            })
+            .catch(error => {
+                if (error.name === 'NotAllowedError') {
+                    console.log('Autoplay nicht erlaubt:', error);
+                    event.preventDefault(); // Unterdrückt das Standardverhalten des unhandledrejection-Events
+                } else {
+                    console.log('Fehler beim Abspielen des Audios:', error);
+                }
+            });
     }
 }
+
+// Globaler Handler für nicht abgefangene Promise Rejections
+window.addEventListener('unhandledrejection', function(event) {
+    console.log('Unhandled Promise Rejection:', event.reason);
+    event.preventDefault(); // Unterdrückt das Standardverhalten des unhandledrejection-Events
+});
 
 </script>
 <script>
@@ -460,7 +472,7 @@ setTimeout(function() {
 
 
 </body>
-<script src="src/js/loader.js"></script>
+<!--<script src="rscs/javascript/loader.js"></script> -->
 <!-----------------------.......-- LOAD CONVEYOR JS ---------------------------------->
 <script src="rscs/javascript/conveyor.js"></script>
 </html>

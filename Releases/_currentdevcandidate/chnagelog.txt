@@ -1,3 +1,9 @@
+0.0.1.5 Eucalyptus  (TESTRELEASE)
+- cast.js wird nur geladen, wenn nötige Bedingungen erfüllt sind
+- autoplay wurde entfernt
+- preloader wurde deaktiviert
+- Zahlreiche kleinere Code-Anpassungen für Safari´s Webkit-Renderer
+
 0.0.1.4 Daffodil
 -   Bugfix: baseaudio-Extension: Ein fehlendes Schließend Object-Tag im HTML-Code des Dialogfeldes "Player wechseln" wurde ergänzt, so dass die Texformatierung nun korrekt ist.
 -   Bugfix: castjs wurde an die neue Erweiterungs-Strukturierung ergänzt. Es kann nun auch Baseaudio-Stream an unterstütze Geräte weitergeben. Die Metatdaten werden derzeit noch nicht aus den Dateien ausgelesen.  Dies wird noch nachgereicht. Sobald dies möglich ist, können diese Daten dann auch an Cast-Geräte gesendet werden.
@@ -26,6 +32,7 @@
 0.0.1.1 Alium (TESTRELEASE)
 -	MediaMetadate API. Funktionierende Übergabe von Meta-Tags an Android und Windows und co nachgeliefert.
 
+0.0.1.0:
 BETA 1-5:
 -	Beim Anklicken der Aktuellen Sendung im Hauptbildschirm wird der Senderplan geöffnet
 -	Die Menüpunkte „Sendeplan“ & „Über “ sind nun nicht mehr im Dropdown, sondern werden direkt im Hauptmenü oben angezeigt, sowie die Bildschirmgröße dies ermöglicht.

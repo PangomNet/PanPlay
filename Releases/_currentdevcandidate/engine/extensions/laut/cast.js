@@ -29,30 +29,35 @@ document.getElementById('cast').addEventListener('click', function() {
 function handleCastingError() {
     // Hier wird die Fehlerbehandlung für das Casting durchgeführt
     // Zum Beispiel: Neuer Versuch, Casting zu starten oder alternative Aktion
-};
+    console.error('Casting Error occurred');
+}
 
-cjs.addEventListener(
-  cast.framework.RemotePlayerEventType.MEDIA_INFO_CHANGED, function() {
-    // Use the current session to get an up to date media status.
-    let session = cast.framework.CastContext.getInstance().getCurrentSession();
+if (typeof cast !== 'undefined' && cast.framework && cast.framework.RemotePlayerEventType) {
+    cjs.addEventListener(
+        cast.framework.RemotePlayerEventType.MEDIA_INFO_CHANGED, function() {
+            // Use the current session to get an up to date media status.
+            let session = cast.framework.CastContext.getInstance().getCurrentSession();
 
-    if (!session) {
-        return;
-    }
+            if (!session) {
+                return;
+            }
 
-    // Contains information about the playing media including currentTime.
-    let mediaStatus = session.getMediaSession();
-    if (!mediaStatus) {
-        return;
-    }
+            // Contains information about the playing media including currentTime.
+            let mediaStatus = session.getMediaSession();
+            if (!mediaStatus) {
+                return;
+            }
 
-    // mediaStatus also contains the mediaInfo containing metadata and other
-    // information about the in progress content.
-    let mediaInfo = mediaStatus.media;
-  });
+            // mediaStatus also contains the mediaInfo containing metadata and other
+            // information about the in progress content.
+            let mediaInfo = mediaStatus.media;
+        });
+} else {
+    console.warn('Cast framework or RemotePlayerEventType is not available');
+}
 
-  /////////// UPDATE CONTENT function
-  function updateContent(elementId, newContent) {
+/////////// UPDATE CONTENT function
+function updateContent(elementId, newContent) {
     var element = document.getElementById(elementId);
     if (!element) return; // Element nicht gefunden
 
@@ -60,12 +65,12 @@ cjs.addEventListener(
     var fadeOutDuration = transitionDuration * 0.4; // Dauer des Ausblendeffekts
     var fadeInDuration = transitionDuration * 0.6; // Dauer des Einblendeffekts
 
-    // Führe den Ausblendeffekt durch
+    // Führe den Ausblendeeffekt durch
     element.style.opacity = 0;
     setTimeout(function() {
-        // Aktualisiere den Inhalt nach dem Ausblendeffekt
+        // Aktualisiere den Inhalt nach dem Ausblendeeffekt
         element.innerHTML = newContent;
-        // Führe den Einblendeffekt durch
+        // Führe den Einblendeeffekt durch
         element.style.opacity = 1;
     }, fadeOutDuration);
 }

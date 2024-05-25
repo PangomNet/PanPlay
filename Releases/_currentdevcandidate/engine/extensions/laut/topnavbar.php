@@ -20,7 +20,7 @@ if (!empty($lfmstream)):
 <% if (this.image) { %>
 <%= "<img src='" + this.image + "' alt='Station Image'>" %>
 <% } else { %>
-<%= "<img id ='current_station_img_about' class='rounded' alt='$lfmstream' src='https://api.laut.fm/station/" + "<?php echo $lfmstream; ?>" + "/images/station' width='100%' max-width='350px'>" %>
+<%= "<img id ='current_station_img_about' class='rounded' alt='$lfmstream' src='https://api.laut.fm/station/" + "<?php echo $lfmstream; ?>" + "/images/station' width='70%' max-width='350px'>" %>
 <% } %>
 </script>
 <script type="text/javascript" charset="utf-8">
