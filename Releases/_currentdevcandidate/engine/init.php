@@ -7,11 +7,15 @@ echo "<title>oOPlay - Player</title>";
 
 // set global vars
 // bluescreen vars:
+require('engine/config.php');
 
 
 // Funktion zum Auslösen des Bluescreens
-function bluescreen($error_code, $reason, $copyowner, $copyowner_url)
+function bluescreen($blus_error_code, $blus_reason, $blus_reason_desc)
 {
+    global  $copyowner, $copyowner_url;
+
+
     // Pfade zu den Header- und Footer-Dateien
     $blus_header_path = 'engine/error/pages/bluescreen-head.html';
     $blus_footer_path = 'engine/error/pages/bluescreen-bottom.html';
@@ -26,7 +30,7 @@ function bluescreen($error_code, $reason, $copyowner, $copyowner_url)
     echo '<span jsselect="heading" jsvalues=".innerHTML:msg" jstcache="14">\'oOPlay\' hat einen Serverfehler verursacht</span>';
     echo '<a id="error-information-button" class="hidden" onclick="toggleErrorInformationPopup();" jstcache="0"></a>';
     echo '</h1>';
-    echo '<p jsselect="summary" jsvalues=".innerHTML:msg" jstcache="3"><b><u>SERVER-Exception: ' . htmlspecialchars($reason) . '</u></b><br><br>Erklärung: \'oOPlay\' hat mit der Methode \'required\' auf ein nicht existentes Dokument auf diesem Server verwiesen. Der Server konnte diese Anfrage nicht verarbeiten und hat den Vorgang abgebrochen.<br><br>';
+    echo '<p jsselect="summary" jsvalues=".innerHTML:msg" jstcache="3"><b><u>SERVER-Exception: ' . htmlspecialchars($blus_reason) . '</u></b><br><br>Erklärung: ' . htmlspecialchars($blus_reason_desc) . '<br><br>';
     echo '<br><br>Navigieren Sie zur vorherigen Seite zurück. Wenn das Problem weiterhin besteht, informieren Sie den Serverbetreiber (<a href="' . htmlspecialchars($copyowner_url) . '" target="_blank">' . htmlspecialchars($copyowner) . '</a>). </p>';
     echo $blus_footer;
     exit;
@@ -54,9 +58,12 @@ $files = [
 foreach ($files as $file) {
     if (!file_exists($file)) {
         // Wenn eine Datei fehlt, rufe die Bluescreen-Funktion auf und übergebe den Serverbetreiber und die URL
-        bluescreen(404, "File not found: $file", $variables['copyowner'], $variables['copyowner_url']);
+        bluescreen(404, "File not found: $file", "'\'oOPlay\' hat mit der Methode \'required\' auf ein nicht existentes Dokument auf diesem Server verwiesen. Der Server konnte diese Anfrage nicht verarbeiten und hat den Vorgang abgebrochen.");
     }
 }
+
+//triggerhapy: Test the Bluescreen
+// bluescreen(500, "JUST FOR FUN. THATS YOUR COMPANY NAME: $copyowner", "You know, sometimes as a developer you just want to see what happens when your program crashes without knowing that something is broken.");
 
 // Überprüfen, ob die URL-Parameter für mindestens eine Wiedergabe-Erweiterung vorhanden sind
 $lfmstream = isset($_GET['lfmstream']) ? $_GET['lfmstream'] : '';

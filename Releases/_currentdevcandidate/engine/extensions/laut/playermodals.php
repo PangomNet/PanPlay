@@ -123,7 +123,7 @@ laut.fm.station('$lfmstream')
                 <div id="oolfm_lafm_url"><p class='lead'>
                     <div class='' id="api_lfm_description">Loading...</div>
                     <script type="text/html" id="description_template" charset="utf-8">
-                        <%= "" + this.description +"<br><br>" + "<span id='thisstationname_about_lbl'></p>"+ this.display_name +"</span>" + " ist ein laut.fm user-generated-radio, erreichbar unter <a target='_blank' href='https://laut.fm/$lfmstream'>laut.fm/$lfmstream</a>" %>
+                        <%= "" + this.description +"<br>" %>
                     </script>
                 
                 <script type="text/javascript" charset="utf-8">
@@ -132,20 +132,27 @@ laut.fm.station('$lfmstream')
                 </script>
                 </div>
                 <br>
+                <style>
+                   #oolfm_station_url, #oolfm_station_x_url, #api_lfm_website_link, #oolfm_station_fb_url, #oolfm_station_insta_url, #api_lfm_twitter_link, #api_lfm_facebook_link, #api_lfm_instagram_link {
+                    display: inline-block;
+}
+                </style>
                 <div id="oolfm_station_url">
                     <?php if (!empty($lfmstream)): ?>
                         <div id="api_lfm_website_link">Loading...</div>
                         <script type="text/html" id="website_link_template" charset="utf-8">
                             <% if (this.third_parties.website && this.third_parties.website.url) { %>
                                 <% var domain = this.third_parties.website.url.split('/')[2]; %>
-                                <% if (domain.includes('twitter.com')) { %>
-                                    <%= "<span class='badge bg-info' style='padding: 0.4rem 0.6rem;'><i class='fab fa-twitter'></i> Website (Twitter)</span> <a target='_blank' href='" + this.third_parties.website.url + "'>" + this.third_parties.website.url + "</a>" %>
-                                <% } else if (domain.includes('facebook.com')) { %>
-                                    <%= "<span class='badge bg-primary' style='background-color: #0d6efd; color: white; padding: 0.4rem 0.6rem;'><i class='fab fa-facebook'></i> Website (Facebook)</span> <a target='_blank' href='" + this.third_parties.website.url + "'>" + this.third_parties.website.url + "</a>" %>
+                                <% if (domain.includes('twitter.com') || domain.includes('x.com')) { %>
+                                    <%= "<a target='_blank' href='" + this.third_parties.website.url + "'><img style ='margin: 0.2em;' class='rounded' src='rscs/imglibs/social/x/x-blackwhite.png' width='48px' height='auto' alt='" + this.third_parties.website.url + "'></a>" +"<a target='_blank' href='https://laut.fm/$lfmstream'><img style ='margin: 0.2em;' class='rounded' src='rscs/imglibs/social/laut orb/laut-tealgreen.png' width='48px' height='auto' alt='https://laut.fm/$lfmstream'></a>" %>
+                                <% } else if (domain.includes('facebook.com') || domain.includes('fb.me')) { %>
+                                    <%= "<a target='_blank' href='" + this.third_parties.website.url + "'><img style ='margin: 0.2em;' class='rounded' src='rscs/imglibs/social/facebook/fb-color.png' width='48px' height='auto' alt='" + this.third_parties.website.url + "'></a>" +"<a target='_blank' href='https://laut.fm/$lfmstream'><img style ='margin: 0.2em;' class='rounded' src='rscs/imglibs/social/laut orb/laut-tealgreen.png' width='48px' height='auto' alt='https://laut.fm/$lfmstream'></a>" %>
                                 <% } else if (domain.includes('instagram.com')) { %>
-                                    <%= "<span class='badge bg-dark' style='padding: 0.4rem 0.6rem;'><i class='fab fa-instagram'></i> Website (Instagram)</span> <a target='_blank' href='" + this.third_parties.website.url + "'>" + this.third_parties.website.url + "</a>" %>
+                                    <%= "<a target='_blank' href='" + this.third_parties.website.url + "'><img style ='margin: 0.2em;' class='rounded' src='rscs/imglibs/social/instagramm/ig-color.png' width='48px' height='auto' alt='" + this.third_parties.website.url + "'></a>" +"<a target='_blank' href='https://laut.fm/$lfmstream'><img style ='margin: 0.2em;' class='rounded' src='rscs/imglibs/social/laut orb/laut-tealgreen.png' width='48px' height='auto' alt='https://laut.fm/$lfmstream'></a>" %>
+                                    <% } else if (domain.includes('laut.fm')) { %>
+                                    <%= "<a target='_blank' href='" + this.third_parties.website.url + "'><img style ='margin: 0.2em;' class='rounded' src='rscs/imglibs/social/laut orb/laut-tealgreen.png' width='48px' height='auto' alt='" + this.third_parties.website.url + "'></a>" %>
                                 <% } else { %>
-                                    <%= "<span class='badge bg-dark' style='padding: 0.4rem 0.6rem;'><i class='fas fa-globe'></i> Website</span> <a target='_blank' href='" + this.third_parties.website.url + "'>" + this.third_parties.website.url + "</a>" %>
+                                    <%= "<a target='_blank' href='" + this.third_parties.website.url + "'><img style ='margin: 0.2em;' class='rounded' src='rscs/imglibs/social/homepage_link/link-tealwhite.png' width='48px' height='auto' alt='" + this.third_parties.website.url + "'></a>" +"<a target='_blank' href='https://laut.fm/$lfmstream'><img style ='margin: 0.2em;' class='rounded' src='rscs/imglibs/social/laut orb/laut-tealgreen.png' width='48px' height='auto' alt='https://laut.fm/$lfmstream'></a>" %>
                                 <% } %>
                             <% } %>
                         </script>
@@ -156,47 +163,70 @@ laut.fm.station('$lfmstream')
                     <?php endif; ?>
                 </div>
                 <div id="oolfm_station_x_url">
-                    <?php if (!empty($lfmstream)): ?>
-                        <div id="api_lfm_twitter_link">Loading...</div>
-                        <script type="text/html" id="twitter_link_template" charset="utf-8">
-                            <% if (this.third_parties.twitter && this.third_parties.twitter.url) { %>
-                                <%= "<span class='badge bg-info' style='padding: 0.4rem 0.6rem;'><i class='fab fa-twitter-square fa-lg'></i> Twitter/X</span> <a target='_blank' href='" + this.third_parties.twitter.url + "'>" + this.third_parties.twitter.url + "</a>" %>
-                            <% } %>
-                        </script>
-                        <script type="text/javascript" charset="utf-8">
-                            laut.fm.station('$lfmstream')
-                            .info({container:'api_lfm_twitter_link', template:'twitter_link_template'}, true);
-                        </script>
-                    <?php endif; ?>
-                </div>
-                <div id="oolfm_station_fb_url">
-                    <?php if (!empty($lfmstream)): ?>
-                        <div id="api_lfm_facebook_link">Loading...</div>
-                        <script type="text/html" id="facebook_link_template" charset="utf-8">
-                            <% if (this.third_parties.facebook && this.third_parties.facebook.page) { %>
-                                <%= "<span class='badge bg-blue' style='background-color: #0d6efd; color: white; padding: 0.4rem 0.6rem;'><i class='fab fa-facebook-square fa-lg'></i> Facebook</span> <a target='_blank' href='" + this.third_parties.facebook.page + "'>" + this.third_parties.facebook.page + "</a>" %>
-                            <% } %>
-                        </script>
-                        <script type="text/javascript" charset="utf-8">
-                            laut.fm.station('$lfmstream')
-                            .info({container:'api_lfm_facebook_link', template:'facebook_link_template'}, true);
-                        </script>
-                    <?php endif; ?>
-                </div>
-                <div id="oolfm_station_insta_url">
-                    <?php if (!empty($lfmstream)): ?>
-                        <div id="api_lfm_instagram_link">Loading...</div>
-                        <script type="text/html" id="instagram_link_template" charset="utf-8">
-                            <% if (this.third_parties.instagram && this.third_parties.instagram.name) { %>
-                                <%= "<span class='badge bg-dark' style='padding: 0.4rem 0.6rem;'><i class='fab fa-instagram fa-lg'></i>  Instagram</span> <a target='_blank' href='https://instagram.com/" + this.third_parties.instagram.name + "'>" + "https://instagram.com/" + this.third_parties.instagram.name + "</a>" %>
-                            <% } %>
-                        </script>
-                        <script type="text/javascript" charset="utf-8">
-                            laut.fm.station('$lfmstream')
-                            .info({container:'api_lfm_instagram_link', template:'instagram_link_template'}, true);
-                        </script>
-                    <?php endif; ?>
-                </div>
+    <?php if (!empty($lfmstream)): ?>
+        <div id="api_lfm_twitter_link">Loading...</div>
+        <script type="text/html" id="twitter_link_template" charset="utf-8">
+            <% if (this.third_parties.twitter && this.third_parties.twitter.url) { %>
+                <% let twitterUrl = addHttpsIfNeeded(this.third_parties.twitter.url, 'twitter.com'); %>
+                <%= "<a target='_blank' href='" + twitterUrl + "'><img style ='margin: 0.2em;' class='rounded' src='rscs/imglibs/social/x/x-blackwhite.png' width='48px' height='auto' alt='Twitter'></a>" %>
+            <% } %>
+        </script>
+        <script type="text/javascript" charset="utf-8">
+            laut.fm.station('$lfmstream')
+                .info({container:'api_lfm_twitter_link', template:'twitter_link_template'}, true);
+        </script>
+    <?php endif; ?>
+</div>
+
+<div id="oolfm_station_fb_url">
+    <?php if (!empty($lfmstream)): ?>
+        <div id="api_lfm_facebook_link">Loading...</div>
+        <script type="text/html" id="facebook_link_template" charset="utf-8">
+            <% if (this.third_parties.facebook && this.third_parties.facebook.page) { %>
+                <% let facebookUrl = addHttpsIfNeeded(this.third_parties.facebook.page, 'facebook.com'); %>
+                <%= "<a target='_blank' href='" + facebookUrl + "'><img style ='margin: 0.2em;' class='rounded' src='rscs/imglibs/social/facebook/fb-color.png' width='48px' height='auto' alt='Facebook'></a>" %>
+            <% } %>
+        </script>
+        <script type="text/javascript" charset="utf-8">
+            laut.fm.station('$lfmstream')
+                .info({container:'api_lfm_facebook_link', template:'facebook_link_template'}, true);
+        </script>
+    <?php endif; ?>
+</div>
+
+<div id="oolfm_station_insta_url">
+    <?php if (!empty($lfmstream)): ?>
+        <div id="api_lfm_instagram_link">Loading...</div>
+        <script type="text/html" id="instagram_link_template" charset="utf-8">
+            <% if (this.third_parties.instagram && this.third_parties.instagram.name) { %>
+                <% let instagramUrl = addHttpsIfNeeded(this.third_parties.instagram.name, 'instagram.com'); %>
+                <%= "<a target='_blank' href='" + instagramUrl + "'><img style ='margin: 0.2em;' class='rounded' src='rscs/imglibs/social/instagramm/ig-color.png' width='48px' height='auto' alt='Instagram'></a>" %>
+            <% } %>
+        </script>
+        <script type="text/javascript" charset="utf-8">
+            laut.fm.station('$lfmstream')
+                .info({container:'api_lfm_instagram_link', template:'instagram_link_template'}, true);
+        </script>
+    <?php endif; ?>
+</div>
+
+<script type="text/javascript">
+    function addHttpsIfNeeded(url, domain) {
+        // Überprüfen, ob die URL bereits mit http:// oder https:// beginnt
+        if (!url.startsWith('http://') && !url.startsWith('https://')) {
+            // Wenn nicht, füge https:// hinzu
+            url = 'https://' + url;
+        }
+        
+        // Überprüfen, ob die Domain in der URL vorhanden ist
+        if (!url.includes(domain + '/')) {
+            // Wenn nicht, füge die Domain hinzu
+            url = url.startsWith('https://') ? url.replace('://', '://' + domain + '/') : url;
+        }
+        
+        return url;
+    }
+</script>
             </div>
         </div>
     </div>

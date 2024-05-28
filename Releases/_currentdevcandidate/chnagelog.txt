@@ -1,8 +1,13 @@
 0.0.1.5 Eucalyptus  (TESTRELEASE)
-- cast.js wird nur geladen, wenn nötige Bedingungen erfüllt sind
-- autoplay wurde entfernt
-- preloader wurde deaktiviert
-- Zahlreiche kleinere Code-Anpassungen für Safari´s Webkit-Renderer
+- cast.js is only loaded if necessary conditions are met
+- autoplay has been removed
+- preloader has been disabled
+- Numerous minor code adjustments for Safari's webkit renderer
+- Implementation of a config.php for global variables
+- For instances of oOPlayer that are operated publicly on the Internet, but either require their own privacy policy or imprint or cannot link to any other, a rudimentary interface has been created under engine/legal/index.php in order to insert the corresponding documents there. To ensure that the page is also linked in the interface, it must also be defined in config.php. (/engine/legal/index.php)
+- LAUT extension: In the "About the station" window, the links to the respective sources are now displayed as icons. The link to the Laut.fm page is displayed next to the website link. The website URL is filtered. If a station uses one of the following URLs in the station URL at Laut, the logo for this service is automatically used instead of the link image. x.com/twitter.com = x-logo, facebook.com/fb.me = facebook-logo, instagram.com = instagram-logo, laut.fm = laut-logo. Sorry, but a Facebook page is not a channel URL, that's not what the field is for - there are separate fields for that. -- The text "XXX is a user-generated radio station has been removed", it has been replaced by the logo.
+
+NOTE (From now on, this changelog will only be written in English. Check https://github.com/ownOnline/oOPlay to see if there are localized language versions of the documentation and changelog. If this is not the case and you need it, we recommend using powerful translators such as Deepl to translate the changelog into your home language.)
 
 0.0.1.4 Daffodil
 -   Bugfix: baseaudio-Extension: Ein fehlendes Schließend Object-Tag im HTML-Code des Dialogfeldes "Player wechseln" wurde ergänzt, so dass die Texformatierung nun korrekt ist.

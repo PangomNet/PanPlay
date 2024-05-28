@@ -88,7 +88,7 @@
 
          
 
-        <audio id="oop_audio" autoplay preload="none" volume="0.3">
+        <audio id="oop_audio" preload="none" volume="0.3">
             <source src="<?php echo htmlspecialchars($streamUrl); ?>" type="audio/mpeg">
             It seems your browser does not support the audio element. Consider Help on the Web or contact the oOPlay-Developer on <a href="https://github.com/ownOnline/oOPlay/">GitHub</a>.
 </audio>
