@@ -1,0 +1,58 @@
+0.0.1.5 Eucalyptus  (TESTRELEASE)
+- cast.js is only loaded if necessary conditions are met
+- autoplay has been removed
+- preloader has been disabled
+- Numerous minor code adjustments for Safari's webkit renderer
+- Implementation of a config.php for global variables
+- For instances of oOPlayer that are operated publicly on the Internet, but either require their own privacy policy or imprint or cannot link to any other, a rudimentary interface has been created under engine/legal/index.php in order to insert the corresponding documents there. To ensure that the page is also linked in the interface, it must also be defined in config.php. (/engine/legal/index.php)
+- LAUT extension: In the "About the station" window, the links to the respective sources are now displayed as icons. The link to the Laut.fm page is displayed next to the website link. The website URL is filtered. If a station uses one of the following URLs in the station URL at Laut, the logo for this service is automatically used instead of the link image. x.com/twitter.com = x-logo, facebook.com/fb.me = facebook-logo, instagram.com = instagram-logo, laut.fm = laut-logo. Sorry, but a Facebook page is not a channel URL, that's not what the field is for - there are separate fields for that. -- The text "XXX is a user-generated radio station has been removed", it has been replaced by the logo.
+
+NOTE (From now on, this changelog will only be written in English. Check https://github.com/ownOnline/oOPlay to see if there are localized language versions of the documentation and changelog. If this is not the case and you need it, we recommend using powerful translators such as Deepl to translate the changelog into your home language.)
+
+0.0.1.4 Daffodil
+-   Bugfix: baseaudio-Extension: Ein fehlendes Schließend Object-Tag im HTML-Code des Dialogfeldes "Player wechseln" wurde ergänzt, so dass die Texformatierung nun korrekt ist.
+-   Bugfix: castjs wurde an die neue Erweiterungs-Strukturierung ergänzt. Es kann nun auch Baseaudio-Stream an unterstütze Geräte weitergeben. Die Metatdaten werden derzeit noch nicht aus den Dateien ausgelesen.  Dies wird noch nachgereicht. Sobald dies möglich ist, können diese Daten dann auch an Cast-Geräte gesendet werden.
+- Das Standardtheme von oOPlay lädt nun root=dark. Das bedeutet, dass der Browser (falls er so etwas hat), die Seite im Dark-Mode lädt, Scrollbalken und andere Browserelemente laden so im Dark-Mode. Das sieht schöner aus.
+- Laut.fm-Erweiterung: Die URL-Parameter zum Ausblenden von einzelnen oder allen Laut.Fm Inforfenstern beeinflussen nun auch das Menü. So verschwinden Menüeinträge zu den Fenstern, die poer URl-Parameter deaktiviert wurden., Im Rahmen dieser Anpassung wurde Menüleiste oberhalb angepasst. Playerallgemeine Infonfenester sind nun rechts angeordnet, während der RRest wie gewohnt links ist. Der Drei Short-Buttons in der Mobilansicht wurden vergrößert, so dass sie leichter geklickt werden können.
+- Laut.fm-Erweiterung: Im Fenster über den Sender wird nun auch das Logo angezeigt. Gleichzeitig wurde die Textformatierung etwas angepasst.
+- Laut.fm-Erweiterung: Bessere und lesbare Formatierung der Erweiterungscredits im Fenster "Über oOPlay"
+
+0.0.1.3 Camellia (TESTRELEASE)
+-   Nicht notwendige Medien entfernt.
+-   Favicons in neue Ressorucenverwaltung verschoben
+-   Meta OpenGraph-Tags verschoben
+-   Wiedergabe-Erweiterungen sind eingebaut. Das Erlaubt in der Zukunft die Ausweitung von oOPlayer über media-streams und laut.fm hinaus. Eine Erweiterungen kann erstellt werden, welche andere Dienste unmterstütz
+-   conveyor-Skript wird wieder angesprochen, aber funktioniert noch nicht
+-   "Normale Dateien" oder Streams von anderen Server können nun auch in oOPlay gestgeuert werden. Die Oberfläche hierzu wurde nachgereicht. Das Auslesen von Metadaten ist jedoch nicht nicht möglich
+-   LAUT.fm.Erweiterung: Elemente können deaktiviert werden StationsInfofenster (stationinfo), Trackhistory (trackhistory), Sendeplan(sendeplan) und das Fenster zum wechseln des Players (playwith) können über Ihre Codes deaktiviert werden dazu einfach den Code gefolgt von =n an die URL anhängen (&playwith=n) und schon wird das entsprechende Modul nicht mehr geladen. Wer Tabularasa machen will hängt einfach nolfmw=j an und alle Vier Module werden nicht geladen.
+
+0.0.1.2 Begonia (TESTRELEASE)
+-	Neue Engine zum Teil eingebunden. Weitere Umstellungen geplant.
+-	Font-Awesome LTS-Version festgelegt. oOPlay bleibt nun bei der im April 2024 aktuellen 5.14 LTS-Version, auto-Update durch den Server 	wurde herausgepatcht. Dies verringert die Ladezeit enorm.
+-	Neue Albumcover für Laut-FM-Modus.
+-	Neue Albumcover speziell für Metatdata-API (nur Laut.fm)
+-	Neues Hintergrundbild je nach Metadaten des Songs.
+-	In der Mobilen Ansicht wird nicht mehr der Sendername sondern nur das Logo angezeigt. Stattdessen gibt es nun drei Quick-Buttons für 	Sendeplan, Titelhistorie und Senderinfos
+
+0.0.1.1 Alium (TESTRELEASE)
+-	MediaMetadate API. Funktionierende Übergabe von Meta-Tags an Android und Windows und co nachgeliefert.
+
+0.0.1.0:
+BETA 1-5:
+-	Beim Anklicken der Aktuellen Sendung im Hauptbildschirm wird der Senderplan geöffnet
+-	Die Menüpunkte „Sendeplan“ & „Über “ sind nun nicht mehr im Dropdown, sondern werden direkt im Hauptmenü oben angezeigt, sowie die Bildschirmgröße dies ermöglicht.
+-	Im Fenster „Über “ und im Menüpunkt wird nun der Anzeigename statt der Rohname verwendet (Beispiel: „Über Eins“ statt „Über eins“)
+-	Anzeigefehler, der dazu führte, dass Firefox den Anzeigebereich der gesamten Webseite auf 24px beschränkte, ist behoben.
+-	Zusätzlich zu fehlenden Parametern, erkennt der Player nun auch, wenn der Audiostream unterbrochen wurde, oder nicht aufgebaut werden kann. Der Player prüft im laut.fm-Modus sodann, ob der Dienst korrekt arbeitet. Die Antwort dieser Anfrage wird interpretiert und der Nutzer erhält Tipps zur Fehlerbehebung.
+-	Im Menü sind nun Icons hinzugefügt worden.
+-	Im Fenster für die Titelhistorie wird der erste Song hervorgehoben, da Aufgrund der API-Logik der erste Song der Antwort immer der aktuell spielende ist.
+-	Der Player liefert nun OpenGraphTags aus. Diese werden vor allem von Socisl-Media-Kanälen aber auch von Foren wie Discuss benutzt. So kann ein Link in einen Informationsblock umgewandelt werden, der über die Quelle aufklärt und darauf verlinkt.
+
+BETA 6:
+- Convoyer ist derzeit wieder deaktiviert, da nicht mehr funktionfähig, es wird mit Tooltips und Elipssis gearbeitet. Convoyer kommt in einer zunkünftigen Version vielleicht zurück.
+- Variable "colors" wurde durch "theme" abgelöst. "theme" erlaubt das wählen eines voreingestellten Styles durch die angabe seiner Beezeichnung (theme=light). IM Stanardardmodus wird immer ein dunkles Thema geladen. Ein helles Thema kann über "theme=light" geladen werden. Eine noch mehr verdunkeltes Thema kann mit "theme=moredark" geladen werden. Außerdem werden hierüber Spezialthemen geladen. Als Beispiel: Mit "theme=win2000" kann ein an den Windows 2000-Desktop erinnerndes Thema geladen werden.
+- Der Sendeplan wird nun nicht mehr in einem Akkordion, sondern in einer einfacheren Tabansicht geladen und der aktuelle Wochentag wird automatisch angezeigt.
+- Im Fenster über den Sender wird nun die Sendergrafik angezeigt und der Slogan angezeigt.
+
+BETA 7:
+- Theming-Eninge-Verfahren verbessert für bessere Erkennung
