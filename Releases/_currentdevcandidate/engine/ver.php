@@ -1,10 +1,10 @@
 <?php 
 $pro_name = 'oOPlay';
-$pro_version = '0.0.1.5';
-$pro_version_name = 'Eucalyptus';
+$pro_version = '0.0.1.6';
+$pro_version_name = 'Freesia';
 $pro_license = 'MIT-Lizenz';
 $pro_license_url = 'https://www.tldrlegal.com/license/mit-license';
-$pro_releasedate = '25.05.2024';
+$pro_releasedate = '31.05.2024';
 $pro_company = 'ownonline/Patrick Schneider';
 $pro_company_url = 'https:/ownonline.eu/';
 $pro_copyright = '2024';
