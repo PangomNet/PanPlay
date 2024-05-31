@@ -1,3 +1,12 @@
+0.0.1.7 Gardenia
+-	WIP
+
+0.0.1.6 Freesia
+- The layout of the window about oOPlay has been adjusted.
+- Color schemes slightly changed
+- Slight changes in the arrangement of the buttons in the lower menu bar
+- Corrections to brand mentions. It is called oOPlay not oOPlayer
+
 0.0.1.5 Eucalyptus  (TESTRELEASE)
 - cast.js is only loaded if necessary conditions are met
 - autoplay has been removed
