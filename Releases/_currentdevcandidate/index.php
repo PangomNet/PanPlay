@@ -147,7 +147,7 @@
             <!-- Hier kommt das zweite Element (60%) -->
             <input class="btn btn-block form-range " type="range" onchange="setVolume()" style="max-width: 90%;" id='volume1' min=0 max=1 step=0.01 value="0.3"/>
         </div>
-        <div class="col-2 " style="flex: 0 0 10%;">
+        <div class="col-2 " style="flex: 0 0 10%; margin-left: auto;">
             <!-- Hier kommt das dritte Element (20%) -->
             <a id="cast" class="btn btn-success float-end" href="#" onclick="playPause()"><i class="fab fa-chromecast" style="float: right; color: #ffffff;"></i></a>
         </div>
