@@ -143,7 +143,7 @@
             <!-- Hier kommt das erste Element (20%) -->
             <button style="font-size: 2em;" class="btn " id="playpausebtn" onclick="playPause()" href="#">⏵</button>
             </div>
-        <div class="col-8" style="flex: 0 0 80%;">
+        <div class="col-8" style="flex: 0 0 60%;">
             <!-- Hier kommt das zweite Element (60%) -->
             <input class="btn btn-block form-range " type="range" onchange="setVolume()" style="max-width: 90%;" id='volume1' min=0 max=1 step=0.01 value="0.3"/>
         </div>
