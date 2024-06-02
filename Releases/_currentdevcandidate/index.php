@@ -122,7 +122,7 @@
   <div class="modal-dialog modal-fullscreen-md-down">
     <div class="modal-content">
      <div class="modal-header">
-         <h5 class="modal-title" sytle="display: inline; " id="exampleModalLabel"> </h5>
+         <h5 class="modal-title" sytle="display: inline; " id="exampleModalLabel"> <?php echo $lang['about_modal_title']; ?> </h5>
          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
       </div> 
       <div class="modal-body">

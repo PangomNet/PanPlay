@@ -35,11 +35,11 @@ $lang = array(
     'about_legal_p2' => 'Datenschutzerklärung',
     'about_legal_p3' => 'und das ',
     'about_legal_p4' => 'Impressum',
-    'about_legal_p5' => '. Weiterhjin gelten die',
+    'about_legal_p5' => '. Weiterhin gelten die',
     'about_legal_p6' => 'Nutzungsbedingungen',
-    'about_legal_p7' => ', die Sie.',
-    'about_legal_p8' => 'here',
-    'about_legal_p9' => 'finden können.',
+    'about_legal_p7' => 'die Sie ',
+    'about_legal_p8' => 'hier',
+    'about_legal_p9' => ' finden können.',
     
 );
 ?>

@@ -35,9 +35,9 @@ $lang = array(
     'about_legal_p2' => 'data protection regulations',
     'about_legal_p3' => 'and the legal information in the ',
     'about_legal_p4' => 'imprint',
-    'about_legal_p5' => 'apply. Furthermore, the',
+    'about_legal_p5' => ' apply. Furthermore, the',
     'about_legal_p6' => 'terms of use',
-    'about_legal_p7' => 'apply, which you can find.',
+    'about_legal_p7' => 'apply, which you can find',
     'about_legal_p8' => 'here',
     'about_legal_p9' => '.',
 
