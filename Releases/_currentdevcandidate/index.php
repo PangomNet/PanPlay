@@ -134,6 +134,26 @@
   </div>
 </div>
 
+
+<!---------------------------- SETTINGS OOP MODAL -------------------->
+
+
+<div class="modal fade" id="settings_oop_modal" tabindex="-1" aria-labelledby="settings_oop_modal" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen-md-down">
+    <div class="modal-content">
+     <div class="modal-header">
+         <h5 class="modal-title" sytle="display: inline; " id="exampleModalLabel"> <?php echo $lang['settingspanel_modal_title']; ?></h5>
+         <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
+      </div> 
+      <div class="modal-body">
+     
+            <?php require('engine/usersettings.php');?>
+            </p>
+      </div>
+    </div>
+  </div>
+</div>
+
     
 
 <nav id="playercontrolbar" class=" fixed-bottom navbar-dark bg-dark">

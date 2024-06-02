@@ -1,7 +1,11 @@
 <?php
 
+// set global vars
+// bluescreen vars:
+require('engine/lang_loader.php');
+
 echo "<!DOCTYPE html>";
-echo "<html lang='de'>";
+echo "<html lang=" . $language . ">";
 echo "<html prefix='og: https://ogp.me/ns#'>";
 echo "<title>oOPlay - Player</title>";
 

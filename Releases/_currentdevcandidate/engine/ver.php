@@ -1,7 +1,7 @@
 <?php 
 $pro_name = 'oOPlay';
-$pro_version = '0.0.1.6';
-$pro_version_name = 'Freesia';
+$pro_version = '0.0.1.7';
+$pro_version_name = 'Gardenia';
 $pro_license = 'MIT-Lizenz';
 $pro_license_url = 'https://www.tldrlegal.com/license/mit-license';
 $pro_releasedate = '31.05.2024';
@@ -27,7 +27,7 @@ echo "Version <kbd>" . $pro_version . "</kbd> vom " . $pro_releasedate . " <br><
     }
 
 
- // echo "<br><br><div class='alert bg-danger'>⚠ Unstabiler Prerelaese " . $pro_version ."<hr>Diese Version von '". $pro_name. "' ist eine Vorabveröffentlichung, welche einzig und alleine zur Verfolgung des Entwicklungsfortschrittes gedacht ist. Ein Produktiveinsatz ist nicht empfohlen.</div>"; 
+ echo "<br><br><div class='alert bg-danger'>⚠ Unstabiler Prerelaese " . $pro_version ."<hr>Diese Version von '". $pro_name. "' ist eine Vorabveröffentlichung, welche einzig und alleine zur Verfolgung des Entwicklungsfortschrittes gedacht ist. Ein Produktiveinsatz ist nicht empfohlen.</div>"; 
  
  
 echo "<br>Weitere Informationen zu 'oOPlay' finden Sie auf der <a target='_blank' href='https://oop.ownonline.eu/?ver=" . $pro_version ."'>Dokumentationsseite.</a></small>";

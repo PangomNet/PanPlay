@@ -184,6 +184,9 @@ if ($playwith === false) {
           <li class="nav-link alert-danger" style="display:none;" id="openerrorlog_nav"><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#openerrorlog" href="#"><i class="fa fa-exclamation-triangle" style="color: red;"></i> Fehlerkonsole</a></li>
           </li>
           <li class='nav-item'>
+          <li><a class='nav-link' data-bs-toggle="modal" data-bs-target="#settings_oop_modal" href="#"><i class="fas fa-cog"></i></a></li>
+          </li> 
+          <li class='nav-item'>
           <li><a class='nav-link' data-bs-toggle="modal" data-bs-target="#about_oop_modal" href="#"><span class="badge bg-info text-dark"><i class="fas fa-question-circle"></i> oOPlay</span></a></li>
           </li> 
         </ul>
