@@ -1,6 +1,16 @@
 <?php
+
+
+
+
 $extension_active = true;
 $playermode = 'laut';
+$extlangpath = 'engine/extensions/' . $playermode . '/lang/' . $language . '.php';
+require($extlangpath );
+
+// Debug: Show Path to language file
+//echo "<h1>" . $extlangpath . "</h1>";
+
 $extensions_credits .= "<span class='badge bg-info'><a  class='text-dark' href='https://laut.fm?from=oOP-Extension' target='_blank'>laut.fm-Extension by ownOnline</a></span>";
 
 

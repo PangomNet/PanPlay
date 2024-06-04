@@ -24,11 +24,11 @@ $playwithmodal_content = <<<HTML
   <div class="modal-dialog modal-fullscreen-md-down modal-lg modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Player wechseln:</h5>
+        <h5 class="modal-title" id="exampleModalLabel">{$ext_lang["playwith_modal_title"]}</h5>
         <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
       </div>
       <div class="modal-body">
-        <p><span class="badge bg-dark">oO</span>Player kann Ihnen diesen Stream in anderen Diensten oder externen Abspielgeräten öffnen, da die notwendigen Informatioenn vorliegen. Wählen Sie die gewünschte Abspieloption.</p>
+        <p>{$ext_lang["playwith_modal_topdesc"]}</p>
         <div class="alert alert-info d-flex align-items-center" role="alert">
           <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
             <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
@@ -36,7 +36,7 @@ $playwithmodal_content = <<<HTML
             </symbol>
           </svg>
           <div>
-            Übertragen Sie $lfmstream auf ein Gerät in Ihrem Netzwerk, das Chromecast oder Casting unterstützt. Klicken Sie im Hauptbildschirm unten rechts auf das Google-Cast Symbol (<i class="fab fa-chromecast"></i>)**
+          {$ext_lang["playwith_modal_gcast_topdesc1"]} $lfmstream {$ext_lang["playwith_modal_gcast_topdesc2"]}
           </div>
         </div>
         <oop_div id="oolfm_tunein_url">
@@ -74,18 +74,18 @@ $playwithmodal_content = <<<HTML
         </oop_div>
         <a class="btn btn-block" style="width: 100%; background-color: #1ed9b4;" target="_blank" href="https://laut.fm/$lfmstream">laut.fm*</a><br><br>
         <div class="btn-group">
-          <a href="https://stream.laut.fm/$lfmstream" class="btn btn-danger">Direkten Stream auf externem Gerät</a>
+          <a href="https://stream.laut.fm/$lfmstream" class="btn btn-danger">{$ext_lang["directstreamtobrowserdropdown"]}</a>
           <a class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fas "></i>
             <span class="visually-hidden">Toggle Dropdown</span>
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="https://stream.laut.fm/$lfmstream.m3u">m3u-Stream im externen Player oder Browser-Abspieler</a></li>
-            <li><a class="dropdown-item" href="https://stream.laut.fm/$lfmstream.pls">pls-Stream im externen Player oder Browser-Abspieler</a></li>
+            <li><a class="dropdown-item" href="https://stream.laut.fm/$lfmstream.m3u">{$ext_lang["directstreamtobrowserdropdown_option1"]}</a></li>
+            <li><a class="dropdown-item" href="https://stream.laut.fm/$lfmstream.pls">{$ext_lang["directstreamtobrowserdropdown_option2"]}</a></li>
           </ul>
         </div>
         <br><br>
-        <p class=""><small><b>*</b> Wenn Sie auf Ihrem Gerät eine Endanwendung des ausgewählte Dienstes verwenden (zum Beispiel laut.fm-App auf Android), könnte diese App die Navigation zu diesem Dienst abfangen. Dann wird der Stream direkt in der jeweiligen App geöffnet.<br>** Google Cast ist nicht auf jedem Gerät oder auf jeder Software verfügbar. Android- und Windows-Nutzer benötgen einen Chrome- oder einen auf Chrome-basierenden Browser wie Micrsoft Edge, oder Vivaldi. Die völlständigen Systemanforderungen für GoogleCast finden Sie <a target="_blank" href="../../../docs/chromecast.html#requirements">hier</a></small></p>
+        <p class=""><small>{$ext_lang["playwith_modal_bottomnote"]}<br>{$ext_lang["playwith_modal_cast_bottomnote1"]} <a target="_blank" href="../../../docs/chromecast.html#requirements">{$ext_lang["playwith_modal_cast_bottomnote_linktitle"]}</a></small></p>
       </div>
     </div>
   </div>
@@ -239,7 +239,7 @@ $lastplayed_modal_code = <<<HTML
   <div class="modal-dialog modal-fullscreen-md-down">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-history"></i> Titelhistorie</h5>
+        <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-history"></i> {$ext_lang["trackhistory_modal_title"]}</h5>
         <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
       </div>
       <div class="modal-body">
@@ -249,7 +249,7 @@ $lastplayed_modal_code = <<<HTML
             <% for (var i = 0; i < 30; i++) {
               if (this[i] && (this[i].type == "song" || this[i].type == "news")) { %>
                 <% if (i === 0) { %>
-                  <div class="mt-4 p-5 text-white rounded" style="background: #48527f;"><p> Aktuell läuft:</p><h4><i class="fas fa-music"></i> <%= this[i].artist.name %> - <%= this[i].title %></h4></div><br><u>Davor lief:</u><br>
+                  <div class="mt-4 p-5 text-white rounded" style="background: #48527f;"><p> {$ext_lang["current_song"]}</p><h4><i class="fas fa-music"></i> <%= this[i].artist.name %> - <%= this[i].title %></h4></div><br><u>{$ext_lang["last_songs"]}</u><br>
                 <% } else { %>
                   <p><i class="fas fa-music"></i> <%= this[i].artist.name %> - <%= this[i].title %><br /></p>
                 <% } %>
@@ -272,7 +272,7 @@ $sendeplan_modal_code = <<<HTML
   <div class="modal-dialog modal-fullscreen-md-down modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Sendeplan</h5>
+        <h5 class="modal-title" id="exampleModalLabel">{$ext_lang["sendeplan_modal_title"]}</h5>
         <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
       </div>
       <div class="modal-body">
@@ -282,56 +282,56 @@ $sendeplan_modal_code = <<<HTML
         
             <ul class="nav nav-pills" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="btn btn-outline-success" id="monday-tab" data-bs-toggle="pill" href="#monday" role="tab" aria-controls="monday" aria-selected="true">MO</button>
+                    <button class="btn btn-outline-success" id="monday-tab" data-bs-toggle="pill" href="#monday" role="tab" aria-controls="monday" aria-selected="true">{$ext_lang["mo_s"]}</button>
                 </li>&nbsp;
                 <li class="nav-item" role="presentation">
-                    <button class="btn btn-outline-success" id="tuesday-tab" data-bs-toggle="pill" href="#tuesday" role="tab" aria-controls="tuesday" aria-selected="false">DI</button>
+                    <button class="btn btn-outline-success" id="tuesday-tab" data-bs-toggle="pill" href="#tuesday" role="tab" aria-controls="tuesday" aria-selected="false">{$ext_lang["di_s"]}</button>
                 </li>&nbsp;
                 <li class="nav-item" role="presentation">
-                    <button class="btn btn-outline-success" id="wednesday-tab" data-bs-toggle="pill" href="#wednesday" role="tab" aria-controls="wednesday" aria-selected="false">MI</button>
+                    <button class="btn btn-outline-success" id="wednesday-tab" data-bs-toggle="pill" href="#wednesday" role="tab" aria-controls="wednesday" aria-selected="false">{$ext_lang["mi_s"]}</button>
                 </li>&nbsp;
                 <li class="nav-item" role="presentation">
-                    <button class="btn btn-outline-success" id="thursday-tab" data-bs-toggle="pill" href="#thursday" role="tab" aria-controls="thursday" aria-selected="false">DO</button>
+                    <button class="btn btn-outline-success" id="thursday-tab" data-bs-toggle="pill" href="#thursday" role="tab" aria-controls="thursday" aria-selected="false">{$ext_lang["do_s"]}</button>
                 </li>&nbsp;
                 <li class="nav-item" role="presentation">
-                    <button class="btn btn-outline-success" id="friday-tab" data-bs-toggle="pill" href="#friday" role="tab" aria-controls="friday" aria-selected="false">FR</button>
+                    <button class="btn btn-outline-success" id="friday-tab" data-bs-toggle="pill" href="#friday" role="tab" aria-controls="friday" aria-selected="false">{$ext_lang["fr_s"]}</button>
                 </li>&nbsp;
                 <li class="nav-item" role="presentation">
-                    <button class="btn btn-outline-success" id="saturday-tab" data-bs-toggle="pill" href="#saturday" role="tab" aria-controls="saturday" aria-selected="false">SA</button>
+                    <button class="btn btn-outline-success" id="saturday-tab" data-bs-toggle="pill" href="#saturday" role="tab" aria-controls="saturday" aria-selected="false">{$ext_lang["sa_s"]}</button>
                 </li>&nbsp;
                 <li class="nav-item" role="presentation">
-                    <button class="btn btn-outline-success" id="sunday-tab" data-bs-toggle="pill" href="#sunday" role="tab" aria-controls="sunday" aria-selected="false">SO</button>
+                    <button class="btn btn-outline-success" id="sunday-tab" data-bs-toggle="pill" href="#sunday" role="tab" aria-controls="sunday" aria-selected="false">{$ext_lang["so_s"]}</button>
                 </li>
             </ul>
           
      <hr>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade" id="monday" role="tabpanel" aria-labelledby="monday-tab">
-                    <h3 id="mon-h">Montag</h3>
+                    <h3 id="mon-h">{$ext_lang["mo"]}</h3>
                     <div id="api_lfm_schedule_mon">Loading...</div>
                 </div>
                 <div class="tab-pane fade" id="tuesday" role="tabpanel" aria-labelledby="tuesday-tab">
-                <h3 id="tue-h">Dienstag</h3>
+                <h3 id="tue-h">{$ext_lang["di"]}</h3>
                     <div id="api_lfm_schedule_tue">Loading...</div>
                 </div>
                 <div class="tab-pane fade" id="wednesday" role="tabpanel" aria-labelledby="wednesday-tab">
-                <h3 id="wed-h">Mittwoch</h3>
+                <h3 id="wed-h">{$ext_lang["mi"]}</h3>
                     <div id="api_lfm_schedule_wed">Loading...</div>
                 </div>
                 <div class="tab-pane fade" id="thursday" role="tabpanel" aria-labelledby="thursday-tab">
-                <h3 id="thu-h">Donnerstag</h3>
+                <h3 id="thu-h">{$ext_lang["do"]}</h3>
                     <div id="api_lfm_schedule_thu">Loading...</div>
                 </div>
                 <div class="tab-pane fade" id="friday" role="tabpanel" aria-labelledby="friday-tab">
-                <h3 id="fri-h">Freitag</h3>
+                <h3 id="fri-h">{$ext_lang["fr"]}</h3>
                     <div id="api_lfm_schedule_fri">Loading...</div>
                 </div>
                 <div class="tab-pane fade" id="saturday" role="tabpanel" aria-labelledby="saturday-tab">
-                <h3 id="sat-h">Samstag</h3>
+                <h3 id="sat-h">{$ext_lang["sa"]}</h3>
                     <div id="api_lfm_schedule_sat">Loading...</div>
                 </div>
                 <div class="tab-pane fade" id="sunday" role="tabpanel" aria-labelledby="sunday-tab">
-                <h3 id="sun-h">Sonntag</h3>
+                <h3 id="sun-h">{$ext_lang["so"]}</h3>
                     <div id="api_lfm_schedule_sun">Loading...</div>
                 </div>
             </div>
@@ -350,14 +350,14 @@ currentTab.classList.add('show', 'active');
 // Den zugehörigen Inhalt anzeigen und "(Heute)" hinzufügen, wenn es der aktuelle Tag ist
 document.querySelector(tabContentId).classList.add('show', 'active');
 const heading = document.querySelector(tabContentId).querySelector('h3');
-heading.textContent += ' (Heute)';
+heading.textContent += ' ({$ext_lang["today"]})';
 </script>
       
 
           <br>
           <script type="text/javascript" charset="utf-8">
             var show_schedule = function(schedule){
-              var no_entry = 'Kein spezielles Programm.';
+              var no_entry = '{$ext_lang["nospecialshow"]}';
               var days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
               var days_buffer = {mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: []}; 
               Array.prototype.slice.call(schedule).forEach(function(schedule_entry) {
@@ -379,7 +379,7 @@ heading.textContent += ' (Heute)';
             laut.fm.station("{$lfmstream}").schedule(show_schedule);
           </script>
         </oop_div>
-        Den vollständigen Sendeplan finden Sie <a href="https://laut.fm/{$lfmstream}">auf der laut.fm-Seite von {$lfmstream}</a>
+        <a href="https://laut.fm/{$lfmstream}" target="_blank" >{$ext_lang["sendeplan_laut"]} </a>
       </div>
     </div>
   </div>

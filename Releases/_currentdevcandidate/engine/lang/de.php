@@ -40,6 +40,10 @@ $lang = array(
     'about_legal_p7' => 'die Sie ',
     'about_legal_p8' => 'hier',
     'about_legal_p9' => ' finden können.',
+
+    
+
     
 );
+
 ?>

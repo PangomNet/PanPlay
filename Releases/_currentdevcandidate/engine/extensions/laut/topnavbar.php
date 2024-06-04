@@ -49,10 +49,10 @@ try {
     echo '<%= "" + this.display_name %>';
     echo '</script>';
     echo '<script type="text/html" id="display_name_template2" charset="utf-8">';
-    echo '<%= "<i class=\'fas fa-info-circle\'></i> Über \'" + this.display_name  + "\'" %>';
+    echo '<%= "<i class=\'fas fa-info-circle\'></i>' . $ext_lang['stationinfo_navbar_title'] . '" + this.display_name  + "\'" %>';
     echo '</script>';
     echo '<script type="text/html" id="display_name_template3" charset="utf-8">';
-    echo '<%= "<i class=\'fas fa-info-circle\'></i> Über \'" + this.display_name  + "\'" %>';
+    echo '<%= "<i class=\'fas fa-info-circle\'></i> ' . $ext_lang['stationinfo_modal_title'] . ' \'" + this.display_name  + "\'" %>';
     echo '</script>';
     echo '<script type="text/html" id="display_name_template4" charset="utf-8">';
     echo '<%= this.display_name   %>';
@@ -142,7 +142,7 @@ if ($trackhistory === false) {
 } else {
   // Wenn $trackhistory nicht auf false steht, wird das HTML-Element eingebunden
   echo "<li class='nav-item'>
-  <a class='nav-link' href='#' data-bs-toggle='modal' data-bs-target='#lastplayed_modal'><i class='fas fa-history'></i> Titelhistorie</a>
+  <a class='nav-link' href='#' data-bs-toggle='modal' data-bs-target='#lastplayed_modal'><i class='fas fa-history'></i> " . $ext_lang['trackhistory_navbar_title'] . "</a>
 </li>";
 }
 ?>
@@ -153,7 +153,7 @@ if ($sendeplan === false) {
 } else {
   // Wenn $sendeplan nicht auf false steht, wird das HTML-Element eingebunden
   echo " <li class='nav-item'>
-  <a class='nav-link' href='#' data-bs-toggle='modal' data-bs-target='#sendeplan_modal'><i class='fas fa-calendar-week'></i> Sendeplan</a></li>
+  <a class='nav-link' href='#' data-bs-toggle='modal' data-bs-target='#sendeplan_modal'><i class='fas fa-calendar-week'></i> " . $ext_lang['sendeplan_navbar_title'] . "</a></li>
 </li>";
 }
 ?>
@@ -164,7 +164,7 @@ if ($stationinfo === false) {
 } else {
   // Wenn $stationinfo nicht auf false steht, wird das HTML-Element eingebunden
   echo " <li class='nav-item'>
-  <a id='aboutsenderlink_lbl' class='nav-link' href='#' data-bs-toggle='modal' data-bs-target='#stationinfo_modal' ><i class='fas fa-info-circle'></i> Über ''</a></li>
+  <a id='aboutsenderlink_lbl' class='nav-link' href='#' data-bs-toggle='modal' data-bs-target='#stationinfo_modal' ><i class='fas fa-info-circle'></i> " . $ext_lang['stationinfo_navbar_title'] . " ''</a></li>
 </li>";
 }
 ?>
@@ -177,7 +177,7 @@ if ($playwith === false) {
   // Wenn $playwith auf false steht, wird das HTML-Element nicht eingebunden
 } else {
   // Wenn $playwith nicht auf false steht, wird das HTML-Element eingebunden
-  echo " <li><a class='nav-link' data-bs-toggle='modal' data-bs-target='#playwith_modal' href='#'><i class='far fa-play-circle'></i> Player wechseln</a></li>";
+  echo " <li><a class='nav-link' data-bs-toggle='modal' data-bs-target='#playwith_modal' href='#'><i class='far fa-play-circle'></i> " . $ext_lang['playwith_navbar_title'] . "</a></li>";
 }
 ?>
           <li class='nav-item'>
