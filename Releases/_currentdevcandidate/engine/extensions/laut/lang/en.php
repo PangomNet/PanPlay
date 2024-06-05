@@ -52,7 +52,19 @@ $ext_lang = array(
     'playwith_modal_cast_bottomnote1' => '** Google Cast is not available on every device or software. Linux, Mac and Windows users need a Chrome or Chrome-based browser such as Microsoft Edge, Opera, Brave or Vivaldi. On MacOS, the official Chromecast application may also be a requirement. Android and iOS users may need the Google Home app. The complete system requirements for GoogleCast can be found ',
     'playwith_modal_cast_bottomnote_linktitle' => 'here',
 
-    //coming soon neterrmodal
+    //net error modal
+    'neterr_modal_title' => 'Playback Error',
+    'neterr_desc_net_thinking' => 'Something is wrong. Analyzing Data!',
+    'neterr_desc_net_okay1' => '<b>✔ Connection is fine</b><hr> All necessary servers for playback are reachable. <hr><i>This could mean that your connection was temporarily interrupted, and that is why you are seeing this window. Is the playback running again? To ensure that ',
+    'neterr_desc_net_okay2' => ' is broadcasting, you can also check their Laut.fm presence',
+    'neterr_desc_net_okay3' => 'Check',
+    'neterr_console_net_okay' => '✔ Connection is fine.',
+    'neterr_desc_net_laut_not_okay1' => '<b>Partial internet connection issue</b><hr> We cannot reach the laut.fm server for your station. It may be that few or no contents from laut.fm can be loaded.',
+    'neterr_desc_net_laut_not_okay2' => '',
+    'neterr_console_net_laut_not_okay' => '⚠ Connection error when fetching stream from Laut.fm',
+    'neterr_desc_net_not_okay1' => '<b>No internet connection</b><hr>All connections to the internet were interrupted. This caused the playback to stop. It is unlikely but possible that playback can resume without reloading the player. <br><br> On mobile devices, this error can occur due to a network switch (for example, from Wi-Fi to mobile data). In this case, it usually helps to simply reload the page.',
+    'neterr_desc_net_not_okay2' => '',
+    'neterr_console_net_not_okay' => 'Error fetching server status: ',  
 
 );
 

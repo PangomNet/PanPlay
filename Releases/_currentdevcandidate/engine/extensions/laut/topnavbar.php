@@ -13,7 +13,7 @@ if (!empty($lfmstream)):
 <% if (this.image) { %>
 <%= "<img src='" + this.image + "' alt='Station Image'>" %>
 <% } else { %>
-<%= "<img id ='current_station_img' src='https://api.laut.fm/station/" + "<?php echo $lfmstream; ?>" + "/images/station' alt='Placeholder Image' width='30'>" %>
+<%= "<img id ='current_station_img' src='https://api.laut.fm/station/" + "<?php echo $lfmstream; ?>" + "/images/station' alt='Station Image' width='30'>" %>
 <% } %>
 </script>
 <script type="text/html" id="station_img__about_template" charset="utf-8">

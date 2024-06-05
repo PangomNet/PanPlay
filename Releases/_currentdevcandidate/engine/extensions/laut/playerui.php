@@ -29,7 +29,7 @@ if (!empty($lfmstream)) {
     <script type="text/html" id="current_song_live_img_template" charset="utf-8">
         <% 
         if (this.live) {
-            var lfm_images = "engine/extensions/laut/placeholder-cover-live.png";
+            var lfm_images = "https://api.laut.fm/station/{$lfmstream}/images/station";
             var lfm_images_bg = "engine/extensions/laut/lautbglive.png";
             
             var alt_txt = "🎙 LIVE";
@@ -38,12 +38,12 @@ if (!empty($lfmstream)) {
             var lfm_images_bg = this.artist.image;
             var alt_txt = "Artistcover";
         } else {
-            var lfm_images = "engine/extensions/laut/placeholder-cover-laut.png";
+            var lfm_images = "https://api.laut.fm/station/{$lfmstream}/images/station";
             var lfm_images_bg = "engine/extensions/laut/lautbg.png";
             var alt_txt = "🎵 Musikcover";
         } 
         %>
-        <%= "<img id='songcover' class='mx-auto d-block img-fluid' src='" + lfm_images + "' style='width: 30em; max-width: 65%; max-height: 65%; min-width: 70px; min-height: 70px; height: auto; cursor: hand;' alt='" + alt_txt + "'>" + "<style> body{ background-image: url('" + lfm_images_bg + "'); }</style>" %>
+        <%= "<img id='songcover' class='mx-auto d-block img-fluid' src='" + lfm_images + "' style='width: 30em; max-width: 55%; max-height: 65%; min-width: 70px; min-height: 70px; height: auto; cursor: hand;' alt='" + alt_txt + "'>" + "<style> body{ background-image: url('" + lfm_images_bg + "'); }</style>" %>
     </script> 
     <script type="text/javascript" charset="utf-8">
         laut.fm.station('$lfmstream')
@@ -60,7 +60,7 @@ function updateCurrentAlbumArtFromAPI() {
             currentAlbumArtUrl = result.artist.image;
         } else {
             // Verwende ein Standardbild, wenn kein Bild für den Interpreten vorhanden ist
-            currentAlbumArtUrl = "engine/extensions/laut/placeholder-cover-laut-var2.png";
+            currentAlbumArtUrl = "https://api.laut.fm/station/{$lfmstream}/images/station";
         }
     });
 }

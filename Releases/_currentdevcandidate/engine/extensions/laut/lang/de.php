@@ -51,6 +51,20 @@ $ext_lang = array(
     'playwith_modal_bottomnote' => '* Wenn Sie auf Ihrem Gerät eine Endanwendung des ausgewählte Dienstes verwenden (zum Beispiel laut.fm-App auf Android), könnte diese App die Navigation zu diesem Dienst abfangen. Dann wird der Stream direkt in der jeweiligen App geöffnet.',
     'playwith_modal_cast_bottomnote1' => '** Google Cast ist nicht auf jedem Gerät oder auf jeder Software verfügbar. Linux-, Mac und Windows-Nutzer benötigen einen Chrome- oder einen auf Chrome-basierenden Browser wie Microsoft Edge, Opera, Brave oder Vivaldi. Unter MacOS wird zusätzlich dazu unter Umständen auch die offizielle Chromecast-Anwendung verwendet. Android- und iOS-.Nutzer benötigen eventuell die Google-Home-App. Die vollständigen Systemanforderungen für GoogleCast finden Sie ',
     'playwith_modal_cast_bottomnote_linktitle' => 'hier',
+
+    //net error modal
+    'neterr_modal_title' => 'Wiedergabefehler',
+    'neterr_desc_net_thinking' => 'Irgendwas stimmt nicht. Analyse Data!',
+    'neterr_desc_net_okay1' => '<b>✔ Verbindung fehlerfrei</b><hr> Alle benötigten Server für die Wiedergabe sind erreichbar. <hr><i>Das kann bedeuten, dass deine Verbindung zwischenzeitlich unterbrochen wurde, und du deswegen dieses Fenster siehst. Läuft die Wiedergabe wieder? Um sicher zu gehen, dass ',
+    'neterr_desc_net_okay2' => ' sendet, kannst du auch deren Laut.fm-Aufrtitt',
+    'neterr_desc_net_okay3' => 'Überprüfen',
+    'neterr_console_net_okay' => '✔ Verbindung fehlerfrei.',
+    'neterr_desc_net_laut_not_okay1' => '<b>Verbindung zum Internet zum Teil fehlerhaft</b><hr> Wir können den laut.fm-Server deines Senders nicht erreichen. Es kann sein, dass wenige bis gar keine Inhalte von laut.fm geladen werden können.',
+    'neterr_desc_net_laut_not_okay2' => '',
+    'neterr_console_net_laut_not_okay' => '⚠ Verbindungsfehler bnei Abruf von Stream über Laut.fm',
+    'neterr_desc_net_not_okay1' => '<b>Keine Internetverbindung</b><hr>Alle Verbindungen ins Internet wurden. Hierdurch wurde die Wiedergabe abgebrochen. Es ist unwahrscheinlioch aber möglich, dass die Wiedergabe ohne eine Neuladen des Players wierder aufgenommen werden kann. <br><br> Auf Mobilgeräten kann dieser Fehler durch einen Netzwerkwechsel (zum Beispiel von WLAN auf Mobile-Daten) auftreten. Auch in diesem Fall hilft es jedoch bestimmt, die Seite einfach neu zu laden.',
+    'neterr_desc_net_not_okay2' => '',
+    'neterr_console_net_not_okay' => 'Fehler beim Abrufen des Serverstatus: ',
     
 );
 
