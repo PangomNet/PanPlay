@@ -15,14 +15,19 @@ The current "stable" alpha version of oOPlay is [Version 0.0.1.6 (Freesia)](http
 - You can find a changelog [here](https://github.com/ownOnline/oOPlay/blob/e2cdd11398e8cf01043fa619d98725c5afdf9c53/Releases/0-0-1-6/chnagelog.txt)
 
 ### Last pre-release:
-The last published test release is [Version 0.0.1.5 Eucalpytus](https://github.com/ownOnline/oOPlay/releases/tag/v0.0.1.5)
+The last published test release is [Version 0.0.1.7 Gardenia](https://github.com/ownOnline/oOPlay/releases/tag/v0.0.1.7)
 
 #### Currently under development:
-Currently under development is version 0.0.1.7 Gardenia. See the development progress [here](https://github.com/ownOnline/oOPlay/tree/e2cdd11398e8cf01043fa619d98725c5afdf9c53/Releases/_currentdevcandidate).
+Currently under development is version 0.0.1.8 Hyacinth. See the development progress [here](https://github.com/ownOnline/oOPlay/tree/main/Releases/_currentdevcandidate)).
 
 #### Older versions:
 You don't like a new feature of oOPlay? Or an update has led to a major bug for you. Too bad :) Let us know about this in any case! But luckily for you: Every version marked as "stable" in the release posting is available for you to use on our CDN for at least 12 months after release. Or here on GitHub (to download and host)
-[View releases](https://github.com/ownOnline/oOPlay/tree/5138d839dcd4c16109190545cc2a1111e8a4cb6b/Releases)
+[View releases](https://github.com/ownOnline/oOPlay/releases)
 
 ##### Language information:
-oOPlay is currently being developed mainly in German. However, the documentation here on GitHub has recently been in English only. It is planned to include language support in the player. In addition to German, English will also be integrated into the interface.
+oOPlay is being developed mainly in German. However, shortly the Player will have Language support in its stable version. (Currently only in prerelease versions)
+Currently available Languages:
+- Deutsch / German - OK
+- Englisch / English - OK
+- Italian / Italiano - Meh, but works. Help if you can 🤤
+If you have interest in TGranbslating to your Language feel free make an Issue mentiuon this.
