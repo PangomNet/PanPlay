@@ -18,7 +18,7 @@ The current "stable" alpha version of oOPlay is [Version 0.0.1.6 (Freesia)](http
 The last published test release is [Version 0.0.1.7 Gardenia](https://github.com/ownOnline/oOPlay/releases/tag/v0.0.1.7)
 
 #### Currently under development:
-Currently under development is version 0.0.1.8 Hyacinth. See the development progress [here](https://github.com/ownOnline/oOPlay/tree/e2cdd11398e8cf01043fa619d98725c5afdf9c53/Releases/_currentdevcandidate).
+Currently under development is version 0.0.1.8 Hyacinth. See the development progress [here](https://github.com/ownOnline/oOPlay/tree/main/Releases/_currentdevcandidate)).
 
 #### Older versions:
 You don't like a new feature of oOPlay? Or an update has led to a major bug for you. Too bad :) Let us know about this in any case! But luckily for you: Every version marked as "stable" in the release posting is available for you to use on our CDN for at least 12 months after release. Or here on GitHub (to download and host)
