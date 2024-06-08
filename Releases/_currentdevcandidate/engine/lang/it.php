@@ -14,6 +14,15 @@ $lang = array(
     'from_who' => 'di',
     'about' => 'Circa',
 
+    //centralerrorlog
+    'centralerrorlog_error_occured' => 'Messaggio di errore di esempio durante il caricamento della pagina.',
+    'centralerrorlog_neterror_occured' => 'Errore di rete durante il caricamento di ',
+    'centralerrorlog_modal_title' => 'Console degli Errori',
+    'centralerrorlog_modal_desc' => 'Se hai accesso a questa finestra, si sono verificati errori critici (molto probabilmente errori di connessione). Questi errori potrebbero disturbare il funzionamento di "oOPlay" in modo lieve o significativo e portare al crash. Si prega di prestare attenzione. Se conosci gli strumenti per sviluppatori del tuo dispositivo, ti consigliamo di cercare ulteriori errori anche lì. Gli errori potrebbero essere risolvibili.',
+    'centralerrorlog_occuring_modal_title' => 'Console degli Errori',
+    'centralerrorlog_occuring_modal_desc1' => 'Si sono verificati errori! Potrebbe verificarsi una perdita di connessione! Si prega di controllare la',
+    'centralerrorlog_occuring_modal_desc2' => 'Console degli Errori',
+
     //settingspanel oOPlay
     'settingspanel_modal_title' => 'Impostazioni',
     'settingspanel_lang_title' => 'Lingua',

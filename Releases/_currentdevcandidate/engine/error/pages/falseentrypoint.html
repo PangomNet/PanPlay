@@ -3,7 +3,7 @@
   <meta name="theme-color" content="#fff">
   <meta name="viewport" content="width=device-width, initial-scale=1.0,
                                  maximum-scale=1.0, user-scalable=no">
-  <title>🛑 WebApp fehlerhaft oder fehlerhaft angefordert</title>
+  <title>🛑 APP-Exception - oOPlay</title>
   <style>/* Copyright 2017 The Chromium Authors
  * Use of this source code is governed by a BSD-style license that can be
  * found in the LICENSE file. */
@@ -1835,10 +1835,10 @@ TODO(https://crbug.com/852872): UI for offline suggested content is incomplete.
       <div class="icon icon-page-error" jseval="updateIconClass(this.classList, iconClass)" alt="" jstcache="2"></div>
       <div id="main-message" jstcache="0">
           <h1 jstcache="0">
-          <span jsselect="heading" jsvalues=".innerHTML:msg" jstcache="14">'oOPlay' konnte nicht gestartet werden</span>
+          <span jsselect="heading" jsvalues=".innerHTML:msg" jstcache="14">'oOPlay' can not start</span>
           <a id="error-information-button" class="hidden" onclick="toggleErrorInformationPopup();" jstcache="0"></a>
         </h1>
-        <p jsselect="summary" jsvalues=".innerHTML:msg" jstcache="3"><b><u>APP-Exception: oOPlay kann nur über <kbd>oop.ownonline.eu</kbd> aufgerufen werden!</u></b> <br><br>Erklräung: Sie haben 'oOPlay' über eine Domain aufgerufen, welche zwar vom Zielserver, jedoch nicht von der WebApp anerkannt wird. Sie können die WebApp nur über die angegebene Subdomain aufrufen. Ein direkter Abruf der Subdomain-Directory ist durch die WebApp nicht unterstützt. <br><br>>Als Seitenbetreiber sollten Sie die Anfrage-URL für 'oOPlay' überprüfen. Als Besucher einer Webseite, informieren Sie bitte den Seitenbetreiber über den Fehler. </p>
+        <p jsselect="summary" jsvalues=".innerHTML:msg" jstcache="3"><b><u>APP-Exception: This copy of oOPlay can only be accessed via <kbd>oop.ownonline.eu</kbd>!</u></b> <br><br>Explanation: You have accessed "oOPlay" via a domain that is recognized by the target server but not by the WebApp. You can only access the WebApp via the specified subdomain. Direct access to the subdomain directory is not supported by the WebApp. <br><br>As a site operator, you should check the request URL for "oOPlay". As a visitor, please inform the site operator about the error. </p>
         <div id="https-upgrades-message" class="hidden" jstcache="0">
           <p id="https-upgrades-message-details" jsselect="httpsUpgradesMessage" jsvalues=".innerHTML:msg" class="hidden" jstcache="15" style="display: none;"></p>
         </div>

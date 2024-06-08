@@ -14,6 +14,15 @@ $lang = array(
     'from_who' => 'from',
     'about' => 'About',
 
+    //centralerrorlog
+    'centralerrorlog_error_occured' => 'Sample error message while loading the page.',
+    'centralerrorlog_neterror_occured' => 'Network error while loading ',
+    'centralerrorlog_modal_title' => 'Error Console',
+    'centralerrorlog_modal_desc' => 'If you have access to this window, critical errors (most likely connection errors) have occurred. These errors could either slightly or significantly disrupt the further operation of "oOPlay" and lead to a crash. Please be attentive. If you are familiar with the developer tools of your device, we recommend that you also look for additional errors there. The errors may be fixable.',
+    'centralerrorlog_occuring_modal_title' => 'Error Console',
+    'centralerrorlog_occuring_modal_desc1' => 'Errors have occurred! There may be a loss of connection! Please check the',
+    'centralerrorlog_occuring_modal_desc2' => 'Error Console',
+
     //settingspanel oOPlay
     'settingspanel_modal_title' => 'Settings',
     'settingspanel_lang_title' => 'Language',

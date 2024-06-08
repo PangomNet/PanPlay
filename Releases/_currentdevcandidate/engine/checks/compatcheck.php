@@ -5,11 +5,11 @@ $userAgent = $_SERVER['HTTP_USER_AGENT'];
 
 // Liste der nicht kompatiblen Browser und Versionen (vor 2020)
 $incompatibleBrowsers = array(
-    'MSIE' => 11,  // Internet Explorer 11 und älter
-    'Firefox' => 70,  // Firefox Version 70 und älter
-    'Chrome' => 79,  // Chrome Version 79 und älter
-    'Safari' => 12,  // Safari Version 12 und älter
-    'Opera' => 60,  // Opera Version 60 und älter
+    'MSIE' => 12,  // Internet Explorer 12 und älter
+    'Firefox' => 75,  // Firefox Version 75 und älter
+    'Chrome' => 80,  // Chrome Version 80 und älter
+    'Safari' => 13,  // Safari Version 13 und älter
+    'Opera' => 65,  // Opera Version 65 und älter
 );
 
 // Prüfen, ob der Browser kompatibel ist
@@ -23,7 +23,7 @@ foreach ($incompatibleBrowsers as $browser => $version) {
 
         if ($browserVersion <= $version) {
             $compatible = false;
-            echo "Nicht kompatibler Browser: $browser $browserVersion"; // Debug-Ausgabe
+            echo "Outdated Brtowser: $browser $browserVersion"; // Debug-Ausgabe
             break;
         }
     }

@@ -19,7 +19,7 @@ $ext_lang = array(
 
     //sendeplan modal
     'sendeplan_modal_title' => 'Sendeplan',
-    '' => 'Heute',
+    'today' => 'Heute',
     'mo' => 'Montag',
     'di' => 'Dienstag',
     'mi' => 'Mittwoch',
