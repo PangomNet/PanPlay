@@ -22,7 +22,7 @@ Currently under development is version 0.0.1.8 Hyacinth. See the development pro
 
 #### Older versions:
 You don't like a new feature of oOPlay? Or an update has led to a major bug for you. Too bad :) Let us know about this in any case! But luckily for you: Every version marked as "stable" in the release posting is available for you to use on our CDN for at least 12 months after release. Or here on GitHub (to download and host)
-[View releases](https://github.com/ownOnline/oOPlay/tree/5138d839dcd4c16109190545cc2a1111e8a4cb6b/Releases)
+[View releases](https://github.com/ownOnline/oOPlay/releases)
 
 ##### Language information:
 oOPlay is currently being developed mainly in German. However, the documentation here on GitHub has recently been in English only. It is planned to include language support in the player. In addition to German, English will also be integrated into the interface.
