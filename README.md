@@ -25,4 +25,9 @@ You don't like a new feature of oOPlay? Or an update has led to a major bug for 
 [View releases](https://github.com/ownOnline/oOPlay/releases)
 
 ##### Language information:
-oOPlay is currently being developed mainly in German. However, the documentation here on GitHub has recently been in English only. It is planned to include language support in the player. In addition to German, English will also be integrated into the interface.
+oOPlay is being developed mainly in German. However, shortly the Player will have Language support in its stable version. (Currently only in prerelease versions)
+Currently available Languages:
+- Deutsch / German - OK
+- Englisch / English - OK
+- Italian / Italiano - Meh, but works. Help if you can 🤤
+If you have interest in TGranbslating to your Language feel free make an Issue mentiuon this.
