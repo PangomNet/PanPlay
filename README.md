@@ -10,7 +10,7 @@ This project is tested with BrowserStack.
 ---
 
 ## Current version:
-The current "stable" alpha version of oOPlay is [Version 0.0.1.8 (Freesia)](https://github.com/ownOnline/oOPlay/releases/tag/v0.0.1.8)!
+The current "stable" alpha version of oOPlay is [Version 0.0.1.8 (Hyacinth)](https://github.com/ownOnline/oOPlay/releases/tag/v0.0.1.8)!
 - You can use oOPlay via the CDN solution: [oOPlay on oop.ownonline.eu](https://oop.ownonline.eu/play?lfmstream=simliveradio)
 - Check also out the [oOPlay CDN Link-Generator](https://oop.ownonline.eu/) on the oOPlay-Website
 - Alternatively, you can download the files for oOPlay 0.0.1.8 [here](https://github.com/ownOnline/oOPlay/tree/065ea9f68551419231a1514573b8f085f50fab31/Releases/0-0-1-8) and host them yourself.
