@@ -486,6 +486,12 @@ setTimeout(function() {
 </script>
 
 
+     <?php
+    require('engine/extensions/' . $playermode . '/script_loader.php');
+?>
+
+
+
 <script>
  updateMediaMetadata(currentSongTitle, currentArtistName, currentAlbumTitle, currentAlbumArtUrl);
 </script>

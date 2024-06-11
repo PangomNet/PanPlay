@@ -8,35 +8,7 @@ $lfmstream = isset($_GET['lfmstream']) ? $_GET['lfmstream'] : '';
 // Wenn lfmstream einen Wert hat, wird der Code ausgeführt
 if (!empty($lfmstream)):
 ?>
-<div id="api_lfm_station_img">Loading...</div>
-<script type="text/html" id="station_img_template" charset="utf-8">
-<% if (this.image) { %>
-<%= "<img src='" + this.image + "' alt='Station Image'>" %>
-<% } else { %>
-<%= "<img id ='current_station_img' src='https://api.laut.fm/station/" + "<?php echo $lfmstream; ?>" + "/images/station' alt='Station Image' width='30'>" %>
-<% } %>
-</script>
-<script type="text/html" id="station_img__about_template" charset="utf-8">
-<% if (this.image) { %>
-<%= "<img src='" + this.image + "' alt='Station Image'>" %>
-<% } else { %>
-<%= "<img id ='current_station_img_about' class='rounded' alt='$lfmstream' src='https://api.laut.fm/station/" + "<?php echo $lfmstream; ?>" + "/images/station' width='70%' max-width='350px'>" %>
-<% } %>
-</script>
-<script type="text/javascript" charset="utf-8">
-try {
-    laut.fm.station('<?php echo $lfmstream; ?>').info({container:'api_lfm_station_img', template:'station_img_template'}, true);
-} catch(error) {
-    errorHandler(error.message);
-}
-</script>
-<script type="text/javascript" charset="utf-8">
-try {
-    laut.fm.station('<?php echo $lfmstream; ?>').info({container:'stationlogoholder', template:'station_img__about_template'}, true);
-} catch(error) {
-    errorHandler(error.message);
-}
-</script>
+<div id="api_lfm_station_img_nav"></div>
 
 <?php endif; ?>
     </oop_div>
@@ -45,7 +17,7 @@ try {
     <a class="navbar-brand d-none d-sm-block" data-bs-toggle="modal" data-bs-target="#stationinfo_modal" href="#">  <oop_div class="" id="oolfm_stationname">
 <?php
     $lfmstream = $_GET['lfmstream'];
-    echo '<div id="api_lfm_display_name">Loading...</div>';
+    echo '<div id="api_lfm_display_name"></div>';
     echo '<script type="text/html" id="display_name_template" charset="utf-8">';
     echo '<%= "" + this.display_name %>';
     echo '</script>';
@@ -62,24 +34,24 @@ try {
     echo '<%= this.display_name   %>';
     echo '</script>';
     echo '<script type="text/javascript" charset="utf-8">';
-    echo 'laut.fm.station(\'' . $lfmstream . '\')';
-    echo '.info({container:\'api_lfm_display_name\', template:\'display_name_template\'}, true);';
+    //echo 'laut.fm.station(\'' . $lfmstream . '\')';
+   // echo '.info({container:\'api_lfm_display_name\', template:\'display_name_template\'}, true);';
     echo '</script>';
     echo '<script type="text/javascript" charset="utf-8">';
-    echo 'laut.fm.station(\'' . $lfmstream . '\')';
-    echo '.info({container:\'aboutsenderlink_lbl\', template:\'display_name_template2\'}, true);';
+    //echo 'laut.fm.station(\'' . $lfmstream . '\')';
+   // echo '.info({container:\'aboutsenderlink_lbl\', template:\'display_name_template2\'}, true);';
     echo '</script>';
     echo '<script type="text/javascript" charset="utf-8">';
-    echo 'laut.fm.station(\'' . $lfmstream . '\')';
-    echo '.info({container:\'aboutModaltitleLabel\', template:\'display_name_template3\'}, true);';
+    //echo 'laut.fm.station(\'' . $lfmstream . '\')';
+    //echo '.info({container:\'aboutModaltitleLabel\', template:\'display_name_template3\'}, true);';
     echo '</script>';
     echo '<script type="text/javascript" charset="utf-8">';
-    echo 'laut.fm.station(\'' . $lfmstream . '\')';
-    echo '.info({container:\'thisstationname_about_lbl\', template:\'display_name_template4\'}, true);';
+    //echo 'laut.fm.station(\'' . $lfmstream . '\')';
+    //echo '.info({container:\'thisstationname_about_lbl\', template:\'display_name_template4\'}, true);';
     echo '</script>';
     echo '<script type="text/javascript" charset="utf-8">';
-    echo 'laut.fm.station(\'' . $lfmstream . '\')';
-    echo '.info({container:\'mviewstationname\', template:\'display_name_template5\'}, true);';
+    //echo 'laut.fm.station(\'' . $lfmstream . '\')';
+    //echo '.info({container:\'mviewstationname\', template:\'display_name_template5\'}, true);';
     echo '</script>';
 ?>
 </oop_div> 

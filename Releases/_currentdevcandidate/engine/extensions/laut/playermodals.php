@@ -47,7 +47,7 @@ $playwithmodal_content = <<<HTML
             <% } %>
           </script>
           <script type="text/javascript" charset="utf-8">
-            laut.fm.station('$lfmstream').info({container:'api_lfm_tunein_link', template:'tunein_link_template'}, true);
+        //    laut.fm.station('$lfmstream').info({container:'api_lfm_tunein_link', template:'tunein_link_template'}, true);
           </script>
         </oop_div>
         <oop_div id="oolfm_radiode_url">
@@ -58,7 +58,7 @@ $playwithmodal_content = <<<HTML
             <% } %>
           </script>
           <script type="text/javascript" charset="utf-8">
-            laut.fm.station('$lfmstream').info({container:'api_lfm_radiode_link', template:'radiode_link_template'}, true);
+         //   laut.fm.station('$lfmstream').info({container:'api_lfm_radiode_link', template:'radiode_link_template'}, true);
           </script>
         </oop_div>
         <oop_div id="oolfm_phonostar_url">
@@ -69,7 +69,7 @@ $playwithmodal_content = <<<HTML
             <% } %>
           </script>
           <script type="text/javascript" charset="utf-8">
-            laut.fm.station('$lfmstream').info({container:'api_lfm_phonostar_link', template:'phonostar_link_template'}, true);
+        //    laut.fm.station('$lfmstream').info({container:'api_lfm_phonostar_link', template:'phonostar_link_template'}, true);
           </script>
         </oop_div>
         <a class="btn btn-block" style="width: 100%; background-color: #1ed9b4;" target="_blank" href="https://laut.fm/$lfmstream">laut.fm*</a><br><br>
@@ -108,125 +108,28 @@ $stationinfomodal_code = <<<HTML
 </div>
 <br>
 <div id="api_lfm_format">Loading...</div>
-<script type="text/html" id="format_template" charset="utf-8">
-<%= "<figure class='text-center'>
-  <blockquote class='blockquote'>
-    <b>" + this.format + "</b></blockquote>
-</figure>" %>
-</script>
-<script type="text/javascript" charset="utf-8">
-laut.fm.station('$lfmstream')
-.info({container:'api_lfm_format', template:'format_template'}, true);
-</script>
-
-
-                <div id="oolfm_lafm_url"><p class='lead'>
-                    <div class='' id="api_lfm_description">Loading...</div>
-                    <script type="text/html" id="description_template" charset="utf-8">
-                        <%= "" + this.description +"<br>" %>
-                    </script>
-                
-                <script type="text/javascript" charset="utf-8">
-                    laut.fm.station('$lfmstream')
-                    .info({container:'api_lfm_description', template:'description_template'}, true);
-                </script>
-                </div>
-                <br>
-                <style>
-                   #oolfm_station_url, #oolfm_station_x_url, #api_lfm_website_link, #oolfm_station_fb_url, #oolfm_station_insta_url, #api_lfm_twitter_link, #api_lfm_facebook_link, #api_lfm_instagram_link {
-                    display: inline-block;
+<div class='' id="api_lfm_description">Loading...</div>
+<br>
+<style>
+#oolfm_station_url, #oolfm_station_x_url, #api_lfm_website_link, #oolfm_station_fb_url, #oolfm_station_insta_url, #api_lfm_twitter_link, #api_lfm_facebook_link, #api_lfm_instagram_link {
+display: inline-block;
 }
-                </style>
-                <div id="oolfm_station_url">
-                    <?php if (!empty($lfmstream)): ?>
-                        <div id="api_lfm_website_link">Loading...</div>
-                        <script type="text/html" id="website_link_template" charset="utf-8">
-                            <% if (this.third_parties.website && this.third_parties.website.url) { %>
-                                <% var domain = this.third_parties.website.url.split('/')[2]; %>
-                                <% if (domain.includes('twitter.com') || domain.includes('x.com')) { %>
-                                    <%= "<a target='_blank' href='" + this.third_parties.website.url + "'><img style ='margin: 0.2em;' class='rounded' src='rscs/imglibs/social/x/x-blackwhite.png' width='48px' height='auto' alt='" + this.third_parties.website.url + "'></a>" +"<a target='_blank' href='https://laut.fm/$lfmstream'><img style ='margin: 0.2em;' class='rounded' src='rscs/imglibs/social/laut orb/laut-tealgreen.png' width='48px' height='auto' alt='https://laut.fm/$lfmstream'></a>" %>
-                                <% } else if (domain.includes('facebook.com') || domain.includes('fb.me')) { %>
-                                    <%= "<a target='_blank' href='" + this.third_parties.website.url + "'><img style ='margin: 0.2em;' class='rounded' src='rscs/imglibs/social/facebook/fb-color.png' width='48px' height='auto' alt='" + this.third_parties.website.url + "'></a>" +"<a target='_blank' href='https://laut.fm/$lfmstream'><img style ='margin: 0.2em;' class='rounded' src='rscs/imglibs/social/laut orb/laut-tealgreen.png' width='48px' height='auto' alt='https://laut.fm/$lfmstream'></a>" %>
-                                <% } else if (domain.includes('instagram.com')) { %>
-                                    <%= "<a target='_blank' href='" + this.third_parties.website.url + "'><img style ='margin: 0.2em;' class='rounded' src='rscs/imglibs/social/instagramm/ig-color.png' width='48px' height='auto' alt='" + this.third_parties.website.url + "'></a>" +"<a target='_blank' href='https://laut.fm/$lfmstream'><img style ='margin: 0.2em;' class='rounded' src='rscs/imglibs/social/laut orb/laut-tealgreen.png' width='48px' height='auto' alt='https://laut.fm/$lfmstream'></a>" %>
-                                    <% } else if (domain.includes('laut.fm')) { %>
-                                    <%= "<a target='_blank' href='" + this.third_parties.website.url + "'><img style ='margin: 0.2em;' class='rounded' src='rscs/imglibs/social/laut orb/laut-tealgreen.png' width='48px' height='auto' alt='" + this.third_parties.website.url + "'></a>" %>
-                                <% } else { %>
-                                    <%= "<a target='_blank' href='" + this.third_parties.website.url + "'><img style ='margin: 0.2em;' class='rounded' src='rscs/imglibs/social/homepage_link/link-tealwhite.png' width='48px' height='auto' alt='" + this.third_parties.website.url + "'></a>" +"<a target='_blank' href='https://laut.fm/$lfmstream'><img style ='margin: 0.2em;' class='rounded' src='rscs/imglibs/social/laut orb/laut-tealgreen.png' width='48px' height='auto' alt='https://laut.fm/$lfmstream'></a>" %>
-                                <% } %>
-                            <% } %>
-                        </script>
-                        <script type="text/javascript" charset="utf-8">
-                            laut.fm.station('$lfmstream')
-                            .info({container:'api_lfm_website_link', template:'website_link_template'}, true);
-                        </script>
-                    <?php endif; ?>
-                </div>
-                <div id="oolfm_station_x_url">
-    <?php if (!empty($lfmstream)): ?>
-        <div id="api_lfm_twitter_link">Loading...</div>
-        <script type="text/html" id="twitter_link_template" charset="utf-8">
-            <% if (this.third_parties.twitter && this.third_parties.twitter.url) { %>
-                <% let twitterUrl = addHttpsIfNeeded(this.third_parties.twitter.url, 'twitter.com'); %>
-                <%= "<a target='_blank' href='" + twitterUrl + "'><img style ='margin: 0.2em;' class='rounded' src='rscs/imglibs/social/x/x-blackwhite.png' width='48px' height='auto' alt='Twitter'></a>" %>
-            <% } %>
-        </script>
-        <script type="text/javascript" charset="utf-8">
-            laut.fm.station('$lfmstream')
-                .info({container:'api_lfm_twitter_link', template:'twitter_link_template'}, true);
-        </script>
-    <?php endif; ?>
+</style>
+<div id="oolfm_station_url">
+<div id="api_lfm_website_link"></div>
+</div>
+<div id="oolfm_station_x_url">
+<div id="api_lfm_twitter_link"></div>
 </div>
 
 <div id="oolfm_station_fb_url">
-    <?php if (!empty($lfmstream)): ?>
-        <div id="api_lfm_facebook_link">Loading...</div>
-        <script type="text/html" id="facebook_link_template" charset="utf-8">
-            <% if (this.third_parties.facebook && this.third_parties.facebook.page) { %>
-                <% let facebookUrl = addHttpsIfNeeded(this.third_parties.facebook.page, 'facebook.com'); %>
-                <%= "<a target='_blank' href='" + facebookUrl + "'><img style ='margin: 0.2em;' class='rounded' src='rscs/imglibs/social/facebook/fb-color.png' width='48px' height='auto' alt='Facebook'></a>" %>
-            <% } %>
-        </script>
-        <script type="text/javascript" charset="utf-8">
-            laut.fm.station('$lfmstream')
-                .info({container:'api_lfm_facebook_link', template:'facebook_link_template'}, true);
-        </script>
-    <?php endif; ?>
+<div id="api_lfm_facebook_link"></div>
 </div>
 
 <div id="oolfm_station_insta_url">
-    <?php if (!empty($lfmstream)): ?>
-        <div id="api_lfm_instagram_link">Loading...</div>
-        <script type="text/html" id="instagram_link_template" charset="utf-8">
-            <% if (this.third_parties.instagram && this.third_parties.instagram.name) { %>
-                <% let instagramUrl = addHttpsIfNeeded(this.third_parties.instagram.name, 'instagram.com'); %>
-                <%= "<a target='_blank' href='" + instagramUrl + "'><img style ='margin: 0.2em;' class='rounded' src='rscs/imglibs/social/instagramm/ig-color.png' width='48px' height='auto' alt='Instagram'></a>" %>
-            <% } %>
-        </script>
-        <script type="text/javascript" charset="utf-8">
-            laut.fm.station('$lfmstream')
-                .info({container:'api_lfm_instagram_link', template:'instagram_link_template'}, true);
-        </script>
-    <?php endif; ?>
+<div id="api_lfm_instagram_link"></div>
 </div>
 
-<script type="text/javascript">
-    function addHttpsIfNeeded(url, domain) {
-        // Überprüfen, ob die URL bereits mit http:// oder https:// beginnt
-        if (!url.startsWith('http://') && !url.startsWith('https://')) {
-            // Wenn nicht, füge https:// hinzu
-            url = 'https://' + url;
-        }
-        
-        // Überprüfen, ob die Domain in der URL vorhanden ist
-        if (!url.includes(domain + '/')) {
-            // Wenn nicht, füge die Domain hinzu
-            url = url.startsWith('https://') ? url.replace('://', '://' + domain + '/') : url;
-        }
-        
-        return url;
-    }
-</script>
             </div>
         </div>
     </div>
@@ -256,7 +159,7 @@ $lastplayed_modal_code = <<<HTML
               <% } } %>
           </script>
           <script type="text/javascript" charset="utf-8">
-            laut.fm.station('$lfmstream').last_songs({container:'api_lfm_last_x_songs_spezial', template:'last_x_songs_spezial_template'}, true);
+           // laut.fm.station('$lfmstream').last_songs({container:'api_lfm_last_x_songs_spezial', template:'last_x_songs_spezial_template'}, true);
           </script>
         </oop_div>
       </div>
@@ -376,7 +279,7 @@ heading.textContent += ' ({$ext_lang["today"]})';
                 }
               }); 
             };
-            laut.fm.station("{$lfmstream}").schedule(show_schedule);
+          //  laut.fm.station("{$lfmstream}").schedule(show_schedule);
           </script>
         </oop_div>
         <a href="https://laut.fm/{$lfmstream}" target="_blank" >{$ext_lang["sendeplan_laut"]} </a>

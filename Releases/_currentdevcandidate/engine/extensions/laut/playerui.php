@@ -10,10 +10,10 @@ echo <<<HTML
 <script type='text/html' id='current_playlists_template' charset='utf-8'>
 <%= '' + this.current_playlist.name %>
 </script>
-<script type='text/javascript' charset='utf-8'>
+<!-- <script type='text/javascript' charset='utf-8'>
 laut.fm.station('$lfmstream')
 .info({container:'api_lfm_current_playlists', template:'current_playlists_template'}, true);
-</script>
+</script> -->
 &nbsp;<div id="api_lfm_song_live">Loading...</div>
     <script type="text/html" id="api_lfm_song_live_template" charset="utf-8">
 <% if (this.live)  { %>
@@ -22,10 +22,10 @@ laut.fm.station('$lfmstream')
 <%= "" %>
 <% } %>
 </script>
-<script type="text/javascript" charset="utf-8">
+<!--<script type="text/javascript" charset="utf-8">
 laut.fm.station('$lfmstream')
 .current_song({container:'api_lfm_song_live', template:'api_lfm_song_live_template'}, true);
-</script>
+</script>-->
 HTML;
 endif;
 echo "</oop_div> <br>";
@@ -52,25 +52,25 @@ if (!empty($lfmstream)) {
         %>
         <%= "<img id='songcover' class='mx-auto d-block img-fluid' src='" + lfm_images + "' style='width: 30em; max-width: 55%; max-height: 65%; min-width: 70px; min-height: 70px; height: auto; cursor: hand;' alt='" + alt_txt + "'>" + "<style> body{ background-image: url('" + lfm_images_bg + "'); }</style>" %>
     </script> 
-    <script type="text/javascript" charset="utf-8">
+   <!-- <script type="text/javascript" charset="utf-8">
         laut.fm.station('$lfmstream')
         .current_song({container:'api_lfm_current_song_live_img', template:'current_song_live_img_template'}, true);
-</script> 
-    <script type="text/javascript" charset="utf-8">
-// Funktion zum Aktualisieren des Interpretenbildes basierend auf dem aktuellen Song
-function updateCurrentAlbumArtFromAPI() {
+</script>  -->
+   <script type="text/javascript" charset="utf-8">
+  // Funktion zum Aktualisieren des Interpretenbildes basierend auf dem aktuellen Song
+//function updateCurrentAlbumArtFromAPI() {
     // Rufe die getCurrentSong-Funktion der API auf, um Informationen zum aktuellen Song zu erhalten
-    laut.fm.station('$lfmstream').current_song(function(result) {
+ //   laut.fm.station('$lfmstream').current_song(function(result) {
         // Überprüfe, ob ein Bild für den aktuellen Interpreten vorhanden ist
-        if (result.artist && result.artist.image) {
+  //      if (result.artist && result.artist.image) {
             // Speichere die URL des Interpretenbildes in currentAlbumArtUrl
-            currentAlbumArtUrl = result.artist.image;
-        } else {
+   //         currentAlbumArtUrl = result.artist.image;
+   //     } else {
             // Verwende ein Standardbild, wenn kein Bild für den Interpreten vorhanden ist
-            currentAlbumArtUrl = "https://api.laut.fm/station/{$lfmstream}/images/station";
-        }
-    });
-}
+    //        currentAlbumArtUrl = "https://api.laut.fm/station/{$lfmstream}/images/station";
+    //    }
+   // });
+// } 
 
 updateCurrentAlbumArtFromAPI();
 
@@ -110,12 +110,12 @@ echo <<<HTML
 <%= "<br><div id='currentsong_lbl' data-bs-toggle='modal' data-bs-target='#lastplayed_modal' style='animation-delay: 3s; animation-duration: 6.875s; cursor: hand;' class='h3 d-flex justify-content-center text-container'><span id='currentsong_lbl_holder' class='text-center oop_title_label_meta oop_title_label_meta--song oop_title_label_meta--scroll' data-bs-toggle='tooltip' data-bs-placement='top' title='" + this.artist.name + " - " + this.title + "'>" + this.artist.name + " - " + this.title + "<span></div>"%>
 <% } %>
 </script>
-<script type="text/javascript" charset="utf-8">
+<!--<script type="text/javascript" charset="utf-8">
 laut.fm.station('$lfmstream')
 .current_song({container:'api_lfm_current_song3', template:'current_song_template3'}, true);
 
 
-</script>
+</script> -->
 HTML;
 endif;
 echo "</oop_div>";
