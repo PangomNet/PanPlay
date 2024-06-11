@@ -11,9 +11,9 @@ Inspired by Flowers 🌹🌷
 - 0.0.1.6 Freesia
 - 0.0.1.7 Gardenia
 - 0.0.1.8 Hyacinth
-- 0.0.2.0 Iris
-- ?.?.?.? Acanthus
-- ?.?.?.?    Barberry
+- 0.0.1.9 Iris
+- 0.0.1.10 Acanthus
+- 0.0.2.0    Barberry
 - ?.?.?.?    Cactus
 - ?.?.?.?    Dandelion
 - ?.?.?.?    Everlasting
