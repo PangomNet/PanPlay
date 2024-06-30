@@ -8,7 +8,7 @@ $ext_lang = array(
 
     //Topnavbar Linktitel
     'trackhistory_navbar_title' => 'Track history',
-    'stationinfo_navbar_title' => ' About &#39;',
+    'stationinfo_navbar_title' => ' About ',
     'sendeplan_navbar_title' => 'Broadcast schedule',
     'playwith_navbar_title' => 'Switch player',
 
@@ -45,7 +45,7 @@ $ext_lang = array(
     'playwith_modal_topdesc' => 'You can open this stream in other applications or external playback devices. To do this, select the appropriate playback option.',
     'playwith_modal_gcast_topdesc1' => 'Cast  "',
     'playwith_modal_gcast_topdesc2' => '" to a device that supports Chromecast or casting from Google. To do this, click on the Google Cast icon at the bottom right of the main screen (<i class=“fab fa-chromecast”></i>)**',
-    'directstreamtobrowserdropdown' => 'Open stream URL / Download stream',
+    'directstreamtobrowserdropdown' => 'Open stream URL',
     'directstreamtobrowserdropdown_option1' => '<span class="badge bg-dark">m3u</span>-Stream',
     'directstreamtobrowserdropdown_option2' => '<span class="badge bg-dark">pls</span>-Stream',
     'playwith_modal_bottomnote' => '* If you are using an application of the selected service on your phone (e.g. laut.fm app on Android), this app could intercept the navigation to this Service. The stream will then be opened directly in the corresponding app.',
@@ -54,7 +54,7 @@ $ext_lang = array(
 
     //net error modal
     'neterr_modal_title' => 'Playback Error',
-    'neterr_desc_net_thinking' => 'Something is wrong. Analyzing Data!',
+    'neterr_desc_net_thinking' => 'Something is wrong. Analyze Data!',
     'neterr_desc_net_okay1' => '<b>✔ Connection is fine</b><hr> All necessary servers for playback are reachable. <hr><i>This could mean that your connection was temporarily interrupted, and that is why you are seeing this window. Is the playback running again? To ensure that ',
     'neterr_desc_net_okay2' => ' is broadcasting, you can also check their Laut.fm presence',
     'neterr_desc_net_okay3' => 'Check',

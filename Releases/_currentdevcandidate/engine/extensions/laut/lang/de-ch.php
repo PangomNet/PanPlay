@@ -8,7 +8,7 @@ $ext_lang = array(
 
     //Topnavbar Linktitel
     'trackhistory_navbar_title' => 'Titelhistorie',
-    'stationinfo_navbar_title' => ' Über &#39;',
+    'stationinfo_navbar_title' => ' Über ',
     'sendeplan_navbar_title' => 'Sendeplan ',
     'playwith_navbar_title' => 'Player wechseln',
 
@@ -45,9 +45,9 @@ $ext_lang = array(
     'playwith_modal_topdesc' => 'Du kannst diesen Stream in anderen Diensten oder externen Abspielgeräten öffnen. Wähle dafür die entsprechende Abspieloption.',
     'playwith_modal_gcast_topdesc1' => 'Übertrage "',
     'playwith_modal_gcast_topdesc2' => '" auf ein Gerät, das Chromecast oder Casting von Google unterstützt. Klicke dafür im Hauptbildschirm unten rechts auf das Google-Cast Symbol (<i class="fab fa-chromecast"></i>)**',
-    'directstreamtobrowserdropdown' => 'Stream-URL / Stream herunterladen',
-    'directstreamtobrowserdropdown_option1' => '<span class="badge bg-dark">m3u</span>-Stream öffnen / herunterladen',
-    'directstreamtobrowserdropdown_option2' => '<span class="badge bg-dark">pls</span>-Stream öffnen / Stream herunterladen',
+    'directstreamtobrowserdropdown' => 'Stream-URL',
+    'directstreamtobrowserdropdown_option1' => '<span class="badge bg-dark">m3u</span>-Stream',
+    'directstreamtobrowserdropdown_option2' => '<span class="badge bg-dark">pls</span>-Stream',
     'playwith_modal_bottomnote' => '* Wenn Sie auf Ihrem Gerät eine Endanwendung des ausgewählte Dienstes verwenden (zum Beispiel laut.fm-App auf Android), könnte diese App die Navigation zu diesem Dienst abfangen. Dann wird der Stream direkt in der jeweiligen App geöffnet.',
     'playwith_modal_cast_bottomnote1' => '** Google Cast ist nicht auf jedem Gerät oder auf jeder Software verfügbar. Linux-, Mac und Windows-Nutzer benötigen einen Chrome- oder einen auf Chrome-basierenden Browser wie Microsoft Edge, Opera, Brave oder Vivaldi. Unter MacOS wird zusätzlich dazu unter Umständen auch die offizielle Chromecast-Anwendung verwendet. Android- und iOS-.Nutzer benötigen eventuell die Google-Home-App. Die vollständigen Systemanforderungen für GoogleCast finden Sie ',
     'playwith_modal_cast_bottomnote_linktitle' => 'hier',

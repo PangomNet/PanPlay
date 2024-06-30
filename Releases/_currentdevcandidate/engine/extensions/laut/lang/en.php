@@ -8,7 +8,7 @@ $ext_lang = array(
 
     //Topnavbar Linktitel
     'trackhistory_navbar_title' => 'Track history',
-    'stationinfo_navbar_title' => ' About &#39;',
+    'stationinfo_navbar_title' => ' About ',
     'sendeplan_navbar_title' => 'Broadcast schedule',
     'playwith_navbar_title' => 'Switch player',
 
@@ -54,7 +54,7 @@ $ext_lang = array(
 
     //net error modal
     'neterr_modal_title' => 'Playback Error',
-    'neterr_desc_net_thinking' => 'Something is wrong. Analyzing Data!',
+    'neterr_desc_net_thinking' => 'Something is wrong. Analyze Data!',
     'neterr_desc_net_okay1' => '<b>✔ Connection is fine</b><hr> All necessary servers for playback are reachable. <hr><i>This could mean that your connection was temporarily interrupted, and that is why you are seeing this window. Is the playback running again? To ensure that ',
     'neterr_desc_net_okay2' => ' is broadcasting, you can also check their Laut.fm presence',
     'neterr_desc_net_okay3' => 'Check',

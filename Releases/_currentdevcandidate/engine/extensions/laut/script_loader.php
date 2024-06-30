@@ -60,7 +60,8 @@ function updateElementById(id, content) {
   if (element) {
       element.innerHTML = content;
   } else {
-      console.warn('Element mit ID ' + id + ' nicht gefunden.');
+      console.warn('⚠ Element with ID "' + id + '" not found, so we can not change the Content.');
+      errorHandler('⚠ Element with ID "' + id + '" not found, so we can not change the Content.')
   }
 }
 </script>
@@ -166,7 +167,7 @@ if (stationData.third_parties.instagram && stationData.third_parties.instagram.n
         //console.warn('station_image_about is undefined');
     }
 }
-  var description = 'Beschreibung: ' + stationData.description;
+  var description = '' + stationData.description;
   var display_name = stationData.display_name;
   var format = "<figure class='text-center'>  <blockquote class='blockquote'>   <b>" + stationData.format + "</b></blockquote></figure>";
   
@@ -174,171 +175,220 @@ if (stationData.third_parties.instagram && stationData.third_parties.instagram.n
   var station_image_navbar = "<img id ='current_station_img' src='" + stationData.images.station  + "' alt='" + stationData.display_name + "' width='30'>";
   //var currentPlaylist = 'Aktuelle Sendung: ' + stationData.started_at.humanTimeShort() + ' - ' + stationData.ends_at.humanTimeShort() + ' Uhr <br />Du H&ouml;rst: ' + stationData.name;
 
+  var djs = "<span class='badge rounded-pill bg-primary text-dark'><i class='fas fa-compact-disc'></i> &nbsp;" + stationData.djs + "</span>";
+  let station_genres_raw = stationData.genres;
+var station_genres = "";
+for (let i = 0; i < station_genres_raw.length; i++) {
+            // Generiere die Badges
+            station_genres += '<a style="text-decoration: none;" target="_blank" href="' + 'https://streema.com/radios/genre/' + station_genres_raw[i] + '"  class="badge rounded-pill bg-primary text-dark"><i class="fas fa-guitar"></i> &nbsp;' + station_genres_raw[i] + '</a> ';
+        }
+let station_top_artists_raw = stationData.top_artists;
+var station_top_artists = "";
+for (let i = 0; i < station_top_artists_raw.length; i++) {
+            // Generiere die Badges
+            station_top_artists += '<a style="text-decoration: none;" target="_blank" href="' + 'https://www.allmusic.com/search/artists/' + station_top_artists_raw[i] + '" class="badge rounded-pill bg-primary text-dark"><i class="fas fa-user-tie"></i> &nbsp;' + station_top_artists_raw[i] + '</a> ';
+        }
+
+var station_location = '<a style="text-decoration: none;" target="_blank" href="' + 'https://www.google.com/maps/search/?api=1&query=' + stationData.lat + ',' + stationData.lng + '" class=" badge rounded-pill bg-primary text-dark btn-link"><i class="fas fa-map-marker"></i> &nbsp;' + stationData.location + '</a>'
+
+
+
   updateElementById('api_lfm_description', description);
   updateElementById('api_lfm_display_name', display_name);
   updateElementById('aboutModaltitleLabel', display_name);
+  updateElementById('lfmdisplaynamelabelcontainer', display_name);
   updateElementById('api_lfm_format', format);
+  updateElementById('api_lfm_djs', djs);
+  updateElementById('api_lfm_location', station_location);
+ updateElementById('api_lfm_genres', station_genres);
+ updateElementById('api_lfm_top_artists', station_top_artists);
 
   updateElementById('api_lfm_station_img_nav', station_image_navbar);
+
+  // updateElementById('triggerhappy', station_image_navbar);
 
   
   //updateElementById('api_lfm_current_playlists', currentPlaylist);
 };
 laut.fm.station('$lfmstream').info(data, true);
 
+///////////////////////////// Now Trackhistory
+
+// Definiere globale Variablen für die aktuellen Songinformationen
+var currentSongTitle = "";
+var currentArtistName = "";
+var currentAlbumTitle = "";
+var currentAlbumArtUrl = "";
+
+var historyData = function(lastSongs) {
+  var currentSong = lastSongs[0].artist.name + ' - ' + lastSongs[0].title;
+  var currentSong_title = lastSongs[0].title;
+  var currentSong_artist = lastSongs[0].artist.name;
+  var currentSong_album = lastSongs[0].album;
+  var currentSong_image = lastSongs[0].artist.image;
+  var currentSong_background = lastSongs[0].artist.image;
+  var currentSong_thumb = lastSongs[0].artist.thumb;
+  currentSongTitle = lastSongs[0].title;
+currentArtistName = lastSongs[0].artist.name;
+currentAlbumTitle = lastSongs[0].album;
+
+
+  var trackHistory = '';
+  for (i = 1; i < 10; i++) {
+    trackHistory = trackHistory + '<p>' + lastSongs[i].started_at.humanTimeLong() + ' - ' + lastSongs[i].ends_at.humanTimeLong() + ' Uhr <br />' + lastSongs[i].artist.name + ' - ' + lastSongs[i].title + '<br /></p>';
+  }
+
+
+  var template_currentsong_lbl_holder_PART1 = "<br><div id='currentsong_lbl' data-bs-toggle='modal' data-bs-target='#lastplayed_modal' style='animation-delay: 3s; animation-duration: 6.875s; cursor: hand;' class='h3 d-flex justify-content-center text-container'> <span id='currentsong_lbl_holder' class='oop_title_label_meta oop_title_label_meta--song oop_title_label_meta--scroll text-center' data-bs-toggle='tooltip' data-bs-placement='top' title='"
+
+  if (currentSong_album) {
+    // Mache etwas mit currentSong_album
+    var template_currentsong_lbl_holder = template_currentsong_lbl_holder_PART1 + currentSong_artist + " - " + currentSong_title + "'>" + currentSong_artist + " - " + currentSong_title + "</span><div class='fader fader-left'></div><div class='fader fader-right'></div></div> <div id='currentalbum_lbl' data-bs-toggle='modal' data-bs-target='#lastplayed_modal' style='animation-delay: 3s; animation-duration: 6.875s; cursor: hand;' class='h5 d-flex justify-content-center text-truncate'><span id='currentalbum_lbl_holder' data-bs-toggle='tooltip' data-bs-placement='top' title='" + currentSong_artist + " - " + currentSong_title + "' class='text-center' bs-toggle='tooltip' data-bs-placement='top' title='" + currentSong_album + "'>" + currentSong_album + "</span></div>";
+} else {
+    // Mache etwas, wenn currentSong_album keinen gültigen Wert hat
+    var template_currentsong_lbl_holder = template_currentsong_lbl_holder_PART1 + currentSong_artist + " - " + currentSong_title + "'>" + currentSong_artist + " - " + currentSong_title + "</span><div class='fader fader-left'></div><div class='fader fader-right'></div></div> ";
+}
+
+// BILDER
+
+if (currentSong_image) {
+    var lfm_images = currentSong_image;
+    var currentAlbumArtUrl = currentSong_image;
+    var lfm_images_bg = currentSong_background;
+    var alt_txt = currentSong;
+} else {
+    var lfm_images = "https://api.laut.fm/station/{$lfmstream}/images/station";
+    var currentAlbumArtUrl = "https://api.laut.fm/station/{$lfmstream}/images/station";
+    var lfm_images_bg = "engine/extensions/laut/lautbg.png";
+    var alt_txt = currentSong;
+}
+
+if (currentSong_image) {
+    var currentAlbumArtUrl = currentSong_image;
+} else {
+    var currentAlbumArtUrl = "https://api.laut.fm/station/{$lfmstream}/images/station";
+}
+console.log('Aktuelle Albumkunst URL:', currentAlbumArtUrl);
+
+
+var songcover_template = "<img id='songcover' class='mx-auto d-block img-fluid' src='" + lfm_images + "' style='width: 30em; max-width: 55%; max-height: 65%; min-width: 70px; min-height: 70px; height: auto; cursor: hand;' alt='" + alt_txt + "'>";
+var bg_template = lfm_images_bg;
+
+try {
+        if ('mediaSession' in navigator) {
+            // Metadaten für das aktuell abgespielte Medium erstellen
+            var mediaMetadata = new MediaMetadata({
+                title: currentSong_title,
+                artist: currentSong_artist,
+                album: currentSong_album,
+                artwork: [
+                    { src: lfm_images, sizes: '96x96', type: 'image/jpg' },
+                    { src: lfm_images, sizes: '512x512', type: 'image/jpg' },
+                    { src: lfm_images, sizes: '256x256', type: 'image/jpg' },
+                    { src: lfm_images, sizes: '128x128', type: 'image/jpg' }
+                ]
+            });
+
+            // Setze die Metadaten für die Media Session
+            navigator.mediaSession.metadata = mediaMetadata;
+
+            // Konsolenausgabe zur Überprüfung der aktuellen Werte
+
+        } else {
+            console.warn('First Media Session wird nicht unterstützt.');
+        }
+    } catch (error) {
+        console.error('Fehler beim Setzen der First Metadaten:', error);
+    }
+
+
+
+updateElementById('api_lfm_current_song_live_img', songcover_template);
+//updateElementById('bgscriptcssholder', bg_template);
+  updateElementById('api_lfm_current_song3', template_currentsong_lbl_holder);
+  //updateElementById('api_lfm_track_history', trackHistory);
+};
+
+
+
+
+
+
+laut.fm.station('$lfmstream').last_songs(historyData, true);
 
 
 
 
     
-</script>
-<!-- // Grab Station-Infos: filltemplates with api-infos
-    <div id="api_lfm_location">Loading...</div>    
-    <script type="text/html" id="location_template" charset="utf-8">
-    <%= "Standort: " + this.location %>
-    </script>
-    <div id="api_lfm_djs">Loading...</div>
-    <script type="text/html" id="djs_template" charset="utf-8">
-    <%= "DJ's:" + this.djs %>
-    </script>
-    <div id="api_lfm_format">Loading...</div>
-    <script type="text/html" id="format_template" charset="utf-8">
-    <%= "Unser Slogan: " + this.format %>
-    </script>
-    <div id="api_lfm_genres">Loading...</div>
-    <script type="text/html" id="genres_template" charset="utf-8">
-    <%= "<p style='font-size:18px; font-weight:bold; margin-bottom:10px;'>Unsere Genres</p>" %>
-    <% for (i=0; i<this.genres.length; i++) { %>
-    <%= "&#187; " + this.genres[i] + "<br />" %>
-    <% } %>
-    </script>
-    <div id="api_lfm_song_live">Loading...</div>
-    <script type="text/html" id="api_lfm_song_live_template" charset="utf-8">
-    <% if (this.live)  { %>
-    <%= "Station ist live" %>
-    <% } else { %>
-    <%= "Station ist nicht live" %>
-    <% } %>
-    </script>
-    <div id="api_lfm_top_artists">Loading...</div>
-    <script type="text/html" id="top_artists_template" charset="utf-8">
-    <%= "<p style='font-size:18px; font-weight:bold; margin-bottom:10px;'>Top-Artist:</p>" %>
-    <% 
-    for (i=0; i<this.top_artists.length; i++) { 
-    var orang = i+1
-    %>
-    <%= "&#10149; " + orang + " - " + this.top_artists[i] + "<br />" %>
-    <% } %>
-    </script>
-    <div id="api_lfm_website_link">Loading...</div>
-    <script type="text/html" id="website_link_template" charset="utf-8">
-    <%= "Website: <a target='_blank' href='" + this.third_parties.website.url + "'>" + this.third_parties.website.url + "</a>" %>
-    </script>
-    <div id="api_lfm_display_name">Loading...</div>
-    <script type="text/html" id="display_name_template" charset="utf-8">
-    <%= "Display-Name: " + this.display_name %>
-    </script>
-    <div id="api_lfm_position">Loading...</div>
-    <script type="text/html" id="position_template" charset="utf-8">
-    <%= "Aktueller Rang: " + this.position %>
-    </script>
-    <div id="api_lfm_description">Loading...</div>
-    <script type="text/html" id="description_template" charset="utf-8">
-    <%= "Beschreibung: " + this.description %>
-    </script>
-    <div id="api_lfm_listener1">Loading...</div>
-    <script type="text/html" id="api_lfm_listener_template" charset="utf-8">
-    <%= "H&ouml;rerzahl: " + this %>
-    </script>
-    <div id="api_lfm_next_artists">Loading..</div>
-<script type="text/html" id="next_artists_template" charset="utf-8">
-<%= "<p style='font-size:18px; font-weight:bold; margin-bottom:10px;'>Next Artists</p>" %>
-<% for (i=0; i<this.length; i++) { %>
-<%= "&#10149; " + this[i].artist.name + "<br />" %>
-<% } %>
-</script> 
-<script type="text/javascript" charset="utf-8">
-laut.fm.station('STATIONSNAME') 
-.next_artists ({container:'api_lfm_next_artists', template:'next_artists_template'}, true);
-</script>
-<div id="api_lfm_current_song3">Loading...</div>
-<script type="text/html" id="current_song_template3" charset="utf-8">
-<% if (this.album) { %>
-<%= "Aktuell l&auml;uft:<br />" + this.artist.name + " - " + this.title + "<br />Aus dem Album: " + this.album %>
-<% } else { %>
-<%= "Aktuell l&auml;uft:<br />" + this.artist.name + " - " + this.title%>
-<% } %>
-</script> 
-<div id="api_lfm_next_playlists">Loading...</div>
-<script type="text/html" id="next_playlists_template" charset="utf-8">
-<%= "<b>N&auml;chste Sendung: </b>" + this.next_playlist.started_at.humanTimeShort() + " - " + this.next_playlist.ends_at.humanTimeShort() + " Uhr <br /> <b>Dann H&ouml;rst du: </b>" + this.next_playlist.name%>
-</script>
-<div id="api_lfm_current_playlists">Loading...</div>
-<script type="text/html" id="current_playlists_template" charset="utf-8">
-<%= "<b>Aktuelle Sendung: </b>" + this.current_playlist.started_at.humanTimeShort() + " - " + this.current_playlist.ends_at.humanTimeShort() + " Uhr <br /> <b>Du H&ouml;rst: </b>" + this.current_playlist.name %>
-</script> 
-<div id="api_lfm_current_song_img">Loading...</div>
-<script type="text/html" id="current_song_img_template" charset="utf-8">
-<% 
-if (this.artist.image) {
-var lfm_images = this.artist.image;
-var alt_txt = "Images";
-} else {
-var lfm_images = "Ersatzbild.png";
-var alt_txt = "No Images";
-} 
-%>
-<%= "<img src='" + lfm_images + "' width='100' height='100' alt='" + alt_txt + "'>" %>
-</script> 
-<div id="api_lfm_last_x_songs_spezial">Loading...</div>
-<script type="text/html" id="last_x_songs_spezial_template" charset="utf-8"> 
-<%= "<b>Zuletzt lief</b>" %>
-<% for (i=0; i < 10; i++) {
-if (this[i].type == "song" || this[i].type == "news") {%>
-<%= "<p>" + this[i].started_at.humanTimeLong() + " - " + this[i].ends_at.humanTimeLong() + " Uhr <br />" + this[i].artist.name + " - " + this[i].title + "<br /></p>" %>
-<% } else { } }%>
-</script>
-<div id="api_lfm_twitter_link">Loading...</div>
-<script type="text/html" id="twitter_link_template" charset="utf-8">
-<%= "Instagram: <a target='_blank' href='https://instagram.com/" + this.third_parties.instagram.name + "'>" + "https://instagram.com/" + this.third_parties.instagram.name + "</a>" %>
-</script>
-<div id="api_lfm_twitter_link">Loading...</div>
-<script type="text/html" id="twitter_link_template" charset="utf-8">
-<%= "Twitter: <a target='_blank' href='" + this.third_parties.twitter.url + "'>" + this.third_parties.twitter.url + "</a>" %>
-</script>
-<div id="api_lfm_tunein_link">Loading...</div>
-<script type="text/html" id="tunein_link_template" charset="utf-8">
-<%= "TuneIn: <a target='_blank' href='" + this.third_parties.tunein.url + "'>" + this.third_parties.tunein.url + "</a>" %>
-</script>
-<div id="api_lfm_phonostar_link">Loading...</div>
-<script type="text/html" id="phonostar_link_template" charset="utf-8">
-<%= "Phonostar: <a target='_blank' href='" + this.third_parties.phonostar.url + "'>" + this.third_parties.phonostar.url + "</a>" %>
-</script>
-<div id="api_lfm_radiode_link">Loading...</div>
-<script type="text/html" id="radiode_link_template" charset="utf-8">
-<%= "Radio.de: <a target='_blank' href='" + this.third_parties.radiode.url + "'>" + this.third_parties.radiode.url + "</a>" %>
+/////////// MediaMetadata-JS:
+
+function setupMetadataAndTitleUpdate() {
+s_currentAlbumArtUrl = currentAlbumArtUrl
+
+    // Funktion zum Auslesen des aktuellen Interpreten, Titels und Albumtitels aus der Oberfläche
+    function getCurrentSongInfoFromUI() {
+        var currentSongLabel = document.getElementById('currentsong_lbl');
+        var currentAlbumLabel = document.getElementById('currentalbum_lbl');
+
+        if (currentSongLabel) {
+            var labelsContent = currentSongLabel.innerText;
+            var labelsArray = labelsContent.split(' - ');
+            currentArtistName = labelsArray.length > 1 ? labelsArray[0] : "$lfmstream";
+            currentSongTitle = labelsArray.length > 1 ? labelsArray[1] : "Unbekannter Titel";
+        }
+
+        if (currentAlbumLabel) {
+            currentAlbumTitle = currentAlbumLabel.innerText || "oOPlay";
+        }
+
+        // Rufe updateMediaMetadata auf, um die Metadaten zu aktualisieren
+        //updateMediaMetadata(currentSongTitle, currentArtistName, currentAlbumTitle, s_currentAlbumArtUrl);
+    }
+
+
+
+    // Funktion zur Aktualisierung des Title-Tags und der Metadaten
+    function updateTitleAndMetadata() {
+        try {
+            var currentSongLbl = document.getElementById('currentsong_lbl');
+            if (currentSongLbl) {
+                var songInfo = currentSongLbl.innerText.trim();
+                // Hier ist der Wert korrekt
+                console.log('Song Info:', songInfo);
+
+                // Aktualisiere die Metadaten mit aktuellen Werten
+                //updateMediaMetadata(currentSongTitle, currentArtistName, currentAlbumTitle, currentAlbumArtUrl);
+
+                // Titel-Tag der Webseite aktualisieren
+                document.title = songInfo + ` - oOPlay`;
+            }
+        } catch (error) {
+            console.error('JavaScript-Fehler im Titel-Update-Teil:', error);
+        }
+    }
+
+    // Starte die Aktualisierung des Titels und der Metadaten alle 5 Sekunden
+    setInterval(updateTitleAndMetadata, 10000);
+
+    // Führe die Funktion updateTitleAndMetadata direkt nach dem Laden der Seite aus
+    window.addEventListener('load', function() {
+        setTimeout(updateTitleAndMetadata, 10000);
+    });
+
+    // Führe getCurrentSongInfoFromUI beim Laden der Seite aus, um die initialen Metadaten zu setzen
+    window.addEventListener('load', getCurrentSongInfoFromUI);
+
+    // Führe die Funktion getCurrentSongInfoFromUI alle 2 Minuten aus, um die Metadaten zu aktualisieren
+    setInterval(getCurrentSongInfoFromUI, 2 * 60 * 1000); // 2 Minuten in Millisekunden
+}
+
+// Rufe die Funktion setupMetadataAndTitleUpdate auf, um die Metadaten- und Titelaktualisierung zu starten
+setupMetadataAndTitleUpdate();
+
 </script>
 
-     <p style=font-weight:bold;>Sendeplan Montag:</p>
-<div id="api_lfm_schedule_mon">Loading...</div>
+ 
 
-<p style=font-weight:bold;>Sendeplan Dienstag:</p>
-<div id="api_lfm_schedule_tue">Loading...</div>
-
-<p style=font-weight:bold;>Sendeplan Mittwoch:</p>
-<div id="api_lfm_schedule_wed">Loading...</div>
-
-<p style=font-weight:bold;>Sendeplan Donnerstag:</p>
-<div id="api_lfm_schedule_thu">Loading...</div>
-
-<p style=font-weight:bold;>Sendeplan Freitag:</p>
-<div id="api_lfm_schedule_fri">Loading...</div>
-
-<p style=font-weight:bold;>Sendeplan Samstag:</p>
-<div id="api_lfm_schedule_sat">Loading...</div>
-
-<p style=font-weight:bold;>Sendeplan Sonntag:</p>
-<div id="api_lfm_schedule_sun">Loading...</div> -->
 
 HTML;
 echo $lfmapiloader_content;

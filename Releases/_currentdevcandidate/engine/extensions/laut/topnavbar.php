@@ -138,7 +138,7 @@ if ($stationinfo === false) {
 } else {
   // Wenn $stationinfo nicht auf false steht, wird das HTML-Element eingebunden
   echo " <li class='nav-item'>
-  <a id='aboutsenderlink_lbl' class='nav-link' href='#' data-bs-toggle='modal' data-bs-target='#stationinfo_modal' ><i class='fas fa-info-circle'></i> " . $ext_lang['stationinfo_navbar_title'] . " ''</a></li>
+  <a id='aboutsenderlink_lbl' class='nav-link' href='#' data-bs-toggle='modal' data-bs-target='#stationinfo_modal' ><i class='fas fa-info-circle'></i> " . $ext_lang['stationinfo_navbar_title'] . " <span id='lfmdisplaynamelabelcontainer'></span></a></li>
 </li>";
 }
 ?>
@@ -155,7 +155,7 @@ if ($playwith === false) {
 }
 ?>
           <li class='nav-item'>
-          <li class="nav-link alert-danger" style="display:none;" id="openerrorlog_nav"><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#openerrorlog" href="#"><i class="fa fa-exclamation-triangle" style="color: red;"></i> Fehlerkonsole</a></li>
+          <li class="nav-link bg-danger" style="display:none;" id="openerrorlog_nav"><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#openerrorlog" href="#"><i class="fa fa-exclamation-triangle" style="color: yellow;"></i></a></li>
           </li>
           <li class='nav-item'>
           <li><a class='nav-link' data-bs-toggle="modal" data-bs-target="#settings_oop_modal" href="#"><i class="fas fa-cog"></i></a></li>

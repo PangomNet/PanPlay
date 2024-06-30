@@ -8,7 +8,7 @@ $ext_lang = array(
 
     //Topnavbar Linktitel
     'trackhistory_navbar_title' => 'Cronologia brani',
-    'stationinfo_navbar_title' => ' Informazioni su &#39;',
+    'stationinfo_navbar_title' => ' Informazioni su ',
     'sendeplan_navbar_title' => 'Programma delle trasmissioni',
     'playwith_navbar_title' => 'Cambia lettore',
 
@@ -45,7 +45,7 @@ $ext_lang = array(
     'playwith_modal_topdesc' => 'Puoi aprire questo stream in altre applicazioni o dispositivi di riproduzione esterni. Per fare ci&ograve;, seleziona l\'opzione di riproduzione appropriata.',
     'playwith_modal_gcast_topdesc1' => 'Trasmetti  "',
     'playwith_modal_gcast_topdesc2' => '" a un dispositivo che supporta Chromecast o la trasmissione da Google. Per fare ci&ograve;, fai clic sull\'icona Google Cast in basso a destra nella schermata principale (<i class=“fab fa-chromecast”></i>)**',
-    'directstreamtobrowserdropdown' => 'Apri URL stream / Scarica stream',
+    'directstreamtobrowserdropdown' => 'Apri URL stream',
     'directstreamtobrowserdropdown_option1' => '<span class="badge bg-dark">m3u</span>-Stream',
     'directstreamtobrowserdropdown_option2' => '<span class="badge bg-dark">pls</span>-Stream',
     'playwith_modal_bottomnote' => '* Se stai usando un\'applicazione del servizio selezionato sul tuo telefono (ad esempio l\'app laut.fm su Android), questa app potrebbe intercettare la navigazione verso questo Servizio. Lo stream verr&agrave; quindi aperto direttamente nell\'app corrispondente.',
@@ -54,7 +54,7 @@ $ext_lang = array(
 
     //net error modal
     'neterr_modal_title' => 'Errore di Riproduzione',
-    'neterr_desc_net_thinking' => 'Qualcosa non va. Analizzando i Dati!',
+    'neterr_desc_net_thinking' => 'Qualcosa non va. Analizzando i Data!',
     'neterr_desc_net_okay1' => '<b>✔ Connessione stabile</b><hr> Tutti i server necessari per la riproduzione sono raggiungibili. <hr><i>Ci&ograve; potrebbe significare che la tua connessione &egrave; stata temporaneamente interrotta, ed &egrave; per questo che vedi questa finestra. La riproduzione sta funzionando di nuovo? Per assicurarsi che ',
     'neterr_desc_net_okay2' => ' stia trasmettendo, puoi anche controllare la loro presenza su Laut.fm',
     'neterr_desc_net_okay3' => 'Controlla',

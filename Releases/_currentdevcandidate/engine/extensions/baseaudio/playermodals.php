@@ -11,7 +11,7 @@
 $playwithmodal_content = <<<HTML
 <!---------------------------- PLAYWITH MODAL -------------------->
 <div class="modal fade" id="playwith_modal" tabindex="-1" aria-labelledby="playwith_modal" aria-hidden="true">
-  <div class="modal-dialog modal-fullscreen-md-down modal-lg modal-dialog-scrollable">
+  <div class="modal-dialog modal-fullscreen-md-down modal-lg modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel"> {$ext_lang["playwith_modal_title"]} </h5>
@@ -33,7 +33,7 @@ HTML;
 
 $fileinfomodal_code = <<<HTML
 <div class="modal fade" id="fileinfo_modal" tabindex="-1" aria-labelledby="fileinfo_modal" aria-hidden="true">
-    <div class="modal-dialog modal-fullscreen-md-down modal-dialog-scrollable">
+    <div class="modal-dialog modal-fullscreen-md-down modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="aboutModaltitleLabel"><i class="fa-solid fa-radio"></i> $webstream</h5>

@@ -119,7 +119,7 @@
 
 
 <div class="modal fade" id="about_oop_modal" tabindex="-1" aria-labelledby="about_oop_modal" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-fullscreen-md-down">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen-md-down">
     <div class="modal-content">
      <!--<div class="modal-header">
          <h5 class="modal-title" sytle="display: inline; " id="exampleModalLabel"> <?php echo $lang['about_modal_title']; ?> </h5>
@@ -140,11 +140,11 @@
 
 
 <div class="modal fade" id="settings_oop_modal" tabindex="-1" aria-labelledby="settings_oop_modal" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-fullscreen-md-down">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen-md-down">
     <div class="modal-content">
-     <div class="modal-header">
+     <div class="modal-header text-white bg-danger">
          <h5 class="modal-title" sytle="display: inline; " id="exampleModalLabel"> <?php echo $lang['settingspanel_modal_title']; ?></h5>
-         <button type="button" class="btn btn-block btn-outline-danger" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
+         <button type="button" class="btn btn-block btn-outline-light" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
       </div> 
       <div class="modal-body">
      
@@ -155,21 +155,22 @@
   </div>
 </div>
 
-    
 
 <nav id="playercontrolbar" class=" fixed-bottom navbar-dark bg-dark">
 <div class="container-fluid">
     <div class="row align-items-center">
-        <div class="col-2" style="flex: 0 0 10%;">
-            <!-- Hier kommt das erste Element (20%) -->
+        <div class="col-2 col-md" >
+            <!-- Hier kommt das erste Element (20%) style="flex: 0 0 10%;" -->
             <button style="font-size: 2em;" class="btn " id="playpausebtn" onclick="playPause()" href="#">⏵</button>
             </div>
-        <div class="col-8" style="flex: 0 0 60%;">
-            <!-- Hier kommt das zweite Element (60%) -->
+        <div class="col col-sm-8 col-md-10" >
+            <!-- Hier kommt das zweite Element (60%) style="flex: 0 0 70%;" -->
+            
+            <label for="volume1" class="form-label"><i class="fas fa-volume-up"></i> </label>
             <input class="btn btn-block form-range " type="range" onchange="setVolume()" style="max-width: 90%;" id='volume1' min=0 max=1 step=0.01 value="0.3"/>
         </div>
-        <div class="col-2 " style="flex: 0 0 10%; margin-left: auto;">
-            <!-- Hier kommt das dritte Element (20%) -->
+        <div class="col-2 col-md" style=" margin-left: auto;">
+            <!-- Hier kommt das dritte Element (20%) flex: 0 0 10%; -->
             <a id="cast" class="btn btn-success float-end" href="#" onclick="playPause()"><i class="fab fa-chromecast" style="float: right; color: #ffffff;"></i></a>
         </div>
     </div>
@@ -256,37 +257,7 @@ window.onload = function() {
     
 
 
-// Funktion zum Aktualisieren der Metadaten basierend auf den Informationen des abgespielten Songs
-function updateMediaMetadata(songTitle, artistName, albumTitle, albumArtUrl) {
-  if ('mediaSession' in navigator) {
-    // Metadaten für das aktuell abgespielte Medium erstellen
-    var mediaMetadata = new MediaMetadata({
-      title: songTitle,
-      artist: artistName,
-      album: albumTitle,
-      artwork: [
-        { src: albumArtUrl, sizes: '96x96', type: 'image/jpeg' },
-        { src: albumArtUrl, sizes: '512x512', type: 'image/jpeg' },
-    { src: albumArtUrl, sizes: '256x256', type: 'image/jpeg' },
-    { src: albumArtUrl, sizes: '128x128', type: 'image/jpeg' }
-      ]
-    });
 
-    // Setze die Metadaten für die Media Session
-    navigator.mediaSession.metadata = mediaMetadata;
-  }
-}
-
-// Funktion zum automatischen Aktualisieren der Metadaten alle 2 Minuten
-function autoUpdateMetadata() {
-
-
-  // Aktualisiere die Metadaten mit den aktuellen Informationen des Songs
-  updateMediaMetadata(currentSongTitle, currentArtistName, currentAlbumTitle, currentAlbumArtUrl);
-}
-
-// Führe die Funktion autoUpdateMetadata alle 2 Minuten aus
-setInterval(autoUpdateMetadata, 2 * 60 * 1000); // 2 Minuten in Millisekunden
 
 
 
@@ -415,86 +386,18 @@ window.addEventListener('unhandledrejection', function(event) {
 });
 
 </script>
-<script>
-
-/////////// MediaMetadata-JS:
-
-// Funktion zum Auslesen des aktuellen Interpreten, Titels und Albumtitels aus der Oberfläche
-function getCurrentSongInfoFromUI() {
-    var currentSongLabel = document.getElementById('currentsong_lbl');
-    var currentAlbumLabel = document.getElementById('currentalbum_lbl');
-
-    if (currentSongLabel) {
-        var labelsContent = currentSongLabel.innerText;
-        var labelsArray = labelsContent.split(' - ');
-        currentArtistName = labelsArray.length > 1 ? labelsArray[0] : "<?php echo $lfmstream; ?>";
-        currentSongTitle = labelsArray.length > 1 ? labelsArray[1] : "Unbekannter Titel";
-    } else {
-        // Setze Platzhalterwerte für Titel und Interpret, falls das Oberflächenelement nicht gefunden wird
-        currentSongTitle = "Unbekannter Titel";
-        currentArtistName = "<?php echo $lfmstream; ?>";
-    }
-
-    if (currentAlbumLabel) {
-        currentAlbumTitle = currentAlbumLabel.innerText || "oOPlay";
-    } else {
-        // Setze einen Platzhalterwert für das Album, falls das Oberflächenelement nicht gefunden wird
-        currentAlbumTitle = "oOPlay";
-    }
-}
-
-// Rufe die Funktion getCurrentSongInfoFromUI auf, um die aktuellen Songinformationen aus der Oberfläche zu lesen
-getCurrentSongInfoFromUI();
-
-
-
-// Warte 3 Sekunden, bevor das Skript ausgeführt wird
-setTimeout(function() {
-    // Funktion zur Aktualisierung des Title-Tags
-    function updateTitle() {
-        try {
-            var currentSongLbl = document.getElementById('currentsong_lbl');
-            if (currentSongLbl) {
-                var songInfo = currentSongLbl.innerText.trim();
-                // Hier ist der Wert korrekt
-                console.log('Song Info:', songInfo);
-                updateMediaMetadata(currentSongTitle, currentArtistName, currentAlbumTitle, currentAlbumArtUrl);
-
-                // Titel-Tag der Webseite aktualisieren
-                document.title = `${songInfo} - oOPlay`;
-                getCurrentSongInfoFromUI();
-                updateCurrentAlbumArtFromAPI();
-            }
-        } catch (error) {
-            console.error('JavaScript-Fehler im Titel-Update-Teil:', error);
-        }
-    }
-
-    // Starte die Aktualisierung alle 5 Sekunden
-    setInterval(updateTitle, 50000);
-
-    // Führe die Funktion direkt nach dem Laden der Seite aus
-    updateTitle();
-}, 3000);
-
-</script>
 
 <script>
-     <?php
+<?php
     require('engine/extensions/' . $playermode . '/cast.js');
 ?>
 </script>
-
 
      <?php
     require('engine/extensions/' . $playermode . '/script_loader.php');
 ?>
 
 
-
-<script>
- updateMediaMetadata(currentSongTitle, currentArtistName, currentAlbumTitle, currentAlbumArtUrl);
-</script>
 
 
 

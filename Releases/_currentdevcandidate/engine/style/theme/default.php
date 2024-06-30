@@ -98,7 +98,7 @@
 
          }
 
-         #about_oop_modal .modal-dialog .modal-content .modal-body {
+         #about_oop_modal .modal-dialog .modal-content .modal-body, #settings_oop_modal .modal-header {
             background: #242425;
             background: -webkit-linear-gradient(310deg, #242425 0%, #dc3545 100%);
             background: -o-linear-gradient(310deg, #242425 0%, #dc3545 100%);

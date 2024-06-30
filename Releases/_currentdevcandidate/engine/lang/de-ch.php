@@ -27,7 +27,7 @@ $lang = array(
     //settingspanel oOPlay
     'settingspanel_modal_title' => 'Einstellungen',
     'settingspanel_lang_title' => 'Sprache',
-    'settingspanel_lang_desc' => 'Wählen Sie eine andere Sprache für die Benutzeroberfläche. Die Benutzeroberfläche wählt die angezeigte Sprache anhand des URL-Parameters „hl“ aus. Wenn dieser Parameter in der URL nicht gefunden wird, wird automatisch versucht, die von Ihrem Browser verwendete Sprache zu verwenden. Wenn wir die Benutzeroberfläche nicht in dieser Sprache anbieten, wird die Seite in Englisch angezeigt.',
+    'settingspanel_lang_desc' => 'Wählen Sie eine andere Sprache für die Benutzeroberfläche. ',
     'settingspanel_lang_ext_desc' => 'Erweiterungen arbeiten zum Teil ohne oder mit ihren eigenen Sprachdateien und funktionieren möglicherweise nicht in jeder Sprache.',
 
     //about oOPlay

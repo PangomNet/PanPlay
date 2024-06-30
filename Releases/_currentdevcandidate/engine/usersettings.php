@@ -37,11 +37,11 @@ $current_url = strtok($_SERVER["REQUEST_URI"], '?');
 $language_settings_code = <<<HTML
 <div class="card text-white bg-dark">
   <div class="card-header">
-    <h3> {$lang["settingspanel_lang_title"]} </h3>
+    <b><i class="fas fa-language"></i>&nbsp;  {$lang["settingspanel_lang_title"]} </b>
   </div>
   <div class="card-body">
-  <p class="card-text">{$lang["settingspanel_lang_desc"]}</p>
-<p>{$lang['current_language']}</p>
+  <p class="card-text fs-6"><small>{$lang["settingspanel_lang_desc"]}</small></p>
+<p><small>{$lang['current_language']}</small></p>
 <form method="get" action="" class="dropdown">
     <input type="hidden" name="hl" value="{$language}">
     <ul class="list-group">
@@ -61,8 +61,8 @@ HTML;
 }
 
 $language_settings_code .= <<<HTML
-    </ul>
-    {$lang["settingspanel_lang_ext_desc"]}
+    </ul><br>
+    <small><i> {$lang["settingspanel_lang_ext_desc"]}</i></small>
 
 </form>
 </div>

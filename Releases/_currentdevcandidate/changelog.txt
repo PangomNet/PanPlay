@@ -1,3 +1,11 @@
+0.0.1.9 Iris  (TESTRELEASE)
+-	Implementation of the new LAUT.FM-API routine to reduce network traffic (first attempt) only the most basic information was read in. Old API calls are no longer functional. 0.0.1.9 Iris will be a pure technical test release and is like all other test releases - but this one in particular - unstable (in laut.fm mode) and not suitable for productive use. Thanks to Paeddy for providing code examples that are used to rebuild the API calls.
+-   In the About the Station window, you can now click on the large station logo to call up the station website, if one has been entered by the station.
+-   In the About the station window, you can now see the DJ, the station's genres, the top artists and the station location. The genre links lead to Streema. The artist lists lead to Allmusic. The broadcasting location is displayed on GoogleMaps.
+- All windows now have vertical centering, i.e. they always open in the middle of the screen. In addition, all inner scroll options are now available
+- The "Change player" window has been redesigned and now contains the logos of the linked services and their colors in the button. In addition, the stream URL has been removed from the context menu and integrated into the button overview.
+- The volume control now adapts to the screen size again and has also been given an icon. It is planned to use this icon for Tooggle-Mute in the future. But so far only a plan, nothing more.
+
 0.0.1.8 Hyacinth
 -	Language fixed: Italian
 -   MIT-License in about Dialog will now be Mentioned in English

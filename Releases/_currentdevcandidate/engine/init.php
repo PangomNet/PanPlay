@@ -54,6 +54,7 @@ $variables = array_combine($matches[1], $matches[2]);
 // Prüfe, ob die zugehörigen Dateien existieren
 $files = [
     'engine/error/centralerrorlog_c.php',
+    'engine/error/centralerrorlog_ui.php',
     'engine/checks/compatcheck.php',
     'engine/checks/subdomaincheck.php',
     'engine/checks/offlinehandler.php',
