@@ -235,7 +235,10 @@ currentAlbumTitle = lastSongs[0].album;
 
   var trackHistory = '';
   for (i = 1; i < 10; i++) {
-    trackHistory = trackHistory + '<p>' + lastSongs[i].started_at.humanTimeLong() + ' - ' + lastSongs[i].ends_at.humanTimeLong() + ' Uhr <br />' + lastSongs[i].artist.name + ' - ' + lastSongs[i].title + '<br /></p>';
+   // trackHistory = trackHistory + '<p>' + lastSongs[i].started_at.humanTimeLong() + ' - ' + lastSongs[i].ends_at.humanTimeLong() + ' Uhr <br />' + lastSongs[i].artist.name + ' - ' + lastSongs[i].title + '<br /></p>';
+
+
+    trackHistory = trackHistory + "<a target=\"_blank\" href=\"https://www.allmusic.com/search/songs/"+ lastSongs[i].artist.name + " - " + lastSongs[i].title + "\" style=\"background-color: transparent;\" class=\"list-group-item list-group-item-action \"><div class=\"d-flex w-100\"><small class=\"text-light\" style=\"margin-right: 10px;\" >" + lastSongs[i].started_at.humanTimeLong() + "</small><p class=\"mb-1\"> <i class=\"fas fa-music\"></i>  " + lastSongs[i].artist.name + " - " + lastSongs[i].title + "</p></div></a>";
   }
 
 
@@ -244,12 +247,19 @@ currentAlbumTitle = lastSongs[0].album;
   if (currentSong_album) {
     // Mache etwas mit currentSong_album
     var template_currentsong_lbl_holder = template_currentsong_lbl_holder_PART1 + currentSong_artist + " - " + currentSong_title + "'>" + currentSong_artist + " - " + currentSong_title + "</span><div class='fader fader-left'></div><div class='fader fader-right'></div></div> <div id='currentalbum_lbl' data-bs-toggle='modal' data-bs-target='#lastplayed_modal' style='animation-delay: 3s; animation-duration: 6.875s; cursor: hand;' class='h5 d-flex justify-content-center text-truncate'><span id='currentalbum_lbl_holder' data-bs-toggle='tooltip' data-bs-placement='top' title='" + currentSong_artist + " - " + currentSong_title + "' class='text-center' bs-toggle='tooltip' data-bs-placement='top' title='" + currentSong_album + "'>" + currentSong_album + "</span></div>";
+    //var template_currentsong_lastplayed_modal_lbl_holder = currentSong_artist + " - " + currentSong_title + "<br><small>" + currentSong_album + "</small>";
+    var template_currentsong_lastplayed_modal_lbl_holder = "<a target=\"_blank\" href=\"https://www.allmusic.com/search/songs/"+ currentSong_artist + " - " + currentSong_title + "\" style=\"background-color: #48527f;\" class=\"list-group-item list-group-item-action \"><b><div class=\"d-flex w-100\"><small class=\"text-light\" style=\"margin-right: 10px;\" ><span class=\"badge bg-danger\">LIVE</span></small><p class=\"mb-1\"> <i class=\"fas fa-music\"></i>  " + currentSong_artist + " - " + currentSong_title + "<br><small>" + currentSong_album + "</small></p></div></b></a>";
 } else {
     // Mache etwas, wenn currentSong_album keinen gültigen Wert hat
     var template_currentsong_lbl_holder = template_currentsong_lbl_holder_PART1 + currentSong_artist + " - " + currentSong_title + "'>" + currentSong_artist + " - " + currentSong_title + "</span><div class='fader fader-left'></div><div class='fader fader-right'></div></div> ";
+    var template_currentsong_lastplayed_modal_lbl_holder = "<a target=\"_blank\" href=\"https://www.allmusic.com/search/songs/"+ currentSong_artist + " - " + currentSong_title + "\" style=\"background-color: #48527f;\" class=\"list-group-item list-group-item-action \"><b><div class=\"d-flex w-100\"><small class=\"text-light\" style=\"margin-right: 10px;\" ><span class=\"badge bg-danger\">LIVE</span></small><p class=\"mb-1\"> <i class=\"fas fa-music\"></i>  " + currentSong_artist + " - " + currentSong_title + "</p></div></b></a>";
 }
 
+
+
+
 // BILDER
+
 
 if (currentSong_image) {
     var lfm_images = currentSong_image;
@@ -273,6 +283,7 @@ console.log('Aktuelle Albumkunst URL:', currentAlbumArtUrl);
 
 var songcover_template = "<img id='songcover' class='mx-auto d-block img-fluid' src='" + lfm_images + "' style='width: 30em; max-width: 55%; max-height: 65%; min-width: 70px; min-height: 70px; height: auto; cursor: hand;' alt='" + alt_txt + "'>";
 var bg_template = lfm_images_bg;
+var bg_template_css = "<style>body{ background-image: url('" + bg_template + "') !important;</style>";
 
 try {
         if ('mediaSession' in navigator) {
@@ -304,9 +315,11 @@ try {
 
 
 updateElementById('api_lfm_current_song_live_img', songcover_template);
-//updateElementById('bgscriptcssholder', bg_template);
-  updateElementById('api_lfm_current_song3', template_currentsong_lbl_holder);
-  //updateElementById('api_lfm_track_history', trackHistory);
+updateElementById('bgscriptcssholder', bg_template_css);
+updateElementById('api_lfm_current_song3', template_currentsong_lbl_holder);
+updateElementById('currentsong_lastplayed_modal_lbl_holder', template_currentsong_lastplayed_modal_lbl_holder);
+//updateElementById('api_lfm_current_song3', template_currentsong_currentsong_modal_lbl_holder);
+updateElementById('api_lfm_last_x_songs_spezial', trackHistory);
 };
 
 
@@ -384,6 +397,47 @@ s_currentAlbumArtUrl = currentAlbumArtUrl
 
 // Rufe die Funktion setupMetadataAndTitleUpdate auf, um die Metadaten- und Titelaktualisierung zu starten
 setupMetadataAndTitleUpdate();
+
+
+// Aktuellen Wochentag erhalten (0 = Sonntag, 1 = Montag, usw.)
+const today = new Date().getDay();
+
+// ID des Tabs für den aktuellen Wochentag
+const tabId = '#' + ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'][today] + '-tab';
+const tabContentId = '#' + ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'][today];
+
+// Den aktuellen Wochentag aktivieren
+const currentTab = document.querySelector(tabId);
+currentTab.classList.add('show', 'active');
+
+// Den zugehörigen Inhalt anzeigen und "(Heute)" hinzufügen, wenn es der aktuelle Tag ist
+document.querySelector(tabContentId).classList.add('show', 'active');
+const heading = document.querySelector(tabContentId).querySelector('h5');
+heading.textContent += ' ({$ext_lang["today"]})';
+
+            var show_schedule = function(schedule){
+              var no_entry = '{$ext_lang["nospecialshow"]}';
+              var days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+              var days_buffer = {mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: []}; 
+              Array.prototype.slice.call(schedule).forEach(function(schedule_entry) {
+                var start_time = schedule_entry.hour;
+                if (start_time < 10) { start_time = "0" + start_time; }
+                start_time = start_time + ":00 Uhr";
+                days_buffer[schedule_entry.day].push("<a href=\"#\" style=\"background-color: transparent;\" class=\"list-group-item list-group-item-action \"><div class=\"d-flex w-100 justify-content-between\"><p class=\"mb-1\"><span style=\"font-size: 1em; color:" + schedule_entry.color + ";\">■</span> " + schedule_entry.name + "</p><small class=\"text-light\">" + start_time + "</small></div></a>");
+               // here with description for all shows days_buffer[schedule_entry.day].push("<a href=\"#\" class=\"list-group-item list-group-item-action bg-dark\"><div class=\"d-flex w-100 justify-content-between\"><h5 class=\"mb-1\">" + schedule_entry.name + "</h5><small class=\"text-muted\">" + start_time + "</small></div><p class=\"mb-1\">" + schedule_entry.description + "</p></a>");
+              });
+              Array.prototype.slice.call(days).forEach(function(schedule_days) {
+                if (document.getElementById("api_lfm_schedule_" + schedule_days) !== null) {
+                  if (days_buffer[schedule_days].length >= 1) {
+                    document.getElementById("api_lfm_schedule_" + schedule_days).innerHTML = days_buffer[schedule_days].join("");
+                  } else {
+                    document.getElementById("api_lfm_schedule_" + schedule_days).innerHTML = no_entry;
+                  }
+                }
+              }); 
+            };
+            laut.fm.station("{$lfmstream}").schedule(show_schedule);
+
 
 </script>
 

@@ -192,23 +192,22 @@ $lastplayed_modal_code = <<<HTML
         <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-history"></i> {$ext_lang["trackhistory_modal_title"]}</h5>
         <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
       </div>
+      <div class="modal-header">
+      <div class="list-group" style="width: 100%">
+        <div id="currentsong_lastplayed_modal_lbl_holder"> </div>
+      </div>
+      </div>
       <div class="modal-body">
         <oop_div id="oolfm_lastplayed">
-          <div id="api_lfm_last_x_songs_spezial">Loading...</div>
-          <script type="text/html" id="last_x_songs_spezial_template" charset="utf-8">
-            <% for (var i = 0; i < 30; i++) {
-              if (this[i] && (this[i].type == "song" || this[i].type == "news")) { %>
-                <% if (i === 0) { %>
-                  <div class="mt-4 p-5 text-white rounded" style="background: #48527f;"><p> {$ext_lang["current_song"]}</p><h4><i class="fas fa-music"></i> <%= this[i].artist.name %> - <%= this[i].title %></h4></div><br><u>{$ext_lang["last_songs"]}</u><br>
-                <% } else { %>
-                  <p><i class="fas fa-music"></i> <%= this[i].artist.name %> - <%= this[i].title %><br /></p>
-                <% } %>
-              <% } } %>
-          </script>
-          <script type="text/javascript" charset="utf-8">
-           // laut.fm.station('$lfmstream').last_songs({container:'api_lfm_last_x_songs_spezial', template:'last_x_songs_spezial_template'}, true);
-          </script>
+
+        <div class="list-group"  style="width: 100%">
+          <div id="api_lfm_last_x_songs_spezial"></div>
+          </div>
         </oop_div>
+      </div>
+      <div class="modal-footer">
+      <a href="#" data-bs-toggle="modal" data-bs-target="#currentsong_modal" data-bs-dismiss="modal" target="_blank" >Current Song</a>
+      <a href="#" data-bs-toggle="modal" data-bs-target="#currentplaylist_modal" data-bs-dismiss="modal" target="_blank" >Current Show</a>
       </div>
     </div>
   </div>
@@ -225,111 +224,137 @@ $sendeplan_modal_code = <<<HTML
         <h5 class="modal-title" id="exampleModalLabel">{$ext_lang["sendeplan_modal_title"]}</h5>
         <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
       </div>
+      <div class="modal-header">
+      <ul class="nav nav-pills" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="monday-tab" data-bs-toggle="pill" href="#monday" role="tab" aria-controls="monday" aria-selected="true">{$ext_lang["mo_s"]}</button>
+                </li>&nbsp;
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tuesday-tab" data-bs-toggle="pill" href="#tuesday" role="tab" aria-controls="tuesday" aria-selected="false">{$ext_lang["di_s"]}</button>
+                </li>&nbsp;
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="wednesday-tab" data-bs-toggle="pill" href="#wednesday" role="tab" aria-controls="wednesday" aria-selected="false">{$ext_lang["mi_s"]}</button>
+                </li>&nbsp;
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="thursday-tab" data-bs-toggle="pill" href="#thursday" role="tab" aria-controls="thursday" aria-selected="false">{$ext_lang["do_s"]}</button>
+                </li>&nbsp;
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="friday-tab" data-bs-toggle="pill" href="#friday" role="tab" aria-controls="friday" aria-selected="false">{$ext_lang["fr_s"]}</button>
+                </li>&nbsp;
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="saturday-tab" data-bs-toggle="pill" href="#saturday" role="tab" aria-controls="saturday" aria-selected="false">{$ext_lang["sa_s"]}</button>
+                </li>&nbsp;
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="sunday-tab" data-bs-toggle="pill" href="#sunday" role="tab" aria-controls="sunday" aria-selected="false">{$ext_lang["so_s"]}</button>
+                </li>
+            </ul>
+      </div>
+
       <div class="modal-body">
+     
+
         <oop_div id="oolfm_sendeplan">
 
 
-        
-            <ul class="nav nav-pills" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="btn btn-outline-success" id="monday-tab" data-bs-toggle="pill" href="#monday" role="tab" aria-controls="monday" aria-selected="true">{$ext_lang["mo_s"]}</button>
-                </li>&nbsp;
-                <li class="nav-item" role="presentation">
-                    <button class="btn btn-outline-success" id="tuesday-tab" data-bs-toggle="pill" href="#tuesday" role="tab" aria-controls="tuesday" aria-selected="false">{$ext_lang["di_s"]}</button>
-                </li>&nbsp;
-                <li class="nav-item" role="presentation">
-                    <button class="btn btn-outline-success" id="wednesday-tab" data-bs-toggle="pill" href="#wednesday" role="tab" aria-controls="wednesday" aria-selected="false">{$ext_lang["mi_s"]}</button>
-                </li>&nbsp;
-                <li class="nav-item" role="presentation">
-                    <button class="btn btn-outline-success" id="thursday-tab" data-bs-toggle="pill" href="#thursday" role="tab" aria-controls="thursday" aria-selected="false">{$ext_lang["do_s"]}</button>
-                </li>&nbsp;
-                <li class="nav-item" role="presentation">
-                    <button class="btn btn-outline-success" id="friday-tab" data-bs-toggle="pill" href="#friday" role="tab" aria-controls="friday" aria-selected="false">{$ext_lang["fr_s"]}</button>
-                </li>&nbsp;
-                <li class="nav-item" role="presentation">
-                    <button class="btn btn-outline-success" id="saturday-tab" data-bs-toggle="pill" href="#saturday" role="tab" aria-controls="saturday" aria-selected="false">{$ext_lang["sa_s"]}</button>
-                </li>&nbsp;
-                <li class="nav-item" role="presentation">
-                    <button class="btn btn-outline-success" id="sunday-tab" data-bs-toggle="pill" href="#sunday" role="tab" aria-controls="sunday" aria-selected="false">{$ext_lang["so_s"]}</button>
-                </li>
-            </ul>
-          
-     <hr>
+  
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade" id="monday" role="tabpanel" aria-labelledby="monday-tab">
-                    <h3 id="mon-h">{$ext_lang["mo"]}</h3>
-                    <div id="api_lfm_schedule_mon">Loading...</div>
+                    <h5 id="mon-h">{$ext_lang["mo"]}</h5>
+                    <div id="api_lfm_schedule_mon_cont"><div class="list-group" id="api_lfm_schedule_mon"></div></div>
                 </div>
                 <div class="tab-pane fade" id="tuesday" role="tabpanel" aria-labelledby="tuesday-tab">
-                <h3 id="tue-h">{$ext_lang["di"]}</h3>
-                    <div id="api_lfm_schedule_tue">Loading...</div>
+                <h5 id="tue-h">{$ext_lang["di"]}</h5>
+                    <div id="api_lfm_schedule_tue_cont"><div class="list-group" id="api_lfm_schedule_tue"></div></div>
                 </div>
                 <div class="tab-pane fade" id="wednesday" role="tabpanel" aria-labelledby="wednesday-tab">
-                <h3 id="wed-h">{$ext_lang["mi"]}</h3>
-                    <div id="api_lfm_schedule_wed">Loading...</div>
+                <h5 id="wed-h">{$ext_lang["mi"]}</h5>
+                    <div id="api_lfm_schedule_wed_cont"><div class="list-group" id="api_lfm_schedule_wed"></div></div>
                 </div>
                 <div class="tab-pane fade" id="thursday" role="tabpanel" aria-labelledby="thursday-tab">
-                <h3 id="thu-h">{$ext_lang["do"]}</h3>
-                    <div id="api_lfm_schedule_thu">Loading...</div>
+                <h5 id="thu-h">{$ext_lang["do"]}</h5>
+                    <div id="api_lfm_schedule_thu_cont"><div class="list-group" id="api_lfm_schedule_thu"></div></div>
                 </div>
                 <div class="tab-pane fade" id="friday" role="tabpanel" aria-labelledby="friday-tab">
-                <h3 id="fri-h">{$ext_lang["fr"]}</h3>
-                    <div id="api_lfm_schedule_fri">Loading...</div>
+                <h5 id="fri-h">{$ext_lang["fr"]}</h5>
+                    <div id="api_lfm_schedule_fri_cont"><div class="list-group" id="api_lfm_schedule_fri"></div></div>
                 </div>
                 <div class="tab-pane fade" id="saturday" role="tabpanel" aria-labelledby="saturday-tab">
-                <h3 id="sat-h">{$ext_lang["sa"]}</h3>
-                    <div id="api_lfm_schedule_sat">Loading...</div>
+                <h5 id="sat-h">{$ext_lang["sa"]}</h5>
+                    <div id="api_lfm_schedule_sat_cont"><div class="list-group" id="api_lfm_schedule_sat"></div></div>
                 </div>
                 <div class="tab-pane fade" id="sunday" role="tabpanel" aria-labelledby="sunday-tab">
-                <h3 id="sun-h">{$ext_lang["so"]}</h3>
-                    <div id="api_lfm_schedule_sun">Loading...</div>
+                <h5 id="sun-h">{$ext_lang["so"]}</h5>
+                    <div id="api_lfm_schedule_sun_cont"><div class="list-group" id="api_lfm_schedule_sun"></div></div>
                 </div>
             </div>
-            <script>
-// Aktuellen Wochentag erhalten (0 = Sonntag, 1 = Montag, usw.)
-const today = new Date().getDay();
 
-// ID des Tabs für den aktuellen Wochentag
-const tabId = '#' + ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'][today] + '-tab';
-const tabContentId = '#' + ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'][today];
-
-// Den aktuellen Wochentag aktivieren
-const currentTab = document.querySelector(tabId);
-currentTab.classList.add('show', 'active');
-
-// Den zugehörigen Inhalt anzeigen und "(Heute)" hinzufügen, wenn es der aktuelle Tag ist
-document.querySelector(tabContentId).classList.add('show', 'active');
-const heading = document.querySelector(tabContentId).querySelector('h3');
-heading.textContent += ' ({$ext_lang["today"]})';
-</script>
-      
-
-          <br>
-          <script type="text/javascript" charset="utf-8">
-            var show_schedule = function(schedule){
-              var no_entry = '{$ext_lang["nospecialshow"]}';
-              var days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
-              var days_buffer = {mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: []}; 
-              Array.prototype.slice.call(schedule).forEach(function(schedule_entry) {
-                var start_time = schedule_entry.hour;
-                if (start_time < 10) { start_time = "0" + start_time; }
-                start_time = start_time + ":00 Uhr";
-                days_buffer[schedule_entry.day].push("<span style=\"display: flex; padding-bottom:8px;\">" + start_time + " - " + schedule_entry.name + "</span>");
-              });
-              Array.prototype.slice.call(days).forEach(function(schedule_days) {
-                if (document.getElementById("api_lfm_schedule_" + schedule_days) !== null) {
-                  if (days_buffer[schedule_days].length >= 1) {
-                    document.getElementById("api_lfm_schedule_" + schedule_days).innerHTML = days_buffer[schedule_days].join("");
-                  } else {
-                    document.getElementById("api_lfm_schedule_" + schedule_days).innerHTML = no_entry;
-                  }
-                }
-              }); 
-            };
-          //  laut.fm.station("{$lfmstream}").schedule(show_schedule);
-          </script>
         </oop_div>
-        <a href="https://laut.fm/{$lfmstream}" target="_blank" >{$ext_lang["sendeplan_laut"]} </a>
+        
+      </div>
+      <div class="modal-footer">
+      <a href="#" data-bs-toggle="modal" data-bs-target="#currentplaylist_modal" data-bs-dismiss="modal" target="_blank" >Current Show</a> | 
+      <a href="https://laut.fm/{$lfmstream}" target="_blank" >{$ext_lang["sendeplan_laut"]} </a>
+      </div>
+    </div>
+  </div>
+</div>
+HTML;
+
+
+$currentplaylist_modal_code = <<<HTML
+<!---------------------------- SENDEPLAN MODAL -------------------->
+
+<div class="modal fade" id="currentplaylist_modal" tabindex="-1" aria-labelledby="currentplaylist_modal" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen-md-down modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><!-- {$ext_lang["sendeplan_modal_title"]} --> Current Show Name Placeholder</h5>
+        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
+      </div>
+      <div class="modal-header">
+Placeholder
+      </div>
+
+      <div class="modal-body">
+     
+  Work in Progress
+       
+        
+      </div>
+      <div class="modal-footer">
+      <a href="#" data-bs-toggle="modal" data-bs-target="#currentsong_modal" data-bs-dismiss="modal" target="_blank" >Current Song</a>
+      <a href="#" data-bs-toggle="modal" data-bs-target="#lastplayed_modal" data-bs-dismiss="modal" target="_blank" >Trackhistory</a>
+      <a href="#" data-bs-toggle="modal" data-bs-target="#sendeplan_modal" data-bs-dismiss="modal" target="_blank" >Schedule</a>
+      </div>
+    </div>
+  </div>
+</div>
+HTML;
+
+$currentsong_modal_code = <<<HTML
+<!---------------------------- SENDEPLAN MODAL -------------------->
+
+<div class="modal fade" id="currentsong_modal" tabindex="-1" aria-labelledby="currentsong_modal" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen-md-down modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><!-- {$ext_lang["sendeplan_modal_title"]} --> Current Title Name Placeholder</h5>
+        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
+      </div>
+      <div class="modal-header">
+Placeholder
+      </div>
+
+      <div class="modal-body">
+     
+      Work in Progress
+       
+        
+      </div>
+      <div class="modal-footer">
+      <a href="#" data-bs-toggle="modal" data-bs-target="#lastplayed_modal" data-bs-dismiss="modal" target="_blank" >Trackhistory</a>
+      <a href="#" data-bs-toggle="modal" data-bs-target="#currentplaylist_modal" data-bs-dismiss="modal" target="_blank" >Current Show</a>
+      <a href="#" data-bs-toggle="modal" data-bs-target="#sendeplan_modal" data-bs-dismiss="modal" target="_blank" >Schedule</a>
       </div>
     </div>
   </div>
@@ -351,6 +376,9 @@ if ($trackhistory !== false) {
 if ($playwith !== false) {
   echo $playwithmodal_content;
 }
+echo $currentplaylist_modal_code;
+echo $currentsong_modal_code;
+
 
 
 

@@ -52,6 +52,11 @@ echo <<<HTML
     text-overflow: ellipsis;
 }
     </style>
+    <div id="bgscriptcssholder">
+
+</div>
+
+    
 <oop_div id='oolfm_current_song' style='width: 100%;' class='d-flex justify-content-center'>
 <!-- Wenn lfmstream einen Wert hat, wird der Code ausgeführt -->
 HTML;

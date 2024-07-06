@@ -21,6 +21,7 @@ $available_languages = [
     'de' => '<span class="badge bg-danger">DE</span> German / Deutsch', // Der Anzeigetext in der Dropdown-Liste ist "German"
     'fr' => '<span class="badge bg-danger">FR</span> French / Francias',
     'it' => '<span class="badge bg-danger">IT</span> Italian / Italiano',
+    'dk' => '<span class="badge bg-danger">DK</span> Danish / Dansk (Experimental!)',
     'es' => '<span class="badge bg-danger">ES</span> Spanish / Espanol'
 ];
 

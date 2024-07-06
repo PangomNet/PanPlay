@@ -27,7 +27,7 @@ $lang = array(
     //settingspanel oOPlay
     'settingspanel_modal_title' => 'Indstillinger',
     'settingspanel_lang_title' => 'Sprog',
-    'settingspanel_lang_desc' => 'Vælg et andet sprog til brugergrænsefladen. Brugergrænsefladen vælger det viste sprog baseret på URL-parameteren "hl". Hvis denne parameter ikke findes i URL'en, vil den automatisk forsøge at bruge det sprog, der bruges af din browser. Hvis vi ikke leverer grænsefladen på dette sprog, vil siden blive vist på engelsk.',
+    'settingspanel_lang_desc' => 'Vælg et andet sprog til brugergrænsefladen. Brugergrænsefladen vælger det viste sprog baseret på URL-parameteren "hl". Hvis denne parameter ikke findes i URL\'en, vil den automatisk forsøge at bruge det sprog, der bruges af din browser. Hvis vi ikke leverer grænsefladen på dette sprog, vil siden blive vist på engelsk.',
     'settingspanel_lang_ext_desc' => 'Udvidelser fungerer nogle gange uden eller med deres egne sprogfiler og fungerer muligvis ikke på alle sprog.',
 
     //about oOPlay
