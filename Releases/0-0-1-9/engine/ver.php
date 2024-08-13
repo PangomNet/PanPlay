@@ -26,7 +26,8 @@ echo "Version <kbd>" . $pro_version . "</kbd> " . $lang['from_who'] . " " . $pro
         echo "</div></div>";
     }
 
- echo "<br><br><div class='alert bg-danger'>" . $lang['about_prerelease_warning_title'] . " " . $pro_version ."<hr>" . $lang['about_prerelease_warning_p1'] . " '". $pro_name. "' " . $lang['about_prerelease_warning_p2'] . "</div>"; 
+
+// echo "<br><br><div class='alert bg-danger'>" . $lang['about_prerelease_warning_title'] . " " . $pro_version ."<hr>" . $lang['about_prerelease_warning_p1'] . " '". $pro_name. "' " . $lang['about_prerelease_warning_p2'] . "</div>"; 
  
  
 echo "<br>" . $lang['about_documentation_p1'] . " <a target='_blank' href='https://oop.ownonline.eu/?ver=" . $pro_version ."'>" . $lang['about_documentation_p2'] . "</a>" . $lang['about_documentation_p3'] . "</small>";
