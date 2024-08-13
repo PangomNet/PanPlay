@@ -138,7 +138,7 @@ HTML;
 
 $stationinfomodal_code = <<<HTML
 <div class="modal fade" id="stationinfo_modal" tabindex="-1" aria-labelledby="stationinfo_modal" aria-hidden="true">
-    <div class="modal-dialog modal-fullscreen-md-down modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-dialog modal-fullscreen-md-down modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="aboutModaltitleLabel"><i class="fa-solid fa-radio"></i> $lfmstream</h5>
@@ -150,31 +150,33 @@ $stationinfomodal_code = <<<HTML
 
 </div>
 <br>
-<div id="api_lfm_format">Loading...</div>
-<div class='' id="api_lfm_description">Loading...</div><br>
-<div id="api_lfm_djs">Loading...</div>
-<div id="api_lfm_genres">Loading...</div>
-<div id="api_lfm_top_artists">Loading...</div>
-<div id="api_lfm_location">Loading...</div>
+<div id="api_lfm_format" style="text-align: center;"></div>
+<div class='' id="api_lfm_description" style="text-align: center;"></div><br>
+<div id="api_lfm_djs" style="text-align: center;"></div>
+<div id="api_lfm_genres" style="text-align: center;"></div>
+<div id="api_lfm_top_artists" style="text-align: center;"></div>
+<div id="api_lfm_location" style="text-align: center;"></div>
 <br>
 <style>
 #oolfm_station_url, #oolfm_station_x_url, #api_lfm_website_link, #oolfm_station_fb_url, #oolfm_station_insta_url, #api_lfm_twitter_link, #api_lfm_facebook_link, #api_lfm_instagram_link {
-display: inline-block;
+  display: inline-block;
 }
 </style>
-<div id="oolfm_station_url">
-<div id="api_lfm_website_link"></div>
+<div style="text-align: center;" >
+<div id="oolfm_station_url" style="text-align: center;">
+<div id="api_lfm_website_link" style="text-align: center;"></div>
 </div>
-<div id="oolfm_station_x_url">
-<div id="api_lfm_twitter_link"></div>
-</div>
-
-<div id="oolfm_station_fb_url">
-<div id="api_lfm_facebook_link"></div>
+<div id="oolfm_station_x_url" style="text-align: center;">
+<div id="api_lfm_twitter_link" style="text-align: center;"></div>
 </div>
 
-<div id="oolfm_station_insta_url">
-<div id="api_lfm_instagram_link"></div>
+<div id="oolfm_station_fb_url" style="text-align: center;">
+<div id="api_lfm_facebook_link" style="text-align: center;"></div>
+</div>
+
+<div id="oolfm_station_insta_url" style="text-align: center;">
+<div id="api_lfm_instagram_link" style="text-align: center; "></div>
+</div>
 </div>
 
             </div>
@@ -207,7 +209,7 @@ $lastplayed_modal_code = <<<HTML
       </div>
       <div class="modal-footer">
       <a href="#" data-bs-toggle="modal" data-bs-target="#currentsong_modal" data-bs-dismiss="modal" target="_blank" >Current Song</a>
-      <a href="#" data-bs-toggle="modal" data-bs-target="#currentplaylist_modal" data-bs-dismiss="modal" target="_blank" >Current Show</a>
+      <!--<a href="#" data-bs-toggle="modal" data-bs-target="#currentplaylist_modal" data-bs-dismiss="modal" target="_blank" >Current Show</a> -->
       </div>
     </div>
   </div>
@@ -292,7 +294,7 @@ $sendeplan_modal_code = <<<HTML
         
       </div>
       <div class="modal-footer">
-      <a href="#" data-bs-toggle="modal" data-bs-target="#currentplaylist_modal" data-bs-dismiss="modal" target="_blank" >Current Show</a> | 
+      <!-- <a href="#" data-bs-toggle="modal" data-bs-target="#currentplaylist_modal" data-bs-dismiss="modal" target="_blank" >Current Show</a> | -->
       <a href="https://laut.fm/{$lfmstream}" target="_blank" >{$ext_lang["sendeplan_laut"]} </a>
       </div>
     </div>
@@ -301,59 +303,70 @@ $sendeplan_modal_code = <<<HTML
 HTML;
 
 
-$currentplaylist_modal_code = <<<HTML
-<!---------------------------- SENDEPLAN MODAL -------------------->
+// $currentplaylist_modal_code = <<<HTML;
+// ----------------------------- SENDEPLAN MODAL -------------------->
 
-<div class="modal fade" id="currentplaylist_modal" tabindex="-1" aria-labelledby="currentplaylist_modal" aria-hidden="true">
-  <div class="modal-dialog modal-fullscreen-md-down modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><!-- {$ext_lang["sendeplan_modal_title"]} --> Current Show Name Placeholder</h5>
-        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
-      </div>
-      <div class="modal-header">
-Placeholder
-      </div>
-
-      <div class="modal-body">
-     
-  Work in Progress
+//<div class="modal fade" id="currentplaylist_modal" tabindex="-1" aria-labelledby="currentplaylist_modal" aria-hidden="true">
+//  <div class="modal-dialog modal-fullscreen-md-down modal-dialog-centered modal-dialog-scrollable">
+//    <div class="modal-content">
+//      <div class="modal-header">
+//        <h5 class="modal-title" id="currentplaylist_modal_title_lbl"></h5>
+//        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
+//      </div>
+//      <div class="modal-header">
+//Placeholder
+ //     </div>
+//
+ //     <div class="modal-body">
+ //    
+ // Work in Progress
        
         
-      </div>
-      <div class="modal-footer">
-      <a href="#" data-bs-toggle="modal" data-bs-target="#currentsong_modal" data-bs-dismiss="modal" target="_blank" >Current Song</a>
-      <a href="#" data-bs-toggle="modal" data-bs-target="#lastplayed_modal" data-bs-dismiss="modal" target="_blank" >Trackhistory</a>
-      <a href="#" data-bs-toggle="modal" data-bs-target="#sendeplan_modal" data-bs-dismiss="modal" target="_blank" >Schedule</a>
-      </div>
-    </div>
-  </div>
-</div>
-HTML;
+ //     </div>
+  //    <div class="modal-footer">
+  //    <a href="#" data-bs-toggle="modal" data-bs-target="#currentsong_modal" data-bs-dismiss="modal" target="_blank" >Current Song</a>
+ //     <a href="#" data-bs-toggle="modal" data-bs-target="#lastplayed_modal" data-bs-dismiss="modal" target="_blank" >Trackhistory</a>
+ //     <a href="#" data-bs-toggle="modal" data-bs-target="#sendeplan_modal" data-bs-dismiss="modal" target="_blank" >Schedule</a>
+ //     </div>
+  //  </div>
+  //</div>
+//</div>
+//HTML; 
 
 $currentsong_modal_code = <<<HTML
-<!---------------------------- SENDEPLAN MODAL -------------------->
+<!---------------------------- CURRENTSONG MODAL -------------------->
 
 <div class="modal fade" id="currentsong_modal" tabindex="-1" aria-labelledby="currentsong_modal" aria-hidden="true">
   <div class="modal-dialog modal-fullscreen-md-down modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><!-- {$ext_lang["sendeplan_modal_title"]} --> Current Title Name Placeholder</h5>
+        <h5 class="modal-title" id="currentsongModalLabel"><span id="currentsong_modal_title"></span></h5>
         <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
       </div>
-      <div class="modal-header">
-Placeholder
-      </div>
-
-      <div class="modal-body">
+      
      
-      Work in Progress
-       
-        
+
+      <div class="modal-body"  style="padding: 0px;">
+     
+     <div class="container" style="padding-top: 10px; padding-bottom: 10px;">
+     <div id="current_song_modal_songcovercontainer" class="float-end" style="padding: 0px;">
+      </div>
+      <h2><span id="currentsong_modal_titel_lbl"></span></h2>
+      <h4><span id="currentsong_modal_interpret_lbl"></span></h4>
+      <span id="currentsong_modal_album_lbl"></span>
+      <span id="currentsong_modal_length_lbl"></span>
+      <!-- <span id="currentsong_modal_genre_lbl">currentsong_modal_genre_lbl</span>
+      <span id="currentsong_modal_releasyear_lbl">currentsong_modal_releasyear_lbl</span>
+      <span id="currentsong_modal_artist_url_lbl">currentsong_modal_artist_url_lbl</span>
+      <span id="currentsong_modal_artistat_applemusic_lbl">currentsong_modal_artistat_allmusic_lbl</span>
+      <span id="currentsong_modal_artistat_amazon_lbl">currentsong_modal_artistat_amazon_lbl</span>
+      <span id="currentsong_modal_artistat_spotify_lbl">currentsong_modal_artistat_spotify_lbl</span>
+      <span id="currentsong_modal_artistat_applemusic_lbl">currentsong_modal_artistat_applemusic_lbl</span> -->
+    </div>
       </div>
       <div class="modal-footer">
       <a href="#" data-bs-toggle="modal" data-bs-target="#lastplayed_modal" data-bs-dismiss="modal" target="_blank" >Trackhistory</a>
-      <a href="#" data-bs-toggle="modal" data-bs-target="#currentplaylist_modal" data-bs-dismiss="modal" target="_blank" >Current Show</a>
+      <!--<a href="#" data-bs-toggle="modal" data-bs-target="#currentplaylist_modal" data-bs-dismiss="modal" target="_blank" >Current Show</a>-->
       <a href="#" data-bs-toggle="modal" data-bs-target="#sendeplan_modal" data-bs-dismiss="modal" target="_blank" >Schedule</a>
       </div>
     </div>
@@ -376,7 +389,7 @@ if ($trackhistory !== false) {
 if ($playwith !== false) {
   echo $playwithmodal_content;
 }
-echo $currentplaylist_modal_code;
+//echo $currentplaylist_modal_code;
 echo $currentsong_modal_code;
 
 

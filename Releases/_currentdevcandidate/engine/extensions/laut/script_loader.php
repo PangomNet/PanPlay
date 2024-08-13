@@ -151,15 +151,15 @@ if (stationData.third_parties.instagram && stationData.third_parties.instagram.n
     if (!domain) {
     updateElementById('api_lfm_website_link', '');
     if (typeof station_image_about___nolink !== 'undefined') {
-        var station_image_about___nolink = "<img id ='current_station_img_about' class='rounded' alt='" + stationData.display_name + "' src='" + stationData.images.station + "' width='70%' max-width='350px'>";
+        var station_image_about___nolink = "<img id ='current_station_img_about' class='rounded' alt='" + stationData.display_name + "' src='" + stationData.images.station + "' style='width: 70%; max-width: 320px;'>";
         updateElementById('stationlogoholder', station_image_about___nolink);
     } else {
-        var station_image_about___nolink = "<img id ='current_station_img_about' class='rounded' alt='" + stationData.display_name + "' src='" + stationData.images.station + "' width='70%' max-width='350px'>";
+        var station_image_about___nolink = "<img id ='current_station_img_about' class='rounded' alt='" + stationData.display_name + "' src='" + stationData.images.station + "' style='width: 70%; max-width: 320px;'>";
         updateElementById('stationlogoholder', station_image_about___nolink);
         //console.warn('station_image_about___nolink is undefined');
     }
 } else {
-    var station_image_about = "<a target='_blank' href='" + stationData.third_parties.website.url + "' alt ='" + stationData.display_name + "'><img id ='current_station_img_about' class='rounded' alt='" + stationData.display_name + "' src='" + stationData.images.station + "' width='70%' max-width='350px'></a>";
+    var station_image_about = "<a target='_blank' href='" + stationData.third_parties.website.url + "' alt ='" + stationData.display_name + "'><img id ='current_station_img_about' class='rounded' alt='" + stationData.display_name + "' src='" + stationData.images.station + "' style='width: 70%; max-width: 320px;'></a>";
     updateElementById('api_lfm_website_link', domain);
     if (typeof station_image_about !== 'undefined') {
         updateElementById('stationlogoholder', station_image_about);
@@ -191,7 +191,8 @@ for (let i = 0; i < station_top_artists_raw.length; i++) {
 
 var station_location = '<a style="text-decoration: none;" target="_blank" href="' + 'https://www.google.com/maps/search/?api=1&query=' + stationData.lat + ',' + stationData.lng + '" class=" badge rounded-pill bg-primary text-dark btn-link"><i class="fas fa-map-marker"></i> &nbsp;' + stationData.location + '</a>'
 
-
+console.log(stationData.current_playlist.name);
+var currentPlaylist = stationData.current_playlist.name;
 
   updateElementById('api_lfm_description', description);
   updateElementById('api_lfm_display_name', display_name);
@@ -208,7 +209,7 @@ var station_location = '<a style="text-decoration: none;" target="_blank" href="
   // updateElementById('triggerhappy', station_image_navbar);
 
   
-  //updateElementById('api_lfm_current_playlists', currentPlaylist);
+updateElementById('api_lfm_current_playlists', currentPlaylist);
 };
 laut.fm.station('$lfmstream').info(data, true);
 
@@ -225,6 +226,11 @@ var historyData = function(lastSongs) {
   var currentSong_title = lastSongs[0].title;
   var currentSong_artist = lastSongs[0].artist.name;
   var currentSong_album = lastSongs[0].album;
+  var currentSong_genre = lastSongs[0].genre;
+  var currentSong_length_raw = lastSongs[0].length;
+        var minutes = Math.floor(currentSong_length_raw / 60);
+        var seconds = currentSong_length_raw % 60;
+        var currentSong_length = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
   var currentSong_image = lastSongs[0].artist.image;
   var currentSong_background = lastSongs[0].artist.image;
   var currentSong_thumb = lastSongs[0].artist.thumb;
@@ -255,6 +261,21 @@ currentAlbumTitle = lastSongs[0].album;
     var template_currentsong_lastplayed_modal_lbl_holder = "<a target=\"_blank\" href=\"https://www.allmusic.com/search/songs/"+ currentSong_artist + " - " + currentSong_title + "\" style=\"background-color: #48527f;\" class=\"list-group-item list-group-item-action \"><b><div class=\"d-flex w-100\"><small class=\"text-light\" style=\"margin-right: 10px;\" ><span class=\"badge bg-danger\">LIVE</span></small><p class=\"mb-1\"> <i class=\"fas fa-music\"></i>  " + currentSong_artist + " - " + currentSong_title + "</p></div></b></a>";
 }
 
+if (currentSong_album) {
+    // Mache etwas mit currentSong_album
+    var current_song_modal_album = "💿 <b>" + currentSong_album + "</b>"; //currentalbum_lbl;
+} else {
+    // Mache etwas, wenn currentSong_album keinen gültigen Wert hat
+    var current_song_modal_album = "";
+}
+
+if (currentSong_genre) {
+    // Mache etwas mit currentSong_album
+    var current_song_modal_genre = "💿 <b>" + currentSong_genre +  "</b>"; //currentalbum_lbl;
+} else {
+    // Mache etwas, wenn currentSong_album keinen gültigen Wert hat
+    var current_song_modal_genre = "";
+}
 
 
 
@@ -266,11 +287,14 @@ if (currentSong_image) {
     var currentAlbumArtUrl = currentSong_image;
     var lfm_images_bg = currentSong_background;
     var alt_txt = currentSong;
+    var current_song_modal_img = lfm_images
+
 } else {
     var lfm_images = "https://api.laut.fm/station/{$lfmstream}/images/station";
     var currentAlbumArtUrl = "https://api.laut.fm/station/{$lfmstream}/images/station";
     var lfm_images_bg = "engine/extensions/laut/lautbg.png";
     var alt_txt = currentSong;
+    var current_song_modal_img = "rscs/imglibs/misc/music/audionote.png"
 }
 
 if (currentSong_image) {
@@ -281,7 +305,8 @@ if (currentSong_image) {
 console.log('Aktuelle Albumkunst URL:', currentAlbumArtUrl);
 
 
-var songcover_template = "<img id='songcover' class='mx-auto d-block img-fluid' src='" + lfm_images + "' style='width: 30em; max-width: 55%; max-height: 65%; min-width: 70px; min-height: 70px; height: auto; cursor: hand;' alt='" + alt_txt + "'>";
+var songcover_template = "<img id='songcover' class='mx-auto d-block img-fluid' src='" + lfm_images + "' style='width: 30em; max-width: 40%; max-height: 65%; min-width: 70px; min-height: 70px; height: auto; cursor: hand;' alt='" + alt_txt + "'>";
+var current_song_modal_img_html = "<img id='songcover' class='mx-auto d-block img-fluid' src='" + current_song_modal_img + "' style='width: 100%; max-width: 512px; max-height: 512px; min-width: 48px; min-height: 48px; height: auto; cursor: hand;' alt='" + alt_txt + "'>";
 var bg_template = lfm_images_bg;
 var bg_template_css = "<style>body{ background-image: url('" + bg_template + "') !important;</style>";
 
@@ -314,21 +339,42 @@ try {
 
 
 
+
 updateElementById('api_lfm_current_song_live_img', songcover_template);
+updateElementById('current_song_modal_songcovercontainer', songcover_template);
 updateElementById('bgscriptcssholder', bg_template_css);
 updateElementById('api_lfm_current_song3', template_currentsong_lbl_holder);
+updateElementById('currentsong_modal_title', currentSong);
+updateElementById('currentsong_modal_titel_lbl', currentSongTitle);
+updateElementById('currentsong_modal_interpret_lbl', currentSong_artist);
 updateElementById('currentsong_lastplayed_modal_lbl_holder', template_currentsong_lastplayed_modal_lbl_holder);
-//updateElementById('api_lfm_current_song3', template_currentsong_currentsong_modal_lbl_holder);
 updateElementById('api_lfm_last_x_songs_spezial', trackHistory);
+updateElementById('currentsong_modal_album_lbl', current_song_modal_album);
+updateElementById('currentsong_modal_length_lbl', "🕖 " + currentSong_length);
+
+//updateElementById('currentplaylist_modal_title_lbl', currentPlaylist);
+
 };
 
 
 
 
-
+updateElementById('api_lfm_song_live', "<span class='badge bg-danger text-white' data-bs-toggle='modal' data-bs-target='#sendeplan_modal'><i class='fas fa-info-circle'></i> LIVE</span>");
 
 laut.fm.station('$lfmstream').last_songs(historyData, true);
 
+var livedata;
+laut.fm.station('$lfmstream').current_song(function(response) {
+    livedata = response;
+
+    // Überprüfen, ob livedata und livedata.live existieren und true ist
+    if (livedata && livedata.live === true) {
+        updateElementById('api_lfm_song_live', "<span class='badge bg-danger text-white' data-bs-toggle='modal' data-bs-target='#sendeplan_modal'><i class='fas fa-info-circle'></i> LIVE</span>");
+    } else {
+        // Optional: Falls die Node nicht existiert oder live nicht true ist, Element leeren
+        updateElementById('api_lfm_song_live', '');
+    }
+}, true);
 
 
 
