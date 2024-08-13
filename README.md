@@ -17,10 +17,10 @@ The current "stable" alpha version of oOPlay is [Version 0.0.1.8 (Hyacinth)](htt
 - You can find a changelog [here](https://github.com/ownOnline/oOPlay/blob/065ea9f68551419231a1514573b8f085f50fab31/Releases/0-0-1-8/changelog.txt)
 
 ### Last pre-release:
-The last published test release is [Version 0.0.1.7 Gardenia](https://github.com/ownOnline/oOPlay/releases/tag/v0.0.1.7)
+The last published test release is [Version 0.0.1.9 Iris](https://github.com/ownOnline/oOPlay/releases/tag/v0.0.1.9)
 
 #### Currently under development:
-Currently under development is version 0.0.1.9 Iris. See the development progress [here](https://github.com/ownOnline/oOPlay/tree/main/Releases/_currentdevcandidate)).
+Currently under development is version 0.0.2.0 Acanthus. See the development progress [here](https://github.com/ownOnline/oOPlay/tree/main/Releases/_currentdevcandidate)).
 
 #### Older versions:
 You don't like a new feature of oOPlay? Or an update has led to a major bug for you. Too bad :) Let us know about this in any case! But luckily for you: Every version marked as "stable" in the release posting is available for you to use on our CDN for at least 12 months after release. Or here on GitHub (to download and host)
@@ -32,4 +32,5 @@ Currently available Languages:
 - Deutsch / German - OK
 - Englisch / English - OK
 - Italian / Italiano - Meh, but works. Help if you can 🤤
+- Danish / Dansk - by delimedia, currently experimental, will be fully available in next Release (Acanthus)
 If you have interest in Tranbslating to your Language feel free make an Issue mention this.
