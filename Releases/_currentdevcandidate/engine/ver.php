@@ -1,6 +1,6 @@
 <?php 
 $pro_name = 'oOPlay';
-$pro_version = '0.0.1.20';
+$pro_version = '0.0.1.10';
 $pro_version_name = 'Acanthus';
 $pro_license = 'MIT-License';
 $pro_license_url = 'https://www.tldrlegal.com/license/mit-license';
