@@ -14,6 +14,7 @@ $lang = array(
     'from_who' => 'vom',
     'about' => 'Über',
     'close' => 'Schließen',
+    'uhr' => 'Uhr',
     
     //centralerrorlog
     'centralerrorlog_error_occured' => 'Beispiel Fehlermeldung beim Laden der Seite.',

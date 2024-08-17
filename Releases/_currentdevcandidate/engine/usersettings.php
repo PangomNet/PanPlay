@@ -21,8 +21,10 @@ $available_languages = [
     'de' => '<span class="badge bg-danger">DE</span> German / Deutsch', // Der Anzeigetext in der Dropdown-Liste ist "German"
     'fr' => '<span class="badge bg-danger">FR</span> French / Francias',
     'it' => '<span class="badge bg-danger">IT</span> Italian / Italiano',
-    'dk' => '<span class="badge bg-danger">DK</span> Danish / Dansk (Experimental!)',
-    'es' => '<span class="badge bg-danger">ES</span> Spanish / Espanol'
+    'da' => '<span class="badge bg-danger">DA</span> Danish / Dansk <i></i>',
+    'es' => '<span class="badge bg-danger">ES</span> Spanish / Espanol',
+    'nl' => '<span class="badge bg-danger">NL</span> Dutch / Nederlandse',
+    'zh-hans' => '<span class="badge bg-danger">ZH-HANS</span> Chinese (simplified) / 中文',
 ];
 
 // Filtern Sie verfügbare Sprachen basierend auf vorhandenen Sprachdateien

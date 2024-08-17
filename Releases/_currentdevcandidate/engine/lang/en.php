@@ -14,6 +14,7 @@ $lang = array(
     'from_who' => 'from',
     'about' => 'About',
     'close' => 'Close',
+    'uhr' => 'o&grave;clock',
 
     //centralerrorlog
     'centralerrorlog_error_occured' => 'Sample error message while loading the page.',

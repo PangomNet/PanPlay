@@ -14,6 +14,7 @@ $lang = array(
     'from_who' => 'da chi',
     'about' => 'Informazioni',
     'close' => 'Chiudi',
+    'uhr' => '&nbsp;',
 
     //centralerrorlog
     'centralerrorlog_error_occured' => 'Messaggio di errore di esempio durante il caricamento della pagina.',

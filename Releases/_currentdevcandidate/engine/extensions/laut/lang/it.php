@@ -16,6 +16,7 @@ $ext_lang = array(
     'trackhistory_modal_title' => 'Cronologia brani',
     'current_song' => 'Brano attualmente in riproduzione:',
     'last_songs' => 'Brani precedentemente riprodotti:',
+    'current_song_modallink' => 'Now playing',
 
     //sendeplan modal
     'sendeplan_modal_title' => 'Programma delle trasmissioni',

@@ -7,13 +7,14 @@ $lang = array(
     'select_language' => 'Vælg et sprog:',
     'remember_language' => 'Husk dette sprog',
     'apply' => 'Ansøge',
-    'current_language' => 'Nuværende sprog: <span class="badge bg-danger">DK</span> Dansk',
+    'current_language' => 'Nuværende sprog: <span class="badge bg-danger">DA</span> Dansk',
 
     //basic-words
     'from' => 'fra',
     'from_who' => 'fra hvem',
     'about' => 'Over',
     'close' => 'Luk',
+    'uhr' => '&nbsp;',
     
     //centralerrorlog
     'centralerrorlog_error_occured' => 'Eksempel på fejlmeddelelse ved indlæsning af siden.',

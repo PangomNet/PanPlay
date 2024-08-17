@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 $extension_active = true;
 $playermode = 'laut';
 $extlangpath = 'engine/extensions/' . $playermode . '/lang/' . $language . '.php';

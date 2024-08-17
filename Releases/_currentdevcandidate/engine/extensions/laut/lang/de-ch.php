@@ -16,6 +16,7 @@ $ext_lang = array(
     'trackhistory_modal_title' => 'Titelhistorie',
     'current_song' => 'Aktuell läuft:',
     'last_songs' => 'Davor lief:',
+    'current_song_modallink' => 'Aktuelle Wiedergabe',
 
     //sendeplan modal
     'sendeplan_modal_title' => 'Sendeplan',

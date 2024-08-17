@@ -208,8 +208,9 @@ $lastplayed_modal_code = <<<HTML
         </oop_div>
       </div>
       <div class="modal-footer">
-      <a href="#" data-bs-toggle="modal" data-bs-target="#currentsong_modal" data-bs-dismiss="modal" target="_blank" >Current Song</a>
+      <a href="#" data-bs-toggle="modal" data-bs-target="#currentsong_modal" data-bs-dismiss="modal" target="_blank" >{$ext_lang["current_song_modallink"]}</a> |
       <!--<a href="#" data-bs-toggle="modal" data-bs-target="#currentplaylist_modal" data-bs-dismiss="modal" target="_blank" >Current Show</a> -->
+      <a href="#" data-bs-toggle="modal" data-bs-target="#sendeplan_modal" data-bs-dismiss="modal" target="_blank" >{$ext_lang["sendeplan_modal_title"]}</a>
       </div>
     </div>
   </div>
@@ -294,8 +295,11 @@ $sendeplan_modal_code = <<<HTML
         
       </div>
       <div class="modal-footer">
-      <!-- <a href="#" data-bs-toggle="modal" data-bs-target="#currentplaylist_modal" data-bs-dismiss="modal" target="_blank" >Current Show</a> | -->
+      <a href="#" data-bs-toggle="modal" data-bs-target="#lastplayed_modal" data-bs-dismiss="modal" target="_blank" >{$ext_lang["trackhistory_navbar_title"]}</a> |
+      <!--<a href="#" data-bs-toggle="modal" data-bs-target="#currentplaylist_modal" data-bs-dismiss="modal" target="_blank" >Current Show</a>-->
+      <a href="#" data-bs-toggle="modal" data-bs-target="#currentsong_modal" data-bs-dismiss="modal" target="_blank" >{$ext_lang["current_song_modallink"]}</a> | 
       <a href="https://laut.fm/{$lfmstream}" target="_blank" >{$ext_lang["sendeplan_laut"]} </a>
+      
       </div>
     </div>
   </div>
@@ -365,9 +369,9 @@ $currentsong_modal_code = <<<HTML
     </div>
       </div>
       <div class="modal-footer">
-      <a href="#" data-bs-toggle="modal" data-bs-target="#lastplayed_modal" data-bs-dismiss="modal" target="_blank" >Trackhistory</a>
+      <a href="#" data-bs-toggle="modal" data-bs-target="#lastplayed_modal" data-bs-dismiss="modal" target="_blank" >{$ext_lang["trackhistory_navbar_title"]}</a> |
       <!--<a href="#" data-bs-toggle="modal" data-bs-target="#currentplaylist_modal" data-bs-dismiss="modal" target="_blank" >Current Show</a>-->
-      <a href="#" data-bs-toggle="modal" data-bs-target="#sendeplan_modal" data-bs-dismiss="modal" target="_blank" >Schedule</a>
+      <a href="#" data-bs-toggle="modal" data-bs-target="#sendeplan_modal" data-bs-dismiss="modal" target="_blank" >{$ext_lang["sendeplan_modal_title"]}</a>
       </div>
     </div>
   </div>

@@ -468,7 +468,7 @@ heading.textContent += ' ({$ext_lang["today"]})';
               Array.prototype.slice.call(schedule).forEach(function(schedule_entry) {
                 var start_time = schedule_entry.hour;
                 if (start_time < 10) { start_time = "0" + start_time; }
-                start_time = start_time + ":00 Uhr";
+                start_time = start_time + ":00  {$lang['uhr']}";
                 days_buffer[schedule_entry.day].push("<a href=\"#\" style=\"background-color: transparent;\" class=\"list-group-item list-group-item-action \"><div class=\"d-flex w-100 justify-content-between\"><p class=\"mb-1\"><span style=\"font-size: 1em; color:" + schedule_entry.color + ";\">■</span> " + schedule_entry.name + "</p><small class=\"text-light\">" + start_time + "</small></div></a>");
                // here with description for all shows days_buffer[schedule_entry.day].push("<a href=\"#\" class=\"list-group-item list-group-item-action bg-dark\"><div class=\"d-flex w-100 justify-content-between\"><h5 class=\"mb-1\">" + schedule_entry.name + "</h5><small class=\"text-muted\">" + start_time + "</small></div><p class=\"mb-1\">" + schedule_entry.description + "</p></a>");
               });

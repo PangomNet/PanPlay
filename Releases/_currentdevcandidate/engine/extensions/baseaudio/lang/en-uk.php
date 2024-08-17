@@ -1,14 +1,14 @@
 <?php
 $ext_lang = array(
 //basic
-    'lng_title' => 'English',
+    'lng_title' => 'English (United Kingdom)',
     'extension_title' => 'Laut.fm extension for oOPlay',
     'extension_credits' => 'Laut.fm extension for oOPlay',
     'extension_credits_link' => 'https://laut.fm/?from=oOP-Extension',
 
     //Topnavbar Linktitel
     'trackhistory_navbar_title' => 'Track history',
-    'stationinfo_navbar_title' => ' About ',
+    'stationinfo_navbar_title' => ' About File',
     'sendeplan_navbar_title' => 'Broadcast schedule',
     'playwith_navbar_title' => 'Switch player',
 
@@ -16,7 +16,6 @@ $ext_lang = array(
     'trackhistory_modal_title' => 'Track history',
     'current_song' => 'Currently playing:',
     'last_songs' => 'Previously played:',
-    'current_song_modallink' => 'Now playing',
 
     //sendeplan modal
     'sendeplan_modal_title' => 'Broadcast schedule',
@@ -39,14 +38,15 @@ $ext_lang = array(
     'sendeplan_laut' => 'Full broadcast schedule on laut.fm',
 
     //Stationinfo modal
-    'stationinfo_modal_title' => 'About ',
+    'stationinfo_modal_title' => 'About File',
+    'stationinfo_modal_topdesc' => 'Further details about the file cannot be found at the moment. You will have to wait for the ongoing development of oOPlay for this. Reading from files is planned for the future. But it has not yet been implemented',
 
     //playwith modal
     'playwith_modal_title' => 'Switch Player',
     'playwith_modal_topdesc' => 'You can open this stream in other applications or external playback devices. To do this, select the appropriate playback option.',
     'playwith_modal_gcast_topdesc1' => 'Cast  "',
     'playwith_modal_gcast_topdesc2' => '" to a device that supports Chromecast or casting from Google. To do this, click on the Google Cast icon at the bottom right of the main screen (<i class=“fab fa-chromecast”></i>)**',
-    'directstreamtobrowserdropdown' => 'Open stream URL',
+    'directstreamtobrowserdropdown' => 'Open stream URL / Download stream',
     'directstreamtobrowserdropdown_option1' => '<span class="badge bg-dark">m3u</span>-Stream',
     'directstreamtobrowserdropdown_option2' => '<span class="badge bg-dark">pls</span>-Stream',
     'playwith_modal_bottomnote' => '* If you are using an application of the selected service on your phone (e.g. laut.fm app on Android), this app could intercept the navigation to this Service. The stream will then be opened directly in the corresponding app.',
@@ -55,7 +55,7 @@ $ext_lang = array(
 
     //net error modal
     'neterr_modal_title' => 'Playback Error',
-    'neterr_desc_net_thinking' => 'Something is wrong. Analyze Data!',
+    'neterr_desc_net_thinking' => 'Something is wrong. Analyzing Data!',
     'neterr_desc_net_okay1' => '<b>✔ Connection is fine</b><hr> All necessary servers for playback are reachable. <hr><i>This could mean that your connection was temporarily interrupted, and that is why you are seeing this window. Is the playback running again? To ensure that ',
     'neterr_desc_net_okay2' => ' is broadcasting, you can also check their Laut.fm presence',
     'neterr_desc_net_okay3' => 'Check',
