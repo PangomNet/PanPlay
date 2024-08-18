@@ -32,6 +32,7 @@
 <link rel="stylesheet" href="engine/style/styles.css">
 <link rel="stylesheet" href="engine/style/conveyor.css">
 <link rel="stylesheet" href="engine/style/loader.min.css">
+<link rel="stylesheet" href="engine/style/animate.min.css">
 
 <meta property="og:site_name" content="oOPlay von OwnOnline" />
 <meta property="og:image" content="rscs/favicons/apple-touch-icon.png" />
