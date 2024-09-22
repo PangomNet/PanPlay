@@ -40,7 +40,7 @@
           <li><a class='nav-link' data-bs-toggle="modal" data-bs-target="#settings_oop_modal" href="#"><i class="fas fa-cog"></i></a></li>
           </li> 
           <li class='nav-item'>
-          <li><a class='nav-link' data-bs-toggle="modal" data-bs-target="#about_oop_modal" href="#"><span class="badge bg-dark text-light"><!--<i class="fas fa-music"></i>--> 🎶 oO<span class="text-danger">Play</span></span></a></li>
+          <li><a class='nav-link' data-bs-toggle="modal" data-bs-target="#about_oop_modal" href="#"><span class="pangomfont  badge bg-dark text-light"><!--<i class="fas fa-music"></i>--> 🎶 Pan<span class="pangomfont text-danger">Play</span></span></a></li>
           </li> 
         </ul>
     </div>

@@ -1,9 +1,14 @@
-0.0.1.10 Acanthus  (TESTRELEASE)
+0.0.2.0 Barberry:
+-   Inplementation of Pangom-CI-Font (Rondalo) 
+-   Renaming from oOPlay to PanPlay because of Webspace Renaming has taken place in this Version.
+-   Small Layout-Changes in the About-Player-Window
+
+0.0.1.10 Acanthus  (TESTRELEASE) (Not published on GitHub Because if Renaming-Problemns of ownOnline, mor detaiuls see https://ownonline.eu/en/2024/09/08/1326/) 
 -  Language support:
 -- Danish now stably integrated as a language and available in all extensions
 -- Spanish now integrated as a language and available in all extensions. (Spain is standard version and selectable in the settings menu, language versions for Spanish Latin America (ES-LA), Mexico (ES-MX) & Argentina (ES-AR) are only used by browser setting or via the parameter &hl=).
 -- Dutch now integrated as a language and available in all extensions. (Dutch is standard version and selectable in the settings menu, language version for Belgian Dutch (NL-BE) is only used by browser setting or via the parameter &hl=).
--- Chinese (simplified) now integrated as a language and available in all extensions. (the automatic detection of the browser language may currently only work if the browser is set to simplified Chinese. Normal Chinese is not yet available in the language system of the player, simplified Chinese loads instead. 
+-- Chinese (simplified) now integrated as a language and available in all extensions. (the automatic detection of the browser language may currently only work if the browser is set to simplified Chinese. Normal Chinese is not yet available in the language system of the player, simplified Chinese loads instead.
 
 0.0.1.9 Iris  (TESTRELEASE)
 -	Implementation of the new LAUT.FM-API routine to reduce network traffic (first attempt) only the most basic information was read in. Old API calls are no longer functional. 0.0.1.9 Iris will be a pure technical test release and is like all other test releases - but this one in particular - unstable (in laut.fm mode) and not suitable for productive use. Thanks to Paeddy for providing code examples that are used to rebuild the API calls.
