@@ -2,9 +2,9 @@
 $ext_lang = array(
 //basic
 'lng_title' => 'Français',
-'extension_title' => 'Extension Laut.fm pour oOPlay',
-'extension_credits' => 'Extension Laut.fm pour oOPlay',
-'extension_credits_link' => 'https://laut.fm/?from=oOP-Extension',
+'extension_title' => 'Extension Laut.fm pour PanPlay',
+'extension_credits' => 'Extension Laut.fm pour PanPlay',
+'extension_credits_link' => 'https://laut.fm/?from=PanPlay-Extension',
 
 //Topnavbar Linktitel
 'trackhistory_navbar_title' => 'Historique des titres',
@@ -40,7 +40,7 @@ $ext_lang = array(
 
 //Stationinfo modal
 'stationinfo_modal_title' => 'Informations sur le fichier',
-'stationinfo_modal_topdesc' => 'Détails supplémentaires sur le fichier ne sont actuellement pas disponibles. Vous devez attendre le progrès du développement de oOPlay. À l’avenir, la lecture des fichiers est prévue. Mais cela n’a pas encore été mis en œuvre.',
+'stationinfo_modal_topdesc' => 'Détails supplémentaires sur le fichier ne sont actuellement pas disponibles. Vous devez attendre le progrès du développement de PanPlay. À l’avenir, la lecture des fichiers est prévue. Mais cela n’a pas encore été mis en œuvre.',
 
 //playwith modal
 'playwith_modal_title' => 'Changer de lecteur',

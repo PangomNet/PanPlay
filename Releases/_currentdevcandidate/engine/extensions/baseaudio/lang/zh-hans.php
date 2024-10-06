@@ -3,9 +3,9 @@ $ext_lang = array(
 
    //basic
    'lng_title' => '德语',
-   'extension_title' => 'Laut.fm 扩展插件 for oOPlay',
-   'extension_credits' => 'Laut.fm 扩展插件 for oOPlay',
-   'extension_credits_link' => 'https://laut.fm/?from=oOP-Extension',
+   'extension_title' => 'Laut.fm 扩展插件 for PanPlay',
+   'extension_credits' => 'Laut.fm 扩展插件 for PanPlay',
+   'extension_credits_link' => 'https://laut.fm/?from=PanPlay-Extension',
 
    //Topnavbar Linktitel
    'trackhistory_navbar_title' => '曲目历史',
@@ -41,7 +41,7 @@ $ext_lang = array(
 
    //Stationinfo modal
    'stationinfo_modal_title' => '关于文件',
-   'stationinfo_modal_topdesc' => '当前无法获取文件的详细信息。请等待 oOPlay 的进一步开发。未来计划从文件中读取数据，但目前尚未实现。',
+   'stationinfo_modal_topdesc' => '当前无法获取文件的详细信息。请等待 PanPlay 的进一步开发。未来计划从文件中读取数据，但目前尚未实现。',
 
    //playwith modal
    'playwith_modal_title' => '切换播放器',

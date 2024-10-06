@@ -3,9 +3,9 @@ $ext_lang = array(
 
     //basic
         'lng_title' => 'Dansk',
-        'extension_title' => 'Laut.fm-udvidelse til oOPlay',
-        'extension_credits' => 'Laut.fm-udvidelse til oOPlay',
-        'extension_credits_link' => 'https://laut.fm/?from=oOP-Extension',
+        'extension_title' => 'Laut.fm-udvidelse til PanPlay',
+        'extension_credits' => 'Laut.fm-udvidelse til PanPlay',
+        'extension_credits_link' => 'https://laut.fm/?from=PanPlay-Extension',
     
         //Topnavbar Linktitel
         'trackhistory_navbar_title' => 'Titelhistorik',
@@ -40,7 +40,7 @@ $ext_lang = array(
     
         //Stationinfo modal
         'stationinfo_modal_title' => 'Om fil',
-        'stationinfo_modal_topdesc' => 'Yderligere detaljer om filen er i øjeblikket ikke tilgængelige. Du skal vente på fremgangen i udviklingen af oOPlay. Fremadrettet er der planer om at udlæse fra filer. Men dette er endnu ikke implementeret.',
+        'stationinfo_modal_topdesc' => 'Yderligere detaljer om filen er i øjeblikket ikke tilgængelige. Du skal vente på fremgangen i udviklingen af PanPlay. Fremadrettet er der planer om at udlæse fra filer. Men dette er endnu ikke implementeret.',
     
         //playwith modal
         'playwith_modal_title' => 'Skift afspiller',

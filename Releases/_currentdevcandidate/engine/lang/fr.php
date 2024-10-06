@@ -3,7 +3,7 @@ $lang = array(
 //basic
 'lng_title' => 'Français',
 'welcome' => 'Bienvenue sur notre site Web !',
-'page_title' => 'oOPlay',
+'page_title' => 'PanPlay',
 'select_language' => 'Sélectionner la langue :',
 'remember_language' => 'Se souvenir de cette langue',
 'apply' => 'Appliquer',
@@ -20,18 +20,18 @@ $lang = array(
 'centralerrorlog_error_occured' => 'Message d’erreur exemple lors du chargement de la page.',
 'centralerrorlog_neterror_occured' => 'Erreur réseau lors du chargement de ',
 'centralerrorlog_modal_title' => 'Console d’erreurs',
-'centralerrorlog_modal_desc' => 'Si vous avez accès à cette fenêtre, des erreurs critiques (probablement des erreurs de connexion) se sont produites. Ces erreurs pourraient perturber le bon fonctionnement de "oOPlay" de manière mineure ou significative et entraîner un plantage. Veuillez être attentif. Si vous êtes familier avec les outils de développement de votre appareil, nous vous recommandons également de rechercher d’autres erreurs. Les erreurs peuvent éventuellement être corrigées.',
+'centralerrorlog_modal_desc' => 'Si vous avez accès à cette fenêtre, des erreurs critiques (probablement des erreurs de connexion) se sont produites. Ces erreurs pourraient perturber le bon fonctionnement de "PanPlay" de manière mineure ou significative et entraîner un plantage. Veuillez être attentif. Si vous êtes familier avec les outils de développement de votre appareil, nous vous recommandons également de rechercher d’autres erreurs. Les erreurs peuvent éventuellement être corrigées.',
 'centralerrorlog_occuring_modal_title' => 'Console d’erreurs',
 'centralerrorlog_occuring_modal_desc1' => 'Des erreurs se sont produites ! Il pourrait y avoir une perte de connexion ! Veuillez vérifier la',
 'centralerrorlog_occuring_modal_desc2' => 'Console d’erreurs',
 
-//settingspanel oOPlay
+//settingspanel PanPlay
 'settingspanel_modal_title' => 'Paramètres',
 'settingspanel_lang_title' => 'Langue',
 'settingspanel_lang_desc' => 'Choisissez une autre langue pour l’interface utilisateur.',
 'settingspanel_lang_ext_desc' => 'Les extensions fonctionnent parfois avec leurs propres fichiers de langue et peuvent ne pas fonctionner dans toutes les langues.',
 
-//about oOPlay
+//about PanPlay
 'about_modal_title' => '',
 'about_brand_phrase' => '<b><u>Le</u></b> lecteur audio HTML5 !</p>',
 'about_license_owner_is' => 'Licence accordée à',

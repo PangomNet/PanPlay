@@ -1,0 +1,101 @@
+{
+  "name": "radiomoordorf",
+  "display_name": "Radiomoordorf",
+  "spoken_name": null,
+  "page_url": "https://laut.fm/radiomoordorf",
+  "stream_url": "https://radiomoordorf.stream.laut.fm/radiomoordorf",
+  "api_urls": {
+    "station": "https://api.laut.fm/station/radiomoordorf",
+    "current_song": "https://api.laut.fm/station/radiomoordorf/current_song",
+    "last_songs": "https://api.laut.fm/station/radiomoordorf/last_songs",
+    "next_artists": "https://api.laut.fm/station/radiomoordorf/next_artists",
+    "playlists": "https://api.laut.fm/station/radiomoordorf/playlists",
+    "schedule": "https://api.laut.fm/station/radiomoordorf/schedule",
+    "listeners": "https://api.laut.fm/station/radiomoordorf/listeners"
+  },
+  "format": " MDF .:. Moordorf, deine Freiheit.",
+  "description": "MDF .:. Moordorf deine Freiheit. Wir lieben die Zweitausender und die Musik die sich zeitlich davor und danach ansiedelt. Es wird Zeit für einen Sender, der sich was traut und den chaotische Situation seines Heimatortes widerspiegelt.",
+  "djs": "ownOnline.eu",
+  "location": "Moordorf, Südbrookmerland, Deutschland",
+  "lat": 53.4771,
+  "lng": 7.39952,
+  "color": "#000000",
+  "updated_at": "2024-05-31 13:13:04 +0000",
+  "genres": [
+    "Moordorf",
+    "Mainstream",
+    "Pop-Rock",
+    "Pop",
+    "Charts",
+    "Indie",
+    "Indie-Pop",
+    "Instrumental",
+    "OST"
+  ],
+  "active": true,
+  "position": 7439,
+  "third_parties": {
+    "tunein": {
+      "id": "237360",
+      "url": "https://tunein.com/radio/radiomoordorf-s237360/"
+    },
+    "website": {
+      "url": "https://mdf.ownonline.eu"
+    },
+    "phonostar": {
+      "url": "https://www.phonostar.de/radio/lautfm/radiomoordorf"
+    },
+    "radiode": {
+      "url": "https://www.radio.de/s/lautfm-radiomoordorf"
+    }
+  },
+  "images": {
+    "station": "https://assets.laut.fm/61f961830003f42955faaf34ee0c4b06",
+    "station_80x80": "https://assets.laut.fm/61f961830003f42955faaf34ee0c4b06?t=_80x80",
+    "station_120x120": "https://assets.laut.fm/61f961830003f42955faaf34ee0c4b06?t=_120x120",
+    "station_640x640": "https://assets.laut.fm/61f961830003f42955faaf34ee0c4b06?t=_640x640",
+    "background": "https://assets.laut.fm/321b068f397d9629c82a73e384663322",
+    "background_1024x768": "https://assets.laut.fm/321b068f397d9629c82a73e384663322?t=_1024x768",
+    "background_768x1024": "https://assets.laut.fm/321b068f397d9629c82a73e384663322?t=_768x1024"
+  },
+  "current_playlist": {
+    "id": 415699,
+    "name": "MDF Nachmittag (Dienstag)",
+    "day": "tue",
+    "hour": 15,
+    "end_time": 18,
+    "description": null,
+    "color": "#ccff00",
+    "length": 11217,
+    "shuffled": false,
+    "starts_at": "2024-06-11 15:00:00 +0200",
+    "started_at": "2024-06-11 15:00:00 +0200",
+    "ends_at": "2024-06-11 18:00:00 +0200"
+  },
+  "next_playlist": {
+    "id": 415685,
+    "name": "MDF Feierabend (Dienstag)",
+    "day": "tue",
+    "hour": 18,
+    "end_time": 21,
+    "description": null,
+    "color": "#ff6600",
+    "length": 11239,
+    "shuffled": false,
+    "starts_at": "2024-06-11 18:00:00 +0200",
+    "started_at": "2024-06-11 18:00:00 +0200",
+    "ends_at": "2024-06-11 21:00:00 +0200"
+  },
+  "top_artists": [
+    "Juli",
+    "Jan Delay",
+    "Culcha Candela",
+    "Coldplay",
+    "Beyoncé",
+    "Anime Allstars",
+    "Xavier Naidoo",
+    "Wir sind Helden",
+    "Vanessa Carlton",
+    "U96"
+  ]
+}

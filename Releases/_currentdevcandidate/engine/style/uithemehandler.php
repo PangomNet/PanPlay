@@ -21,7 +21,7 @@ if (isset($_GET['theme'])) {
     }
     // Wenn keine der Varianten übereinstimmt
     else {
-        $theme_err = "Das gewünschte Theme (" . $theme . ") ist kein definiertes oOPlay-Theme. Rufe die oOPlay-Webseite auf und informiere dich, wie du dein Lieblingstheme aufrufen kannst. Der fehlhafte Befehl hindert den Player nicht daran zu starten, wir laden das Standardtheme.";
+        $theme_err = "Das gewünschte Theme (" . $theme . ") ist kein definiertes PanPlay-Theme. Rufe die PanPlay-Webseite auf und informiere dich, wie du dein Lieblingstheme aufrufen kannst. Der fehlhafte Befehl hindert den Player nicht daran zu starten, wir laden das Standardtheme.";
         // Standardthema laden
         include 'theme/default.php';
         echo "<script>alert('$theme_err');</script>";

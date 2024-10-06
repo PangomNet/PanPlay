@@ -2,9 +2,9 @@
 $ext_lang = array(
 //basic
     'lng_title' => 'Deutsch',
-    'extension_title' => 'Laut.fm-Erweiterung für oOPlay',
-    'extension_credits' => 'Laut.fm-Erweiterung für oOPlay',
-    'extension_credits_link' => 'https://laut.fm/?from=oOP-Extension',
+    'extension_title' => 'Laut.fm-Erweiterung für PanPlay',
+    'extension_credits' => 'Laut.fm-Erweiterung für PanPlay',
+    'extension_credits_link' => 'https://laut.fm/?from=PanPlay-Extension',
 
     //Topnavbar Linktitel
     'trackhistory_navbar_title' => 'Titelhistorie',

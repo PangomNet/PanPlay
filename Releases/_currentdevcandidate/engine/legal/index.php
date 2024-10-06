@@ -14,7 +14,7 @@
 <input type="checkbox" hidden="">
 </label>
 <div class="open-sourced">
-This version of oOPlay is not operated by the oOPlay-Developers. The following legal documents apply:
+This version of PanPlay is not operated by the PanPlay-Developers. The following legal documents apply:
 </div>
 
 

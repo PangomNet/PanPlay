@@ -17,7 +17,7 @@ document.getElementById('cast').addEventListener('click', function() {
             // Weitere Optionen wie Poster, Titel und Beschreibung können hier hinzugefügt werden
             poster: currentAlbumArtUrl,
             title: currentArtistName + " - " + currentSongTitle  ,
-            description: 'oOPlay',
+            description: 'PanPlay',
         }).then(() => {
             console.log('Casting erfolgreich');
         }).catch(error => {

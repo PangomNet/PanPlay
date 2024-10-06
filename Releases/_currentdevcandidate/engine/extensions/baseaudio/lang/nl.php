@@ -2,9 +2,9 @@
 $lang = array(
 //basic
 'lng_title' => 'Nederlands',
-'extension_title' => 'Laut.fm-uitbreiding voor oOPlay',
-'extension_credits' => 'Laut.fm-uitbreiding voor oOPlay',
-'extension_credits_link' => 'https://laut.fm/?from=oOP-Extension',
+'extension_title' => 'Laut.fm-uitbreiding voor PanPlay',
+'extension_credits' => 'Laut.fm-uitbreiding voor PanPlay',
+'extension_credits_link' => 'https://laut.fm/?from=PanPlay-Extension',
 
  //Topnavbar Linktitel
  'trackhistory_navbar_title' => 'Trackgeschiedenis',
@@ -39,7 +39,7 @@ $lang = array(
 
  //Stationinfo modal
  'stationinfo_modal_title' => 'Over bestand',
- 'stationinfo_modal_topdesc' => 'Meer details over het bestand zijn momenteel niet beschikbaar. U moet wachten op de voortgang van de ontwikkeling van oOPlay. In de toekomst is het uitlezen van bestanden gepland. Maar tot nu toe is dit nog niet gerealiseerd.',
+ 'stationinfo_modal_topdesc' => 'Meer details over het bestand zijn momenteel niet beschikbaar. U moet wachten op de voortgang van de ontwikkeling van PanPlay. In de toekomst is het uitlezen van bestanden gepland. Maar tot nu toe is dit nog niet gerealiseerd.',
 
  //playwith modal
  'playwith_modal_title' => 'Speler wisselen',

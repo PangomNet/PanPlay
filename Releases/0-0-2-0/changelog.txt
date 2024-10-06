@@ -1,0 +1,102 @@
+0.0.2.0 Barberry:
+-   Inplementation of Pangom-CI-Font (Rondalo) 
+-   Renaming from oOPlay to PanPlay because of Webspace Renaming has taken place in this Version.
+-   Small Layout-Changes in the About-Player-Window
+
+0.0.1.10 Acanthus  (TESTRELEASE) (Not published on GitHub Because if Renaming-Problemns of ownOnline, mor detaiuls see https://ownonline.eu/en/2024/09/08/1326/) 
+-  Language support:
+-- Danish now stably integrated as a language and available in all extensions
+-- Spanish now integrated as a language and available in all extensions. (Spain is standard version and selectable in the settings menu, language versions for Spanish Latin America (ES-LA), Mexico (ES-MX) & Argentina (ES-AR) are only used by browser setting or via the parameter &hl=).
+-- Dutch now integrated as a language and available in all extensions. (Dutch is standard version and selectable in the settings menu, language version for Belgian Dutch (NL-BE) is only used by browser setting or via the parameter &hl=).
+-- Chinese (simplified) now integrated as a language and available in all extensions. (the automatic detection of the browser language may currently only work if the browser is set to simplified Chinese. Normal Chinese is not yet available in the language system of the player, simplified Chinese loads instead.
+
+0.0.1.9 Iris  (TESTRELEASE)
+-	Implementation of the new LAUT.FM-API routine to reduce network traffic (first attempt) only the most basic information was read in. Old API calls are no longer functional. 0.0.1.9 Iris will be a pure technical test release and is like all other test releases - but this one in particular - unstable (in laut.fm mode) and not suitable for productive use. Thanks to Paeddy for providing code examples that are used to rebuild the API calls.
+-   In the About the Station window, you can now click on the large station logo to call up the station website, if one has been entered by the station.
+-   In the About the station window, you can now see the DJ, the station's genres, the top artists and the station location. The genre links lead to Streema. The artist lists lead to Allmusic. The broadcasting location is displayed on GoogleMaps.
+- All windows now have vertical centering, i.e. they always open in the middle of the screen. In addition, all inner scroll options are now available
+- The "Change player" window has been redesigned and now contains the logos of the linked services and their colors in the button. In addition, the stream URL has been removed from the context menu and integrated into the button overview.
+- The volume control now adapts to the screen size again and has also been given an icon. It is planned to use this icon for Tooggle-Mute in the future. But so far only a plan, nothing more.
+- First inplementation of Danish Language (experimental until further notice)
+- New Schedule Window for Laut-FM-Radios
+- New Layout for Trackhistory Window, also implementation of Allmusic Search for Song-Entrys
+- New Window with detailed information about the current show inplemented, but not activated. It will be finished in further releases.
+- New Window with detailed information about the current song, it is activated but not finished.
+NOTE: This Release has no localization fpr new interfaces-Buttons etc. This will be done while releaseing 0.0.2.0
+
+0.0.1.8 Hyacinth
+-	Language fixed: Italian
+-   MIT-License in about Dialog will now be Mentioned in English
+
+0.0.1.7 Gardenia  (TESTRELEASE)
+-	Language manager implemented. This already has an influence on the main interface and the sound extension. The overrides for the large error messages when the player crashes are still missing. Here, communication is still in German. The Baseaudio extension is currently not usable. It is currently missing important translation files, which is why it cannot be used properly at all. The user interface selects the displayed language based on the URL parameter “hl”. If this parameter is not found in the URL, an automatic attempt is made to use the language used by your browser. If we do not offer the user interface in this language, the page will be displayed in English. The languages currently available for the above-mentioned areas are German, English and basic Italian.
+-   Laut extension: The placeholder covers for Laut.fm are no longer in use. If no Laut.de cover can be loaded, the station logo is now shown instead. If the station is LIVE, the station logo is currently always displayed. The reason for this is that the information “Station is live” will soon be moved above instead of being displayed on the cover.
+-   Changed Browser Version Requirements: Internet Explorer 12<; Firefox 75<; Chrome 80<; Safari 13<; Opera 65<;
+-   Redesign of the "About oOPlay" dialog, also slight layout changes in other windows by the translation management. Windows of oOPlay direct are now positioned in the center of the screen. The windows of the extensions will follow.
+-   The BASEAUDIO extension has been redesigned and now matches the design of the new oOPlay homepage, which will be online shortly after this release.
+-   Further design changes in line with the new oOPlay homepage
+
+0.0.1.6 Freesia
+- The layout of the window about oOPlay has been adjusted.
+- Color schemes slightly changed
+- Slight changes in the arrangement of the buttons in the lower menu bar
+- Corrections to brand mentions. It is called oOPlay not oOPlayer
+
+0.0.1.5 Eucalyptus  (TESTRELEASE)
+- cast.js is only loaded if necessary conditions are met
+- autoplay has been removed
+- preloader has been disabled
+- Numerous minor code adjustments for Safari's webkit renderer
+- Implementation of a config.php for global variables
+- For instances of oOPlayer that are operated publicly on the Internet, but either require their own privacy policy or imprint or cannot link to any other, a rudimentary interface has been created under engine/legal/index.php in order to insert the corresponding documents there. To ensure that the page is also linked in the interface, it must also be defined in config.php. (/engine/legal/index.php)
+- LAUT extension: In the "About the station" window, the links to the respective sources are now displayed as icons. The link to the Laut.fm page is displayed next to the website link. The website URL is filtered. If a station uses one of the following URLs in the station URL at Laut, the logo for this service is automatically used instead of the link image. x.com/twitter.com = x-logo, facebook.com/fb.me = facebook-logo, instagram.com = instagram-logo, laut.fm = laut-logo. Sorry, but a Facebook page is not a channel URL, that's not what the field is for - there are separate fields for that. -- The text "XXX is a user-generated radio station has been removed", it has been replaced by the logo.
+
+NOTE (From now on, this changelog will only be written in English. Check https://github.com/ownOnline/oOPlay to see if there are localized language versions of the documentation and changelog. If this is not the case and you need it, we recommend using powerful translators such as Deepl to translate the changelog into your home language.)
+
+0.0.1.4 Daffodil
+-   Bugfix: baseaudio-Extension: Ein fehlendes Schließend Object-Tag im HTML-Code des Dialogfeldes "Player wechseln" wurde ergänzt, so dass die Texformatierung nun korrekt ist.
+-   Bugfix: castjs wurde an die neue Erweiterungs-Strukturierung ergänzt. Es kann nun auch Baseaudio-Stream an unterstütze Geräte weitergeben. Die Metatdaten werden derzeit noch nicht aus den Dateien ausgelesen.  Dies wird noch nachgereicht. Sobald dies möglich ist, können diese Daten dann auch an Cast-Geräte gesendet werden.
+- Das Standardtheme von oOPlay lädt nun root=dark. Das bedeutet, dass der Browser (falls er so etwas hat), die Seite im Dark-Mode lädt, Scrollbalken und andere Browserelemente laden so im Dark-Mode. Das sieht schöner aus.
+- Laut.fm-Erweiterung: Die URL-Parameter zum Ausblenden von einzelnen oder allen Laut.Fm Inforfenstern beeinflussen nun auch das Menü. So verschwinden Menüeinträge zu den Fenstern, die poer URl-Parameter deaktiviert wurden., Im Rahmen dieser Anpassung wurde Menüleiste oberhalb angepasst. Playerallgemeine Infonfenester sind nun rechts angeordnet, während der RRest wie gewohnt links ist. Der Drei Short-Buttons in der Mobilansicht wurden vergrößert, so dass sie leichter geklickt werden können.
+- Laut.fm-Erweiterung: Im Fenster über den Sender wird nun auch das Logo angezeigt. Gleichzeitig wurde die Textformatierung etwas angepasst.
+- Laut.fm-Erweiterung: Bessere und lesbare Formatierung der Erweiterungscredits im Fenster "Über oOPlay"
+
+0.0.1.3 Camellia (TESTRELEASE)
+-   Nicht notwendige Medien entfernt.
+-   Favicons in neue Ressorucenverwaltung verschoben
+-   Meta OpenGraph-Tags verschoben
+-   Wiedergabe-Erweiterungen sind eingebaut. Das Erlaubt in der Zukunft die Ausweitung von oOPlayer über media-streams und laut.fm hinaus. Eine Erweiterungen kann erstellt werden, welche andere Dienste unmterstütz
+-   conveyor-Skript wird wieder angesprochen, aber funktioniert noch nicht
+-   "Normale Dateien" oder Streams von anderen Server können nun auch in oOPlay gestgeuert werden. Die Oberfläche hierzu wurde nachgereicht. Das Auslesen von Metadaten ist jedoch nicht nicht möglich
+-   LAUT.fm.Erweiterung: Elemente können deaktiviert werden StationsInfofenster (stationinfo), Trackhistory (trackhistory), Sendeplan(sendeplan) und das Fenster zum wechseln des Players (playwith) können über Ihre Codes deaktiviert werden dazu einfach den Code gefolgt von =n an die URL anhängen (&playwith=n) und schon wird das entsprechende Modul nicht mehr geladen. Wer Tabularasa machen will hängt einfach nolfmw=j an und alle Vier Module werden nicht geladen.
+
+0.0.1.2 Begonia (TESTRELEASE)
+-	Neue Engine zum Teil eingebunden. Weitere Umstellungen geplant.
+-	Font-Awesome LTS-Version festgelegt. oOPlay bleibt nun bei der im April 2024 aktuellen 5.14 LTS-Version, auto-Update durch den Server 	wurde herausgepatcht. Dies verringert die Ladezeit enorm.
+-	Neue Albumcover für Laut-FM-Modus.
+-	Neue Albumcover speziell für Metatdata-API (nur Laut.fm)
+-	Neues Hintergrundbild je nach Metadaten des Songs.
+-	In der Mobilen Ansicht wird nicht mehr der Sendername sondern nur das Logo angezeigt. Stattdessen gibt es nun drei Quick-Buttons für 	Sendeplan, Titelhistorie und Senderinfos
+
+0.0.1.1 Alium (TESTRELEASE)
+-	MediaMetadate API. Funktionierende Übergabe von Meta-Tags an Android und Windows und co nachgeliefert.
+
+0.0.1.0:
+BETA 1-5:
+-	Beim Anklicken der Aktuellen Sendung im Hauptbildschirm wird der Senderplan geöffnet
+-	Die Menüpunkte „Sendeplan“ & „Über “ sind nun nicht mehr im Dropdown, sondern werden direkt im Hauptmenü oben angezeigt, sowie die Bildschirmgröße dies ermöglicht.
+-	Im Fenster „Über “ und im Menüpunkt wird nun der Anzeigename statt der Rohname verwendet (Beispiel: „Über Eins“ statt „Über eins“)
+-	Anzeigefehler, der dazu führte, dass Firefox den Anzeigebereich der gesamten Webseite auf 24px beschränkte, ist behoben.
+-	Zusätzlich zu fehlenden Parametern, erkennt der Player nun auch, wenn der Audiostream unterbrochen wurde, oder nicht aufgebaut werden kann. Der Player prüft im laut.fm-Modus sodann, ob der Dienst korrekt arbeitet. Die Antwort dieser Anfrage wird interpretiert und der Nutzer erhält Tipps zur Fehlerbehebung.
+-	Im Menü sind nun Icons hinzugefügt worden.
+-	Im Fenster für die Titelhistorie wird der erste Song hervorgehoben, da Aufgrund der API-Logik der erste Song der Antwort immer der aktuell spielende ist.
+-	Der Player liefert nun OpenGraphTags aus. Diese werden vor allem von Socisl-Media-Kanälen aber auch von Foren wie Discuss benutzt. So kann ein Link in einen Informationsblock umgewandelt werden, der über die Quelle aufklärt und darauf verlinkt.
+
+BETA 6:
+- Convoyer ist derzeit wieder deaktiviert, da nicht mehr funktionfähig, es wird mit Tooltips und Elipssis gearbeitet. Convoyer kommt in einer zunkünftigen Version vielleicht zurück.
+- Variable "colors" wurde durch "theme" abgelöst. "theme" erlaubt das wählen eines voreingestellten Styles durch die angabe seiner Beezeichnung (theme=light). IM Stanardardmodus wird immer ein dunkles Thema geladen. Ein helles Thema kann über "theme=light" geladen werden. Eine noch mehr verdunkeltes Thema kann mit "theme=moredark" geladen werden. Außerdem werden hierüber Spezialthemen geladen. Als Beispiel: Mit "theme=win2000" kann ein an den Windows 2000-Desktop erinnerndes Thema geladen werden.
+- Der Sendeplan wird nun nicht mehr in einem Akkordion, sondern in einer einfacheren Tabansicht geladen und der aktuelle Wochentag wird automatisch angezeigt.
+- Im Fenster über den Sender wird nun die Sendergrafik angezeigt und der Slogan angezeigt.
+
+BETA 7:
+- Theming-Eninge-Verfahren verbessert für bessere Erkennung

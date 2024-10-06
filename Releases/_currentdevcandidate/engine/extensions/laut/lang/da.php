@@ -2,9 +2,9 @@
 $ext_lang = array(
 //basic
     'lng_title' => 'Dansk',
-    'extension_title' => 'Laut.fm-udvidelse til oOPlay',
-    'extension_credits' => 'Laut.fm-udvidelse til oOPlay',
-    'extension_credits_link' => 'https://laut.fm/?from=oOP-Extension',
+    'extension_title' => 'Laut.fm-udvidelse til PanPlay',
+    'extension_credits' => 'Laut.fm-udvidelse til PanPlay',
+    'extension_credits_link' => 'https://laut.fm/?from=PanPlay-Extension',
 
     //Topnavbar Linktitel
     'trackhistory_navbar_title' => 'Sporhistorik',

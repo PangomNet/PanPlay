@@ -3,7 +3,7 @@ $lang = array(
 //basic
     'lng_title' => 'Deutsch (Östereich)',
     'welcome' => 'Willkommen auf unserer Website!',
-    'page_title' => 'oOPlay',
+    'page_title' => 'PanPlay',
     'select_language' => 'Sprache auswählen:',
     'remember_language' => 'Diese Sprache merken',
     'apply' => 'Anwenden',
@@ -20,18 +20,18 @@ $lang = array(
     'centralerrorlog_error_occured' => 'Beispiel Fehlermeldung beim Laden der Seite.',
     'centralerrorlog_neterror_occured' => 'Netzwerkfehler beim Laden von ',
     'centralerrorlog_modal_title' => 'Fehlerkonsole',
-    'centralerrorlog_modal_desc' => 'Wenn Sie auf dieses Fenster Zugriff haben, sind kritische Fehler (höchstwahrscheinlich Verbindungsfehler) aufgetreten. Diese Fehler könnten den weiteren Betrieb von "oOPlay" entweder nur gering oder sehr maßgeblich stören und zum absturz führen. Bitte seien Sie aufmerksam. Wenn Sie sich mit den Entwicklertools Ihres Gerätes auskennen, empfehlen wir Ihnen, auch dort nach zusätzlichen Fehlern zu suchen. Die Fehler können eventuell behebbar sein.',
+    'centralerrorlog_modal_desc' => 'Wenn Sie auf dieses Fenster Zugriff haben, sind kritische Fehler (höchstwahrscheinlich Verbindungsfehler) aufgetreten. Diese Fehler könnten den weiteren Betrieb von "PanPlay" entweder nur gering oder sehr maßgeblich stören und zum absturz führen. Bitte seien Sie aufmerksam. Wenn Sie sich mit den Entwicklertools Ihres Gerätes auskennen, empfehlen wir Ihnen, auch dort nach zusätzlichen Fehlern zu suchen. Die Fehler können eventuell behebbar sein.',
     'centralerrorlog_occuring_modal_title' => 'Fehlerkonsole',
     'centralerrorlog_occuring_modal_desc1' => 'Es sind Fehler aufgetreten! Es kommt eventuelle zu einem Verbindungsverlust! Bitte prüfen Sie die',
     'centralerrorlog_occuring_modal_desc2' => 'Fehlerkonsole',
 
-    //settingspanel oOPlay
+    //settingspanel PanPlay
     'settingspanel_modal_title' => 'Einstellungen',
     'settingspanel_lang_title' => 'Sprache',
     'settingspanel_lang_desc' => 'Wählen Sie eine andere Sprache für die Benutzeroberfläche.',
     'settingspanel_lang_ext_desc' => 'Erweiterungen arbeiten zum Teil ohne oder mit ihren eigenen Sprachdateien und funktionieren möglicherweise nicht in jeder Sprache.',
 
-    //about oOPlay
+    //about PanPlay
     'about_modal_title' => '',
     'about_brand_phrase' => '<b><u>Der</u></b> HTML5-Audioplayer!</p>',
     'about_license_owner_is' => 'Lizensiert an',

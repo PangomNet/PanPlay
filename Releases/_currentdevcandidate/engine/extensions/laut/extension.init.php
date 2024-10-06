@@ -8,7 +8,7 @@ require($extlangpath );
 // Debug: Show Path to language file
 //echo "<h1>" . $extlangpath . "</h1>";
 
-$extensions_credits .= "<span class='badge bg-info'><a  class='text-dark' href='https://laut.fm?from=oOP-Extension' target='_blank'>laut.fm-Extension by ownOnline</a></span>";
+$extensions_credits .= "<span class='badge bg-info'><a  class='text-dark' href='https://laut.fm?from=PanPlay-Extension' target='_blank'>laut.fm-Extension by Pangom</a></span>";
 
 
 // Basis-URL für den Stream
@@ -24,8 +24,8 @@ $streamBaseUrl = 'https://stream.laut.fm/';
 
 
 
-        echo "<meta property='og:title' content='🎶" . $lfmstream . " - oOPlay' /> <meta property='og:type' content='audio.livestream' /> <meta property='og:url' content='" . $_SERVER['HTTP_HOST'] . "' /> <meta property='og:description' 
-        content='Höre das laut.fm-Radio " . $lfmstream ." in oOPlay! Mit Titelinformationen, Sendeplan, u.v.m.' />";
+        echo "<meta property='og:title' content='🎶" . $lfmstream . " - PanPlay' /> <meta property='og:type' content='audio.livestream' /> <meta property='og:url' content='" . $_SERVER['HTTP_HOST'] . "' /> <meta property='og:description' 
+        content='Höre das laut.fm-Radio " . $lfmstream ." in PanPlay! Mit Titelinformationen, Sendeplan, u.v.m.' />";
       
 
 

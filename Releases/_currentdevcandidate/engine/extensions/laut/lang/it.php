@@ -2,9 +2,9 @@
 $ext_lang = array(
 //basic
     'lng_title' => 'Italiano',
-    'extension_title' => 'Estensione Laut.fm per oOPlay',
-    'extension_credits' => 'Estensione Laut.fm per oOPlay',
-    'extension_credits_link' => 'https://laut.fm/?from=oOP-Extension',
+    'extension_title' => 'Estensione Laut.fm per PanPlay',
+    'extension_credits' => 'Estensione Laut.fm per PanPlay',
+    'extension_credits_link' => 'https://laut.fm/?from=PanPlay-Extension',
 
     //Topnavbar Linktitel
     'trackhistory_navbar_title' => 'Cronologia brani',

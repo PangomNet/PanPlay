@@ -20,18 +20,18 @@ $lang = array(
     'centralerrorlog_error_occured' => 'Messaggio di errore di esempio durante il caricamento della pagina.',
     'centralerrorlog_neterror_occured' => 'Errore di rete durante il caricamento ',
     'centralerrorlog_modal_title' => 'Console degli Errori',
-    'centralerrorlog_modal_desc' => 'Se hai accesso a questa finestra, sono avvenuti errori critici (probabilmente errori di connessione). Questi errori potrebbero interrompere leggermente o significativamente il funzionamento di "oOPlay" e causare un crash. Si prega di essere attenti. Se hai familiarit&agrave; con gli strumenti per sviluppatori del tuo dispositivo, ti consigliamo di cercare ulteriori errori l&igrave;. Gli errori potrebbero essere risolvibili.',
+    'centralerrorlog_modal_desc' => 'Se hai accesso a questa finestra, sono avvenuti errori critici (probabilmente errori di connessione). Questi errori potrebbero interrompere leggermente o significativamente il funzionamento di "PanPlay" e causare un crash. Si prega di essere attenti. Se hai familiarit&agrave; con gli strumenti per sviluppatori del tuo dispositivo, ti consigliamo di cercare ulteriori errori l&igrave;. Gli errori potrebbero essere risolvibili.',
     'centralerrorlog_occuring_modal_title' => 'Console degli Errori',
     'centralerrorlog_occuring_modal_desc1' => 'Si sono verificati degli errori! Potrebbe esserci una perdita di connessione! Si prega di controllare la',
     'centralerrorlog_occuring_modal_desc2' => 'Console degli Errori',
 
-    //settingspanel oOPlay
+    //settingspanel PanPlay
     'settingspanel_modal_title' => 'Impostazioni',
     'settingspanel_lang_title' => 'Lingua',
     'settingspanel_lang_desc' => 'Seleziona una lingua diversa per l\'interfaccia. ',
     'settingspanel_lang_ext_desc' => 'Le estensioni funzionano con i propri file di lingua e potrebbero non funzionare in tutte le lingue.',
 
-    //about oOPlay
+    //about PanPlay
     'about_modal_title' => '',
     'about_brand_phrase' => '<b><u>Il</u></b> lettore audio HTML5!</p>',
     'about_license_owner_is' => 'Concesso in licenza a',

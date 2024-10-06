@@ -3,7 +3,7 @@ $lang = array(
 //basic
     'lng_title' => 'Dansk',
     'welcome' => 'Velkommen til vores hjemmeside!',
-    'page_title' => 'oOPlay',
+    'page_title' => 'PanPlay',
     'select_language' => 'Vælg et sprog:',
     'remember_language' => 'Husk dette sprog',
     'apply' => 'Ansøge',
@@ -20,18 +20,18 @@ $lang = array(
     'centralerrorlog_error_occured' => 'Eksempel på fejlmeddelelse ved indlæsning af siden.',
     'centralerrorlog_neterror_occured' => 'Netværksfejl ved indlæsning ',
     'centralerrorlog_modal_title' => 'Fejlkonsol',
-    'centralerrorlog_modal_desc' => 'Hvis du har adgang til dette vindue, er der opstået kritiske fejl (sandsynligvis forbindelsesfejl). Disse fejl kan enten kun i ringe grad eller væsentligt forstyrre den videre drift af "oOPlay" og føre til et nedbrud. Vær venligst opmærksom. Hvis du er bekendt med din enheds udviklerværktøjer, anbefaler vi, at du også tjekker for yderligere fejl der. Fejlene kan muligvis rettes.',
+    'centralerrorlog_modal_desc' => 'Hvis du har adgang til dette vindue, er der opstået kritiske fejl (sandsynligvis forbindelsesfejl). Disse fejl kan enten kun i ringe grad eller væsentligt forstyrre den videre drift af "PanPlay" og føre til et nedbrud. Vær venligst opmærksom. Hvis du er bekendt med din enheds udviklerværktøjer, anbefaler vi, at du også tjekker for yderligere fejl der. Fejlene kan muligvis rettes.',
     'centralerrorlog_occuring_modal_title' => 'Fejlkonsol',
     'centralerrorlog_occuring_modal_desc1' => 'Der opstod en fejl! Der kan være et tab af forbindelse! Tjek dem venligst',
     'centralerrorlog_occuring_modal_desc2' => 'Fejlkonsol',
 
-    //settingspanel oOPlay
+    //settingspanel PanPlay
     'settingspanel_modal_title' => 'Indstillinger',
     'settingspanel_lang_title' => 'Sprog',
     'settingspanel_lang_desc' => 'Vælg et andet sprog til brugergrænsefladen. Brugergrænsefladen vælger det viste sprog baseret på URL-parameteren "hl". Hvis denne parameter ikke findes i URL\'en, vil den automatisk forsøge at bruge det sprog, der bruges af din browser. Hvis vi ikke leverer grænsefladen på dette sprog, vil siden blive vist på engelsk.',
     'settingspanel_lang_ext_desc' => 'Udvidelser fungerer nogle gange uden eller med deres egne sprogfiler og fungerer muligvis ikke på alle sprog.',
 
-    //about oOPlay
+    //about PanPlay
     'about_modal_title' => '',
     'about_brand_phrase' => '<b><u>HTML5</u></b> lydafspilleren!</p>',
     'about_license_owner_is' => 'Licenseret',

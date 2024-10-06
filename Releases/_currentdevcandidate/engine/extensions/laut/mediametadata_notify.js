@@ -50,10 +50,10 @@ function getCurrentSongInfoFromUI() {
     }
 
     if (currentAlbumLabel) {
-        currentAlbumTitle = currentAlbumLabel.innerText || "oOPlay";
+        currentAlbumTitle = currentAlbumLabel.innerText || "PanPlay";
     } else {
         // Setze einen Platzhalterwert für das Album, falls das Oberflächenelement nicht gefunden wird
-        currentAlbumTitle = "oOPlay";
+        currentAlbumTitle = "PanPlay";
     }
 }
 
@@ -75,7 +75,7 @@ setTimeout(function() {
                 updateMediaMetadata(currentSongTitle, currentArtistName, currentAlbumTitle, currentAlbumArtUrl);
 
                 // Titel-Tag der Webseite aktualisieren
-                document.title = `${songInfo} - oOPlay`;
+                document.title = `${songInfo} - PanPlay`;
                 getCurrentSongInfoFromUI();
                 updateCurrentAlbumArtFromAPI();
             }

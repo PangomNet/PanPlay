@@ -104,6 +104,55 @@ function updateElementById(id, content) {
     return url;
 }
 
+
+if (stationData.third_parties.phonostar && stationData.third_parties.phonostar.url) {
+    let phonostarUrl = addHttpsIfNeeded(stationData.third_parties.phonostar.url, 'phonostar.de');
+    var phonostarlink = '';
+
+    // Überprüfen, ob die Funktion eine gültige URL zurückgegeben hat
+    if (phonostarUrl) {
+        phonostarlink = "<a class='btn btn-block' style='width: 100%; color: red !important; background-color: white;' target='_blank' href='" + phonostarUrl + "'><img style='margin: 0.2em;' class='rounded' src='rscs/imglibs/misc/vendors/phonostar.svg' width='62px' height='auto' alt='Twitter'>*</a>";
+    }
+
+    // Überprüfen, ob twitterxlink einen gültigen Wert hat, bevor das Element aktualisiert wird
+
+}
+if (phonostarlink) {
+        updateElementById('lfmlink_phonostar', phonostarlink); // 'twitterElementId' durch die tatsächliche ID des Elements ersetzen
+}
+
+if (stationData.third_parties.tunein && stationData.third_parties.tunein.url) {
+    let tuneinUrl = addHttpsIfNeeded(stationData.third_parties.tunein.url, 'tunein.com');
+    var tuneinlink = '';
+
+    // Überprüfen, ob die Funktion eine gültige URL zurückgegeben hat
+    if (tuneinUrl) {
+        tuneinlink = "<a class='btn btn-block' style='width: 100%; color: white !important; background-color: #44475d;' target='_blank' href='" + tuneinUrl + "'><img style='margin: 0.2em;' class='rounded' src='rscs/imglibs/misc/vendors/tunein.png' width='48px' height='auto' alt='TuneIn'>*</a>";
+    }
+
+    // Überprüfen, ob twitterxlink einen gültigen Wert hat, bevor das Element aktualisiert wird
+
+}
+if (tuneinlink) {
+        updateElementById('lfmlink_tunein', tuneinlink); // 'twitterElementId' durch die tatsächliche ID des Elements ersetzen
+}
+
+if (stationData.third_parties.radiode && stationData.third_parties.radiode.url) {
+    let radiodeUrl = addHttpsIfNeeded(stationData.third_parties.radiode.url, 'radio.de');
+    var radiodelink = '';
+
+    // Überprüfen, ob die Funktion eine gültige URL zurückgegeben hat
+    if (radiodeUrl) {
+        radiodelink = "<a class='btn btn-block' style='width: 100%; color: #6af34a !important; background-color: #37393a;' href='" + radiodeUrl + "'><img style='margin: 0.2em;' class='rounded' src='rscs/imglibs/misc/vendors/radiode.svg' width='62px' height='auto' alt='Twitter'>*</a>";
+    }
+
+    // Überprüfen, ob twitterxlink einen gültigen Wert hat, bevor das Element aktualisiert wird
+
+}
+if (radiodelink) {
+        updateElementById('lfmlink_radiode', radiodelink); // 'twitterElementId' durch die tatsächliche ID des Elements ersetzen
+}
+
 if (stationData.third_parties.twitter && stationData.third_parties.twitter.url) {
     let twitterUrl = addHttpsIfNeeded(stationData.third_parties.twitter.url, 'twitter.com');
     var twitterxlink = '';
@@ -119,6 +168,9 @@ if (stationData.third_parties.twitter && stationData.third_parties.twitter.url) 
 if (twitterxlink) {
         updateElementById('api_lfm_twitter_link', twitterxlink); // 'twitterElementId' durch die tatsächliche ID des Elements ersetzen
 }
+
+
+
 if (stationData.third_parties.facebook && stationData.third_parties.facebook.page) {
     let facebookUrl = addHttpsIfNeeded(stationData.third_parties.facebook.page, 'facebook.com');
     
@@ -397,7 +449,7 @@ s_currentAlbumArtUrl = currentAlbumArtUrl
         }
 
         if (currentAlbumLabel) {
-            currentAlbumTitle = currentAlbumLabel.innerText || "oOPlay";
+            currentAlbumTitle = currentAlbumLabel.innerText || "PanPlay";
         }
 
         // Rufe updateMediaMetadata auf, um die Metadaten zu aktualisieren
@@ -419,7 +471,7 @@ s_currentAlbumArtUrl = currentAlbumArtUrl
                 //updateMediaMetadata(currentSongTitle, currentArtistName, currentAlbumTitle, currentAlbumArtUrl);
 
                 // Titel-Tag der Webseite aktualisieren
-                document.title = songInfo + ` - oOPlay`;
+                document.title = songInfo + ` - PanPlay`;
             }
         } catch (error) {
             console.error('JavaScript-Fehler im Titel-Update-Teil:', error);

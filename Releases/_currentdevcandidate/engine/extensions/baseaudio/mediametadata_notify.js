@@ -76,7 +76,7 @@ setTimeout(function() {
                 updateMediaMetadata(currentSongTitle, currentArtistName, currentAlbumTitle, currentAlbumArtUrl);
 
                 // Titel-Tag der Webseite aktualisieren
-                document.title = `${songInfo} - oOPlay`;
+                document.title = `${songInfo} - PanPlay`;
                 getCurrentSongInfoFromUI();
                 updateCurrentAlbumArtFromAPI();
             }

@@ -20,18 +20,18 @@ $lang = array(
     'centralerrorlog_error_occured' => 'Sample error message while loading the page.',
     'centralerrorlog_neterror_occured' => 'Network error while loading ',
     'centralerrorlog_modal_title' => 'Error Console',
-    'centralerrorlog_modal_desc' => 'If you have access to this window, critical errors (most likely connection errors) have occurred. These errors could either slightly or significantly disrupt the further operation of "oOPlay" and lead to a crash. Please be attentive. If you are familiar with the developer tools of your device, we recommend that you also look for additional errors there. The errors may be fixable.',
+    'centralerrorlog_modal_desc' => 'If you have access to this window, critical errors (most likely connection errors) have occurred. These errors could either slightly or significantly disrupt the further operation of "PanPlay" and lead to a crash. Please be attentive. If you are familiar with the developer tools of your device, we recommend that you also look for additional errors there. The errors may be fixable.',
     'centralerrorlog_occuring_modal_title' => 'Error Console',
     'centralerrorlog_occuring_modal_desc1' => 'Errors have occurred! There may be a loss of connection! Please check the',
     'centralerrorlog_occuring_modal_desc2' => 'Error Console',
 
-    //settingspanel oOPlay
+    //settingspanel PanPlay
     'settingspanel_modal_title' => 'Settings',
     'settingspanel_lang_title' => 'Language',
     'settingspanel_lang_desc' => 'Select a different language for the interface. ',
     'settingspanel_lang_ext_desc' => 'Extensions work with their own language files and might be unable to function in every language.',
 
-    //about oOPlay
+    //about PanPlay
     'about_modal_title' => '',
     'about_brand_phrase' => '<b><u>The</u></b> HTML5-Audioplayer!</p>',
     'about_license_owner_is' => 'Licensed to',

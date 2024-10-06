@@ -3,7 +3,7 @@ $lang = array(
 //basic
 'lng_title' => 'Nederlands',
 'welcome' => 'Welkom op onze website!',
-'page_title' => 'oOPlay',
+'page_title' => 'PanPlay',
 'select_language' => 'Selecteer taal:',
 'remember_language' => 'Onthoud deze taal',
 'apply' => 'Toepassen',
@@ -20,18 +20,18 @@ $lang = array(
 'centralerrorlog_error_occured' => 'Voorbeeld foutmelding bij het laden van de pagina.',
 'centralerrorlog_neterror_occured' => 'Netwerkfout bij het laden van ',
 'centralerrorlog_modal_title' => 'Foutenconsole',
-'centralerrorlog_modal_desc' => 'Als u toegang hebt tot dit venster, zijn er kritieke fouten (hoogstwaarschijnlijk verbindingsfouten) opgetreden. Deze fouten kunnen de verdere werking van "oOPlay" licht of aanzienlijk verstoren en mogelijk tot een crash leiden. Wees alert. Als u bekend bent met de ontwikkelaarstools van uw apparaat, raden we u aan ook daar op zoek te gaan naar aanvullende fouten. Mogelijk kunnen deze fouten worden verholpen.',
+'centralerrorlog_modal_desc' => 'Als u toegang hebt tot dit venster, zijn er kritieke fouten (hoogstwaarschijnlijk verbindingsfouten) opgetreden. Deze fouten kunnen de verdere werking van "PanPlay" licht of aanzienlijk verstoren en mogelijk tot een crash leiden. Wees alert. Als u bekend bent met de ontwikkelaarstools van uw apparaat, raden we u aan ook daar op zoek te gaan naar aanvullende fouten. Mogelijk kunnen deze fouten worden verholpen.',
 'centralerrorlog_occuring_modal_title' => 'Foutenconsole',
 'centralerrorlog_occuring_modal_desc1' => 'Er zijn fouten opgetreden! Mogelijk is er sprake van een verbindingsverlies! Controleer de',
 'centralerrorlog_occuring_modal_desc2' => 'foutenconsole',
 
-//settingspanel oOPlay
+//settingspanel PanPlay
 'settingspanel_modal_title' => 'Instellingen',
 'settingspanel_lang_title' => 'Taal',
 'settingspanel_lang_desc' => 'Kies een andere taal voor de gebruikersinterface.',
 'settingspanel_lang_ext_desc' => 'Extensies werken mogelijk zonder of met eigen taalbestanden en functioneren mogelijk niet in elke taal.',
 
-//about oOPlay
+//about PanPlay
 'about_modal_title' => '',
 'about_brand_phrase' => '<b><u>De</u></b> HTML5-audioplayer!</p>',
 'about_license_owner_is' => 'Gelicenseerd aan',

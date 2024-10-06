@@ -3,7 +3,7 @@ $lang = array(
 //basic
 'lng_title' => '中文',
 'welcome' => '欢迎来到我们的网站！',
-'page_title' => 'oOPlay',
+'page_title' => 'PanPlay',
 'select_language' => '选择语言：',
 'remember_language' => '记住此语言',
 'apply' => '应用',
@@ -20,18 +20,18 @@ $lang = array(
 'centralerrorlog_error_occured' => '示例错误信息，加载页面时发生错误。',
 'centralerrorlog_neterror_occured' => '加载时发生网络错误 ',
 'centralerrorlog_modal_title' => '错误控制台',
-'centralerrorlog_modal_desc' => '如果您看到此窗口，则可能发生了关键错误（很可能是连接错误）。这些错误可能会轻微或严重地影响“oOPlay”的进一步运行，并导致崩溃。请保持警惕。如果您熟悉设备的开发工具，我们建议您也在开发工具中查找其他错误。这些错误可能是可以修复的。',
+'centralerrorlog_modal_desc' => '如果您看到此窗口，则可能发生了关键错误（很可能是连接错误）。这些错误可能会轻微或严重地影响“PanPlay”的进一步运行，并导致崩溃。请保持警惕。如果您熟悉设备的开发工具，我们建议您也在开发工具中查找其他错误。这些错误可能是可以修复的。',
 'centralerrorlog_occuring_modal_title' => '错误控制台',
 'centralerrorlog_occuring_modal_desc1' => '发生了错误！可能会丢失连接！请检查',
 'centralerrorlog_occuring_modal_desc2' => '错误控制台',
 
-//settingspanel oOPlay
+//settingspanel PanPlay
 'settingspanel_modal_title' => '设置',
 'settingspanel_lang_title' => '语言',
 'settingspanel_lang_desc' => '选择用户界面的其他语言。',
 'settingspanel_lang_ext_desc' => '扩展程序在某些情况下可能没有语言文件，可能不会在每种语言中正常工作。',
 
-//about oOPlay
+//about PanPlay
 'about_modal_title' => '',
 'about_brand_phrase' => '<b><u>HTML5</u></b> 音频播放器！</p>',
 'about_license_owner_is' => '授权给',

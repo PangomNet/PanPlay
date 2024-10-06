@@ -2,9 +2,9 @@
 $ext_lang = array(
 //basic
     'lng_title' => 'Español (ES)',
-    'extension_title' => 'Extensión Laut.fm para oOPlay',
-    'extension_credits' => 'Extensión Laut.fm para oOPlay',
-    'extension_credits_link' => 'https://laut.fm/?from=oOP-Extension',
+    'extension_title' => 'Extensión Laut.fm para PanPlay',
+    'extension_credits' => 'Extensión Laut.fm para PanPlay',
+    'extension_credits_link' => 'https://laut.fm/?from=PanPlay-Extension',
 
     //Topnavbar Linktitel
     'trackhistory_navbar_title' => 'Historial de pistas',
