@@ -34,7 +34,7 @@
 <link rel="stylesheet" href="engine/style/loader.min.css">
 <link rel="stylesheet" href="engine/style/animate.min.css">
 
-<meta property="og:site_name" content="PanPlay by Pangom" />
+<meta property="og:site_name" content="oOPlay von OwnOnline" />
 <meta property="og:image" content="rscs/favicons/apple-touch-icon.png" />
 
 
@@ -91,7 +91,7 @@
 
         <audio id="oop_audio" preload="none" volume="0.3">
             <source src="<?php echo htmlspecialchars($streamUrl); ?>" type="audio/mpeg">
-            It seems your browser does not support the audio element. Consider Help on the Web or contact the Panlay-Developer on <a href="https://github.com/PangomNet/PanPlay/">GitHub</a>.
+            It seems your browser does not support the audio element. Consider Help on the Web or contact the oOPlay-Developer on <a href="https://github.com/ownOnline/oOPlay/">GitHub</a>.
 </audio>
         
  
@@ -212,7 +212,7 @@ if (file_exists($custom_neterr)) {
  <!----------------------------------- LOAD MAINPACKAGE JS ------------------->
 <script>
 
-//////////////////////  .:.  THIS IS THE JAVASCRIPT-MAIN-PACKAGE FOR PanPlay - Last Updated on 14. Feb. 2024 18:00  by PS(Pangom)
+//////////////////////  .:.  THIS IS THE JAVASCRIPT-MAIN-PACKAGE FOR oOPlay - Last Updated on 14. Feb. 2024 18:00  by PS(oO)
 
 //////////////////////  .:.  SET VARIABLES evtl. values (var and const)
 /////////// For Cast-JS:
