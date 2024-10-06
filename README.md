@@ -10,14 +10,14 @@ This project is tested with BrowserStack.
 ---
 
 ## Current version:
-The current "stable" alpha version of PanPlay is [Version 0.0.2.0a (Barberry)](https://github.com/PangomNet/PanPlay/releases/tag/v0.0.2.0a)!
+The current "stable" alpha version of PanPlay is [Version 0.0.2.0a (Barberry)](https://github.com/PangomNet/PanPlay/releases/tag/0.0.2.0a)!
 - You can use PanPlay via the CDN solution: [PanPlay on play.pangom.net](https://play.pangom.net/app?lfmstream=simliveradio)
 - Check also out the [PanPlay CDN Link-Generator](https://play.pangom.net/create/) on the PanPlay-Website
-- Alternatively, you can download the files for PanPlay 0.0.2.0a [here](https://github.PangomNet/PanPlay/tree/065ea9f68551419231a1514573b8f085f50fab31/Releases/0-0-2-0a) and host them yourself.
+- Alternatively, you can download the files for PanPlay 0.0.2.0a [here](https://github.com/PangomNet/PanPlay/tree/065ea9f68551419231a1514573b8f085f50fab31/Releases/0-0-2-0a) and host them yourself.
 - You can find a changelog [here](https://github.com/PangomNet/PanPlay/blob/065ea9f68551419231a1514573b8f085f50fab31/Releases/0-0-2-0a/changelog.txt)
 
 ### Last pre-release:
-The last published test release is [Version 0.0.2.0 Barberry](https://github.com/PangomNet/PanPlay/releases/tag/v0.0.2.0a)
+The last published test release is [Version 0.0.2.0 Barberry](https://github.com/PangomNet/PanPlay/releases/tag/0.0.2.0a)
 
 #### Currently under development:
 Currently under development is version 0.0.2.1 Cactus. See the development progress [here](https://github.com/PangomNet/PanPlay/tree/main/Releases/_currentdevcandidate)).
