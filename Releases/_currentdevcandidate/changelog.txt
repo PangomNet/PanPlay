@@ -1,3 +1,6 @@
+0.0.2.0a Barberry:
+-   The new API query has also been added to the “Change Player” window for TuneIn, Phonostar and RadioDe, so that valid values are now generated again in the links.
+
 0.0.2.0 Barberry:
 -   Inplementation of Pangom-CI-Font (Rondalo) 
 -   Renaming from oOPlay to PanPlay because of Webspace Renaming has taken place in this Version.
