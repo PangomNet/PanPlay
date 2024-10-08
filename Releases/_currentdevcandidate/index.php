@@ -72,43 +72,22 @@
  <!---------------------------- PLAYER PLAYER PLAYER MAIN PLAYER -------------------->   
 
           
- <div id="blurlayer" > 
- </div>   
-    <oop_div id="oop_player" class="position-absolute top-50 start-50 translate-middle" style="overflow:hidden; width:90%; padding: 1em;">
-          
-    
-    <?php
-
-    require('engine/extensions/' . $playermode . '/playerui.php');
-
-?>
-
-
-           
-               
-
-         
-
-        <audio id="oop_audio" preload="none" volume="0.3">
-            <source src="<?php echo htmlspecialchars($streamUrl); ?>" type="audio/mpeg">
-            It seems your browser does not support the audio element. Consider Help on the Web or contact the Panlay-Developer on <a href="https://github.com/PangomNet/PanPlay/">GitHub</a>.
-</audio>
-        
- 
- 
- 
- 
- 
-       
-        <div id="oop_player-controls text-center" class="btn-group" role="group" aria-label="Basic example" style=" width:90%">
-         
-         <!-- <button onclick="document.getElementById('oop_audio').pause()">Pause</button> -->
-           
-           <!-- <button onclick="document.getElementById('oop_audio').volume += 0.1">Vol +</button> 
-            <button onclick="document.getElementById('oop_audio').volume -= 0.1">Vol -</button> -->
-          
-</div>
-    </oop_div>
+<div id="blurlayer" > 
+</div>   
+<oop_div id="oop_player" class="position-absolute top-50 start-50 translate-middle"> 
+    <?php require('engine/extensions/' . $playermode . '/playerui.php'); ?>
+    <!-- PLAYER AUDIO OBJECT -->
+    <audio id="oop_audio" preload="none" volume="0.5">
+        <source src="<?php echo htmlspecialchars($streamUrl); ?>" type="audio/mpeg">
+        It seems your browser does not support the audio element. Consider Help on the Web or contact the Panlay-Developer on <a href="https://github.com/PangomNet/PanPlay/">GitHub</a>.
+    </audio>
+    <div id="oop_player-controls text-center" class="btn-group" role="group" aria-label="Basic example" style=" width:90%">
+        <!-- DEBUG BUTTONS -->
+        <!-- <button onclick="document.getElementById('oop_audio').pause()">Pause</button> -->
+        <!-- <button onclick="document.getElementById('oop_audio').volume += 0.1">Vol +</button> -->
+        <!-- <button onclick="document.getElementById('oop_audio').volume -= 0.1">Vol -</button> -->
+    </div>
+</oop_div>
     
     <?php
     require('engine/extensions/' . $playermode . '/playermodals.php');
@@ -162,21 +141,22 @@
     <div class="row align-items-center">
         <div class="col-2 col-md" >
             <!-- Hier kommt das erste Element (20%) style="flex: 0 0 10%;" -->
-            <button style="font-size: 2em;" class="btn " id="playpausebtn" onclick="playPause()" href="#">⏵</button>
+            <button style="font-size: 2em;" class="btn " id="playpausebtn" onclick="playPause()" href="#">▶</button>
             </div>
-        <div class="col col-sm-8 col-md-10" >
+        <div class="col col-sm-8 col-md-10 d-flex justify-content-center" style="margin-top: 6px;">
             <!-- Hier kommt das zweite Element (60%) style="flex: 0 0 70%;" -->
             
-            <label for="volume1" class="form-label"><i class="fas fa-volume-up"></i> </label>
-            <input class="btn btn-block form-range " type="range" onchange="setVolume()" style="max-width: 90%;" id='volume1' min=0 max=1 step=0.01 value="0.3"/>
+            <label id="muter" for="volume1" class="form-label" style="cursor: pointer;"><i class="fas fa-volume-up"></i> </label>
+            <input class="btn btn-block form-range " type="range" onchange="setVolume()" style="width: min(80%, 640px);" id='volume1' min="0" max="1" step="0.05" value="0.5"/>
         </div>
         <div class="col-2 col-md" style=" margin-left: auto;">
             <!-- Hier kommt das dritte Element (20%) flex: 0 0 10%; -->
-            <a id="cast" class="btn btn-success float-end" href="#" onclick="playPause()"><i class="fab fa-chromecast" style="float: right; color: #ffffff;"></i></a>
+            <a id="cast" class="btn btn-link float-end" href="#" onclick="playPause()"><i class="fab fa-chromecast" style="font-size: 1.4em; float: right; color: #ffffff;"></i></a>
         </div>
     </div>
 </div>
 </nav>
+
 
 <!----------------------------------------------- ENGINE NET-ERR HANDLER ----------------------------------->
 <?php 
@@ -247,6 +227,34 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 <script>
   
 /////////// PlayerControls-JS:
+
+
+var slider = document.getElementById("volume1");
+var currentslidervomulevalue = slider.value
+slider.addEventListener("wheel", function(e){
+  if (e.deltaY < 0){
+    slider.valueAsNumber += 0.05;
+  }else{
+    slider.value -= 0.05;
+  }
+  setVolume();
+  e.preventDefault();
+  e.stopPropagation();
+})
+
+const sound = document.getElementById('oop_audio');
+const volumeControl = document.getElementById('volume1');
+
+document.getElementById("muter").addEventListener("click", function() {
+  if (sound.muted) {
+    this.innerHTML = "<i class='fas fa-volume-up'></i>";
+    volumeControl.disabled = false;  // Volume-Regler aktivieren
+  } else {
+    this.innerHTML = "<i class='fas fa-volume-mute'></i>";
+    volumeControl.disabled = true;  // Volume-Regler deaktivieren
+  }
+  sound.muted = !sound.muted;
+});
 
 
 
@@ -334,8 +342,8 @@ function updatePlayPauseButton() {
     var iconElement = document.createElement("i");
 
     // Setze die Klassen für das FontAwesome-Icon entsprechend dem Zustand
-    iconElement.classList.add("fa"); // Füge die Klasse "fab" für das Brand-Icon-Set hinzu
-    iconElement.classList.add(icon === "play" ? "fa-play" : "fa-pause"); // Wähle das entsprechende Icon
+    iconElement.classList.add("far"); // Füge die Klasse "fab" für das Brand-Icon-Set hinzu
+    iconElement.classList.add(icon === "play" ? "fa-play-circle" : "fa-pause-circle"); // Wähle das entsprechende Icon
 
     // Setze die Farbe des Icons auf Weiß
     iconElement.style.color = "#ffffff";
@@ -405,6 +413,5 @@ window.addEventListener('unhandledrejection', function(event) {
 
 </body>
 <!--<script src="rscs/javascript/loader.js"></script> -->
-<!-----------------------.......-- LOAD CONVEYOR JS ---------------------------------->
-<script src="rscs/javascript/conveyor.js"></script>
+
 </html>

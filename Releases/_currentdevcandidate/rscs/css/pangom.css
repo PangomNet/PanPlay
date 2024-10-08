@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'Rondalo';
+    src: url('../../rscs/fonts/rondalo.woff') format('woff'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+         url('../../rscs/font/rondalo.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+  } 
+  
+  .pangomfont {font-family: "Rondalo", sans-serif}
+
+  .pangom-bgimg {
+    background: rgb(0,0,0);
+    background: -moz-linear-gradient(317deg, rgba(0,0,0,0.9948354341736695) 3%, rgba(1,23,50,0.9948354341736695) 25%, rgba(3,27,29,1) 70%, rgba(40,40,40,1) 100%);
+    background: -webkit-linear-gradient(317deg, rgba(0,0,0,0.9948354341736695) 3%, rgba(1,23,50,0.9948354341736695) 25%, rgba(3,27,29,1) 70%, rgba(40,40,40,1) 100%);
+    background: linear-gradient(317deg, rgba(0,0,0,0.9948354341736695) 3%, rgba(1,23,50,0.9948354341736695) 25%, rgba(3,27,29,1) 70%, rgba(40,40,40,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#282828",GradientType=1);
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+.panplay-bgimg {
+background: #242425;
+background: -webkit-linear-gradient(310deg, #242425 0%, #dc3545 100%);
+background: -o-linear-gradient(310deg, #242425 0%, #dc3545 100%);
+background: linear-gradient(140deg, #242425 0%, #dc3545 100%);
+}

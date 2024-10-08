@@ -1,3 +1,20 @@
+0.0.2.1 Cactus
+-   The LIVE label and the current show can now be hidden again using the parameter sendeplan = n. This was limited to the windows and menu items as part of the new laut.fm-API Update.
+-   The song cover is now controlled by a CSS file and works with the min-property of CSS3. This makes the album covers more responsive, larger on desktops and smaller on mobile devices. In the latter case, however, more screen width is used than before, as square images or images in landscape format have to be displayed on a portrait format screen. The change will therefore increase the size of song covers on smartphones again. The background image is also now centered and stretched to the screen resolution. No, it doesn't look silly because a layer covers the image with blur anyway.
+-   Initial placeholder “Loading...” has been removed from numerous elements because it was unsightly.
+-   The start title tag of the player is now no longer “oOPlay - Player”, but “PanPlay - Player”
+-   The conveyor function could no longer be made to run and is therefore unfortunately being discontinued. Instead, basic text-scrolling was integrated in the mobile view, which only uses css,
+-   The script loader of the laut extension no longer writes metadata to the brower console.
+-   The user can now use the mouse wheel (if using a mouse) to adjust the volume up and down. To do this, move the mouse over the slider below and then turn the mouse wheel. The slider adjusts the volume up or down in steps of 5 (10>15>20...). The default value is 50%.
+-   The loudspeaker symbol can now be used to mute or unmute the audio element. Muted is status, so turning the slider to 0 will ensure silence, but will not activate mute. Mute via browser or operating system buttons, as well as via special function keys on the keyboard is not possible. PanPlay has an independent volume control.
+-   In the mobile fold-out version of the top navigation bar, a suitable text is now displayed next to the icon for the settings. Language-neutral English “Settings” -- integration into the routine of the translations will follow. id is settings_menunavtitle -- then the translators can already prepare.
+-   The “clunky” buttons have been removed from the main screen of the sound extension. The play and pause icons have been replaced and the placeholder sound background is no longer used. Thanks to the new API, the Lautr server provides me with the station logos in a larger resolution. I therefore now also use the station logo in the background as in the cover image. In combination with the more discreet buttons, this creates a player without its own theme that uses the corporate identity colors of your station through your station logos. It should look tidier and more discreet. I think they call it polishing.
+-   The main screen now has round corners.
+-   The mobile view of the navigation now works from the resolution of tablets.
+-   The basic visual style has also changed. Here, too, more curves have been added and the red CI from PanPlay has been used.
+-   The “moredark” theme has been discontinued and changed to “glass”. It has been adapted to the current design.
+
+
 0.0.2.0a Barberry:
 -   The new API query has also been added to the “Change Player” window for TuneIn, Phonostar and RadioDe, so that valid values are now generated again in the links.
 

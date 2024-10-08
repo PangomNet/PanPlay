@@ -95,7 +95,8 @@
              height: 100vh;
              -webkit-backdrop-filter: blur(25px); /* Für Safari */
              backdrop-filter: blur(25px);
-
+             background-position: center;
+background-size: cover;
          }
 
          #about_oop_modal .modal-dialog .modal-content .modal-body, #settings_oop_modal .modal-header {

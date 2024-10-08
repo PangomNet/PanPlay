@@ -8,7 +8,7 @@ $lfmapiloader_content = <<<HTML
     <script>
     //lfmstation_id = "lfmstream";
     var lfmstation_id = '$lfmstream';
-    console.log('🎧 ' + lfmstation_id);</script>
+    //console.log('🎧 ' + lfmstation_id);</script>
 
 <!-- // Grab Station-Infos: Set vars-->
     <script> 
@@ -243,7 +243,7 @@ for (let i = 0; i < station_top_artists_raw.length; i++) {
 
 var station_location = '<a style="text-decoration: none;" target="_blank" href="' + 'https://www.google.com/maps/search/?api=1&query=' + stationData.lat + ',' + stationData.lng + '" class=" badge rounded-pill bg-primary text-dark btn-link"><i class="fas fa-map-marker"></i> &nbsp;' + stationData.location + '</a>'
 
-console.log(stationData.current_playlist.name);
+//console.log(stationData.current_playlist.name);
 var currentPlaylist = stationData.current_playlist.name;
 
   updateElementById('api_lfm_description', description);
@@ -344,7 +344,8 @@ if (currentSong_image) {
 } else {
     var lfm_images = "https://api.laut.fm/station/{$lfmstream}/images/station";
     var currentAlbumArtUrl = "https://api.laut.fm/station/{$lfmstream}/images/station";
-    var lfm_images_bg = "engine/extensions/laut/lautbg.png";
+    //var lfm_images_bg = "engine/extensions/laut/lautbg.png";
+    var lfm_images_bg = "https://api.laut.fm/station/{$lfmstream}/images/station";
     var alt_txt = currentSong;
     var current_song_modal_img = "rscs/imglibs/misc/music/audionote.png"
 }
@@ -354,10 +355,10 @@ if (currentSong_image) {
 } else {
     var currentAlbumArtUrl = "https://api.laut.fm/station/{$lfmstream}/images/station";
 }
-console.log('Aktuelle Albumkunst URL:', currentAlbumArtUrl);
+//console.log('Aktuelle Albumkunst URL:', currentAlbumArtUrl);
 
 
-var songcover_template = "<img id='songcover' class='mx-auto d-block img-fluid' src='" + lfm_images + "' style='width: 30em; max-width: 40%; max-height: 65%; min-width: 70px; min-height: 70px; height: auto; cursor: hand;' alt='" + alt_txt + "'>";
+var songcover_template = "<img id='songcover' class='pp_songcover mx-auto d-block img-fluid' src='" + lfm_images + "' alt='" + alt_txt + "'>";
 var current_song_modal_img_html = "<img id='songcover' class='mx-auto d-block img-fluid' src='" + current_song_modal_img + "' style='width: 100%; max-width: 512px; max-height: 512px; min-width: 48px; min-height: 48px; height: auto; cursor: hand;' alt='" + alt_txt + "'>";
 var bg_template = lfm_images_bg;
 var bg_template_css = "<style>body{ background-image: url('" + bg_template + "') !important;</style>";
@@ -465,7 +466,7 @@ s_currentAlbumArtUrl = currentAlbumArtUrl
             if (currentSongLbl) {
                 var songInfo = currentSongLbl.innerText.trim();
                 // Hier ist der Wert korrekt
-                console.log('Song Info:', songInfo);
+                //console.log('Song Info:', songInfo);
 
                 // Aktualisiere die Metadaten mit aktuellen Werten
                 //updateMediaMetadata(currentSongTitle, currentArtistName, currentAlbumTitle, currentAlbumArtUrl);

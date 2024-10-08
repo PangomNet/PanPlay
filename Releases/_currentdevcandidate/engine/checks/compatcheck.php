@@ -10,6 +10,8 @@ $incompatibleBrowsers = array(
     'Chrome' => 80,  // Chrome Version 80 und älter
     'Safari' => 13,  // Safari Version 13 und älter
     'Opera' => 65,  // Opera Version 65 und älter
+    'Edg' => 100,  // Edg Version 100 und älter
+    'Edge' => 100,  // Edge Version 100 und älter
 );
 
 // Prüfen, ob der Browser kompatibel ist
@@ -32,7 +34,7 @@ foreach ($incompatibleBrowsers as $browser => $version) {
 // Falls nicht kompatibel, Browsercompat-Quellcode nachladen
 if (!$compatible) {
     // Hier den Quellcode von browsercompat.html einfügen oder den Pfad entsprechend anpassen
-    $browserCompatHTML = file_get_contents('https://ownonline.eu/_res/compat/browsercompat.html');
+    $browserCompatHTML = file_get_contents('https://pangom.net/_res/compat/browsercompat.html');
     echo $browserCompatHTML;
     exit;
 }

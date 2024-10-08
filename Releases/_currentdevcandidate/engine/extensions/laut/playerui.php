@@ -6,7 +6,7 @@ HTML;
 $lfmstream = isset($_GET['lfmstream']) ? $_GET['lfmstream'] : '';
 if (!empty($lfmstream)):
 echo <<<HTML
-<div id='api_lfm_current_playlists' data-bs-toggle='modal' data-bs-target='#sendeplan_modal' style='cursor: hand;'>Loading...</div>
+<div id='api_lfm_current_playlists' data-bs-toggle='modal' data-bs-target='#sendeplan_modal' style='cursor: hand;'></div>
 <script type='text/html' id='current_playlists_template' charset='utf-8'>
 <%= '' + this.current_playlist.name %>
 </script>
@@ -37,7 +37,7 @@ HTML;
 $lfmstream = isset($_GET['lfmstream']) ? $_GET['lfmstream'] : '';
 if (!empty($lfmstream)) {
     echo <<<HTML
-    <div id="api_lfm_current_song_live_img">Loading...</div>
+    <div id="api_lfm_current_song_live_img"></div>
 HTML;
 }
 echo "</oop_div>";
@@ -62,7 +62,7 @@ echo <<<HTML
 HTML;
 
 echo <<<HTML
-<div id='api_lfm_current_song3' style='width: 100%;'>Loading...</div>
+<div id='api_lfm_current_song3' style='width: 100%;'></div>
 
 
 <!--<script type="text/javascript" charset="utf-8">
@@ -76,4 +76,9 @@ HTML;
 echo "</oop_div>";
 
 // echo '<script>alert("DEBUG: Inetgration laut-playerui ✔ /n Continue")</script>'; 
+
+if ($sendeplan !== true) {
+    echo "<style> #api_lfm_current_playlists {display: none;}</style>";
+  }
+
 ?>

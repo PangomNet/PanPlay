@@ -1,4 +1,4 @@
-<nav id="topnavbar" class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
+<nav id="topnavbar" class="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
   <div class="container-fluid">
        <a class="navbar-brand" data-bs-toggle="modal" data-bs-target="#stationinfo_modal" href="#">
      <oop_div id="oolfm_stationimg">
@@ -14,45 +14,11 @@ if (!empty($lfmstream)):
     </oop_div>
    
     </a>
-    <a class="navbar-brand d-none d-sm-block" data-bs-toggle="modal" data-bs-target="#stationinfo_modal" href="#">  <oop_div class="" id="oolfm_stationname">
+    <a class="navbar-brand d-none d-md-block" data-bs-toggle="modal" data-bs-target="#stationinfo_modal" href="#">  <oop_div class="" id="oolfm_stationname">
 <?php
     $lfmstream = $_GET['lfmstream'];
     echo '<div id="api_lfm_display_name"></div>';
-    echo '<script type="text/html" id="display_name_template" charset="utf-8">';
-    echo '<%= "" + this.display_name %>';
-    echo '</script>';
-    echo '<script type="text/html" id="display_name_template2" charset="utf-8">';
-    echo '<%= "<i class=\'fas fa-info-circle\'></i>' . $ext_lang['stationinfo_navbar_title'] . '" + this.display_name  + "\'" %>';
-    echo '</script>';
-    echo '<script type="text/html" id="display_name_template3" charset="utf-8">';
-    echo '<%= "<i class=\'fas fa-info-circle\'></i> ' . $ext_lang['stationinfo_modal_title'] . ' \'" + this.display_name  + "\'" %>';
-    echo '</script>';
-    echo '<script type="text/html" id="display_name_template4" charset="utf-8">';
-    echo '<%= this.display_name   %>';
-    echo '</script>';
-    echo '<script type="text/html" id="display_name_template5" charset="utf-8">';
-    echo '<%= this.display_name   %>';
-    echo '</script>';
-    echo '<script type="text/javascript" charset="utf-8">';
-    //echo 'laut.fm.station(\'' . $lfmstream . '\')';
-   // echo '.info({container:\'api_lfm_display_name\', template:\'display_name_template\'}, true);';
-    echo '</script>';
-    echo '<script type="text/javascript" charset="utf-8">';
-    //echo 'laut.fm.station(\'' . $lfmstream . '\')';
-   // echo '.info({container:\'aboutsenderlink_lbl\', template:\'display_name_template2\'}, true);';
-    echo '</script>';
-    echo '<script type="text/javascript" charset="utf-8">';
-    //echo 'laut.fm.station(\'' . $lfmstream . '\')';
-    //echo '.info({container:\'aboutModaltitleLabel\', template:\'display_name_template3\'}, true);';
-    echo '</script>';
-    echo '<script type="text/javascript" charset="utf-8">';
-    //echo 'laut.fm.station(\'' . $lfmstream . '\')';
-    //echo '.info({container:\'thisstationname_about_lbl\', template:\'display_name_template4\'}, true);';
-    echo '</script>';
-    echo '<script type="text/javascript" charset="utf-8">';
-    //echo 'laut.fm.station(\'' . $lfmstream . '\')';
-    //echo '.info({container:\'mviewstationname\', template:\'display_name_template5\'}, true);';
-    echo '</script>';
+
 ?>
 </oop_div> 
 </a>
@@ -70,7 +36,7 @@ if ($stationinfo === false && $trackhistory === false && $sendeplan === false) {
 ?>
 
 
-<div class="d-block d-sm-none btn-group btn-lg" role="group" aria-label="Basic outlined example">
+<div class="d-block d-md-none btn-group btn-lg" role="group" aria-label="Basic outlined example">
 
 
 
@@ -80,7 +46,7 @@ if ($trackhistory === false) {
   // Wenn $trackhistory auf false steht, wird das HTML-Element nicht eingebunden
 } else {
   // Wenn $trackhistory nicht auf false steht, wird das HTML-Element eingebunden
-  echo "<button type='button' class='btn btn-dark btn-lg' href='#' data-bs-toggle='modal' data-bs-target='#lastplayed_modal'><i class='fas fa-history'></i></button>";
+  echo "<button type='button' class='btn btn-link text-white btn-lg' href='#' data-bs-toggle='modal' data-bs-target='#lastplayed_modal'><i class='fas fa-history'></i></button>";
 }
 ?>
 <?php
@@ -89,7 +55,7 @@ if ($sendeplan === false) {
   // Wenn $sendeplan auf false steht, wird das HTML-Element nicht eingebunden
 } else {
   // Wenn $sendeplan nicht auf false steht, wird das HTML-Element eingebunden
-  echo "<button type='button' class='btn btn-dark btn-lg' href='#' data-bs-toggle='modal' data-bs-target='#sendeplan_modal'><i class='fas fa-calendar-week'></i></button>";
+  echo "<button type='button' class='btn btn-link text-white btn-lg' href='#' data-bs-toggle='modal' data-bs-target='#sendeplan_modal'><i class='fas fa-calendar-week'></i></button>";
 }
 ?>
 <?php
@@ -98,7 +64,7 @@ if ($stationinfo === false) {
   // Wenn $stationinfo auf false steht, wird das HTML-Element nicht eingebunden
 } else {
   // Wenn $stationinfo nicht auf false steht, wird das HTML-Element eingebunden
-  echo "<button type='button' class='btn btn-dark btn-lg'href='#' data-bs-toggle='modal' data-bs-target='#stationinfo_modal' ><i class='fas fa-info-circle'></i></button>";
+  echo "<button type='button' class='btn btn-link text-white btn-lg'href='#' data-bs-toggle='modal' data-bs-target='#stationinfo_modal' ><i class='fas fa-info-circle'></i></button>";
 }
 ?>
  
@@ -158,7 +124,7 @@ if ($playwith === false) {
           <li class="nav-link bg-danger" style="display:none;" id="openerrorlog_nav"><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#openerrorlog" href="#"><i class="fa fa-exclamation-triangle" style="color: yellow;"></i></a></li>
           </li>
           <li class='nav-item'>
-          <li><a class='nav-link' data-bs-toggle="modal" data-bs-target="#settings_oop_modal" href="#"><i class="fas fa-cog"></i></a></li>
+          <li><a class='nav-link' data-bs-toggle="modal" data-bs-target="#settings_oop_modal" href="#"><i class="fas fa-cog"></i> <span class="d-md-none">Settings</span></a></li>
           </li> 
           <li class='nav-item'>
           <li><a class='nav-link' data-bs-toggle="modal" data-bs-target="#about_oop_modal" href="#"><span class="pangomfont  badge bg-dark text-light"><!--<i class="fas fa-music"></i>--> 🎶 Pan<span class="pangomfont text-danger">Play</span></span></a></li>

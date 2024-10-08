@@ -12,8 +12,8 @@ if (isset($_GET['theme'])) {
         include 'theme/light.php';
     }
     // Überprüfen, ob es sich um die Variante "variante3" handelt
-    elseif ($theme === 'moredark') {
-        include 'theme/moredark.php';
+    elseif ($theme === 'glass') {
+        include 'theme/glass.php';
     }
      // Überprüfen, ob es sich um die Variante "custom für eigene farbgestaltung handelt
      elseif ($theme === 'custom') {

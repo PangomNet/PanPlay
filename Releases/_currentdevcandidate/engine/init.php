@@ -7,7 +7,7 @@ require('engine/lang_loader.php');
 echo "<!DOCTYPE html>";
 echo "<html lang=" . $language . ">";
 echo "<html prefix='og: https://ogp.me/ns#'>";
-echo "<title>oOPlay - Player</title>";
+echo "<title>PanPlay - Player</title>";
 
 // set global vars
 // bluescreen vars:
@@ -31,7 +31,7 @@ function bluescreen($blus_error_code, $blus_reason, $blus_reason_desc)
     // Hier implementierst du den Code für den Bluescreen
     // Zum Beispiel:
     echo $blus_header;
-    echo '<span jsselect="heading" jsvalues=".innerHTML:msg" jstcache="14">\'oOPlay\' hat einen Serverfehler verursacht</span>';
+    echo '<span jsselect="heading" jsvalues=".innerHTML:msg" jstcache="14">\'PanPlay\' hat einen Serverfehler verursacht</span>';
     echo '<a id="error-information-button" class="hidden" onclick="toggleErrorInformationPopup();" jstcache="0"></a>';
     echo '</h1>';
     echo '<p jsselect="summary" jsvalues=".innerHTML:msg" jstcache="3"><b><u>SERVER-Exception: ' . htmlspecialchars($blus_reason) . '</u></b><br><br>Erklärung: ' . htmlspecialchars($blus_reason_desc) . '<br><br>';
@@ -63,12 +63,12 @@ $files = [
 foreach ($files as $file) {
     if (!file_exists($file)) {
         // Wenn eine Datei fehlt, rufe die Bluescreen-Funktion auf und übergebe den Serverbetreiber und die URL
-        bluescreen(404, "File not found: $file", "'\'oOPlay\' hat mit der Methode \'required\' auf ein nicht existentes Dokument auf diesem Server verwiesen. Der Server konnte diese Anfrage nicht verarbeiten und hat den Vorgang abgebrochen.");
+        bluescreen(404, "File not found: $file", "'\'PanPlay\' referred to a non-existent document on this server using the method \'required\'. This ... hehe ... requires that the server may only execute the web application if this document exists ... but it is not. The server was therefore unable to process this request and aborted the process. Doomsday.");
     }
 }
 
-//triggerhapy: Test the Bluescreen
-// bluescreen(500, "JUST FOR FUN. THATS YOUR COMPANY NAME: $copyowner", "You know, sometimes as a developer you just want to see what happens when your program crashes without knowing that something is broken.");
+//triggerhapy?: Test the Bluescreen
+ // bluescreen(500, "JUST FOR FUN. THATS YOUR COMPANY NAME: $copyowner", "You know, sometimes as a developer you just want to see what happens when your program crashes without knowing that something is broken.");
 
 // Überprüfen, ob die URL-Parameter für mindestens eine Wiedergabe-Erweiterung vorhanden sind
 $lfmstream = isset($_GET['lfmstream']) ? $_GET['lfmstream'] : '';
@@ -93,9 +93,13 @@ if ($allEmpty) {
     include('engine/error/pages/nomedia.html');
     exit;
 }
+//VOLUME
+$vol= 0.0;
+$vol = isset($_GET['vol']) ? $_GET['vol'] : '';
+
 
 // EXTENSIONS-LOADER
-$extensions_credits = "<div><div class='card' >";
+$extensions_credits = "<div><div class='' >";
 require('engine/extensions/ext-loader.php');
 
 // Veraltete Erkennungsmethode

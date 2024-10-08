@@ -62,6 +62,11 @@
      backdrop-filter: blur(100px);
  }
 
+   #oop_player{
+     background-color: rgb(0 0 0 / 48%) !important;
+     backdrop-filter: blur(200px);
+ }
+
  #oolfm_currentshow, #oolfm_songcover, #oolfm_current_song { 
      rgb(255 255 255 / 0%)
  }
@@ -76,5 +81,8 @@
      height: 100vh;
      backdrop-filter: blur(25px);
  }
+
+.modal-header {border-bottom-color: rgba(222, 226, 230, 0.13); }
+
 </style>";
 ?>
