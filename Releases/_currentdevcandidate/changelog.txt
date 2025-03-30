@@ -1,4 +1,4 @@
-0.0.2.1 Cactus
+0.3.0.0  Cactus [Build 1000]
 -   The LIVE label and the current show can now be hidden again using the parameter sendeplan = n. This was limited to the windows and menu items as part of the new laut.fm-API Update.
 -   The song cover is now controlled by a CSS file and works with the min-property of CSS3. This makes the album covers more responsive, larger on desktops and smaller on mobile devices. In the latter case, however, more screen width is used than before, as square images or images in landscape format have to be displayed on a portrait format screen. The change will therefore increase the size of song covers on smartphones again. The background image is also now centered and stretched to the screen resolution. No, it doesn't look silly because a layer covers the image with blur anyway.
 -   Initial placeholder “Loading...” has been removed from numerous elements because it was unsightly.
@@ -13,6 +13,10 @@
 -   The mobile view of the navigation now works from the resolution of tablets.
 -   The basic visual style has also changed. Here, too, more curves have been added and the red CI from PanPlay has been used.
 -   The “moredark” theme has been discontinued and changed to “glass”. It has been adapted to the current design.
+-   The Laut.fm station name (the display name from the API is used here) is now changed immediately after the page is loaded. This should ensure that search engines also display the station name in their search results if they include a linked PanPlay session in their index.
+-   New designs: aero (not yet finished), hc-dark (for black player with high contrast), laut (displays the player in the font and color scheme of the laut.fm platform)
+- The link cursor now also works on all the columns where it was previously to be called up with the obsolete property "hand".
+- The song cover now has round corners. When you click on the song cover, the "Now playing" window opens
 
 
 0.0.2.0a Barberry:

@@ -7,7 +7,7 @@ $lang = array(
 'select_language' => '选择语言：',
 'remember_language' => '记住此语言',
 'apply' => '应用',
-'current_language' => '当前语言：<span class="badge bg-danger">CN</span> 中文',
+'current_language' => '<span class="badge bg-danger">CN</span> 中文',
 
 //basic-words
 'from' => '从',
@@ -32,7 +32,7 @@ $lang = array(
 'settingspanel_lang_ext_desc' => '扩展程序在某些情况下可能没有语言文件，可能不会在每种语言中正常工作。',
 
 //about PanPlay
-'about_modal_title' => '',
+    'about_modal_title' => 'PanPlay',
 'about_brand_phrase' => '<b><u>HTML5</u></b> 音频播放器！</p>',
 'about_license_owner_is' => '授权给',
 'about_license_datewording' => '版本',
