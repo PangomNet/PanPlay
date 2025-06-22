@@ -1,5 +1,5 @@
 
-See full formatted Master-Changelog on https://oop.ownonline.eu/changelog
+See full formatted Master-Changelog on https://play.pangom.net/
 
 This version of the Master-Changelog here on GitHub only exists to fill the documentation gap in the repository, as the project was already started before this Git entry was created. No such file is maintained here on GitHub, as the changelog is now managed and listed by GitHub. You can find a changelog in this form here for each version in the changelog file of the release and in the respective commit.
 
