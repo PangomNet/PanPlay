@@ -10,7 +10,7 @@ This project is tested with BrowserStack.
 ---
 
 ## Current version:
-The current "stable" alpha version of PanPlay is [Version 0.1.0.0 (Cactus)](https://github.com/PangomNet/PanPlay/releases/tag/0.1.0.0.1027)!
+The current "stable" alpha version of PanPlay is [Version 0.1.0.0 (Cactus)](https://github.com/PangomNet/PanPlay/releases/tag/0.1.0.0)!
 - You can use PanPlay via the CDN solution: [PanPlay on play.pangom.net](https://play.pangom.net/app?lfmstream=simliveradio)
 - Check also out the [PanPlay CDN Link-Generator](https://play.pangom.net/create/) on the PanPlay-Website
 - Alternatively, you can download the files for PanPlay 0.0.2.0a [here](https://github.com/PangomNet/PanPlay/tree/main/Releases/0-1-0-0/) and host them yourself.
