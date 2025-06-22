@@ -10,17 +10,17 @@ This project is tested with BrowserStack.
 ---
 
 ## Current version:
-The current "stable" alpha version of PanPlay is [Version 0.0.2.0a (Barberry)](https://github.com/PangomNet/PanPlay/releases/tag/0.0.2.0a)!
+The current "stable" alpha version of PanPlay is [Version 0.1.0.0 (Cactus)](https://github.com/PangomNet/PanPlay/releases/tag/0.1.0.0.1027)!
 - You can use PanPlay via the CDN solution: [PanPlay on play.pangom.net](https://play.pangom.net/app?lfmstream=simliveradio)
 - Check also out the [PanPlay CDN Link-Generator](https://play.pangom.net/create/) on the PanPlay-Website
-- Alternatively, you can download the files for PanPlay 0.0.2.0a [here](https://github.com/PangomNet/PanPlay/tree/main/Releases/0-0-2-0a/) and host them yourself.
-- You can find a changelog [here](https://github.com/PangomNet/PanPlay/tree/main/Releases/0-0-2-0a/changelog.txt)
+- Alternatively, you can download the files for PanPlay 0.0.2.0a [here](https://github.com/PangomNet/PanPlay/tree/main/Releases/0-1-0-0/) and host them yourself.
+- You can find a changelog [here](https://github.com/PangomNet/PanPlay/tree/main/Releases/0-1-0-0/1027/changelog.txt)
 
 ### Last pre-release:
-The last published test release is [Version 0.0.2.0 Barberry](https://github.com/PangomNet/PanPlay/releases/tag/0.0.2.0)
+The last published test release is [Version 0.1.0.0 Cactus 1028](https://github.com/PangomNet/PanPlay/releases/tag/0.1.0.0)
 
 #### Currently under development:
-Currently under development is version 0.0.2.1 Cactus. See the development progress [here](https://github.com/PangomNet/PanPlay/tree/main/Releases/_currentdevcandidate)).
+Currently under development is version 0.1.0.0 Cactus Build 1027 See the development progress [here](https://github.com/PangomNet/PanPlay/tree/main/Releases/_currentdevcandidate)).
 
 #### Older versions:
 You don't like a new feature of PanPlay? Or an update has led to a major bug for you. Too bad :) Let us know about this in any case! But luckily for you: Every version marked as "stable" in the release posting is available for you to use on our CDN shortly after release. Or here on GitHub (to download and host)
