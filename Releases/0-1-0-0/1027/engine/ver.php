@@ -23,7 +23,7 @@ echo "<h1 class='pangomfont text-center' ><b>" . $pro_name . "</b></h1><h3 class
 echo "</div><!--<div class='col-4'><img style ='margin: 0.2em;' class='rounded' src='rscs/imglibs/panplay/panplay about imager.png' width='100%' height='auto' alt='PanPlay'></div>--></div></div><hr>";
 
 // in case of prerelease
-echo "<div class='alert bg-dark text-danger'><b>" . $lang['about_prerelease_warning_title'] . "</b><br><!-- <hr>--->" . $lang['about_prerelease_warning_p1'] . " '". $pro_name_cleartext . "' " . $lang['about_prerelease_warning_p2'] . "</div>"; 
+// echo "<div class='alert bg-dark text-danger'><b>" . $lang['about_prerelease_warning_title'] . "</b><br><!-- <hr>--->" . $lang['about_prerelease_warning_p1'] . " '". $pro_name_cleartext . "' " . $lang['about_prerelease_warning_p2'] . "</div>"; 
 
 echo "Version " . $pro_version . " [Build " . $pro_buildversion . "] <br>" . $lang['from_who'] . " " . $pro_releasedate . " <br><small>" . 
 "© " . $pro_copyright . " <a target='_blank' href='" . $pro_company_url . "'>" . $pro_company ."</a> <hr> " . $lang['about_license_owner_is'] . " <a href='" . $copyowner_url . "'>". $copyowner . " (" . $_SERVER['HTTP_HOST'] . ")</a><br><a target='_blank' href='" . $pro_license_url ."'>" . $pro_license . " " . $lang['about_license_datewording'] . " " . $pro_releasedate . ")</a> <hr>";
