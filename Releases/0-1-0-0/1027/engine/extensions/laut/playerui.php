@@ -14,10 +14,10 @@ echo <<<HTML
 laut.fm.station('$lfmstream')
 .info({container:'api_lfm_current_playlists', template:'current_playlists_template'}, true);
 </script> -->
-&nbsp;<div id="api_lfm_song_live">Loading...</div>
+&nbsp;<div id="api_lfm_song_live"></div>
     <script type="text/html" id="api_lfm_song_live_template" charset="utf-8">
 <% if (this.live)  { %>
-<%= "  <span class='badge bg-danger text-white' data-bs-toggle='modal' data-bs-target='#sendeplan_modal'><i class='fas fa-info-circle'></i> LIVE</span>" %>
+<%= "  <span class='badge bg-danger text-white' data-bs-toggle='modal' data-bs-target='#sendeplan_modal'><i class='fas fa-wifi'></i> LIVE</span>" %>
 <% } else { %>
 <%= "" %>
 <% } %>
@@ -64,14 +64,17 @@ HTML;
 
 echo <<<HTML
 <div id='api_lfm_current_song3' style='width: 100%;'></div>
-
+<span id="currentsong_scrobbler_titel_lbl" hidden >Untitled</span>
+    <span id="currentsong_scrobbler_interpret_lbl" hidden >Various</span>
 
 <!--<script type="text/javascript" charset="utf-8">
 laut.fm.station('$lfmstream')
 .current_song({container:'api_lfm_current_song3', template:'current_song_template3'}, true);
 
 
-</script> -->
+</script> 
+
+<i> Comin Soon: "Rich-Content"!</i>-->
 HTML;
 
 echo "</oop_div>";

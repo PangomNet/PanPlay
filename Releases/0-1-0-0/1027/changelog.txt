@@ -1,7 +1,16 @@
-0.0.1.0  Cactus [Build 1026]
+0.1.0.0  Cactus [Build 1027]
+-   lfm-Extension:  The metadata windows in the Laut-fm extension have been adjusted. The providers allmusic.com and Streema have been replaced by last.fm. A contact point for metadata with a huge community that offers a more reliable, more stable and larger database. Last.fm users can also benefit from this change. They can now click on the links directly and add the music to their playlists on last-fm.
+-   lfm-Extension:  Introduction of the “lbn” (Live by Name) switch. If the switch is activated in the URL (lbn=y), a station is only displayed as “LIVE” if the planned program in the broadcast schedule contains the suffix “[LIVE]” in the show /playlist name. The setting is set to 0 by default and the mode can only be activated if the URL parameter in question contains the value (lbn=y). If active, the islive property of the laut.fm API is ignored. 
+-   The EULA is no longer hardcoded in the ver.php, but can now also be customized via the upper variables. This makes it easier to replace it in self-hosting solutions.
+-   The settings window has been reduced in size.
+-   In the standard design, design errors in the window dividing lines have been corrected.
+-   An ext-toptions.php has been added, which is queried by the settings window and allows the integration of extension settings in the settings window in the future. However, this is not yet in use.
+-   Instead, attention is paid to the “[LIVE]” in the program title. If the setting is active and the conditions are met, the “[LIVE]” entry will be removed from the program title in the middle of the main page and the LIVE label will appear after the program title as usual. As part of the change, the live icon has also been changed
+
+0.1.0.0  Cactus [Build 1026]
 -   Theme-Engine-Hotfix.Themstructure Need to be as in "bs-cosmo" and "default"
 
-0.0.1.0  Cactus [Build 1025]
+0.1.0.0  Cactus [Build 1025]
 -   The LIVE label and the current show can now be hidden again using the parameter sendeplan = n. This was limited to the windows and menu items as part of the new laut.fm-API Update.
 -   The song cover is now controlled by a CSS file and works with the min-property of CSS3. This makes the album covers more responsive, larger on desktops and smaller on mobile devices. In the latter case, however, more screen width is used than before, as square images or images in landscape format have to be displayed on a portrait format screen. The change will therefore increase the size of song covers on smartphones again. The background image is also now centered and stretched to the screen resolution. No, it doesn't look silly because a layer covers the image with blur anyway.
 -   Initial placeholder “Loading...” has been removed from numerous elements because it was unsightly.

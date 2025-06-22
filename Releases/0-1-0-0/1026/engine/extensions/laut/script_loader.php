@@ -421,6 +421,7 @@ updateElementById('currentsong_modal_length_lbl', "🕖 " + currentSong_length);
 
 
 
+}
 
 updateElementById('api_lfm_song_live', "<span class='badge bg-danger text-white' data-bs-toggle='modal' data-bs-target='#sendeplan_modal'><i class='fas fa-info-circle'></i> LIVE</span>");
 
@@ -438,6 +439,7 @@ laut.fm.station('$lfmstream').current_song(function(response) {
         updateElementById('api_lfm_song_live', '');
     }
 }, true);
+
 
 
 

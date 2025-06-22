@@ -120,7 +120,7 @@
 
 
 <div class="modal fade" id="settings_oop_modal" tabindex="-1" aria-labelledby="settings_oop_modal" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
      <div class="modal-header text-white bg-danger">
         <h5 class="modal-title" sytle="display: inline; " id="exampleModalLabel"><a href="#" class="text-decoration-none" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-chevron-left"></i>&nbsp; <?php echo $lang['settingspanel_modal_title']; ?></a></h5>

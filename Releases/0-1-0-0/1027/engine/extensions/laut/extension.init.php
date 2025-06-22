@@ -35,7 +35,7 @@ $streamBaseUrl = 'https://stream.laut.fm/';
 
 
 // Überprüfen, ob der URL-Parameter "nolfmw" vorhanden ist und ob sein Wert "j" ist
-if (isset($_GET['nolfmw']) && $_GET['nolfmw'] === 'j') {
+if (isset($_GET['nolfmw']) && $_GET['nolfmw'] === 'y') {
     // Wenn "nolfmfeatures" auf "j" gesetzt ist, setzen Sie alle Variablen auf false
     $sendeplan = false;
     $stationinfo = false;
@@ -62,6 +62,18 @@ if (isset($_GET['nolfmw']) && $_GET['nolfmw'] === 'j') {
     } else {
         $stationinfo = true; // Standardwert
     }
+
+      // Überprüfen, ob der lautfm-livemodus (LBN) durch parameter "lbn" aktiviert - also vorhanden ist und ob sein Wert "y" ist
+      if (isset($_GET['lbn']) && $_GET['lbn'] === 'y') {
+        $lfmlbn = true;
+    } elseif (isset($_GET['lbn']) && $_GET['lbn'] === 'n') {
+        $lfmlbn = false; // <-- Hier wird $lfmlbn auf false gesetzt
+    } else {
+        $lfmlbn = false;
+    }
+
+    echo '<script type="text/javascript">const isLbnActive = ' . json_encode($lfmlbn) . ';</script>';
+    
 
     // Überprüfen, ob der URL-Parameter "playwith" vorhanden ist und ob sein Wert "y" ist
     if (isset($_GET['playwith']) && $_GET['playwith'] === 'y') {

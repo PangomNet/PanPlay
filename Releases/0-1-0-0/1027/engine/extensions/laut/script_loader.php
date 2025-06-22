@@ -1,9 +1,105 @@
 <?php
 echo '<script type="text/javascript" src="//api.laut.fm/js_tools/lautfm_js_tools.0.10.0.js.min.js" ></script>';
 
+
+// Angenommen, $lfmstream ist hier bereits definiert, z.B.:
+// $lfmstream = $_GET['station'] ?? 'defaultstation'; 
+
+// --- NEU: Platzhalterseite definieren ---
+// Ersetze 'deine_platzhalterseite.php' mit dem tatsächlichen Pfad zu deiner Platzhalterseite!
+$fallback_page_url = 'deine_platzhalterseite.php'; 
+
+// --- NEU: Serverseitige API-Statusprüfung ---
+$api_status_ok = true; // Standardmäßig ist der API-Status OK
+$api_error_message = '';
+
+$api_check_url = "https://api.laut.fm/station/" . $lfmstream;
+
+// Verwende cURL für eine robuste HTTP-Anfrage
+if (function_exists('curl_init')) {
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $api_check_url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); // Gib die Antwort als String zurück
+    curl_setopt($ch, CURLOPT_HEADER, 0);         // Keine Header im Output
+    curl_setopt($ch, CURLOPT_TIMEOUT, 5);       // Timeout nach 5 Sekunden
+    // FÜR PRODUKTION: CURLOPT_SSL_VERIFYPEER auf true lassen und CA-Zertifikate konfigurieren
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Für Entwicklungszwecke oft auf false gesetzt
+
+    $response = curl_exec($ch);
+    $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $curl_error = curl_error($ch);
+    curl_close($ch);
+
+    // Prüfen auf cURL-Fehler, HTTP-Status >= 400 oder HTTP-Status 0 (Verbindungsfehler)
+    if ($response === false || $http_status >= 400 || $http_status === 0) {
+        $api_status_ok = false;
+        $api_error_message = "Laut.fm API-Fehler für Station '{$lfmstream}': ";
+        if ($http_status !== 0) {
+            $api_error_message .= "HTTP-Status {$http_status}.";
+        } else {
+            $api_error_message .= "Verbindungsfehler: {$curl_error}.";
+        }
+        
+        // Optional: Rufe hier deine PHP-Fehlerbehandlungsfunktion auf (z.B. für Logging)
+        if (function_exists('errorHandler')) {
+            errorHandler($api_error_message);
+        } else {
+            error_log("API Check Error (no errorHandler): " . $api_error_message);
+        }
+
+    } else {
+        // Wenn HTTP-Status 200 OK ist, aber der JSON-Inhalt ungültig oder leer ist
+        $data = json_decode($response, true);
+        if (json_last_error() !== JSON_ERROR_NONE || empty($data) || !isset($data['display_name'])) {
+            $api_status_ok = false;
+            $api_error_message = "Laut.fm API-Fehler für Station '{$lfmstream}': Ungültige oder leere API-Antwort.";
+            
+            // Optional: Rufe hier deine PHP-Fehlerbehandlungsfunktion auf (z.B. für Logging)
+            if (function_exists('errorHandler')) {
+                errorHandler($api_error_message);
+            } else {
+                error_log("API Check Error (invalid JSON): " . $api_error_message);
+            }
+        }
+    }
+} else {
+    // Fallback, wenn cURL nicht verfügbar ist
+    $headers = @get_headers($api_check_url);
+    if ($headers && strpos($headers[0], '200') === false) {
+        $api_status_ok = false;
+        $api_error_message = "Laut.fm API-Fehler für Station '{$lfmstream}': Status konnte nicht überprüft werden (cURL nicht verfügbar oder kein 200 OK).";
+        
+        // Optional: Rufe hier deine PHP-Fehlerbehandlungsfunktion auf (z.B. für Logging)
+        if (function_exists('errorHandler')) {
+            errorHandler($api_error_message);
+        } else {
+            error_log("API Check Error (get_headers): " . $api_error_message);
+        }
+    }
+}
+
+// === WICHTIG: Weiterleitung bei API-Fehler ===
+if (!$api_status_ok) {
+    header("Location: " . $fallback_page_url);
+    exit; // Wichtig: Beende das Skript nach der Weiterleitung
+}
+
+// ... (Rest deines PHP-Codes, der die Seite normal rendert,
+//      wenn die API-Prüfung erfolgreich war.) ...
+
+
 $lfmapiloader_content = <<<HTML
+<script>
+// Vor dem eigentlichen laut.fm Code oder direkt danach, um die Standard-Definition zu überschreiben
+window.laut.fm.errorcallback = function(msg) {
+    console.error("Laut.fm API Error:", msg);
+    // Hier könntest du auch eine Fehlermeldung auf der Webseite anzeigen
+    // z.B. updateElementById('error_display_area', 'Ein Fehler ist aufgetreten: ' + msg);
+};
+</script>
+
 <script type='text/javascript'>
-    document.title = '$lfmstream - PanPlayer'
+    document.title = '$lfmstream - PanPlay'
 </script>
 
 <!-- ///// Get API Values -->
@@ -241,18 +337,18 @@ if (stationData.third_parties.instagram && stationData.third_parties.instagram.n
 var station_genres = "";
 for (let i = 0; i < station_genres_raw.length; i++) {
             // Generiere die Badges
-            station_genres += '<a style="text-decoration: none;" target="_blank" href="' + 'https://streema.com/radios/genre/' + station_genres_raw[i] + '"  class="badge rounded-pill bg-primary text-dark"><i class="fas fa-guitar"></i> &nbsp;' + station_genres_raw[i] + '</a> ';
+            station_genres += '<a style="text-decoration: none;" target="_blank" href="' + 'https://www.last.fm/tag/' + station_genres_raw[i] + '"  class="badge rounded-pill bg-primary text-dark"><i class="fas fa-guitar"></i> &nbsp;' + station_genres_raw[i] + '</a> ';
         }
 let station_top_artists_raw = stationData.top_artists;
 var station_top_artists = "";
 for (let i = 0; i < station_top_artists_raw.length; i++) {
             // Generiere die Badges
-            station_top_artists += '<a style="text-decoration: none;" target="_blank" href="' + 'https://www.allmusic.com/search/artists/' + station_top_artists_raw[i] + '" class="badge rounded-pill bg-primary text-dark"><i class="fas fa-user-tie"></i> &nbsp;' + station_top_artists_raw[i] + '</a> ';
+            station_top_artists += '<a style="text-decoration: none;" target="_blank" href="' + 'https://www.last.fm/music/' + station_top_artists_raw[i] + '" class="badge rounded-pill bg-primary text-dark"><i class="fas fa-user-tie"></i> &nbsp;' + station_top_artists_raw[i] + '</a> ';
         }
 
 var station_location = '<a style="text-decoration: none;" target="_blank" href="' + 'https://www.google.com/maps/search/?api=1&query=' + stationData.lat + ',' + stationData.lng + '" class=" badge rounded-pill bg-primary text-dark btn-link"><i class="fas fa-map-marker"></i> &nbsp;' + stationData.location + '</a>'
 
-//console.log(stationData.current_playlist.name);
+console.log(stationData.current_playlist.name);
 var currentPlaylist = stationData.current_playlist.name;
 
     document.title = display_name + ' - PanPlay';
@@ -306,7 +402,7 @@ currentAlbumTitle = lastSongs[0].album;
    // trackHistory = trackHistory + '<p>' + lastSongs[i].started_at.humanTimeLong() + ' - ' + lastSongs[i].ends_at.humanTimeLong() + ' Uhr <br />' + lastSongs[i].artist.name + ' - ' + lastSongs[i].title + '<br /></p>';
 
 
-    trackHistory = trackHistory + "<a target=\"_blank\" href=\"https://www.allmusic.com/search/songs/"+ lastSongs[i].artist.name + " - " + lastSongs[i].title + "\" style=\"background-color: transparent;\" class=\"list-group-item list-group-item-action \"><div class=\"d-flex w-100\"><small class=\"listboxstatebadge\" style=\"margin-right: 10px;\" >" + lastSongs[i].started_at.humanTimeLong() + "</small><p class=\"mb-1\"> <i class=\"fas fa-music\"></i>  " + lastSongs[i].artist.name + " - " + lastSongs[i].title + "</p></div></a>";
+    trackHistory = trackHistory + "<a target=\"_blank\" href=\"https://www.last.fm/search/tracks?q="+ lastSongs[i].artist.name + " - " + lastSongs[i].title + "\" style=\"background-color: transparent;\" class=\"list-group-item list-group-item-action \"><div class=\"d-flex w-100\"><small class=\"listboxstatebadge\" style=\"margin-right: 10px;\" >" + lastSongs[i].started_at.humanTimeLong() + "</small><p class=\"mb-1\"> <i class=\"fas fa-music\"></i>  " + lastSongs[i].artist.name + " - " + lastSongs[i].title + "</p></div></a>";
   }
 
 
@@ -316,11 +412,11 @@ currentAlbumTitle = lastSongs[0].album;
     // Mache etwas mit currentSong_album
     var template_currentsong_lbl_holder = template_currentsong_lbl_holder_PART1 + currentSong_artist + " - " + currentSong_title + "'>" + currentSong_artist + " - " + currentSong_title + "</span><div class='fader fader-left'></div><div class='fader fader-right'></div></div> <div id='currentalbum_lbl' data-bs-toggle='modal' data-bs-target='#lastplayed_modal' style='animation-delay: 3s; animation-duration: 6.875s; cursor: pointer;' class='h5 d-flex justify-content-center text-truncate'><span id='currentalbum_lbl_holder' data-bs-toggle='tooltip' data-bs-placement='top' title='" + currentSong_artist + " - " + currentSong_title + "' class='text-center' bs-toggle='tooltip' data-bs-placement='top' title='" + currentSong_album + "'>" + currentSong_album + "</span></div>";
     //var template_currentsong_lastplayed_modal_lbl_holder = currentSong_artist + " - " + currentSong_title + "<br><small>" + currentSong_album + "</small>";
-    var template_currentsong_lastplayed_modal_lbl_holder = "<a target=\"_blank\" href=\"https://www.allmusic.com/search/songs/"+ currentSong_artist + " - " + currentSong_title + "\" style=\"background-color: #48527f;\" class=\"list-group-item list-group-item-action \"><b><div class=\"d-flex w-100\"><small class=\"listboxstatebadge\" style=\"margin-right: 10px;\" ><span class=\"badge bg-danger\">LIVE</span></small><p class=\"mb-1\"> <i class=\"fas fa-music\"></i>  " + currentSong_artist + " - " + currentSong_title + "<br><small>" + currentSong_album + "</small></p></div></b></a>";
+    var template_currentsong_lastplayed_modal_lbl_holder = "<a target=\"_blank\" href=\"https://www.last.fm/search/tracks?q="+ currentSong_artist + " - " + currentSong_title + "\" style=\"background-color: #48527f;\" class=\"list-group-item list-group-item-action \"><b><div class=\"d-flex w-100\"><small class=\"listboxstatebadge\" style=\"margin-right: 10px;\" ><span class=\"badge bg-danger\">LIVE</span></small><p class=\"mb-1\"> <i class=\"fas fa-music\"></i>  " + currentSong_artist + " - " + currentSong_title + "<br><small>" + currentSong_album + "</small></p></div></b></a>";
 } else {
     // Mache etwas, wenn currentSong_album keinen gültigen Wert hat
     var template_currentsong_lbl_holder = template_currentsong_lbl_holder_PART1 + currentSong_artist + " - " + currentSong_title + "'>" + currentSong_artist + " - " + currentSong_title + "</span><div class='fader fader-left'></div><div class='fader fader-right'></div></div> ";
-    var template_currentsong_lastplayed_modal_lbl_holder = "<a target=\"_blank\" href=\"https://www.allmusic.com/search/songs/"+ currentSong_artist + " - " + currentSong_title + "\" style=\"background-color: #48527f;\" class=\"list-group-item list-group-item-action \"><b><div class=\"d-flex w-100\"><small class=\"listboxstatebadge\" style=\"margin-right: 10px;\" ><span class=\"badge bg-danger\">LIVE</span></small><p class=\"mb-1\"> <i class=\"fas fa-music\"></i>  " + currentSong_artist + " - " + currentSong_title + "</p></div></b></a>";
+    var template_currentsong_lastplayed_modal_lbl_holder = "<a target=\"_blank\" href=\"https://www.last.fm/search/tracks?q="+ currentSong_artist + " - " + currentSong_title + "\" style=\"background-color: #48527f;\" class=\"list-group-item list-group-item-action \"><b><div class=\"d-flex w-100\"><small class=\"listboxstatebadge\" style=\"margin-right: 10px;\" ><span class=\"badge bg-danger\">LIVE</span></small><p class=\"mb-1\"> <i class=\"fas fa-music\"></i>  " + currentSong_artist + " - " + currentSong_title + "</p></div></b></a>";
 }
 
 if (currentSong_album) {
@@ -409,7 +505,9 @@ updateElementById('bgscriptcssholder', bg_template_css);
 updateElementById('api_lfm_current_song3', template_currentsong_lbl_holder);
 updateElementById('currentsong_modal_title', currentSong);
 updateElementById('currentsong_modal_titel_lbl', currentSongTitle);
+updateElementById('currentsong_scrobbler_titel_lbl', currentSongTitle);
 updateElementById('currentsong_modal_interpret_lbl', currentSong_artist);
+updateElementById('currentsong_scrobbler_interpret_lbl', currentSong_artist);
 updateElementById('currentsong_lastplayed_modal_lbl_holder', template_currentsong_lastplayed_modal_lbl_holder);
 updateElementById('api_lfm_last_x_songs_spezial', trackHistory);
 updateElementById('currentsong_modal_album_lbl', current_song_modal_album);
@@ -422,23 +520,88 @@ updateElementById('currentsong_modal_length_lbl', "🕖 " + currentSong_length);
 
 
 
-updateElementById('api_lfm_song_live', "<span class='badge bg-danger text-white' data-bs-toggle='modal' data-bs-target='#sendeplan_modal'><i class='fas fa-info-circle'></i> LIVE</span>");
+//updateElementById('api_lfm_song_live', "<span class='badge bg-danger text-white' data-bs-toggle='modal' data-bs-target='#sendeplan_modal'><i class='fas fa-info-circle'></i> LIVE</span>");
 
 laut.fm.station('$lfmstream').last_songs(historyData, true);
 
+// --- NEU: Deklariere currentPlaylist hier global, ganz am Anfang deiner Skripte ---
 var livedata;
-laut.fm.station('$lfmstream').current_song(function(response) {
-    livedata = response;
 
-    // Überprüfen, ob livedata und livedata.live existieren und true ist
-    if (livedata && livedata.live === true) {
-        updateElementById('api_lfm_song_live', "<span class='badge bg-danger text-white' data-bs-toggle='modal' data-bs-target='#sendeplan_modal'><i class='fas fa-info-circle'></i> LIVE</span>");
+
+// Funktion für die erweiterte LBN-Logik (prüft NUR auf '[LIVE]' im globalen Playlistnamen)
+function handleLiveLabelWithLbnCheck() { 
+    console.log("handleLiveLabelWithLbnCheck aufgerufen.");
+    console.log("Aktuelle globale currentPlaylist (vor Bereinigung):", currentPlaylist); // Debug-Ausgabe
+
+    if (currentPlaylist && currentPlaylist.includes('[LIVE]')) {
+        console.log("[LIVE] im Playlistnamen gefunden!");
+        
+        // --- NEU: "[LIVE]" aus dem Sendungstitel entfernen ---
+        // Erstelle eine bereinigte Version des Playlistnamens
+        let cleanedPlaylistName = currentPlaylist.replace('[LIVE]', '').trim();
+        
+        // Überprüfe, ob nach der Entfernung noch Leerzeichen am Ende sind
+        if (cleanedPlaylistName.endsWith('')) { // Dies prüft auf ein abschließendes Leerzeichen
+             // Optional: Entferne ein einzelnes Leerzeichen am Ende, wenn der Titel damit endet
+            if (cleanedPlaylistName.length > 0 && cleanedPlaylistName.charAt(cleanedPlaylistName.length - 1) === ' ') {
+                cleanedPlaylistName = cleanedPlaylistName.slice(0, -1);
+            }
+        }
+        
+        // Aktualisiere das Element mit dem bereinigten Titel
+        updateElementById('api_lfm_current_playlists', cleanedPlaylistName);
+        
+        // Zeige das LIVE-Label an (wie bisher)
+        updateElementById('api_lfm_song_live', "<span class='badge bg-danger text-white' data-bs-toggle='modal' data-bs-target='#sendeplan_modal'><i class='fas fa-wifi'></i> LIVE</span>");
     } else {
-        // Optional: Falls die Node nicht existiert oder live nicht true ist, Element leeren
+        console.log("[LIVE] im Playlistnamen NICHT gefunden oder currentPlaylist ist null/undefined.");
+        // Wenn [LIVE] nicht gefunden wurde, soll der Originaltitel bleiben und das LIVE-Label nicht angezeigt werden.
+        // Stelle sicher, dass der Originaltitel angezeigt wird (falls er zuvor geändert wurde).
+        updateElementById('api_lfm_current_playlists', currentPlaylist); // Den Originaltitel wiederherstellen/setzen
         updateElementById('api_lfm_song_live', '');
     }
-}, true);
+}
 
+// Funktion für die Standard-Logik (prüft NUR auf livedata.live)
+function handleLiveLabelDefault(response) { 
+    if (response && response.live === true) { 
+        updateElementById('api_lfm_song_live', "<span class='badge bg-danger text-white' data-bs-toggle='modal' data-bs-target='#sendeplan_modal'><i class='fas fa-fa-wifi'></i> LIVE</span>");
+    } else {
+        updateElementById('api_lfm_song_live', '');
+    }
+}
+
+laut.fm.station('$lfmstream').last_songs(historyData, true);
+
+// --- WICHTIG: Die 'data'-Funktion muss 'currentPlaylist' global befüllen ---
+var data = function(stationData) {
+    // ... (restlicher Code deiner data-Funktion) ...
+
+    // Finde diese Zeile in deiner data-Funktion und stelle sicher, dass sie currentPlaylist global setzt:
+    currentPlaylist = stationData.current_playlist.name; // Zuweisung zur GLOBALEN Variable
+    
+    // ... (restlicher Code deiner data-Funktion) ...
+};
+laut.fm.station('$lfmstream').info(data, true);
+
+
+// Der Hauptteil für die Live-Anzeige
+laut.fm.station('$lfmstream').current_song(function(response) {
+    livedata = response; 
+
+    if (!livedata) {
+        updateElementById('api_lfm_song_live', '');
+        return; 
+    }
+
+    if (isLbnActive === true) {
+        console.log('lfmlbn is true (LBN-Modus aktiv)');
+        handleLiveLabelWithLbnCheck(); 
+    } else {
+        console.log('lfmlbn is false (Standard-Modus aktiv)');
+        handleLiveLabelDefault(livedata); 
+    }
+}, true);
 
 
     

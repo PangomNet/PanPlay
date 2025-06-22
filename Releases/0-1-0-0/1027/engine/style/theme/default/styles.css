@@ -1983,7 +1983,7 @@ progress {
   margin-bottom: 1rem;
   color: #212529;
   vertical-align: top;
-  border-color: #dee2e6;
+  border-color: #4f4f4f;
 }
 .table > :not(caption) > * > * {
   padding: 0.5rem 0.5rem;
@@ -5585,7 +5585,7 @@ textarea.form-control-lg {
   align-items: center;
   justify-content: space-between;
   padding: 1rem 1rem;
-  border-bottom: 1px solid #dee2e6;
+  border-bottom: 1px solid #4f4f4f;
   border-top-left-radius: calc(0.3rem - 1px);
   border-top-right-radius: calc(0.3rem - 1px);
 }

@@ -25,6 +25,7 @@ $available_languages = [
     'es' => '<span class="badge bg-danger">ES</span> Spanish / Espanol',
     'nl' => '<span class="badge bg-danger">NL</span> Dutch / Nederlandse',
     'zh-hans' => '<span class="badge bg-danger">ZH-HANS</span> Chinese (simplified) / 中文',
+    'hi' => '<span class="badge bg-danger">ZH-HANS</span> Chinese (simplified) / 中文',
 ];
 
 // Filtern Sie verfügbare Sprachen basierend auf vorhandenen Sprachdateien
@@ -78,5 +79,8 @@ $language_settings_code .= <<<HTML
 HTML;
 
 echo $language_settings_code;
+
+require('engine/extensions/' . $playermode . '/ext-options.php');
+
 
 ?>
