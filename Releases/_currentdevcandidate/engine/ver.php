@@ -35,7 +35,7 @@ echo "Version " . $pro_version . " [Build " . $pro_buildversion . "] <br>" . $la
     }
 
  
-echo "<hr>" . $lang['about_documentation_p1'] . " <a target='_blank' href='https://play.pangom.net/documentation/?ver=" . $pro_version ."'>" . $lang['about_documentation_p2'] . "</a>" . $lang['about_documentation_p3'] . "</small> ";
+echo "<hr><!--" . $lang['about_documentation_p1'] . " --><a target='_blank' href='https://play.pangom.net/documentation/?ver=" . $pro_version ."'>" . $lang['about_documentation_p2'] . "</a><!--" . $lang['about_documentation_p3'] . "--></small> |  ";
 
-    echo "<!--<hr>--><small>" . $lang['about_legal_p1'] . " <a target='_blank' href='" . $privacy_url . "'>" . $lang['about_legal_p2'] . "</a> " . $lang['about_legal_p3'] . " <a target='_blank' href='" . $impress_url . "'>" . $lang['about_legal_p4'] . "</a> " . $lang['from'] . " " . $copyowner . "" . $lang['about_legal_p5'] . " " . $lang['about_legal_p6'] . " " . $lang['from'] . " " . $pro_eula_vendor . " " . $lang['about_legal_p7'] . " <a href='" . $pro_eula_link ."'>". $lang['about_legal_p8'] . "</a>". $lang['about_legal_p9'] . " </small>";
+    echo "<!--<hr>--><span style='font-size: 10pt;'><!--" . $lang['about_legal_p1'] . " --><a target='_blank' href='" . $privacy_url . "'>" . $lang['about_legal_p2'] . "</a> | <!--" . $lang['about_legal_p3'] . "--> <a target='_blank' href='" . $impress_url . "'>" . $lang['about_legal_p4'] . "</a> <!--" . $lang['from'] . " " . $copyowner . "" . $lang['about_legal_p5'] . " " . $lang['about_legal_p6'] . " " . $lang['from'] . " " . $pro_eula_vendor . " " . $lang['about_legal_p7'] . "--> | <a href='" . $pro_eula_link ."'>". $lang['about_legal_p6'] . "</a> <!--". $lang['about_legal_p9'] . " --></span>";
 ?>

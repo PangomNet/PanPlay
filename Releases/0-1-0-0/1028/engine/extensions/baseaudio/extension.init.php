@@ -3,7 +3,7 @@ $extension_active = true;
 $playermode = 'baseaudio';
 $extlangpath = 'engine/extensions/' . $playermode . '/lang/' . $language . '.php';
 require($extlangpath );
-$extensions_credits .= "<span style='' class='badge bg-dark'><a href='https://ownonline.eu?from=PanPlay-Extension' target='_blank'>Basic-HTML5-PLAYER by Pangom</a></span>";
+$extensions_credits .= "<span style='' class='badge bg-dark'><a href='https://play.pangom.net/?from=PanPlay-Extension' target='_blank'>Basic-HTML5-PLAYER by Pangom</a></span>";
 
 
 

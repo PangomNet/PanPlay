@@ -332,21 +332,21 @@ if (stationData.third_parties.instagram && stationData.third_parties.instagram.n
   var station_image_navbar = "<img id ='current_station_img' src='" + stationData.images.station  + "' alt='" + stationData.display_name + "' width='30'>";
   //var currentPlaylist = 'Aktuelle Sendung: ' + stationData.started_at.humanTimeShort() + ' - ' + stationData.ends_at.humanTimeShort() + ' Uhr <br />Du H&ouml;rst: ' + stationData.name;
 
-  var djs = "<span class='badge rounded-pill bg-primary text-dark'><i class='fas fa-compact-disc'></i> &nbsp;" + stationData.djs + "</span>";
+  var djs = "<span class='badge rounded-pill bg-dark border border-danger fw-normal'><i class='fas fa-compact-disc'></i> &nbsp;" + stationData.djs + "</span>";
   let station_genres_raw = stationData.genres;
 var station_genres = "";
 for (let i = 0; i < station_genres_raw.length; i++) {
             // Generiere die Badges
-            station_genres += '<a style="text-decoration: none;" target="_blank" href="' + 'https://www.last.fm/tag/' + station_genres_raw[i] + '"  class="badge rounded-pill bg-primary text-dark"><i class="fas fa-guitar"></i> &nbsp;' + station_genres_raw[i] + '</a> ';
+            station_genres += '<a style="text-decoration: none;" target="_blank" href="' + 'https://www.last.fm/tag/' + station_genres_raw[i] + '"  class="badge rounded-pill bg-dark border border-danger fw-normal"><i class="fas fa-guitar"></i> &nbsp;' + station_genres_raw[i] + '</a> ';
         }
 let station_top_artists_raw = stationData.top_artists;
 var station_top_artists = "";
 for (let i = 0; i < station_top_artists_raw.length; i++) {
             // Generiere die Badges
-            station_top_artists += '<a style="text-decoration: none;" target="_blank" href="' + 'https://www.last.fm/music/' + station_top_artists_raw[i] + '" class="badge rounded-pill bg-primary text-dark"><i class="fas fa-user-tie"></i> &nbsp;' + station_top_artists_raw[i] + '</a> ';
+            station_top_artists += '<a style="text-decoration: none;" target="_blank" href="' + 'https://www.last.fm/music/' + station_top_artists_raw[i] + '" class="badge rounded-pill bg-dark border border-danger fw-normal"><i class="fas fa-user-tie"></i> &nbsp;' + station_top_artists_raw[i] + '</a> ';
         }
 
-var station_location = '<a style="text-decoration: none;" target="_blank" href="' + 'https://www.google.com/maps/search/?api=1&query=' + stationData.lat + ',' + stationData.lng + '" class=" badge rounded-pill bg-primary text-dark btn-link"><i class="fas fa-map-marker"></i> &nbsp;' + stationData.location + '</a>'
+var station_location = '<a style="text-decoration: none;" target="_blank" href="' + 'https://www.google.com/maps/search/?api=1&query=' + stationData.lat + ',' + stationData.lng + '" class=" badge rounded-pill bg-dark border border-danger btn-link fw-normal"><i class="fas fa-map-marker"></i> &nbsp;' + stationData.location + '</a>'
 
 console.log(stationData.current_playlist.name);
 var currentPlaylist = stationData.current_playlist.name;
@@ -402,7 +402,7 @@ currentAlbumTitle = lastSongs[0].album;
    // trackHistory = trackHistory + '<p>' + lastSongs[i].started_at.humanTimeLong() + ' - ' + lastSongs[i].ends_at.humanTimeLong() + ' Uhr <br />' + lastSongs[i].artist.name + ' - ' + lastSongs[i].title + '<br /></p>';
 
 
-    trackHistory = trackHistory + "<a target=\"_blank\" href=\"https://www.last.fm/search/tracks?q="+ lastSongs[i].artist.name + " - " + lastSongs[i].title + "\" style=\"background-color: transparent;\" class=\"list-group-item list-group-item-action \"><div class=\"d-flex w-100\"><small class=\"listboxstatebadge\" style=\"margin-right: 10px;\" >" + lastSongs[i].started_at.humanTimeLong() + "</small><p class=\"mb-1\"> <i class=\"fas fa-music\"></i>  " + lastSongs[i].artist.name + " - " + lastSongs[i].title + "</p></div></a>";
+    trackHistory = trackHistory + "<a target=\"_blank\" href=\"https://www.last.fm/search/tracks?q="+ lastSongs[i].artist.name + " - " + lastSongs[i].title + "\" style=\"background-color: transparent; cursor: pointer;\" class=\"list-group-item list-group-item-action \"><div class=\"d-flex w-100\"><small class=\"listboxstatebadge\" style=\"cursor: help; margin-right: 10px;\" >" + lastSongs[i].started_at.humanTimeLong() + "</small><p class=\"mb-1\" style=\"cursor: help;\"> <i class=\"fas fa-music\"></i> &nbsp; " + lastSongs[i].artist.name + " - " + lastSongs[i].title + "</p></div></a>";
   }
 
 
@@ -412,11 +412,11 @@ currentAlbumTitle = lastSongs[0].album;
     // Mache etwas mit currentSong_album
     var template_currentsong_lbl_holder = template_currentsong_lbl_holder_PART1 + currentSong_artist + " - " + currentSong_title + "'>" + currentSong_artist + " - " + currentSong_title + "</span><div class='fader fader-left'></div><div class='fader fader-right'></div></div> <div id='currentalbum_lbl' data-bs-toggle='modal' data-bs-target='#lastplayed_modal' style='animation-delay: 3s; animation-duration: 6.875s; cursor: pointer;' class='h5 d-flex justify-content-center text-truncate'><span id='currentalbum_lbl_holder' data-bs-toggle='tooltip' data-bs-placement='top' title='" + currentSong_artist + " - " + currentSong_title + "' class='text-center' bs-toggle='tooltip' data-bs-placement='top' title='" + currentSong_album + "'>" + currentSong_album + "</span></div>";
     //var template_currentsong_lastplayed_modal_lbl_holder = currentSong_artist + " - " + currentSong_title + "<br><small>" + currentSong_album + "</small>";
-    var template_currentsong_lastplayed_modal_lbl_holder = "<a target=\"_blank\" href=\"https://www.last.fm/search/tracks?q="+ currentSong_artist + " - " + currentSong_title + "\" style=\"background-color: #48527f;\" class=\"list-group-item list-group-item-action \"><b><div class=\"d-flex w-100\"><small class=\"listboxstatebadge\" style=\"margin-right: 10px;\" ><span class=\"badge bg-danger\">LIVE</span></small><p class=\"mb-1\"> <i class=\"fas fa-music\"></i>  " + currentSong_artist + " - " + currentSong_title + "<br><small>" + currentSong_album + "</small></p></div></b></a>";
+    var template_currentsong_lastplayed_modal_lbl_holder = "<a target=\"_blank\" href=\"https://www.last.fm/search/tracks?q="+ currentSong_artist + " - " + currentSong_title + "\" style=\"background-color: #48527f;\" class=\"list-group-item list-group-item-action \"><b><div class=\"d-flex w-100\"><small class=\"listboxstatebadge\" style=\"margin-right: 10px;\" ><span class=\"badge bg-danger\">LIVE</span></small><p class=\"mb-1\" style=\"cursor: help;\"> <i style=\"cursor: help;\" class=\"fas fa-music\"></i>  " + currentSong_artist + " - " + currentSong_title + "<br><small style=\"cursor: help;\">" + currentSong_album + "</small></p></div></b></a>";
 } else {
     // Mache etwas, wenn currentSong_album keinen gültigen Wert hat
     var template_currentsong_lbl_holder = template_currentsong_lbl_holder_PART1 + currentSong_artist + " - " + currentSong_title + "'>" + currentSong_artist + " - " + currentSong_title + "</span><div class='fader fader-left'></div><div class='fader fader-right'></div></div> ";
-    var template_currentsong_lastplayed_modal_lbl_holder = "<a target=\"_blank\" href=\"https://www.last.fm/search/tracks?q="+ currentSong_artist + " - " + currentSong_title + "\" style=\"background-color: #48527f;\" class=\"list-group-item list-group-item-action \"><b><div class=\"d-flex w-100\"><small class=\"listboxstatebadge\" style=\"margin-right: 10px;\" ><span class=\"badge bg-danger\">LIVE</span></small><p class=\"mb-1\"> <i class=\"fas fa-music\"></i>  " + currentSong_artist + " - " + currentSong_title + "</p></div></b></a>";
+    var template_currentsong_lastplayed_modal_lbl_holder = "<a target=\"_blank\" href=\"https://www.last.fm/search/tracks?q="+ currentSong_artist + " - " + currentSong_title + "\" style=\"background-color: #48527f;\" class=\"list-group-item list-group-item-action \"><b><div style=\"cursor: help;\" class=\"d-flex w-100\"><small style=\"cursor: help;\" class=\"listboxstatebadge\" style=\"margin-right: 10px;\" ><span style=\"cursor: help;\" class=\"badge bg-danger\">LIVE</span></small><p class=\"mb-1\"> <i class=\"fas fa-music\"></i>  " + currentSong_artist + " - " + currentSong_title + "</p></div></b></a>";
 }
 
 if (currentSong_album) {

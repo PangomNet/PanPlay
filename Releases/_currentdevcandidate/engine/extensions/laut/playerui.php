@@ -30,9 +30,14 @@ HTML;
 endif;
 echo "</oop_div> <br>";
 
+
+
+
+
+
 echo <<<HTML
 <oop_div id='oolfm_songcover'>
-<a class="link-underline-opacity-0" href="#" data-bs-toggle="modal" data-bs-target="#currentsong_modal" data-bs-dismiss="modal" target="_blank" >
+<a class="link-underline-opacity-0" href="#"onclick="playPause()" >
 <!-- Nur einbinden, wenn lfmstream Inhalt hat -->
 HTML;
 $lfmstream = isset($_GET['lfmstream']) ? $_GET['lfmstream'] : '';

@@ -3,7 +3,7 @@ echo <<<HTML
 
 <oop_div id='ooweb_songcover'>
 
-<img id="songcover" class="mx-auto d-block img-fluid" src="engine/extensions/baseaudio/placeholder-cover.png" style="width: min(640px, 100%); height: min(480px, 100%); cursor: pointer;" alt="PanPlay">
+<img id="songcover" onclick="playPause()" class="mx-auto d-block img-fluid" src="engine/extensions/baseaudio/placeholder-cover.png" style="width: min(640px, 100%); height: min(480px, 100%); cursor: pointer;" alt="PanPlay">
 <style>
  body{ background-image: url('engine/extensions/baseaudio/bg.png'); }
 </style>

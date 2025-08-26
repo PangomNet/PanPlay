@@ -103,7 +103,7 @@
     <div class="modal-content">
      <div class="modal-header">
          <h5 class="modal-title" sytle="display: inline; " id="exampleModalLabel"> <?php echo $lang['about_modal_title']; ?> </h5>
-         <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
+         <button type="button" class="btn btn-outline-danger rounded-circle" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
       </div>
       <div class="modal-body">
      
@@ -120,17 +120,19 @@
 
 
 <div class="modal fade" id="settings_oop_modal" tabindex="-1" aria-labelledby="settings_oop_modal" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+  <div class="modal-dialog modal-fullscreen modal-dialog-centered modal-dialog-scrollable modal-lg">
     <div class="modal-content">
      <div class="modal-header text-white bg-danger">
         <h5 class="modal-title" sytle="display: inline; " id="exampleModalLabel"><a href="#" class="text-decoration-none" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-chevron-left"></i>&nbsp; <?php echo $lang['settingspanel_modal_title']; ?></a></h5>
-        <button type="button" class="btn btn-block btn-outline-light" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
+        <button type="button" class="btn btn-block btn-outline-light rounded-circle" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
          
       </div> 
       <div class="modal-body">
+      <div class="container-sm">
      
             <?php require('engine/usersettings.php');?>
             </p>
+     </div>
       </div>
     </div>
   </div>
@@ -142,7 +144,7 @@
     <div class="row align-items-center">
         <div class="col-2 col-md" >
             <!-- Hier kommt das erste Element (20%) style="flex: 0 0 10%;" -->
-            <button style="font-size: 2em;" class="btn " id="playpausebtn" onclick="playPause()" href="#">▶</button>
+            <button style="font-size: 2em;" class="btn " id="playpausebtn" onclick="playPause()" href="#">▷</button>
             </div>
         <div class="col col-sm-8 col-md-10 d-flex justify-content-center" style="margin-top: 6px;">
             <!-- Hier kommt das zweite Element (60%) style="flex: 0 0 70%;" -->

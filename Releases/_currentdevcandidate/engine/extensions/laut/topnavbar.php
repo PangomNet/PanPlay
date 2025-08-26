@@ -104,7 +104,7 @@ if ($stationinfo === false) {
 } else {
   // Wenn $stationinfo nicht auf false steht, wird das HTML-Element eingebunden
   echo " <li class='nav-item'>
-  <a id='aboutsenderlink_lbl' class='nav-link' href='#' data-bs-toggle='modal' data-bs-target='#stationinfo_modal' ><i class='fas fa-info-circle'></i> " . $ext_lang['stationinfo_navbar_title'] . " <span id='lfmdisplaynamelabelcontainer'></span></a></li>
+  <a id='aboutsenderlink_lbl' class='nav-link' href='#' data-bs-toggle='modal' data-bs-target='#stationinfo_modal' ><i class='fas fa-info-circle'></i>" . $ext_lang['stationinfo_navbar_title'] . " <span id='lfmdisplaynamelabelcontainer'></span></a></li>
 </li>";
 }
 ?>
@@ -117,7 +117,7 @@ if ($playwith === false) {
   // Wenn $playwith auf false steht, wird das HTML-Element nicht eingebunden
 } else {
   // Wenn $playwith nicht auf false steht, wird das HTML-Element eingebunden
-  echo " <li><a class='nav-link' data-bs-toggle='modal' data-bs-target='#playwith_modal' href='#'><i class='far fa-play-circle'></i> " . $ext_lang['playwith_navbar_title'] . "</a></li>";
+  echo " <li><a class='nav-link' data-bs-toggle='modal' data-bs-target='#playwith_modal' href='#'><i class='fas fa-file-audio'></i> &nbsp;</a></li>";
 }
 ?>
           <li class='nav-item'>
@@ -127,7 +127,7 @@ if ($playwith === false) {
           <li><a class='nav-link' data-bs-toggle="modal" data-bs-target="#settings_oop_modal" href="#"><i class="fas fa-cog"></i> <span class="d-md-none"> <?php echo $lang['settingspanel_modal_title']; ?></span></a></li>
           </li> 
           <li class='nav-item'>
-          <li><a class='nav-link' data-bs-toggle="modal" data-bs-target="#about_oop_modal" href="#"><span class="pangomfont  badge bg-dark text-light"><!--<i class="fas fa-music"></i>--> 🎶 Pan<span class="pangomfont text-danger">Play</span></span></a></li>
+          <li><a class='nav-link' data-bs-toggle="modal" data-bs-target="#about_oop_modal" href="#"><span class="pangomfont  badge bg-dark text-light"><!--<i class="fas fa-music"></i>--> ♫ Pan<span class="pangomfont text-danger">Play</span></span></a></li>
           </li> 
         </ul>
 

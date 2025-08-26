@@ -24,8 +24,8 @@ $playwithmodal_content = <<<HTML
   <div class="modal-dialog modal-fullscreen-md-down modal-lg modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">{$ext_lang["playwith_modal_title"]}</h5>
-        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
+        <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-file-audio"></i> &nbsp;  {$ext_lang["playwith_modal_title"]}</h5>
+        <button type="button" class="btn btn-outline-danger rounded-circle" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
       </div>
       <div class="modal-body">
         <p>{$ext_lang["playwith_modal_topdesc"]}</p>
@@ -130,22 +130,25 @@ $stationinfomodal_code = <<<HTML
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="aboutModaltitleLabel"><i class="fa-solid fa-radio"></i> $lfmstream</h5>
-                <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
+                <button type="button" class="btn btn-outline-danger rounded-circle" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
             </div>
             <div class="modal-body">
-            
-            <div id="stationlogoholder" class="text-center">
 
-</div>
-<br>
-<div id="api_lfm_format" style="text-align: center;"></div>
-<div class='' id="api_lfm_description" style="text-align: center;"></div><br>
-<div id="api_lfm_djs" style="text-align: center;"></div>
-<div id="api_lfm_genres" style="text-align: center;"></div>
-<div id="api_lfm_top_artists" style="text-align: center;"></div>
-<div id="api_lfm_location" style="text-align: center;"></div>
-<br>
-<style>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-4 text-md-left text-left"><div id="stationlogoholder" class="text-center" ></div></div>
+                <div class="col-md-8 text-left">
+                  <br>
+                <div id="api_lfm_format" style="text-align: left;"></div>
+                <div class='' id="api_lfm_description" style="text-align: left;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="container">
+              <div class="row">
+
+                <div class="col-md-4 text-md-left text-center"><br><br>
+                <style>
 #oolfm_station_url, #oolfm_station_x_url, #api_lfm_website_link, #oolfm_station_fb_url, #oolfm_station_insta_url, #api_lfm_twitter_link, #api_lfm_facebook_link, #api_lfm_instagram_link {
   display: inline-block;
 }
@@ -166,6 +169,22 @@ $stationinfomodal_code = <<<HTML
 <div id="api_lfm_instagram_link" style="text-align: center; "></div>
 </div>
 </div>
+                </div>
+                <div class="col-md-8">
+                  <br>
+              <ul class="list-group">
+  <li class="list-group-item" style="background-color: transparent;"><div id="api_lfm_djs" style="text-align: left;"></div></li>
+  <li class="list-group-item" style="background-color: transparent;"><div id="api_lfm_location" style="text-align: left;"></div></li>
+  <li class="list-group-item" style="background-color: transparent;"><div id="api_lfm_genres" style="text-align: left;"></div></li>
+  <li class="list-group-item" style="background-color: transparent;"><div id="api_lfm_top_artists" style="text-align: left;"></div></li>
+</ul>
+                <br>
+                </div>
+              </div>
+            </div>
+
+            
+
 
             </div>
         </div>
@@ -180,7 +199,7 @@ $lastplayed_modal_code = <<<HTML
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-history"></i> {$ext_lang["trackhistory_modal_title"]}</h5>
-        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
+        <button type="button" class="btn btn-outline-danger rounded-circle" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
       </div>
       <div class="modal-header">
       <div class="list-group" style="width: 100%">
@@ -213,7 +232,7 @@ $sendeplan_modal_code = <<<HTML
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-calendar-week"></i> {$ext_lang["sendeplan_modal_title"]}</h5>
-        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
+        <button type="button" class="btn btn-outline-danger rounded-circle" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
       </div>
       <div class="modal-header">
       <ul class="nav nav-pills" id="myTab" role="tablist">

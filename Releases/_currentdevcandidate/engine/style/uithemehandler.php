@@ -51,8 +51,8 @@ if (isset($_GET['theme'])) {
     else {
         $theme_err = "The desired theme (" . $theme . ") is not a defined PanPlay theme. Go to the PanPlay website and find out how to call your favorite theme. The wrong command does not prevent the player from starting, we load the default theme.";
         // Standardthema laden
-        include 'theme/bs-cosmo/theme.php';
-        echo "<link rel='stylesheet' href='engine/style/theme/bs-cosmo/styles.css'>"; // LEGEACY-SERVICE ROW 
+        include 'theme/default/theme.php';
+        echo "<link rel='stylesheet' href='engine/style/theme/default/styles.css'>"; // LEGEACY-SERVICE ROW 
         echo "<script>alert('$theme_err');</script>";
     }
 }
