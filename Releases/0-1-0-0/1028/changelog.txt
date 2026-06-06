@@ -1,3 +1,5 @@
+0.1.0.0 
+
 0.1.0.0  Cactus [Build 1027]
 -   lfm-Extension:  The metadata windows in the Laut-fm extension have been adjusted. The providers allmusic.com and Streema have been replaced by last.fm. A contact point for metadata with a huge community that offers a more reliable, more stable and larger database. Last.fm users can also benefit from this change. They can now click on the links directly and add the music to their playlists on last-fm.
 -   lfm-Extension:  Introduction of the “lbn” (Live by Name) switch. If the switch is activated in the URL (lbn=y), a station is only displayed as “LIVE” if the planned program in the broadcast schedule contains the suffix “[LIVE]” in the show /playlist name. The setting is set to 0 by default and the mode can only be activated if the URL parameter in question contains the value (lbn=y). If active, the islive property of the laut.fm API is ignored. 
