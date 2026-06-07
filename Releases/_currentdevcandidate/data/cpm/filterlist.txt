@@ -1,0 +1,30 @@
+[Adblock Plus]
+! Title: PanPlay CPM Central Filter List
+! Description: Central Content Protection Mechanism filter list for PanPlay baseaudio.
+! Homepage: https://play.pangom.net/cpm/
+! Maintainer: Pangom / PanPlay
+! Syntax: AdBlock compatible subset plus PanPlay CPM import directives
+! License: PanPlay list entries are maintained by Pangom. Imported third-party lists keep their own licenses.
+! Expires: 6 hours
+!
+! This central list is intended for:
+! https://play.pangom.net/cpm/filterlist.txt
+!
+! PanPlay CPM checks these rules locally after downloading/caching the list.
+! Playback URLs are not sent to Pangom/PanPlay during normal CPM checks.
+!
+! Imported third-party source:
+! HaGeZi's Anti-Piracy DNS Blocklist
+! Homepage: https://github.com/hagezi/dns-blocklists
+! Source: https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/anti.piracy.txt
+! License: GPL-3.0, see https://github.com/hagezi/dns-blocklists/blob/main/LICENSE
+!
+! PanPlay CPM import directive.
+! Normal adblock parsers should ignore this line as a comment.
+! PanPlay CPM should fetch and merge this list during CDN-list synchronization.
+!@import https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/anti.piracy.txt
+!
+! PanPlay central CPM rules can be added below.
+! Example:
+! ||example-piracy-site.test^
+! @@||example-piracy-site.test/legal-demo.mp3

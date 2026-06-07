@@ -17,7 +17,7 @@ $pro_name           = '<i class="fas fa-music"></i> Pan<span class="pangomfont t
 $pro_name_noformat  = '<i class="fas fa-music"></i> PanPlay'; //⚠
 $pro_name_cleartext = 'PanPlay'; //⚠
 $pro_version        = '0.1.1.0'; //⚠
-$pro_buildversion   = '1030'; //⚠
+$pro_buildversion   = '1031'; //⚠
 $pro_version_name   = 'Everlasting'; //⚠
 $pro_releasedate    = '07.06.2026'; //⚠
 $is_prerelase       = true; // marks this build as an unstable test release in the About dialog, including a warning.
@@ -71,9 +71,9 @@ $cfg_auto_lang_override   = false ; // If set to true, the player will not use a
 
 $cfg_compat_check   = true;           // Is browser compatibility check enabled? The browser.pangom.net compatibility check is being used.
 
-$cfg_panplay_cpm    = false;          //🥚 Use PanPlay CPM (WIP)? Once implemented, this setting activates the Content Protection Mechanism (CPM), which prevents URLs flagged as copyright infringements from playing #uploadfilter. More info here: https://play.pangom.net/2024/09/23/copyright-coming-soon-to-panplay/
+$cfg_panplay_cpm    = true;          // Use PanPlay CPM? This activates the Content Protection Mechanism (CPM) for baseaudio URLs. CPM checks local and optional CDN filter lists before playback.
 
-$cfg_panplay_cpm_by_cdn    = false;          //🥚 If set to ‘true’, the activated CPM module does not use a server-side list to check for copyright infringements, but instead uses a central list on the PanPlay website. It is important to note that, at this point, any URL played by the user is transmitted to the Pangom.net servers. (Keyword: data protection)
+$cfg_panplay_cpm_by_cdn    = true;          // Use the central PanPlay CPM filter list from https://play.pangom.net/cpm/? The list is downloaded, cached locally, and checked locally. Playback URLs are not sent to Pangom/PanPlay during normal CPM checks.
 
 $cfg_debug_mode     = false;          // Enable PHP debug output in the player runtime. If true, PanPlay sets error_reporting(E_ALL), display_errors=1, and display_startup_errors=1 early during initialization. If false, direct PHP error output is hidden from the player interface.
 

@@ -1,0 +1,212 @@
+﻿
+0.1.1.0 Everlasting [Build 1030] (Prerelease development build, not for public use)
+- Completed changes in this development build:
+    - Fixed a net-error modal stability issue where repeated playback/network failures could leave the modal/backdrop in a broken state and force the user to reload the page.
+    - The net-error modal now reuses a single Bootstrap modal instance instead of creating a new instance for every audio error, abort, or stalled event.
+    - The net-error server-check interval is now stored and cleared safely. The previous code created intervalId inside showModalAndStartInterval(), but tried to stop it from closeModalAndStopInterval(), where that variable was not in scope.
+    - The net-error modal now uses modal-dialog-scrollable to reduce the risk of broken page/backdrop scrolling when the error text becomes long.
+    - Implemented the same core language logic used by other UI parts for the net-error reload button. The reload_player key is now available in all current PanPlay core language files.
+    - The laut.fm extension keeps its localized net-error modal and server-status check.
+    - The baseaudio extension now has its own net-error modal instead of falling back to the generic/laut.fm-oriented handler.
+    - The baseaudio net-error handler performs a generic reachability check for the requested audio URL instead of expecting the laut.fm server_status JSON structure.
+    - Local render checks confirmed that the laut.fm handler outputs the localized reload button, that the baseaudio handler is loaded for webstream mode, and that the old stopCheckInterval(intervalId) bug is no longer present in rendered HTML.
+    - Implemented the first PanPlay CPM interpreter for baseaudio.
+    - CPM now normalizes baseaudio URLs, reads local filter rules from data/cpm/local-filterlist.txt, and can combine them with the central CPM by CDN list.
+    - CPM by CDN now downloads https://play.pangom.net/cpm/filterlist.txt, resolves supported !@import entries, and stores the merged cache in data/cpm/cdn-cache-filterlist.txt with metadata in data/cpm/cdn-cache-meta.json. Playback URLs are checked locally and are not sent to Pangom/PanPlay during normal CPM checks.
+    - The CPM rule parser supports comments, [Adblock Plus] headers, exact URLs, domain rules such as ||example.com^, domain/path rules, simple wildcards, and @@ exception rules. Unsupported cosmetic filter syntax and ABP options are ignored for the first implementation.
+    - When a baseaudio URL is blocked by CPM, PanPlay stops before rendering the player UI and shows the existing PanPlay Bluescreen with a 403 status and the matched rule source.
+    - CPM Bluescreen content now uses the PanPlay language files instead of hardcoded English text. It links to https://play.pangom.net/cpm/ when CPM by CDN is active, and otherwise falls back to the instance operator website configured in storage.php.
+    - Implemented the first connected settings surface for user/session URL parameters.
+    - The settings dialog now exposes language and theme selection as URL/session parameter controls instead of requiring users to manually edit parameters.
+    - The settings system now loads extension-specific option surfaces through the active extension's ext-options.php.
+    - The laut.fm extension settings now expose URL toggles for schedule, station info, play-with display, track history, current-song window, live-by-name mode, and the global nolfmw feature-window switch.
+    - The baseaudio extension settings now expose a direct webstream URL input that reloads the player with the updated URL parameter.
+    - Settings are explicitly treated as user/session URL settings. They do not write server-side configuration and are not an admin panel.
+    - Settings no longer reload the player immediately for every single option click. The dialog now collects changes in one form and applies them through a single footer button.
+    - After applying settings, the player reloads with the new URL parameters and automatically opens the settings dialog again. The temporary settings=open helper parameter is removed from the visible URL after the modal has reopened.
+    - Extension settings labels were moved into language files. French, Italian, Spanish, Dutch, Danish, Hindi, and Chinese now have translated settings labels instead of inheriting English placeholder text.
+    - The settings modal markup was cleaned up so the form is the Bootstrap modal-content element and the modal body remains scrollable.
+    - German settings strings and related visible core strings were corrected after mojibake was found in the language files.
+    - The laut.fm "play with" wording now describes the actual feature more clearly as switching/opening the player somewhere else. German now uses "Player wechseln"; the other supported languages were adjusted with equivalent labels.
+    - The laut.fm settings UI now reflects the global nolfmw feature-window override. If nolfmw is active, the individual feature-window switches are shown as disabled because they are ignored by the runtime until the global switch is turned off again.
+    - The laut.fm runtime now accepts nolfmw=j as a legacy alias while continuing to use nolfmw=y as the current active value. The settings UI writes the current y/n form.
+    - The lbn switch remains independent from nolfmw because it changes live-label behavior and is not one of the feature windows hidden by the global feature-window override.
+    - The lbn switch was moved into its own playback-behavior section in the settings UI so it is no longer presented as a laut.fm feature window.
+    - Added a default/reset button for laut.fm feature windows. It clears the global hide-all state and sets the individual feature-window switches back to visible before the user applies the settings.
+    - Hindi and Chinese visible language names, settings descriptions, and About dialog texts were corrected where older mojibake strings were still rendered in the player.
+
+0.1.0.1 Dandelion [Build 1029]
+- Internal Git and repository structure:
+    - The old Master-Changelog file is no longer treated as part of each release. It is obsolete and will no longer be maintained. Current development notes are kept in the changelog of the active release folder, on https://play.pangom.net/, and in the GitHub release notes. The Master-Changelog was created before PanPlay became a separate GitHub project and is no longer relevant for release packaging.
+    - The old oOPlay base package has been moved to the Archive folder. Archive is kept as an old code and resource collection for historical reference and optional reuse, but it is not part of the active player files under Releases.
+- Browser support:
+    - The player compatibility check has been updated as part of the new browser support service at https://browser.pangom.net.
+    - The 2026 browser support update raises the minimum technical requirements for Pangom services. Supported clients must provide modern Web APIs (ES2021+) and current security capabilities such as TLS 1.3. PanPlay now targets browser engines released around early 2021 or later. This means Chrome 86+, Firefox 86+, Edge 91+, Safari 14+, Vivaldi 5+, and Opera 71+. Internet Explorer and legacy Edge (EdgeHTML) are blocked server-side.
+    - A global compatibility bypass parameter has been introduced. Adding lgc=on to the URL disables the server-side compatibility check for debugging and edge cases. This does not remove protocol-level requirements such as TLS support.
+    - A forced compatibility test mode has been added. Adding lgc=netscape to the URL makes PanPlay treat the request as outdated even on a modern browser, so the compatibility error path can be tested.
+    - PanPlay now routes compatibility failures through the existing PanPlay Bluescreen interface instead of delivering the full browser.pangom.net Tailwind interface to outdated browsers. The Bluescreen content uses PanPlay language files for every supported language and includes browser-service help links.
+    - The Bluescreen frame text is now localized through the PanPlay language files as well. The displayed error code is generated from the actual Bluescreen status instead of being hardcoded as 500 Internal Server Error.
+    - The Bluescreen function now safely falls back to 500 Internal Server Error when called without a valid status code or through an older two-argument call style.
+- Central instance configuration:
+    - Player identity, version information, hoster/legal references, and global behavior flags are now centralized in /data/storage.php.
+    - engine/config.php is no longer loaded by the active player initialization path. Values that were previously provided by engine/config.php are now provided by storage.php.
+    - storage.php is loaded at the beginning of engine/init.php so that Bluescreen paths, first-run state, hoster information, legal URLs, language behavior, and core attribution data are available before the player UI is rendered.
+    - cfg_debug_mode is now applied during early initialization. When enabled, PanPlay shows PHP runtime and startup errors directly in the player output for local debugging. When disabled, direct PHP error output is hidden from the player interface.
+    - about_extension_link now controls whether the active extension credit in the About dialog is rendered as an external link or as plain text. enable_extension_credits is now provided by storage.php as part of the active configuration.
+    - The current compatibility aliases keep older runtime variable names available while the player is being migrated to the new storage.php structure.
+- Core attribution integrity:
+    - The PanPlay engine attribution shown in the About dialog is no longer stored as one editable text string. It is assembled from protected pp_pro_* core values.
+    - A SHA-256 attribution hash is checked during initialization. The hash is based on the plain concatenation of pp_pro_engine_name, pp_pro_copyright, pp_pro_license, pp_pro_license_url, pp_pro_company, and pp_pro_company_url.
+    - If these core attribution values are changed without updating the expected hash, PanPlay stops with a Bluescreen explaining that the instance is misconfigured. This is intended to catch broken or accidentally altered attribution data. It is not a copy-protection mechanism.
+    - If the core attribution values are intentionally changed in a valid downstream build, the expected hash in storage.php must be regenerated from the same concatenated value order.
+- Legal document handling:
+    - Privacy and imprint links are now controlled by the storage.php legal source switches.
+    - If pro_privacy_useremotesopurce is true, the About dialog links directly to pro_privacy_link. If it is false, the About dialog links to engine/legal/index.php?doc=privacy and the text is loaded from data/privacy.txt.
+    - If pro_imprint_useremotesopurce is true, the About dialog links directly to pro_imprint_link. If it is false, the About dialog links to engine/legal/index.php?doc=imprint and the text is loaded from data/imprint.txt.
+    - Local legal text files must contain plain text only. HTML is escaped before rendering in the legal document interface.
+    - Existing public URL parameters are unchanged by this change.
+- Language behavior:
+    - cfg_default_lang is now used as the server fallback language. Language codes are normalized, so en-US maps to the existing en-us language file.
+    - cfg_auto_lang_override can disable automatic browser language detection. When enabled, PanPlay uses cfg_default_lang unless a valid hl URL parameter is supplied.
+    - The existing hl URL parameter continues to work and still has priority over automatic browser detection.
+- Laut.fm extension:
+    - Laut streams no longer ship separate placeholder covers. The station logo is used instead. The same approach is used for background imagery, so the old placeholder images are no longer delivered with the player files.
+
+0.1.0.0  Cactus [Build 1027]
+-   lfm-Extension:  The metadata windows in the Laut-fm extension have been adjusted. The providers allmusic.com and Streema have been replaced by last.fm. A contact point for metadata with a huge community that offers a more reliable, more stable and larger database. Last.fm users can also benefit from this change. They can now click on the links directly and add the music to their playlists on last-fm.
+-   lfm-Extension:  Introduction of the â€œlbnâ€ (Live by Name) switch. If the switch is activated in the URL (lbn=y), a station is only displayed as â€œLIVEâ€ if the planned program in the broadcast schedule contains the suffix â€œ[LIVE]â€ in the show /playlist name. The setting is set to 0 by default and the mode can only be activated if the URL parameter in question contains the value (lbn=y). If active, the islive property of the laut.fm API is ignored.
+-   The EULA is no longer hardcoded in the ver.php, but can now also be customized via the upper variables. This makes it easier to replace it in self-hosting solutions.
+-   The settings window has been reduced in size.
+-   In the standard design, design errors in the window dividing lines have been corrected.
+-   An ext-toptions.php has been added, which is queried by the settings window and allows the integration of extension settings in the settings window in the future. However, this is not yet in use.
+-   Instead, attention is paid to the â€œ[LIVE]â€ in the program title. If the setting is active and the conditions are met, the â€œ[LIVE]â€ entry will be removed from the program title in the middle of the main page and the LIVE label will appear after the program title as usual. As part of the change, the live icon has also been changed
+
+0.1.0.0  Cactus [Build 1026]
+-   Theme-Engine-Hotfix.Themstructure Need to be as in "bs-cosmo" and "default"
+
+0.1.0.0  Cactus [Build 1025]
+-   The LIVE label and the current show can now be hidden again using the parameter sendeplan = n. This was limited to the windows and menu items as part of the new laut.fm-API Update.
+-   The song cover is now controlled by a CSS file and works with the min-property of CSS3. This makes the album covers more responsive, larger on desktops and smaller on mobile devices. In the latter case, however, more screen width is used than before, as square images or images in landscape format have to be displayed on a portrait format screen. The change will therefore increase the size of song covers on smartphones again. The background image is also now centered and stretched to the screen resolution. No, it doesn't look silly because a layer covers the image with blur anyway.
+-   Initial placeholder â€œLoading...â€ has been removed from numerous elements because it was unsightly.
+-   The start title tag of the player is now no longer â€œoOPlay - Playerâ€, but â€œPanPlay - Playerâ€
+-   The conveyor function could no longer be made to run and is therefore unfortunately being discontinued. Instead, basic text-scrolling was integrated in the mobile view, which only uses css,
+-   The script loader of the laut extension no longer writes metadata to the brower console.
+-   The user can now use the mouse wheel (if using a mouse) to adjust the volume up and down. To do this, move the mouse over the slider below and then turn the mouse wheel. The slider adjusts the volume up or down in steps of 5 (10>15>20...). The default value is 50%.
+-   The loudspeaker symbol can now be used to mute or unmute the audio element. Muted is status, so turning the slider to 0 will ensure silence, but will not activate mute. Mute via browser or operating system buttons, as well as via special function keys on the keyboard is not possible. PanPlay has an independent volume control.
+-   In the mobile fold-out version of the top navigation bar, a suitable text is now displayed next to the icon for the settings. Language-neutral English â€œSettingsâ€ -- integration into the routine of the translations will follow. id is settings_menunavtitle -- then the translators can already prepare.
+-   The â€œclunkyâ€ buttons have been removed from the main screen of the sound extension. The play and pause icons have been replaced and the placeholder sound background is no longer used. Thanks to the new API, the Lautr server provides me with the station logos in a larger resolution. I therefore now also use the station logo in the background as in the cover image. In combination with the more discreet buttons, this creates a player without its own theme that uses the corporate identity colors of your station through your station logos. It should look tidier and more discreet. I think they call it polishing.
+-   The main screen now has round corners.
+-   The mobile view of the navigation now works from the resolution of tablets.
+-   The basic visual style has also changed. Here, too, more curves have been added and the red CI from PanPlay has been used.
+-   The â€œmoredarkâ€ theme has been discontinued and changed to â€œglassâ€. It has been adapted to the current design.
+-   The Laut.fm station name (the display name from the API is used here) is now changed immediately after the page is loaded. This should ensure that search engines also display the station name in their search results if they include a linked PanPlay session in their index.
+-   New designs: aero (not yet finished), hc-dark (for black player with high contrast), laut (displays the player in the font and color scheme of the laut.fm platform)
+- The link cursor now also works on all the columns where it was previously to be called up with the obsolete property "hand".
+- The song cover now has round corners. When you click on the song cover, the "Now playing" window opens
+
+
+0.0.2.0a Barberry:
+-   The new API query has also been added to the â€œChange Playerâ€ window for TuneIn, Phonostar and RadioDe, so that valid values are now generated again in the links.
+
+0.0.2.0 Barberry:
+-   Inplementation of Pangom-CI-Font (Rondalo) 
+-   Renaming from oOPlay to PanPlay because of Webspace Renaming has taken place in this Version.
+-   Small Layout-Changes in the About-Player-Window
+
+0.0.1.10 Acanthus  (TESTRELEASE) (Not published on GitHub Because if Renaming-Problemns of ownOnline, mor detaiuls see https://ownonline.eu/en/2024/09/08/1326/) 
+-  Language support:
+-- Danish now stably integrated as a language and available in all extensions
+-- Spanish now integrated as a language and available in all extensions. (Spain is standard version and selectable in the settings menu, language versions for Spanish Latin America (ES-LA), Mexico (ES-MX) & Argentina (ES-AR) are only used by browser setting or via the parameter &hl=).
+-- Dutch now integrated as a language and available in all extensions. (Dutch is standard version and selectable in the settings menu, language version for Belgian Dutch (NL-BE) is only used by browser setting or via the parameter &hl=).
+-- Chinese (simplified) now integrated as a language and available in all extensions. (the automatic detection of the browser language may currently only work if the browser is set to simplified Chinese. Normal Chinese is not yet available in the language system of the player, simplified Chinese loads instead.
+
+0.0.1.9 Iris  (TESTRELEASE)
+-	Implementation of the new LAUT.FM-API routine to reduce network traffic (first attempt) only the most basic information was read in. Old API calls are no longer functional. 0.0.1.9 Iris will be a pure technical test release and is like all other test releases - but this one in particular - unstable (in laut.fm mode) and not suitable for productive use. Thanks to Paeddy for providing code examples that are used to rebuild the API calls.
+-   In the About the Station window, you can now click on the large station logo to call up the station website, if one has been entered by the station.
+-   In the About the station window, you can now see the DJ, the station's genres, the top artists and the station location. The genre links lead to Streema. The artist lists lead to Allmusic. The broadcasting location is displayed on GoogleMaps.
+- All windows now have vertical centering, i.e. they always open in the middle of the screen. In addition, all inner scroll options are now available
+- The "Change player" window has been redesigned and now contains the logos of the linked services and their colors in the button. In addition, the stream URL has been removed from the context menu and integrated into the button overview.
+- The volume control now adapts to the screen size again and has also been given an icon. It is planned to use this icon for Tooggle-Mute in the future. But so far only a plan, nothing more.
+- First inplementation of Danish Language (experimental until further notice)
+- New Schedule Window for Laut-FM-Radios
+- New Layout for Trackhistory Window, also implementation of Allmusic Search for Song-Entrys
+- New Window with detailed information about the current show inplemented, but not activated. It will be finished in further releases.
+- New Window with detailed information about the current song, it is activated but not finished.
+NOTE: This Release has no localization fpr new interfaces-Buttons etc. This will be done while releaseing 0.0.2.0
+
+0.0.1.8 Hyacinth
+-	Language fixed: Italian
+-   MIT-License in about Dialog will now be Mentioned in English
+
+0.0.1.7 Gardenia  (TESTRELEASE)
+-	Language manager implemented. This already has an influence on the main interface and the sound extension. The overrides for the large error messages when the player crashes are still missing. Here, communication is still in German. The Baseaudio extension is currently not usable. It is currently missing important translation files, which is why it cannot be used properly at all. The user interface selects the displayed language based on the URL parameter â€œhlâ€. If this parameter is not found in the URL, an automatic attempt is made to use the language used by your browser. If we do not offer the user interface in this language, the page will be displayed in English. The languages currently available for the above-mentioned areas are German, English and basic Italian.
+-   Laut extension: The placeholder covers for Laut.fm are no longer in use. If no Laut.de cover can be loaded, the station logo is now shown instead. If the station is LIVE, the station logo is currently always displayed. The reason for this is that the information â€œStation is liveâ€ will soon be moved above instead of being displayed on the cover.
+-   Changed Browser Version Requirements: Internet Explorer 12<; Firefox 75<; Chrome 80<; Safari 13<; Opera 65<;
+-   Redesign of the "About oOPlay" dialog, also slight layout changes in other windows by the translation management. Windows of oOPlay direct are now positioned in the center of the screen. The windows of the extensions will follow.
+-   The BASEAUDIO extension has been redesigned and now matches the design of the new oOPlay homepage, which will be online shortly after this release.
+-   Further design changes in line with the new oOPlay homepage
+
+0.0.1.6 Freesia
+- The layout of the window about oOPlay has been adjusted.
+- Color schemes slightly changed
+- Slight changes in the arrangement of the buttons in the lower menu bar
+- Corrections to brand mentions. It is called oOPlay not oOPlayer
+
+0.0.1.5 Eucalyptus  (TESTRELEASE)
+- cast.js is only loaded if necessary conditions are met
+- autoplay has been removed
+- preloader has been disabled
+- Numerous minor code adjustments for Safari's webkit renderer
+- Implementation of a config.php for global variables
+- For instances of oOPlayer that are operated publicly on the Internet, but either require their own privacy policy or imprint or cannot link to any other, a rudimentary interface has been created under engine/legal/index.php in order to insert the corresponding documents there. To ensure that the page is also linked in the interface, it must also be defined in config.php. (/engine/legal/index.php)
+- LAUT extension: In the "About the station" window, the links to the respective sources are now displayed as icons. The link to the Laut.fm page is displayed next to the website link. The website URL is filtered. If a station uses one of the following URLs in the station URL at Laut, the logo for this service is automatically used instead of the link image. x.com/twitter.com = x-logo, facebook.com/fb.me = facebook-logo, instagram.com = instagram-logo, laut.fm = laut-logo. Sorry, but a Facebook page is not a channel URL, that's not what the field is for - there are separate fields for that. -- The text "XXX is a user-generated radio station has been removed", it has been replaced by the logo.
+
+NOTE (From now on, this changelog will only be written in English. Check https://github.com/ownOnline/oOPlay to see if there are localized language versions of the documentation and changelog. If this is not the case and you need it, we recommend using powerful translators such as Deepl to translate the changelog into your home language.)
+
+0.0.1.4 Daffodil
+-   Bugfix: baseaudio-Extension: Ein fehlendes SchlieÃŸend Object-Tag im HTML-Code des Dialogfeldes "Player wechseln" wurde ergÃ¤nzt, so dass die Texformatierung nun korrekt ist.
+-   Bugfix: castjs wurde an die neue Erweiterungs-Strukturierung ergÃ¤nzt. Es kann nun auch Baseaudio-Stream an unterstÃ¼tze GerÃ¤te weitergeben. Die Metatdaten werden derzeit noch nicht aus den Dateien ausgelesen.  Dies wird noch nachgereicht. Sobald dies mÃ¶glich ist, kÃ¶nnen diese Daten dann auch an Cast-GerÃ¤te gesendet werden.
+- Das Standardtheme von oOPlay lÃ¤dt nun root=dark. Das bedeutet, dass der Browser (falls er so etwas hat), die Seite im Dark-Mode lÃ¤dt, Scrollbalken und andere Browserelemente laden so im Dark-Mode. Das sieht schÃ¶ner aus.
+- Laut.fm-Erweiterung: Die URL-Parameter zum Ausblenden von einzelnen oder allen Laut.Fm Inforfenstern beeinflussen nun auch das MenÃ¼. So verschwinden MenÃ¼eintrÃ¤ge zu den Fenstern, die poer URl-Parameter deaktiviert wurden., Im Rahmen dieser Anpassung wurde MenÃ¼leiste oberhalb angepasst. Playerallgemeine Infonfenester sind nun rechts angeordnet, wÃ¤hrend der RRest wie gewohnt links ist. Der Drei Short-Buttons in der Mobilansicht wurden vergrÃ¶ÃŸert, so dass sie leichter geklickt werden kÃ¶nnen.
+- Laut.fm-Erweiterung: Im Fenster Ã¼ber den Sender wird nun auch das Logo angezeigt. Gleichzeitig wurde die Textformatierung etwas angepasst.
+- Laut.fm-Erweiterung: Bessere und lesbare Formatierung der Erweiterungscredits im Fenster "Ãœber oOPlay"
+
+0.0.1.3 Camellia (TESTRELEASE)
+-   Nicht notwendige Medien entfernt.
+-   Favicons in neue Ressorucenverwaltung verschoben
+-   Meta OpenGraph-Tags verschoben
+-   Wiedergabe-Erweiterungen sind eingebaut. Das Erlaubt in der Zukunft die Ausweitung von oOPlayer Ã¼ber media-streams und laut.fm hinaus. Eine Erweiterungen kann erstellt werden, welche andere Dienste unmterstÃ¼tz
+-   conveyor-Skript wird wieder angesprochen, aber funktioniert noch nicht
+-   "Normale Dateien" oder Streams von anderen Server kÃ¶nnen nun auch in oOPlay gestgeuert werden. Die OberflÃ¤che hierzu wurde nachgereicht. Das Auslesen von Metadaten ist jedoch nicht nicht mÃ¶glich
+-   LAUT.fm.Erweiterung: Elemente kÃ¶nnen deaktiviert werden StationsInfofenster (stationinfo), Trackhistory (trackhistory), Sendeplan(sendeplan) und das Fenster zum wechseln des Players (playwith) kÃ¶nnen Ã¼ber Ihre Codes deaktiviert werden dazu einfach den Code gefolgt von =n an die URL anhÃ¤ngen (&playwith=n) und schon wird das entsprechende Modul nicht mehr geladen. Wer Tabularasa machen will hÃ¤ngt einfach nolfmw=j an und alle Vier Module werden nicht geladen.
+
+0.0.1.2 Begonia (TESTRELEASE)
+-	Neue Engine zum Teil eingebunden. Weitere Umstellungen geplant.
+-	Font-Awesome LTS-Version festgelegt. oOPlay bleibt nun bei der im April 2024 aktuellen 5.14 LTS-Version, auto-Update durch den Server 	wurde herausgepatcht. Dies verringert die Ladezeit enorm.
+-	Neue Albumcover fÃ¼r Laut-FM-Modus.
+-	Neue Albumcover speziell fÃ¼r Metatdata-API (nur Laut.fm)
+-	Neues Hintergrundbild je nach Metadaten des Songs.
+-	In der Mobilen Ansicht wird nicht mehr der Sendername sondern nur das Logo angezeigt. Stattdessen gibt es nun drei Quick-Buttons fÃ¼r 	Sendeplan, Titelhistorie und Senderinfos
+
+0.0.1.1 Alium (TESTRELEASE)
+-	MediaMetadate API. Funktionierende Ãœbergabe von Meta-Tags an Android und Windows und co nachgeliefert.
+
+0.0.1.0:
+BETA 1-5:
+-	Beim Anklicken der Aktuellen Sendung im Hauptbildschirm wird der Senderplan geÃ¶ffnet
+-	Die MenÃ¼punkte â€žSendeplanâ€œ & â€žÃœber â€œ sind nun nicht mehr im Dropdown, sondern werden direkt im HauptmenÃ¼ oben angezeigt, sowie die BildschirmgrÃ¶ÃŸe dies ermÃ¶glicht.
+-	Im Fenster â€žÃœber â€œ und im MenÃ¼punkt wird nun der Anzeigename statt der Rohname verwendet (Beispiel: â€žÃœber Einsâ€œ statt â€žÃœber einsâ€œ)
+-	Anzeigefehler, der dazu fÃ¼hrte, dass Firefox den Anzeigebereich der gesamten Webseite auf 24px beschrÃ¤nkte, ist behoben.
+-	ZusÃ¤tzlich zu fehlenden Parametern, erkennt der Player nun auch, wenn der Audiostream unterbrochen wurde, oder nicht aufgebaut werden kann. Der Player prÃ¼ft im laut.fm-Modus sodann, ob der Dienst korrekt arbeitet. Die Antwort dieser Anfrage wird interpretiert und der Nutzer erhÃ¤lt Tipps zur Fehlerbehebung.
+-	Im MenÃ¼ sind nun Icons hinzugefÃ¼gt worden.
+-	Im Fenster fÃ¼r die Titelhistorie wird der erste Song hervorgehoben, da Aufgrund der API-Logik der erste Song der Antwort immer der aktuell spielende ist.
+-	Der Player liefert nun OpenGraphTags aus. Diese werden vor allem von Socisl-Media-KanÃ¤len aber auch von Foren wie Discuss benutzt. So kann ein Link in einen Informationsblock umgewandelt werden, der Ã¼ber die Quelle aufklÃ¤rt und darauf verlinkt.
+
+BETA 6:
+- Convoyer ist derzeit wieder deaktiviert, da nicht mehr funktionfÃ¤hig, es wird mit Tooltips und Elipssis gearbeitet. Convoyer kommt in einer zunkÃ¼nftigen Version vielleicht zurÃ¼ck.
+- Variable "colors" wurde durch "theme" abgelÃ¶st. "theme" erlaubt das wÃ¤hlen eines voreingestellten Styles durch die angabe seiner Beezeichnung (theme=light). IM Stanardardmodus wird immer ein dunkles Thema geladen. Ein helles Thema kann Ã¼ber "theme=light" geladen werden. Eine noch mehr verdunkeltes Thema kann mit "theme=moredark" geladen werden. AuÃŸerdem werden hierÃ¼ber Spezialthemen geladen. Als Beispiel: Mit "theme=win2000" kann ein an den Windows 2000-Desktop erinnerndes Thema geladen werden.
+- Der Sendeplan wird nun nicht mehr in einem Akkordion, sondern in einer einfacheren Tabansicht geladen und der aktuelle Wochentag wird automatisch angezeigt.
+- Im Fenster Ã¼ber den Sender wird nun die Sendergrafik angezeigt und der Slogan angezeigt.
+
+BETA 7:
+- Theming-Eninge-Verfahren verbessert fÃ¼r bessere Erkennung

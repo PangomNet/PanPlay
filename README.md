@@ -14,7 +14,7 @@ This project is tested with BrowserStack.
 
 ---
 
-## Current Version
+## Current Stable Alpha
 
 The current stable alpha release is [PanPlay 0.1.0.1 Dandelion Build 1029](https://github.com/PangomNet/PanPlay/releases/tag/v0.1.0.1).
 
@@ -27,11 +27,20 @@ Dandelion replaces 0.1.0.0 Cactus as the default version on the CDN and is the l
 - Download the current self-hosted files: [Releases/0-1-0-1/1029](https://github.com/PangomNet/PanPlay/tree/main/Releases/0-1-0-1/1029)
 - Read the release notes: [v0.1.0.1 release](https://github.com/PangomNet/PanPlay/releases/tag/v0.1.0.1)
 
+## Public Test Build
+
+The first visible test build for the Everlasting development cycle is Build 1030. It is available for public testing on the PanPlay CDN, but it is not a stable release and does not have a separate GitHub prerelease entry.
+
+- Test Build 1030 via CDN: [play.pangom.net/app/_currentdevcandidate](https://play.pangom.net/app/_currentdevcandidate/?lfmstream=zwei)
+- Browse the self-hosted test files: [Releases/0-1-0-2/1030](https://github.com/PangomNet/PanPlay/tree/main/Releases/0-1-0-2/1030)
+
+The CDN test folder may lag behind the newest local development candidate. For the newest development state, use the GitHub `_currentdevcandidate` folder and host it yourself.
+
 ## Development Version
 
 Active development continues in [`Releases/_currentdevcandidate`](https://github.com/PangomNet/PanPlay/tree/main/Releases/_currentdevcandidate).
 
-The current development cycle is planned as 0.1.1.0 Everlasting, starting with Build 1030. This folder is a development candidate and should not be treated as a public stable release unless a release note explicitly says so.
+The current development cycle is 0.1.1.0 Everlasting. Build 1030 is the first public test build, while `_currentdevcandidate` has moved on to Build 1031. This folder is a development candidate and should not be treated as a public stable release unless a release note explicitly says so.
 
 ## Requirements
 
@@ -46,7 +55,7 @@ PanPlay can be used in two ways:
 - CDN mode: no installation is required. The CDN version is hosted by Pangom and is intended as the easiest way to use PanPlay.
 - Self-hosted mode: download a release folder from this repository and host it on your own PHP-capable server.
 
-The CDN always follows the current supported build. Self-hosted installations do not update themselves. If a newer build is published inside a release folder, self-hosted users need to replace their local files manually.
+The main CDN app follows the current supported build. The separate CDN test candidate may expose a development build for public testing and may not always match the newest `_currentdevcandidate` state on GitHub. Self-hosted installations do not update themselves. If a newer build is published inside a release folder, self-hosted users need to replace their local files manually.
 
 Builds are small update packages between full GitHub releases. They may be added to the repository without getting their own GitHub Release entry.
 
