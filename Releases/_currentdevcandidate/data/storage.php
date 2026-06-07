@@ -16,10 +16,10 @@ $firstrundone = true;
 $pro_name           = '<i class="fas fa-music"></i> Pan<span class="pangomfont text-danger">Play</span>'; //⚠
 $pro_name_noformat  = '<i class="fas fa-music"></i> PanPlay'; //⚠
 $pro_name_cleartext = 'PanPlay'; //⚠
-$pro_version        = '0.1.0.1'; //⚠
-$pro_buildversion   = '1029'; //⚠
-$pro_version_name   = 'Dandelion'; //⚠
-$pro_releasedate    = '14.03.2026'; //⚠
+$pro_version        = '0.1.1.0'; //⚠
+$pro_buildversion   = '1030'; //⚠
+$pro_version_name   = 'Everlasting'; //⚠
+$pro_releasedate    = '07.06.2026'; //⚠
 $is_prerelase       = true; // marks this build as an unstable test release in the About dialog, including a warning.
 
 // --- Vendor & Hoster Info ---

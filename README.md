@@ -1,41 +1,112 @@
 # PanPlay
- _Free Online HTML5 basierter audioplayer with laut.fm-Integration_
-![image](https://github.com/PangomNet/PanPlay/assets/166552194/49a951d2-8cb7-4326-b9a2-da21999823fa)
- PanPlay' is a web player based on HTML5 audio playback that can be used as a playback interface for audio elements. 'PanPlay' comes with built-in functions such as casting by cast.js and an integration of the service laut.fm.
-Please note that 'PanPlay' has only been available since the beginning of 2024 and is still in a public alpha. The range of functions is constantly being expanded, but the player is of course not yet error-free.
-Find out more about PanPlay at https://play.pangom.net 
+
+_Free HTML5-based audio player with laut.fm integration._
+
+![PanPlay preview](https://github.com/PangomNet/PanPlay/assets/166552194/49a951d2-8cb7-4326-b9a2-da21999823fa)
+
+PanPlay is a web player based on HTML5 audio playback. It can be used as a playback interface for laut.fm stations and for direct audio files or streams through the baseaudio extension. PanPlay includes a modular extension structure, multilingual UI files, cast.js support, browser compatibility checks, and a growing configuration layer for self-hosted instances.
+
+PanPlay is open source and published under the MIT license. The project is still in public alpha, so the feature set is actively changing and some areas are still being rebuilt.
+
+Find out more at [play.pangom.net](https://play.pangom.net/).
 
 This project is tested with BrowserStack.
 
 ---
 
-## Current version:
-The current "stable" alpha version of PanPlay is [Version 0.1.0.0 (Cactus)](https://github.com/PangomNet/PanPlay/releases/tag/v0.1.0.0)!
-- You can use PanPlay via the CDN solution: [PanPlay on play.pangom.net](https://play.pangom.net/app?lfmstream=simliveradio)
-- Check also out the [PanPlay CDN Link-Generator](https://play.pangom.net/create/) on the PanPlay-Website
-- Alternatively, you can download the files for PanPlay 0.0.1.0 1027 [here](https://github.com/PangomNet/PanPlay/tree/main/Releases/0-1-0-0/1027/) and host them yourself.
-- You can find a changelog [here](https://github.com/PangomNet/PanPlay/tree/main/Releases/0-1-0-0/1027/changelog.txt)
+## Current Version
 
-### Last pre-release:
-The last published test release is [Version 0.1.0.0 Cactus 1028](https://github.com/PangomNet/PanPlay/releases/tag/v0.1.0.0)
+The current stable alpha release is [PanPlay 0.1.0.1 Dandelion Build 1029](https://github.com/PangomNet/PanPlay/releases/tag/v0.1.0.1).
 
-#### Currently under development:
-Currently under development is version 0.1.0.0 Cactus Build 1027 See the development progress [here](https://github.com/PangomNet/PanPlay/tree/main/Releases/_currentdevcandidate)).
+Dandelion replaces 0.1.0.0 Cactus as the default version on the CDN and is the latest version intended for production use.
 
-#### Older versions:
-You don't like a new feature of PanPlay? Or an update has led to a major bug for you. Too bad :) Let us know about this in any case! But luckily for you: Every version marked as "stable" in the release posting is available for you to use on our CDN shortly after release. Or here on GitHub (to download and host)
-[View releases](https://github.com/PangomNet/PanPlay/releases)
+- Use PanPlay via CDN: [play.pangom.net/app](https://play.pangom.net/app?lfmstream=simliveradio)
+- Create a CDN link: [PanPlay Link Generator](https://play.pangom.net/create/)
+- Read the CDN guide: [Use PanPlay via CDN](https://play.pangom.net/getpanplay/cdn/)
+- Read the hosting guide: [How to host PanPlay](https://play.pangom.net/getpanplay/panplay-hosting/)
+- Download the current self-hosted files: [Releases/0-1-0-1/1029](https://github.com/PangomNet/PanPlay/tree/main/Releases/0-1-0-1/1029)
+- Read the release notes: [v0.1.0.1 release](https://github.com/PangomNet/PanPlay/releases/tag/v0.1.0.1)
 
-##### Language information:
-PanPlay is being developed mainly in Germany but English first. However, shortly the Player has . (Currently only in prerelease versions)
-Currently available Languages:
-- [EN] English (Intl.) - OK
-- [DE] German / Deutsch - OK
-- [FR] French / Francias - Seems OK
-- [IT] Italian / Italiano - Meh, but works. Help if you can 🤤
-- [DA] Danish / Dansk - based on an Forks by @delimedia.
-- [ES] Spanish / Espanol - Seems OK
-- [NL] Dutch / Nederlandse - Seems OK
-- [ZH-HANS] Chinese (simplified) / 中文 - Needs to be checked by anyone who can speak this Language
+## Development Version
 
-If you have interest in Translating to your Language, feel free make an Issue mention this.
+Active development continues in [`Releases/_currentdevcandidate`](https://github.com/PangomNet/PanPlay/tree/main/Releases/_currentdevcandidate).
+
+The current development cycle is planned as 0.1.1.0 Everlasting, starting with Build 1030. This folder is a development candidate and should not be treated as a public stable release unless a release note explicitly says so.
+
+## Requirements
+
+Self-hosted PanPlay requires a PHP-capable web server. Dandelion is documented for PHP 7.0+.
+
+The 2026 browser compatibility layer targets modern browser engines with ES2021+ and current security capabilities. The current baseline is Chrome 86+, Firefox 86+, Edge 91+, Safari 14+, Vivaldi 5+, and Opera 71+. Internet Explorer and legacy EdgeHTML are blocked server-side.
+
+## CDN And Self-Hosting
+
+PanPlay can be used in two ways:
+
+- CDN mode: no installation is required. The CDN version is hosted by Pangom and is intended as the easiest way to use PanPlay.
+- Self-hosted mode: download a release folder from this repository and host it on your own PHP-capable server.
+
+The CDN always follows the current supported build. Self-hosted installations do not update themselves. If a newer build is published inside a release folder, self-hosted users need to replace their local files manually.
+
+Builds are small update packages between full GitHub releases. They may be added to the repository without getting their own GitHub Release entry.
+
+## Documentation Status
+
+The documentation is being updated, but it is not complete yet and some pages may lag behind the current code. The PanPlay website and the GitHub Wiki are both used for documentation, including CDN usage notes and setup information.
+
+Useful starting points:
+
+- [PanPlay website](https://play.pangom.net/)
+- [PanPlay Wiki](https://github.com/PangomNet/PanPlay/wiki)
+- [CDN guide](https://play.pangom.net/getpanplay/cdn/)
+- [Hosting guide](https://play.pangom.net/getpanplay/panplay-hosting/)
+- [All versions](https://play.pangom.net/version-all/)
+
+## Repository Layout
+
+- `Releases/`: published versions and builds.
+- `Releases/_currentdevcandidate/`: current development candidate.
+- `Sample Files/`: small sample audio files for testing playback.
+- `Archive/`: historical oOPlay base package and old resources. This is kept as an optional code/resource collection and is not part of the active player release.
+- `Branding/`: project branding resources.
+- `Releases/Releasename-Schedule.md`: planned release names.
+
+The old `Releases/Master-Changelog.md` is obsolete. Current release notes are kept in the active release folder, on [play.pangom.net](https://play.pangom.net/), and in GitHub releases.
+
+## Highlights In 0.1.0.1 Dandelion
+
+- Browser compatibility check updated for the 2026 Pangom browser support service at [browser.pangom.net](https://browser.pangom.net/).
+- Compatibility failures now use the PanPlay Bluescreen interface with localized messages.
+- New URL parameter `lgc=on` bypasses the server-side compatibility check for debugging.
+- New URL parameter `lgc=netscape` forces the compatibility failure path for testing.
+- Central instance configuration moved into `/data/storage.php`.
+- `engine/config.php` is no longer part of the active initialization path.
+- Debug mode, legal document source switches, extension credits, language behavior, and attribution data are now controlled from storage.
+- Core PanPlay attribution is assembled from protected `pp_pro_*` values and checked through a SHA-256 integrity hash.
+- Privacy and imprint documents can be linked remotely or served locally as escaped plain text.
+- Laut.fm placeholder covers were removed; station logos are now used for cover and background imagery.
+
+## Languages
+
+PanPlay is developed mainly in Germany, while release notes and public project communication are written in English.
+
+Current language files include:
+
+- English
+- German
+- German variants for Austria and Switzerland
+- Danish
+- Spanish, including Argentina, Latin America, and Mexico variants
+- French
+- Hindi
+- Italian
+- Dutch and Belgian Dutch
+- Simplified Chinese
+
+Translations may be incomplete or uneven in quality. If you want to help with translations, please open an issue.
+
+## Support And Issues
+
+Report bugs and feature requests through [GitHub Issues](https://github.com/PangomNet/PanPlay/issues).
+
+Older releases may remain available for download, but support follows the version lifecycle announced in release notes and on [play.pangom.net/version-all](https://play.pangom.net/version-all/).

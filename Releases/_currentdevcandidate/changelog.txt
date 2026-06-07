@@ -1,3 +1,83 @@
+0.1.1.0 Everlasting [Build 1030] (Development milestone, not for public use)
+- Development target:
+    - Everlasting starts as the next development cycle after the public 0.1.0.1 Dandelion Build 1029 release.
+    - Everlasting was originally considered as 0.1.0.2, but the planned scope includes new feature systems, UI changes, CPM, metadata expansion, and theming architecture work. It is therefore treated as a minor feature release instead of a small patch update.
+    - The development time is expected to include more intermediate development builds than the last release cycle, starting with Build 1030. Build 1030 begins with the implementation of CPM.
+    - This section is a working plan for the next days and weeks. Items listed here are not release-complete yet and should be checked off, rewritten, or moved into final release notes as they are implemented.
+- Stability and known bugs:
+    - Investigate a known offline modal rendering bug.
+    - In some connection-loss situations, the "You are offline!" connection error window appears but is rendered incorrectly.
+    - When the bug occurs, the modal backdrop may no longer be scrollable and the offline window may not close properly.
+    - This must be fixed before larger UI features are layered on top of the current modal/error handling.
+- GitHub issue planning:
+    - The open GitHub issues have been reviewed for the Everlasting development cycle.
+    - Issue #6, "Graphical Bugs (Backdrop and some FontAwesome-Icons) on Safari", should be handled early because it is related to the same stability/UI layer as the known offline modal backdrop problem.
+    - Issue #7, "option to share this player on Facebook, Instagram, etc.", is already part of the planned share feature and should be implemented once the settings and parameter handling are stable enough.
+    - Issue #5, "Laut.fm - General ICY discussion", should be considered during the metadata work. The goal is not to force direct ICY extraction in the browser, but to improve the existing API-based metadata path for UI, Media Session, and Cast output.
+    - Issue #4, "English (and other languages) support and translation support", has already been partly addressed by the language system and Bluescreen localization work. Remaining language gaps should be cleaned up during Build 1030 when touched by new core features.
+    - Issue #12, "Related Stations-Box", should remain parked for now. It may become useful after the settings/parameter surface and laut.fm UI structure are clearer.
+    - Issue #1, "Implementation of Three.js Visualizations", should remain a future feature request. It is interesting, but too large and separate from the current CPM/settings/metadata focus of Everlasting.
+    - For Build 1030, the priority order from the issue list is therefore: fix Safari/backdrop-related UI bugs first, then continue language cleanup where needed, then implement share support, and only then revisit larger laut.fm UI expansion ideas.
+- CPM and content protection:
+    - Implement PanPlay CPM (Content Protection Mechanism) as the next major background feature.
+    - CPM is intended to apply to the baseaudio extension only. Laut.fm streams are not the target of CPM because they already use the laut.fm platform/API flow.
+    - Implement local CPM checks for baseaudio URLs so that URLs known or flagged as copyright-infringing can be blocked before playback.
+    - Implement CPM by CDN as an optional mode. When enabled, PanPlay should use a central Pangom/PanPlay-hosted list instead of only a local server-side list.
+    - CPM by CDN must be treated as privacy-relevant because the checked playback URL may be transmitted to Pangom/PanPlay infrastructure. The documentation and configuration comments must make this clear.
+    - The existing storage.php flags cfg_panplay_cpm and cfg_panplay_cpm_by_cdn are the starting point for this work.
+- Settings interface:
+    - Continue building the settings surface so users do not need to manually search for URL parameters in the DOM or documentation.
+    - The existing extension settings groundwork should be connected so each active extension can provide its own settings controls.
+    - Extension parameters should be editable through the settings dialog and should generate or apply the corresponding player URL/state.
+    - General PanPlay parameters should also be exposed in the settings UI, including commonly used values such as theme selection.
+    - The goal is that a user can change settings through the interface, receive the updated player view, and understand which parameter/state was changed.
+- Theme and design system work:
+    - Update the default Bootstrap-based theme further toward the Mica-inspired look that is already used in the current PanPlay UI.
+    - Improve small visual details such as subtle borders, depth, hover feedback, and shadow/light effects that react more like Windows 10 UWP-style transparent interfaces.
+    - Separate PanPlay's base interface rules from the theme-specific rules more clearly.
+    - Long-term goal: themes should not be forced to use Bootstrap as their base. A theme should eventually be able to use another foundation such as W3.CSS, Material, Tailwind, or a custom UI system.
+    - This is expected to be a larger architectural topic because the interface, Bootstrap markup, player components, and theme files are currently still closely connected.
+    - The long-term theming goal is to allow a theme to reshape the interface on a level closer to old Windows Media Player skins, not only recolor the existing interface.
+- Laut.fm schedule and metadata windows:
+    - Make shows listed in the laut.fm schedule clickable.
+    - Clicking a schedule entry should open a dedicated detail window for that show.
+    - The show detail window should include the available show data from the laut.fm show/schedule endpoints.
+    - A long-missing station/show description should finally be included where the API provides one.
+    - The current playback / now playing window should also be revised and expanded with additional song and broadcast metadata.
+    - Both the show detail window and the current playback window must only display values that are actually present in the laut.fm API response, are not empty, and contain logically useful information.
+    - The implementation should review the full set of values exposed by the relevant laut.fm endpoints for shows/schedule data and songs/current-song data, instead of only using the few fields PanPlay already displays today.
+- Laut.fm rich content tab:
+    - Extend the remote-source concept already used for legal documents to the laut.fm playback screen.
+    - Add a tab next to the album cover/station view that can show station-provided rich content.
+    - For security and predictability, the rich content source must be derived from a configured/known station website, not from arbitrary user input.
+    - Example: if a laut.fm station exposes its official website through the API as geilemukke.de, PanPlay should only attempt to load content from a controlled path such as geilemukke.de/playercontent.md.
+    - The station operator must prepare/configure the content intentionally. PanPlay should not scrape random station pages.
+    - The content format should be limited to Markdown so station operators can maintain it easily while PanPlay avoids loading arbitrary HTML, scripts, crypto links, or full embedded websites into the player.
+    - The Markdown renderer/sanitizer must be chosen carefully. The result should be useful rich content, but still safe and limited in scope.
+- Share feature:
+    - Add a parameter that controls whether a share icon appears in the top-right menu.
+    - When enabled, the share UI should allow the current player page/link to be shared through common social media and sharing targets.
+    - The feature should preserve the current playback URL parameters so shared links reproduce the intended player state.
+    - Browser-native sharing can be considered where available, with simple fallback links for desktop browsers that do not support it.
+- Baseaudio metadata and Media Session work:
+    - Finish more of the long-standing baseaudio extension work.
+    - Use getID3 in baseaudio to attempt metadata extraction from direct audio files entered by the user.
+    - Extracted metadata should be used in the player UI where possible.
+    - Extracted metadata should also be passed to Chromecast metadata, comparable to how the laut.fm extension already provides metadata through the laut.fm API.
+    - Extracted metadata should be passed to the browser Media Session API so operating systems and browser surfaces can show title/artist/album artwork where supported.
+    - This should bring baseaudio closer to the feature quality of the laut.fm module, while still respecting that direct files and streams may not always expose useful metadata.
+- Rough work order:
+    - First, fix known stability issues and small broken surfaces, especially the offline connection error modal/backdrop bug. The player should not trap users in a broken error window before new UI features are added.
+    - Next, clean up and connect small configuration/UI foundations that are already partly present, including extension settings groundwork and general parameter handling.
+    - Then define the CPM behavior and data flow for local CPM and CPM by CDN, including what is checked, where lists live, and what error path is shown when content is blocked.
+    - After the CPM foundation is clear, implement the first CPM path for baseaudio and document its privacy implications when CPM by CDN is enabled.
+    - Then improve baseaudio metadata handling with getID3 and connect the results to UI, Chromecast, and Media Session output.
+    - In parallel or after that, expand the laut.fm schedule/show detail windows and the current playback metadata window based on all useful fields available from the laut.fm API.
+    - Then prototype the laut.fm rich content tab with strict Markdown loading and sanitization rules.
+    - Add the share parameter and share menu once the settings/parameter handling is stable enough to expose it cleanly.
+    - Treat theme architecture as a larger ongoing track. Small Mica polish can happen during Build 1030, while full theme-base independence will likely need multiple iterations and should not block smaller bugfixes.
+
+
 0.1.0.1 Dandelion [Build 1029]
 - Internal Git and repository structure:
     - The old Master-Changelog file is no longer treated as part of each release. It is obsolete and will no longer be maintained. Current development notes are kept in the changelog of the active release folder, on https://play.pangom.net/, and in the GitHub release notes. The Master-Changelog was created before PanPlay became a separate GitHub project and is no longer relevant for release packaging.
