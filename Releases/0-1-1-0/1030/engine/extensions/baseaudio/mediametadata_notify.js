@@ -1,96 +1,82 @@
-// Funktion zum Aktualisieren der Metadaten basierend auf den Informationen des abgespielten Songs
-function updateMediaMetadata(songTitle, artistName, albumTitle, albumArtUrl) {
-    if ('mediaSession' in navigator) {
-      // Metadaten für das aktuell abgespielte Medium erstellen
-      var mediaMetadata = new MediaMetadata({
-        title: songTitle,
-        artist: artistName,
-        album: albumTitle,
-        artwork: [
-          { src: albumArtUrl, sizes: '96x96', type: 'image/jpeg' },
-          { src: albumArtUrl, sizes: '512x512', type: 'image/jpeg' },
-      { src: albumArtUrl, sizes: '256x256', type: 'image/jpeg' },
-      { src: albumArtUrl, sizes: '128x128', type: 'image/jpeg' }
-        ]
-      });
-  
-      // Setze die Metadaten für die Media Session
-      navigator.mediaSession.metadata = mediaMetadata;
-    }
-  }
-  
-  // Funktion zum automatischen Aktualisieren der Metadaten alle 2 Minuten
-  function autoUpdateMetadata() {
-  
-  
-    // Aktualisiere die Metadaten mit den aktuellen Informationen des Songs
-    updateMediaMetadata(currentSongTitle, currentArtistName, currentAlbumTitle, currentAlbumArtUrl);
-  }
+(function () {
+    'use strict';
 
+    var metadata = window.panplayBaseaudioMetadata || {};
+    window.currentSongTitle = metadata.title || 'Audio';
+    window.currentArtistName = metadata.artist || 'PanPlay';
+    window.currentAlbumTitle = metadata.album || '';
+    window.currentAlbumArtUrl = metadata.artwork || metadata.fallbackArtwork || '';
 
-  // Führe die Funktion autoUpdateMetadata alle 2 Minuten aus
-setInterval(autoUpdateMetadata, 2 * 60 * 1000); // 2 Minuten in Millisekunden
+    window.getCurrentSongInfoFromUI = function () {
+        return {
+            title: window.currentSongTitle,
+            artist: window.currentArtistName,
+            album: window.currentAlbumTitle,
+            artwork: window.currentAlbumArtUrl
+        };
+    };
 
+    window.updateCurrentAlbumArtFromAPI = function () {
+        return window.currentAlbumArtUrl;
+    };
 
-/////////// MediaMetadata-JS:
+    function updateMediaSession() {
+        if (!('mediaSession' in navigator) || typeof MediaMetadata === 'undefined') {
+            return;
+        }
 
-// Funktion zum Auslesen des aktuellen Interpreten, Titels und Albumtitels aus der Oberfläche
-function getCurrentSongInfoFromUI() {
-    var currentSongLabel = document.getElementById('currentsong_lbl');
-    var currentAlbumLabel = document.getElementById('currentalbum_lbl');
+        var mediaMetadata = {
+            title: window.currentSongTitle,
+            artist: window.currentArtistName,
+            album: window.currentAlbumTitle
+        };
+        if (window.currentAlbumArtUrl) {
+            mediaMetadata.artwork = [{
+                src: window.currentAlbumArtUrl,
+                type: metadata.artworkMime || 'image/png'
+            }];
+        }
 
-    if (currentSongLabel) {
-        var labelsContent = currentSongLabel.innerText;
-        var labelsArray = labelsContent.split(' - ');
-        currentArtistName = labelsArray.length > 1 ? labelsArray[0] : "Unbekannter Interpret";
-        currentSongTitle = labelsArray.length > 1 ? labelsArray[1] : "Unbekannter Titel";
-    } else {
-        // Setze Platzhalterwerte für Titel und Interpret, falls das Oberflächenelement nicht gefunden wird
-        currentSongTitle = "Unbekannter Titel";
-        currentArtistName = "Unbekannter Interpret";
-    }
-
-    if (currentAlbumLabel) {
-        currentAlbumTitle = currentAlbumLabel.innerText || "Unbekanntes Album";
-    } else {
-        // Setze einen Platzhalterwert für das Album, falls das Oberflächenelement nicht gefunden wird
-        currentAlbumTitle = "Unbekanntes Album";
-    }
-}
-
-// Rufe die Funktion getCurrentSongInfoFromUI auf, um die aktuellen Songinformationen aus der Oberfläche zu lesen
-getCurrentSongInfoFromUI();
-
-
-
-// Warte 3 Sekunden, bevor das Skript ausgeführt wird
-setTimeout(function() {
-    // Funktion zur Aktualisierung des Title-Tags
-    function updateTitle() {
         try {
-            var currentSongLbl = document.getElementById('currentsong_lbl');
-            if (currentSongLbl) {
-                var songInfo = currentSongLbl.innerText.trim();
-                // Hier ist der Wert korrekt
-                console.log('Song Info:', songInfo);
-                updateMediaMetadata(currentSongTitle, currentArtistName, currentAlbumTitle, currentAlbumArtUrl);
-
-                // Titel-Tag der Webseite aktualisieren
-                document.title = `${songInfo} - PanPlay`;
-                getCurrentSongInfoFromUI();
-                updateCurrentAlbumArtFromAPI();
-            }
+            navigator.mediaSession.metadata = new MediaMetadata(mediaMetadata);
         } catch (error) {
-            console.error('JavaScript-Fehler im Titel-Update-Teil:', error);
+            console.warn('PanPlay could not publish Baseaudio metadata.', error);
         }
     }
 
-    // Starte die Aktualisierung alle 5 Sekunden
-    setInterval(updateTitle, 50000);
+    function registerAction(action, callback) {
+        if (!('mediaSession' in navigator) || typeof navigator.mediaSession.setActionHandler !== 'function') {
+            return;
+        }
+        try {
+            navigator.mediaSession.setActionHandler(action, callback);
+        } catch (error) {
+            // Older Media Session implementations may not support every action.
+        }
+    }
 
-    // Führe die Funktion direkt nach dem Laden der Seite aus
-    updateTitle();
-}, 3000);
+    var audio = document.getElementById('oop_audio');
+    if (audio) {
+        audio.addEventListener('loadedmetadata', updateMediaSession);
+        audio.addEventListener('play', updateMediaSession);
+        registerAction('play', function () { audio.play(); });
+        registerAction('pause', function () { audio.pause(); });
+        registerAction('seekbackward', function (details) {
+            audio.currentTime = Math.max(0, audio.currentTime - (details.seekOffset || 10));
+        });
+        registerAction('seekforward', function (details) {
+            var nextTime = audio.currentTime + (details.seekOffset || 10);
+            audio.currentTime = Number.isFinite(audio.duration) ? Math.min(audio.duration, nextTime) : nextTime;
+        });
+        registerAction('seekto', function (details) {
+            if (typeof details.seekTime === 'number') {
+                audio.currentTime = details.seekTime;
+            }
+        });
+    }
 
-
- updateMediaMetadata(currentSongTitle, currentArtistName, currentAlbumTitle, currentAlbumArtUrl);
+    document.title = window.currentArtistName && window.currentArtistName !== 'PanPlay'
+        ? window.currentArtistName + ' - ' + window.currentSongTitle + ' - PanPlay'
+        : window.currentSongTitle + ' - PanPlay';
+    updateMediaSession();
+}());

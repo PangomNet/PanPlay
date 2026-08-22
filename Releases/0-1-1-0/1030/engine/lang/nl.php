@@ -1,4 +1,14 @@
-﻿<?php
+<?php
+/*
+ * PanPlay language file
+ *
+ * ENCODING: UTF-8 only.
+ * Read and save this file as UTF-8. Keep Unicode characters literal.
+ * Do not replace them with escaped code points, HTML entities, or Latin-1.
+ * After every edit, verify that the integrity line below is still readable.
+ *
+ * INTEGRITY CHECK: æøå | ñáéíóú | 你好世界 | नमस्ते | مرحبا | äöüß
+ */
 $lang = array(
 //basic
 'lng_title' => 'Nederlands',
@@ -53,7 +63,7 @@ $lang = array(
 
 //about PanPlay
     'about_modal_title' => 'PanPlay',
-'about_brand_phrase' => '<b><u>De</u></b> HTML5-audioplayer!</p>',
+'about_brand_phrase' => '<b><u>De</u></b> HTML5-audioplayer!',
 'about_license_owner_is' => 'Gelicenseerd aan',
 'about_license_datewording' => 'in de versie van',
 'about_prerelease_warning_title' => 'Onstabiele pre-release',

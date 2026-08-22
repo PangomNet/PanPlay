@@ -1,4 +1,14 @@
 <?php
+/*
+ * PanPlay language file
+ *
+ * ENCODING: UTF-8 only.
+ * Read and save this file as UTF-8. Keep Unicode characters literal.
+ * Do not replace them with escaped code points, HTML entities, or Latin-1.
+ * After every edit, verify that the integrity line below is still readable.
+ *
+ * INTEGRITY CHECK: æøå | ñáéíóú | 你好世界 | नमस्ते | مرحبا | äöüß
+ */
 $ext_lang = array(
 
         //basic
@@ -41,7 +51,6 @@ $ext_lang = array(
         
             //Stationinfo modal
             'stationinfo_modal_title' => 'Informations sur le fichier',
-            'stationinfo_modal_topdesc' => 'Détails supplémentaires sur le fichier ne sont actuellement pas disponibles. Vous devez attendre le progrès du développement de PanPlay. À l’avenir, la lecture des fichiers est prévue. Mais cela n’a pas encore été mis en œuvre.',
         
             //playwith modal
             'playwith_modal_title' => 'Changer de lecteur',

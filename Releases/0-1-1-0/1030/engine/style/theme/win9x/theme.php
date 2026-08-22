@@ -1,224 +1,54 @@
 <?php
-                 $backgroundColor = '#c0c0c0';
-                 $textColor = 'black';
-                 $baropacity = '192, 192, 192, 1';
-                 $blurfactor = '';
-                 $markColor = '#001e39';
-
-
-$css = "
+$css = <<<'CSS'
 <style>
- 
- body, figcaption, nav, .btn-close, .accordion, .accordion-item, .accordion-button, .dropdown-menu{
-     background-color: $backgroundColor;
-     color: $textColor !important;
-     backdrop-filter: blur($blurfactor);
-     background-size: cover;
-
- }
-
-
- h1 { font-family: Tahoma, Verdana, Segoe, sans-serif; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } h3 { font-family: Tahoma, Verdana, Segoe, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; } p, btn, nav, html, .modal-title, body { border-radius: 0px; font-family: Tahoma, Verdana, Segoe, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } blockquote { font-family: Tahoma, Verdana, Segoe, sans-serif; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } pre { font-family: Tahoma, Verdana, Segoe, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
-
- .btn, .dropdown-menu, .modal-content, nav, input, div {
-     border-radius: 0 0 0 0 !important;
-   }
-   .dropdown-menu, .alert, .card, .modal-content {
-     border: 1px outset;
-   }
-   
-   .dropdown-item:hover, .dropdown-item:focus {
-     color: white !important;
-     background-color: #001e39 !important;
-    }
-    .dropdown-item.active, .dropdown-item:active {
-      color: #fff;
-      text-decoration: none;
-     background-color: #001e39 !important;
-  }
-
-  .modal-header {
- background-color: #020082;
- color: white;
-}
-
-
-
- 
- .btn {
-     border: 1px outset;
-   padding: 3px 15px 3px 15px important;
-   &:active {
-     border: 1px inset;
-   }
- }
- 
- .btn:hover,
- .btn:focus {
-   outline: 0 important;
- }
- 
- .btn:active {
-   border-right: 1px solid #fff important;
-   border-bottom: 1px solid #fff important;
-   border-left: 1px solid #848484 important;
-   border-top: 1px solid #848484 important; 
-
- }
-
- #playpausebtn, cast {
-     background-color: #c0c0c0 !important;
-     margin: 3px;
-     border: 1px outset;
-     &:active {
-         border: 1px inset;
-       }
- }
- #playpausebtn > i, cast > i {
-     color: black !important;
- }
-
-
- a {
-     color: $textColor !important;
-
- }
- a:hover, a:focus {
-     color: blue !important;
-
- }
- :root {
-     --bs-primary: #138c74;
-     --bs-success: #138c74;
-     --bs-pink: #138c74;
- }
- .btn-success {
-     color: #fff;
-     background-color: #138c74;
-     border-color: #138c74;
- }
-
- #topnavbar, #playercontrolbar, .modal-content, .modal-footer, #oop_player{
-     background-color:rgba($baropacity) !important;
-     backdrop-filter: blur(100px);
- }
-
- #oolfm_currentshow, #oolfm_songcover, #oolfm_current_song { 
-     rgb(255 255 255 / 0%)
- }
-
-
- #blurlayer {
-     position: absolute;
-     top: 0;
-     left: 0;
-     z-index: -100;
-     width: 100%;
-     height: 100vh;
-     backdrop-filter: blur(25px);
-     background-color: #008080;
- }
-
- .navbar-dark .navbar-toggler {
-     color: black;Y
-     border: 1px outset;
-     &:active {
-       border: 1px inset;
-     }
-   }
-
-   body *::-webkit-scrollbar {
-     width: 16px;
-     height: 16px;
-     background: none;
-   }
-   
-   body *::-webkit-scrollbar-thumb, body *::-webkit-scrollbar-button {
-     width: 16px;
-     height: 16px;
-     background: silver;
-     box-shadow: inset 1px 1px #dfdfdf, inset -1px -1px gray;
-     border: 1px solid;
-     border-color: silver #000 #000 silver;
-   }
-   
-   body *::-webkit-scrollbar-track {
-     image-rendering: optimizeSpeed;
-     image-rendering: pixelated;
-     image-rendering: optimize-contrast;
-     background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgLTAuNSAyIDIiIHNoYXBlLXJlbmRlcmluZz0iY3Jpc3BFZGdlcyI+CjxtZXRhZGF0YT5NYWRlIHdpdGggUGl4ZWxzIHRvIFN2ZyBodHRwczovL2NvZGVwZW4uaW8vc2hzaGF3L3Blbi9YYnh2Tmo8L21ldGFkYXRhPgo8cGF0aCBzdHJva2U9IiNjMGMwYzAiIGQ9Ik0wIDBoMU0xIDFoMSIgLz4KPC9zdmc+');
-     background-position: 0 0;
-     background-repeat: repeat;
-     background-size: 2px;
-   }
-   
-   body *::-webkit-scrollbar-button {
-     background-repeat: no-repeat;
-     background-size: 16px;
-   }
-   
-   body *::-webkit-scrollbar-button:single-button:vertical:decrement {
-     background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgLTAuNSAxNiAxNiIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj4KPG1ldGFkYXRhPk1hZGUgd2l0aCBQaXhlbHMgdG8gU3ZnIGh0dHBzOi8vY29kZXBlbi5pby9zaHNoYXcvcGVuL1hieHZOajwvbWV0YWRhdGE+CjxwYXRoIHN0cm9rZT0iIzAwMDAwMCIgZD0iTTcgNWgxTTYgNmgzTTUgN2g1TTQgOGg3IiAvPgo8L3N2Zz4=');
-   }
-   
-   body *::-webkit-scrollbar-button:single-button:vertical:increment {
-     background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgLTAuNSAxNiAxNiIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj4KPG1ldGFkYXRhPk1hZGUgd2l0aCBQaXhlbHMgdG8gU3ZnIGh0dHBzOi8vY29kZXBlbi5pby9zaHNoYXcvcGVuL1hieHZOajwvbWV0YWRhdGE+CjxwYXRoIHN0cm9rZT0iIzAwMDAwMCIgZD0iTTQgNWg3TTUgNmg1TTYgN2gzTTcgOGgxIiAvPgo8L3N2Zz4=');
-   }
-   
-   body *::-webkit-scrollbar-button:single-button:horizontal:decrement {
-     background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgLTAuNSAxNiAxNiIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj4KPG1ldGFkYXRhPk1hZGUgd2l0aCBQaXhlbHMgdG8gU3ZnIGh0dHBzOi8vY29kZXBlbi5pby9zaHNoYXcvcGVuL1hieHZOajwvbWV0YWRhdGE+CjxwYXRoIHN0cm9rZT0iIzAwMDAwMCIgZD0iTTggM2gxTTcgNGgyTTYgNWgzTTUgNmg0TTYgN2gzTTcgOGgyTTggOWgxIiAvPgo8L3N2Zz4=');
-   }
-   
-   body *::-webkit-scrollbar-button:single-button:horizontal:increment {
-     background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgLTAuNSAxNiAxNiIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj4KPG1ldGFkYXRhPk1hZGUgd2l0aCBQaXhlbHMgdG8gU3ZnIGh0dHBzOi8vY29kZXBlbi5pby9zaHNoYXcvcGVuL1hieHZOajwvbWV0YWRhdGE+CjxwYXRoIHN0cm9rZT0iIzAwMDAwMCIgZD0iTTYgM2gxTTYgNGgyTTYgNWgzTTYgNmg0TTYgN2gzTTYgOGgyTTYgOWgxIiAvPgo8L3N2Zz4=');
-   }
-   
-   body *::-webkit-scrollbar-corner {
-     background: silver;
-   }
-   
-   /* dakedres was here ;3 */ oO Thankyou for making this ;)
-
-
-   .btn-check:checked + .btn-outline-success, .btn-check:active + .btn-outline-success, .btn-outline-success:active, .btn-outline-success.active, .btn-outline-success.dropdown-toggle.show, #oop_player {
-     color: #fff !important;
-     background-color: #00133b !important;
-     border-color: #000000 !important;
-     border: 1px inset !important;
-     border-radius: 0px !important;
- }
-
-
- .loader-body {
-
-     background: black !important;
- }
- 
- .loader {
-     width: 10px;
-     height: 10px;
-     content: ' . . . . . ';
- }
-
-
-#about_oop_modal .modal-content {
-         background: radial-gradient(rgba(87,23,23,0.35) 0%,rgb(161,0,0) 100%);}
-
-         #settings_oop_modal .modal-header {
-         background: linear-gradient(135deg, rgb(143, 143, 143) 0%, rgb(0 0 0) 27%, rgb(217, 0, 0) 57%, rgb(1, 1, 1) 84%, rgb(107, 0, 62) 100%);}
-
-.modal-header #currentsong_lastplayed_modal_lbl_holder a, .modal-header ul .nav-link{color: white !important;}
-
-small .text-light {color: black;}
-
-</style>";
-               
-               
-               
-               
-               
-               
-               
+:root { color-scheme: light; --w9-face:#c0c0c0; --w9-light:#fff; --w9-shadow:#808080; --w9-dark:#000; --w9-blue:#000080; }
+html, body, button, input, select, textarea { color:#000 !important; font-family:'MS Sans Serif',Tahoma,Geneva,sans-serif !important; font-size:13px; letter-spacing:0; -webkit-font-smoothing:none; font-smooth:never; text-rendering:geometricPrecision; }
+body { background-color:#008080 !important; background-size:cover; }
+img, .fa, .fas, .far, .fab { image-rendering:pixelated; }
+*, *::before, *::after { border-radius:0 !important; }
+#blurlayer { position:fixed; inset:0; z-index:-100; background:rgba(0,128,128,.72); -webkit-backdrop-filter:none; backdrop-filter:none; }
+#topnavbar, #playercontrolbar { color:#000 !important; background:var(--w9-face) !important; border-color:var(--w9-light) var(--w9-dark) var(--w9-dark) var(--w9-light) !important; box-shadow:inset 1px 1px var(--w9-light),inset -1px -1px var(--w9-shadow) !important; }
+#topnavbar *, #playercontrolbar *, #muter, #muter i { color:#000 !important; text-shadow:none !important; }
+#topnavbar .pangomfont.badge.bg-dark { color:#fff !important; background:var(--w9-blue) !important; border:2px inset var(--w9-light) !important; }
+#topnavbar .pangomfont.badge.bg-dark .text-danger { color:#ff8080 !important; }
+#oop_player { color:#000 !important; background:var(--w9-face) !important; border:2px outset var(--w9-light) !important; box-shadow:none !important; }
+#oop_player h1, #oop_player h2, #oop_player h3, #oop_player h4, #oop_player h5, #oop_player p, #oop_player span, #oop_player small, #oop_player a, #oolfm_current_song, #oolfm_currentshow { color:#000 !important; text-shadow:none !important; }
+#oop_player .baseaudio-badge { color:#000 !important; background:var(--w9-face) !important; border:2px outset var(--w9-light) !important; box-shadow:none !important; }
+#oop_player .baseaudio-badge i { color:#000 !important; }
+.modal-backdrop.show { opacity:.58; background:#000 !important; }
+.modal .modal-content { color:#000 !important; background:var(--w9-face) !important; border:2px outset var(--w9-light) !important; box-shadow:4px 4px 0 rgba(0,0,0,.45) !important; overflow:hidden; }
+.modal .modal-content > .modal-header:first-child { min-height:34px; padding:4px 5px !important; color:#fff !important; background:var(--w9-blue) !important; border:0 !important; }
+.modal .modal-content > .modal-header:not(:first-child) { color:#000 !important; background:var(--w9-face) !important; border-top:1px solid var(--w9-shadow) !important; border-bottom:1px solid var(--w9-light) !important; }
+.modal .modal-content > .modal-header:first-child .modal-title, .modal .modal-content > .modal-header:first-child a, .modal .modal-content > .modal-header:first-child i, .modal .modal-content > .modal-header:first-child h1, .modal .modal-content > .modal-header:first-child h2, .modal .modal-content > .modal-header:first-child h3, .modal .modal-content > .modal-header:first-child h4, .modal .modal-content > .modal-header:first-child h5 { color:#fff !important; text-shadow:none !important; }
+.modal .modal-content > .modal-header:first-child button[aria-label='Close'] { display:inline-flex; width:25px; height:23px; flex:0 0 25px; align-items:center; justify-content:center; margin:0 !important; padding:0 !important; color:#000 !important; background:var(--w9-face) !important; border:2px outset var(--w9-light) !important; border-radius:0 !important; box-shadow:none !important; opacity:1 !important; text-shadow:none !important; }
+.modal .modal-content > .modal-header:first-child button[aria-label='Close'] i { color:#000 !important; }
+.modal .modal-content > .modal-header:first-child button[aria-label='Close']:active { border-style:inset !important; }
+.modal .modal-body, .modal .modal-footer, .modal .card, .modal .card-header, .modal .card-body, .modal .accordion-item, .modal .accordion-button { color:#000 !important; background:var(--w9-face) !important; }
+.modal .card { border:2px groove var(--w9-light) !important; box-shadow:none !important; }
+.modal .card-header { border-bottom:1px solid var(--w9-shadow) !important; }
+.modal .modal-body p, .modal .modal-body h1, .modal .modal-body h2, .modal .modal-body h3, .modal .modal-body h4, .modal .modal-body h5, .modal .modal-body h6, .modal .modal-body label, .modal .modal-body small, .modal .modal-body span, .modal .modal-body i, .modal .modal-body .text-light, .modal .modal-body .text-white, .modal .modal-body .text-muted, .modal .list-group-item { color:#000 !important; text-shadow:none !important; }
+.modal .list-group-item { background:#fff !important; border:1px solid var(--w9-shadow) !important; }
+.modal .btn, .modal .nav-link, #playpausebtn, #cast { color:#000 !important; background:var(--w9-face) !important; border:2px outset var(--w9-light) !important; box-shadow:none !important; text-shadow:none !important; }
+.modal .btn:active, .modal .btn.active, .modal .btn-check:checked + .btn, .modal .nav-link.active { color:#fff !important; background:var(--w9-blue) !important; border-style:inset !important; }
+.modal .btn:active *, .modal .btn.active *, .modal .btn-check:checked + .btn *, .modal .nav-link.active * { color:#fff !important; }
+.modal .badge, .modal a.badge, .modal .rounded-pill { color:#000 !important; background:var(--w9-face) !important; border:2px outset var(--w9-light) !important; box-shadow:none !important; text-shadow:none !important; }
+.modal .badge *, .modal a.badge * { color:#000 !important; }
+#currentsong_lastplayed_modal_lbl_holder a { color:#fff !important; background:var(--w9-blue) !important; border:2px inset var(--w9-light) !important; }
+#currentsong_lastplayed_modal_lbl_holder a * { color:#fff !important; }
+.modal .form-control, .modal .form-select { color:#000 !important; background:#fff !important; border:2px inset var(--w9-light) !important; box-shadow:none !important; }
+.modal .alert { color:#000 !important; background:#ffffe1 !important; border:2px inset var(--w9-light) !important; }
+#about_oop_modal .about-extension-credit { padding:8px; color:#fff !important; background:var(--w9-blue) !important; border:2px inset var(--w9-light) !important; }
+#about_oop_modal .about-extension-credit * { color:#fff !important; }
+.modal a:not(.btn):not(.badge), .modal .modal-body a:not(.btn):not(.badge) { color:#000 !important; text-decoration:none !important; }
+.modal a:not(.btn):not(.badge):hover, .modal a:not(.btn):not(.badge):focus, .modal .modal-body a:not(.btn):not(.badge):hover, .modal .modal-body a:not(.btn):not(.badge):focus { color:#000080 !important; text-decoration:underline !important; }
+.modal a.btn, .modal a.btn:hover, .modal a.btn:focus, .modal a.btn:active, .modal a.badge, .modal a.badge:hover, .modal a.badge:focus, .modal a.badge:active { text-decoration:none !important; }
+#cast, #cast:hover, #cast:focus, #cast i { color:#000 !important; text-decoration:none !important; }
+#playwith_modal #lfmlink_lautfm svg path { fill:#000 !important; }
+#playwith_modal #lfmlink_tunein img { filter:grayscale(1) brightness(0) !important; }
+body *::-webkit-scrollbar { width:16px; height:16px; }
+body *::-webkit-scrollbar-thumb, body *::-webkit-scrollbar-button { background:var(--w9-face); border:2px outset var(--w9-light); }
+body *::-webkit-scrollbar-track { background:repeating-conic-gradient(#fff 0 25%,#c0c0c0 0 50%) 0/2px 2px; }
+</style>
+CSS;
 echo $css;
-
 ?>

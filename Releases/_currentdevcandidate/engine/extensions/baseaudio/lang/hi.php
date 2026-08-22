@@ -1,70 +1,77 @@
 <?php
+/*
+ * PanPlay language file
+ *
+ * ENCODING: UTF-8 only.
+ * Read and save this file as UTF-8. Keep Unicode characters literal.
+ * Do not replace them with escaped code points, HTML entities, or Latin-1.
+ * After every edit, verify that the integrity line below is still readable.
+ *
+ * INTEGRITY CHECK: æøå | ñáéíóú | 你好世界 | नमस्ते | مرحبا | äöüß
+ */
 $ext_lang = array(
-//basic
-    'lng_title' => 'अंग्रेजी (यूएसए)',
-    'extension_title' => 'पैनप्ले के लिए Laut.fm एक्सटेंशन',
-    'extension_credits' => 'पैनप्ले के लिए Laut.fm एक्सटेंशन',
-    'extension_credits_link' => 'https://laut.fm/?from=PanPlay-Extension',
+    // Basic
+    'lng_title' => 'हिन्दी',
+    'extension_title' => 'PanPlay के लिए Baseaudio एक्सटेंशन',
+    'extension_credits' => 'PanPlay के लिए Baseaudio एक्सटेंशन',
+    'extension_credits_link' => 'https://play.pangom.net/?from=PanPlay-Extension',
 
-    //Topnavbar Linktitel
-    'trackhistory_navbar_title' => 'ट्रैक इतिहास',
-    'stationinfo_navbar_title' => ' फ़ाइल के बारे में ',
-    'sendeplan_navbar_title' => 'प्रसारण कार्यक्रम',
+    // Navigation
+    'stationinfo_navbar_title' => ' ऑडियो स्रोत के बारे में',
     'playwith_navbar_title' => 'प्लेयर बदलें',
 
-    //trackhistory modal
-    'trackhistory_modal_title' => 'ट्रैक इतिहास',
-    'current_song' => 'वर्तमान में चल रहा है:',
-    'last_songs' => 'पहले बजाए गए:',
+    // Audio source information
+    'stationinfo_modal_title' => 'ऑडियो स्रोत की जानकारी',
+    'stationinfo_modal_topdesc' => 'इस ऑडियो स्रोत के लिए अभी कोई अतिरिक्त मेटाडेटा उपलब्ध नहीं है।',
 
-    //sendeplan modal
-    'sendeplan_modal_title' => 'प्रसारण कार्यक्रम',
-    'today' => 'आज',
-    'mo' => 'सोमवार',
-    'di' => 'मंगलवार',
-    'mi' => 'बुधवार',
-    'do' => 'गुरुवार',
-    'fr' => 'शुक्रवार',
-    'sa' => 'शनिवार',
-    'so' => 'रविवार',
-    'mo_s' => 'सोम',
-    'di_s' => 'मंगल',
-    'mi_s' => 'बुध',
-    'do_s' => 'गुरु',
-    'fr_s' => 'शुक्र',
-    'sa_s' => 'शनि',
-    'so_s' => 'रवि',
-    'nospecialshow' => 'कोई विशेष कार्यक्रम नहीं',
-    'sendeplan_laut' => 'laut.fm पर पूरा प्रसारण कार्यक्रम',
+    // फ़ाइल मेटाडेटा
+    'metadata_file_details' => 'ऑडियो फ़ाइल का विवरण',
+    'metadata_title_label' => 'शीर्षक',
+    'metadata_artist_label' => 'कलाकार',
+    'metadata_album_label' => 'एल्बम',
+    'metadata_genre_label' => 'शैली',
+    'metadata_year_label' => 'वर्ष',
+    'metadata_duration_label' => 'अवधि',
+    'metadata_format_label' => 'प्रारूप और कोडेक',
+    'metadata_bitrate_label' => 'बिटरेट',
+    'metadata_sample_rate_label' => 'सैंपल दर',
+    'metadata_channels_label' => 'चैनल',
+    'metadata_filesize_label' => 'फ़ाइल का आकार',
+    'metadata_source_label' => 'ऑडियो स्रोत',
+    'metadata_tags_unavailable' => 'PanPlay इस स्रोत से अतिरिक्त टैग नहीं पढ़ सका। URL से मिली जानकारी के साथ प्लेबैक उपलब्ध रहेगा।',
 
-    //Stationinfo modal
-    'stationinfo_modal_title' => 'फ़ाइल के बारे में',
-    'stationinfo_modal_topdesc' => 'फ़ाइल के बारे में अधिक जानकारी इस समय नहीं मिल सकती है। इसके लिए आपको पैनप्ले के चल रहे विकास का इंतजार करना होगा। फ़ाइलों से पढ़ना भविष्य के लिए योजनाबद्ध है। लेकिन इसे अभी तक लागू नहीं किया गया है',
-
-    //playwith modal
+    // External playback and Google Cast
     'playwith_modal_title' => 'प्लेयर बदलें',
-    'playwith_modal_topdesc' => 'आप इस स्ट्रीम को अन्य अनुप्रयोगों या बाहरी प्लेबैक उपकरणों में खोल सकते हैं। ऐसा करने के लिए, उपयुक्त प्लेबैक विकल्प का चयन करें।',
-    'playwith_modal_gcast_topdesc1' => 'कास्ट  "',
-    'playwith_modal_gcast_topdesc2' => '" एक ऐसे उपकरण पर जो क्रोमकास्ट या Google से कास्टिंग का समर्थन करता है। ऐसा करने के लिए, मुख्य स्क्रीन के निचले दाएं कोने पर Google कास्ट आइकन (<i class=“fab fa-chromecast”></i>)** पर क्लिक करें',
-    'directstreamtobrowserdropdown' => 'स्ट्रीम URL खोलें / स्ट्रीम डाउनलोड करें',
-    'directstreamtobrowserdropdown_option1' => '<span class="badge bg-dark">m3u</span>-स्ट्रीम',
-    'directstreamtobrowserdropdown_option2' => '<span class="badge bg-dark">pls</span>-स्ट्रीम',
-    'playwith_modal_bottomnote' => '* यदि आप अपने फोन पर चयनित सेवा का एक एप्लिकेशन उपयोग कर रहे हैं (उदाहरण के लिए Android पर laut.fm ऐप), तो यह ऐप इस सेवा के नेविगेशन को रोक सकता है। स्ट्रीम तब सीधे संबंधित ऐप में खुल जाएगी।',
-    'playwith_modal_cast_bottomnote1' => '** Google कास्ट हर डिवाइस या सॉफ्टवेयर पर उपलब्ध नहीं है। Linux, Mac और Windows उपयोगकर्ताओं को Chrome या Chrome-आधारित ब्राउज़र जैसे Microsoft Edge, Opera, Brave या Vivaldi की आवश्यकता होती है। MacOS पर, आधिकारिक क्रोमकास्ट एप्लिकेशन भी एक आवश्यकता हो सकती है। Android और iOS उपयोगकर्ताओं को Google होम ऐप की आवश्यकता हो सकती है। GoogleCast के लिए पूरी सिस्टम आवश्यकताएं यहां पाई जा सकती हैं',
-    'playwith_modal_cast_bottomnote_linktitle' => 'यहां',
+    'playwith_modal_topdesc' => 'आप इस ऑडियो स्रोत को किसी अन्य ऐप या बाहरी प्लेबैक डिवाइस पर खोल सकते हैं।',
+    'playwith_modal_gcast_topdesc1' => '“',
+    'playwith_modal_gcast_topdesc2' => '” को प्लेयर के Cast बटन से Google Cast डिवाइस पर चलाएँ।',
+    'directstreamtobrowserdropdown' => 'ऑडियो स्रोत खोलें',
 
-    //net error modal
+    // Content Protection Mechanism
+    'cpm_info_title' => 'सामग्री सुरक्षा तंत्र (CPM)',
+    'cpm_info_description' => 'PanPlay CPM अनुरोधित baseaudio URL को स्थानीय और वैकल्पिक केंद्रीय फ़िल्टर नियमों के आधार पर जाँचता है।',
+    'cpm_info_scope' => 'केवल baseaudio की जाँच की जाती है। अवरुद्ध सामग्री को प्लेयर इंटरफ़ेस लोड होने से पहले रोक दिया जाता है और त्रुटि स्क्रीन पर समझाया जाता है।',
+    'cpm_info_local_status' => 'स्थानीय CPM',
+    'cpm_info_local_list' => 'स्थानीय फ़िल्टर सूची',
+    'cpm_info_cdn_status' => 'CDN द्वारा CPM',
+    'cpm_info_cache_status' => 'केंद्रीय सूची कैश',
+    'cpm_info_enabled' => 'सक्रिय',
+    'cpm_info_disabled' => 'निष्क्रिय',
+    'cpm_info_available' => 'उपलब्ध',
+    'cpm_info_unavailable' => 'उपलब्ध नहीं',
+    'cpm_info_last_sync' => 'अंतिम सिंक्रनाइज़ेशन',
+    'cpm_info_read_only' => 'यह जानकारी केवल पढ़ने के लिए है। सर्वर संचालक CPM सेटिंग्स और फ़िल्टर सूचियों का प्रबंधन करते हैं।',
+    'cpm_info_more_information' => 'PanPlay CPM के बारे में अधिक जानकारी',
+
+    // Network and playback errors
     'neterr_modal_title' => 'प्लेबैक त्रुटि',
-    'neterr_desc_net_thinking' => 'कुछ गलत है। डेटा का विश्लेषण किया जा रहा है!',
-    'neterr_desc_net_okay1' => '<b>✔ कनेक्शन ठीक है</b><hr> प्लेबैक के लिए सभी आवश्यक सर्वर पहुंच योग्य हैं। <hr><i>इसका मतलब यह हो सकता है कि आपका कनेक्शन अस्थायी रूप से बाधित हो गया था, और यही कारण है कि आप यह विंडो देख रहे हैं। क्या प्लेबैक फिर से चल रहा है? यह सुनिश्चित करने के लिए कि ',
-    'neterr_desc_net_okay2' => ' प्रसारण कर रहा है, आप उनकी Laut.fm उपस्थिति भी देख सकते हैं',
-    'neterr_desc_net_okay3' => 'जाँच करें',
-    'neterr_console_net_okay' => '✔ कनेक्शन ठीक है।',
-    'neterr_desc_net_laut_not_okay1' => '<b>आंशिक इंटरनेट कनेक्शन समस्या</b><hr> हम आपके स्टेशन के लिए laut.fm सर्वर तक नहीं पहुंच सकते हैं। ऐसा हो सकता है कि laut.fm से कुछ या कोई सामग्री लोड नहीं की जा सकती है।',
-    'neterr_desc_net_laut_not_okay2' => '',
-    'neterr_console_net_laut_not_okay' => '⚠ Laut.fm से स्ट्रीम प्राप्त करते समय कनेक्शन त्रुटि',
-    'neterr_desc_net_not_okay1' => '<b>कोई इंटरनेट कनेक्शन नहीं</b><hr>इंटरनेट के सभी कनेक्शन बाधित हो गए थे। इससे प्लेबैक बंद हो गया। यह असंभव है लेकिन संभव है कि प्लेयर को फिर से लोड किए बिना प्लेबैक फिर से शुरू हो सकता है। <br><br> मोबाइल उपकरणों पर, यह त्रुटि नेटवर्क स्विच (उदाहरण के लिए, वाई-फाई से मोबाइल डेटा) के कारण हो सकती है। इस मामले में, आमतौर पर पृष्ठ को फिर से लोड करना मदद करता है।',
+    'neterr_desc_net_thinking' => 'ऑडियो स्रोत की जाँच हो रही है…',
+    'neterr_desc_net_okay1' => '<b>कनेक्शन बहाल हो गया</b><hr>ऑडियो स्रोत फिर से उपलब्ध है। यदि प्लेबैक अपने आप जारी नहीं होता है, तो प्लेयर को फिर से लोड करें।',
+    'neterr_desc_net_okay2' => '',
+    'neterr_console_net_okay' => 'ऑडियो स्रोत फिर से उपलब्ध है।',
+    'neterr_desc_net_not_okay1' => '<b>ऑडियो स्रोत उपलब्ध नहीं है</b><hr>अनुरोधित ऑडियो स्रोत तक नहीं पहुँचा जा सका। अपना इंटरनेट कनेक्शन जाँचें और नेटवर्क बदलने के बाद प्लेयर को फिर से लोड करें।',
     'neterr_desc_net_not_okay2' => '',
-    'neterr_console_net_not_okay' => 'सर्वर स्थिति प्राप्त करने में त्रुटि: ',
+    'neterr_console_net_not_okay' => 'ऑडियो स्रोत की जाँच करते समय त्रुटि: ',
 );
+
 ?>

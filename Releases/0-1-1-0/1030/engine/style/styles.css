@@ -11504,5 +11504,15 @@ header.masthead .bg-circle-4 {
   75%, 100% { transform: translate(-100%, 0); left: 100%; }
 }
 
+/* Keep the compact PanPlay brand readable independently of theme-wide link colors. */
+#topnavbar .pangomfont.badge.bg-dark {
+  color: #fff !important;
+  background: #171b24 !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  text-shadow: none !important;
+}
 
-
+#topnavbar .pangomfont.badge.bg-dark .text-danger {
+  color: #ff5d71 !important;
+  text-shadow: none !important;
+}

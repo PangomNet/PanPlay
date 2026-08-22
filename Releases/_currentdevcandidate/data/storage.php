@@ -13,14 +13,16 @@ $firstrundone = true;
 
 
 // --- Player Identity ---
+// Everlasting Build 1030 is the final release of the Bootstrap-based PanPlay generation.
+// It remains a supported long-term beta while the next interface generation is developed.
 $pro_name           = '<i class="fas fa-music"></i> Pan<span class="pangomfont text-danger">Play</span>'; //⚠
 $pro_name_noformat  = '<i class="fas fa-music"></i> PanPlay'; //⚠
 $pro_name_cleartext = 'PanPlay'; //⚠
 $pro_version        = '0.1.1.0'; //⚠
-$pro_buildversion   = '1031'; //⚠
+$pro_buildversion   = '1030'; //⚠
 $pro_version_name   = 'Everlasting'; //⚠
-$pro_releasedate    = '07.06.2026'; //⚠
-$is_prerelase       = true; // marks this build as an unstable test release in the About dialog, including a warning.
+$pro_releasedate    = '23.08.2026'; //⚠
+$is_prerelase       = false; // Set to true only for unstable test builds that should show the prerelease warning.
 
 // --- Vendor & Hoster Info ---
 $pro_copyright      = '2026'; //⚠

@@ -1,5 +1,12 @@
 <?php
 
+const PANPLAY_CPM_MAX_REMOTE_BYTES = 4 * 1024 * 1024;
+const PANPLAY_CPM_MAX_MERGED_BYTES = 8 * 1024 * 1024;
+const PANPLAY_CPM_MAX_IMPORTS = 8;
+const PANPLAY_CPM_MAX_IMPORT_DEPTH = 3;
+const PANPLAY_CPM_MAX_RULES = 150000;
+const PANPLAY_CPM_MAX_RULE_LENGTH = 4096;
+
 function panplayCpmPath(string $relativePath): string
 {
     return __DIR__ . '/../../../' . ltrim($relativePath, '/');
@@ -71,46 +78,89 @@ function panplayCpmWildcardMatch(string $pattern, string $target): bool
     return (bool) preg_match('#^' . $pattern . '$#i', $target);
 }
 
-function panplayCpmFetchRemote(string $url)
+function panplayCpmRemoteTarget(string $url): ?array
 {
-    if (function_exists('curl_init')) {
-        $ch = curl_init($url);
-        curl_setopt_array($ch, [
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_MAXREDIRS => 5,
-            CURLOPT_CONNECTTIMEOUT => 5,
-            CURLOPT_TIMEOUT => 15,
-            CURLOPT_SSL_VERIFYPEER => true,
-            CURLOPT_SSL_VERIFYHOST => 2,
-            CURLOPT_USERAGENT => 'PanPlay-CPM/0.1 (+https://play.pangom.net/cpm/)',
-        ]);
-        $body = curl_exec($ch);
-        $status = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        curl_close($ch);
-
-        return ($body !== false && $status >= 200 && $status < 300) ? $body : null;
+    $parts = parse_url(trim($url));
+    if (!is_array($parts) || strtolower((string) ($parts['scheme'] ?? '')) !== 'https' || empty($parts['host'])) {
+        return null;
     }
 
-    $context = stream_context_create([
-        'http' => [
-            'timeout' => 15,
-            'user_agent' => 'PanPlay-CPM/0.1 (+https://play.pangom.net/cpm/)',
-        ],
-    ]);
-    $body = @file_get_contents($url, false, $context);
+    if (isset($parts['user']) || isset($parts['pass']) || (isset($parts['port']) && (int) $parts['port'] !== 443)) {
+        return null;
+    }
 
-    return $body === false ? null : $body;
+    $host = strtolower((string) $parts['host']);
+    $addresses = filter_var($host, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)
+        ? [$host]
+        : gethostbynamel($host);
+
+    if (!is_array($addresses) || $addresses === []) {
+        return null;
+    }
+
+    foreach ($addresses as $address) {
+        if (filter_var($address, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 | FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)) {
+            return ['host' => $host, 'ip' => $address];
+        }
+    }
+
+    return null;
+}
+
+function panplayCpmFetchRemote(string $url): ?string
+{
+    $target = panplayCpmRemoteTarget($url);
+    if ($target === null || !function_exists('curl_init')) {
+        return null;
+    }
+
+    $body = '';
+    $tooLarge = false;
+    $ch = curl_init($url);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => false,
+        CURLOPT_FOLLOWLOCATION => false,
+        CURLOPT_CONNECTTIMEOUT => 5,
+        CURLOPT_TIMEOUT => 15,
+        CURLOPT_SSL_VERIFYPEER => true,
+        CURLOPT_SSL_VERIFYHOST => 2,
+        CURLOPT_USERAGENT => 'PanPlay-CPM/0.1 (+https://play.pangom.net/cpm/)',
+        CURLOPT_IPRESOLVE => CURL_IPRESOLVE_V4,
+        CURLOPT_RESOLVE => [$target['host'] . ':443:' . $target['ip']],
+        CURLOPT_WRITEFUNCTION => static function ($handle, string $chunk) use (&$body, &$tooLarge): int {
+            if (strlen($body) + strlen($chunk) > PANPLAY_CPM_MAX_REMOTE_BYTES) {
+                $tooLarge = true;
+                return 0;
+            }
+
+            $body .= $chunk;
+            return strlen($chunk);
+        },
+    ]);
+    $success = curl_exec($ch);
+    $status = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    if ($success === false || $tooLarge || $status < 200 || $status >= 300) {
+        return null;
+    }
+
+    return $body;
 }
 
 function panplayCpmReadLocalFile(string $path): string
 {
-    return is_file($path) ? (string) file_get_contents($path) : '';
+    if (!is_file($path) || filesize($path) > PANPLAY_CPM_MAX_REMOTE_BYTES) {
+        return '';
+    }
+
+    return (string) file_get_contents($path);
 }
 
-function panplayCpmResolveImports(string $listContent, array &$seenImports = []): string
+function panplayCpmResolveImports(string $listContent, array &$seenImports = [], int $depth = 0): string
 {
     $merged = [];
+    $mergedBytes = 0;
     $lines = preg_split("/\r\n|\n|\r/", $listContent);
 
     foreach ($lines as $line) {
@@ -118,12 +168,21 @@ function panplayCpmResolveImports(string $listContent, array &$seenImports = [])
 
         if (stripos($trimmed, '!@import ') === 0) {
             $importUrl = trim(substr($trimmed, 9));
-            if ($importUrl !== '' && empty($seenImports[$importUrl])) {
+            if (
+                $importUrl !== '' &&
+                empty($seenImports[$importUrl]) &&
+                count($seenImports) < PANPLAY_CPM_MAX_IMPORTS &&
+                $depth < PANPLAY_CPM_MAX_IMPORT_DEPTH
+            ) {
                 $seenImports[$importUrl] = true;
                 $imported = panplayCpmFetchRemote($importUrl);
                 if ($imported !== null) {
-                    $merged[] = '! Imported by PanPlay CPM from ' . $importUrl;
-                    $merged[] = panplayCpmResolveImports($imported, $seenImports);
+                    $resolvedImport = panplayCpmResolveImports($imported, $seenImports, $depth + 1);
+                    $importBlock = '! Imported by PanPlay CPM from ' . $importUrl . "\n" . $resolvedImport;
+                    if ($mergedBytes + strlen($importBlock) <= PANPLAY_CPM_MAX_MERGED_BYTES) {
+                        $merged[] = $importBlock;
+                        $mergedBytes += strlen($importBlock) + 1;
+                    }
                 } else {
                     $merged[] = '! PanPlay CPM import failed: ' . $importUrl;
                 }
@@ -131,7 +190,12 @@ function panplayCpmResolveImports(string $listContent, array &$seenImports = [])
             continue;
         }
 
+        if ($mergedBytes + strlen($line) + 1 > PANPLAY_CPM_MAX_MERGED_BYTES) {
+            break;
+        }
+
         $merged[] = $line;
+        $mergedBytes += strlen($line) + 1;
     }
 
     return implode("\n", $merged);
@@ -152,8 +216,11 @@ function panplayCpmEnsureCdnCache(): string
     $lockHandle = @fopen($lockFile, 'c');
     if ($lockHandle && !flock($lockHandle, LOCK_EX | LOCK_NB)) {
         if (is_file($cacheFile)) {
-            return (string) file_get_contents($cacheFile);
+            $cached = (string) file_get_contents($cacheFile);
+            fclose($lockHandle);
+            return $cached;
         }
+        fclose($lockHandle);
         return '';
     }
 
@@ -188,8 +255,12 @@ function panplayCpmParseRules(string $listContent, string $source): array
     $lines = preg_split("/\r\n|\n|\r/", $listContent);
 
     foreach ($lines as $lineNumber => $line) {
+        if (count($rules) >= PANPLAY_CPM_MAX_RULES) {
+            break;
+        }
+
         $rule = trim($line);
-        if ($rule === '' || $rule === '[Adblock Plus]' || $rule[0] === '!') {
+        if ($rule === '' || strlen($rule) > PANPLAY_CPM_MAX_RULE_LENGTH || $rule === '[Adblock Plus]' || $rule[0] === '!') {
             continue;
         }
 

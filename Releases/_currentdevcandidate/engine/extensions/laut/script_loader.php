@@ -128,6 +128,8 @@ window.laut.fm.errorcallback = function(msg) {
     var lfmstation_current_song;
     var lfmstation_next_playlist;
     var lfmstation_current_artist_image;
+    var currentPlaylist = '';
+    var currentPlaylistId = '';
     </script>
 <!-- // Grab Station-Infos: ask lfm_api-->
 <!--<script charset="utf-8">
@@ -348,8 +350,10 @@ for (let i = 0; i < station_top_artists_raw.length; i++) {
 
 var station_location = '<a style="text-decoration: none;" target="_blank" href="' + 'https://www.google.com/maps/search/?api=1&query=' + stationData.lat + ',' + stationData.lng + '" class=" badge rounded-pill bg-dark border border-danger btn-link fw-normal"><i class="fas fa-map-marker"></i> &nbsp;' + stationData.location + '</a>'
 
-console.log(stationData.current_playlist.name);
-var currentPlaylist = stationData.current_playlist.name;
+var currentPlaylistData = stationData.current_playlist || {};
+currentPlaylist = currentPlaylistData.name || '';
+currentPlaylistId = currentPlaylistData.id === null || typeof currentPlaylistData.id === 'undefined' ? '' : String(currentPlaylistData.id);
+console.log(currentPlaylist);
 
     document.title = display_name + ' - PanPlay';
   updateElementById('api_lfm_description', description);
@@ -578,7 +582,10 @@ var data = function(stationData) {
     // ... (restlicher Code deiner data-Funktion) ...
 
     // Finde diese Zeile in deiner data-Funktion und stelle sicher, dass sie currentPlaylist global setzt:
-    currentPlaylist = stationData.current_playlist.name; // Zuweisung zur GLOBALEN Variable
+    var currentPlaylistData = stationData.current_playlist || {};
+    currentPlaylist = currentPlaylistData.name || '';
+    currentPlaylistId = currentPlaylistData.id === null || typeof currentPlaylistData.id === 'undefined' ? '' : String(currentPlaylistData.id);
+    markCurrentScheduleEntry();
     
     // ... (restlicher Code deiner data-Funktion) ...
 };
@@ -687,16 +694,91 @@ document.querySelector(tabContentId).classList.add('show', 'active');
 const heading = document.querySelector(tabContentId).querySelector('h5');
 heading.textContent += ' ({$ext_lang["today"]})';
 
+            function escapeScheduleHtml(value) {
+              return String(value === null || typeof value === 'undefined' ? '' : value).replace(/[&<>"']/g, function(character) {
+                return {
+                  '&': '&amp;',
+                  '<': '&lt;',
+                  '>': '&gt;',
+                  '"': '&quot;',
+                  "'": '&#039;'
+                }[character];
+              });
+            }
+
+            function normalizeScheduleColor(value) {
+              var color = String(value || '').trim();
+              return /^#(?:[0-9a-f]{3}|[0-9a-f]{4}|[0-9a-f]{6}|[0-9a-f]{8})$/i.test(color) ? color : '#6c757d';
+            }
+
+            function normalizeScheduleName(value) {
+              return String(value || '')
+                .replace(/\[LIVE\]/gi, '')
+                .replace(/\s+/g, ' ')
+                .trim()
+                .toLowerCase();
+            }
+
+            function markCurrentScheduleEntry() {
+              var entries = document.querySelectorAll(tabContentId + ' .panplay-schedule-entry');
+              var playlistId = String(currentPlaylistId || '');
+              var playlistName = normalizeScheduleName(currentPlaylist);
+              var matchingEntry = null;
+
+              Array.prototype.slice.call(entries).forEach(function(entry) {
+                entry.classList.remove('panplay-current-schedule-entry');
+                if (matchingEntry === null && playlistId !== '' && entry.getAttribute('data-panplay-playlist-id') === playlistId) {
+                  matchingEntry = entry;
+                }
+              });
+
+              if (matchingEntry === null && playlistName !== '') {
+                Array.prototype.slice.call(entries).some(function(entry) {
+                  if (entry.getAttribute('data-panplay-playlist-name') === playlistName) {
+                    matchingEntry = entry;
+                    return true;
+                  }
+                  return false;
+                });
+              }
+
+              if (matchingEntry !== null) {
+                matchingEntry.classList.add('panplay-current-schedule-entry');
+              }
+
+              return matchingEntry;
+            }
+
             var show_schedule = function(schedule){
               var no_entry = '{$ext_lang["nospecialshow"]}';
               var days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
               var days_buffer = {mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: []}; 
-              Array.prototype.slice.call(schedule).forEach(function(schedule_entry) {
+              Array.prototype.slice.call(schedule).forEach(function(schedule_entry, schedule_index) {
                 var start_time = schedule_entry.hour;
                 if (start_time < 10) { start_time = "0" + start_time; }
                 start_time = start_time + ":00  {$lang['uhr']}";
-                days_buffer[schedule_entry.day].push("<a href=\"#\" style=\"background-color: transparent;\" class=\"list-group-item list-group-item-action \"><div class=\"d-flex w-100 justify-content-between\"><p class=\"mb-1\"><span style=\"font-size: 1em; color:" + schedule_entry.color + ";\">■</span> " + schedule_entry.name + "</p><small class=\"listboxstatebadge\">" + start_time + "</small></div></a>");
-               // here with description for all shows days_buffer[schedule_entry.day].push("<a href=\"#\" class=\"list-group-item list-group-item-action bg-dark\"><div class=\"d-flex w-100 justify-content-between\"><h5 class=\"mb-1\">" + schedule_entry.name + "</h5><small class=\"text-muted\">" + start_time + "</small></div><p class=\"mb-1\">" + schedule_entry.description + "</p></a>");
+                var schedule_name = escapeScheduleHtml(schedule_entry.name);
+                var schedule_color = normalizeScheduleColor(schedule_entry.color);
+                var schedule_description = typeof schedule_entry.description === 'string' ? schedule_entry.description.trim() : '';
+                var schedule_playlist_id = schedule_entry.id === null || typeof schedule_entry.id === 'undefined' ? '' : String(schedule_entry.id);
+                var schedule_entry_attributes = ' data-panplay-playlist-id="' + escapeScheduleHtml(schedule_playlist_id) + '" data-panplay-playlist-name="' + escapeScheduleHtml(normalizeScheduleName(schedule_entry.name)) + '"';
+                var schedule_title = "<span class=\"panplay-schedule-color\" style=\"color:" + schedule_color + " !important;\">■</span> " + schedule_name;
+
+                if (schedule_description !== '') {
+                  var description_id = 'panplay-schedule-description-' + schedule_entry.day + '-' + schedule_index;
+                  var description_html = escapeScheduleHtml(schedule_description).replace(/\\r?\\n/g, '<br>');
+                  var schedule_title_toggle = "<span role=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#" + description_id + "\" aria-expanded=\"false\" aria-controls=\"" + description_id + "\">" + schedule_title + "</span>";
+                  var schedule_summary = "<div class=\"d-flex w-100 justify-content-between align-items-start\"><p class=\"mb-1\">" + schedule_title_toggle + "</p><small class=\"listboxstatebadge ms-2\">" + start_time + "</small></div>";
+                  days_buffer[schedule_entry.day].push(
+                    "<div class=\"list-group-item panplay-schedule-entry\"" + schedule_entry_attributes + ">" +
+                      schedule_summary +
+                      "<div class=\"collapse mt-2\" id=\"" + description_id + "\"><div class=\"panplay-schedule-description\">" + description_html + "</div></div>" +
+                    "</div>"
+                  );
+                } else {
+                  var schedule_summary = "<div class=\"d-flex w-100 justify-content-between align-items-start\"><p class=\"mb-1\">" + schedule_title + "</p><small class=\"listboxstatebadge ms-2\">" + start_time + "</small></div>";
+                  days_buffer[schedule_entry.day].push("<div class=\"list-group-item panplay-schedule-entry\"" + schedule_entry_attributes + ">" + schedule_summary + "</div>");
+                }
               });
               Array.prototype.slice.call(days).forEach(function(schedule_days) {
                 if (document.getElementById("api_lfm_schedule_" + schedule_days) !== null) {
@@ -706,9 +788,69 @@ heading.textContent += ' ({$ext_lang["today"]})';
                     document.getElementById("api_lfm_schedule_" + schedule_days).innerHTML = no_entry;
                   }
                 }
-              }); 
+              });
+              markCurrentScheduleEntry();
             };
             laut.fm.station("{$lfmstream}").schedule(show_schedule);
+
+            var openCurrentScheduleDescription = false;
+            var currentShowScheduleTrigger = document.getElementById('api_lfm_current_playlists');
+            var scheduleModal = document.getElementById('sendeplan_modal');
+
+            if (currentShowScheduleTrigger !== null && scheduleModal !== null) {
+              currentShowScheduleTrigger.addEventListener('click', function() {
+                openCurrentScheduleDescription = true;
+                if (window.bootstrap && bootstrap.Modal && !scheduleModal.classList.contains('show')) {
+                  bootstrap.Modal.getOrCreateInstance(scheduleModal).show();
+                }
+                window.setTimeout(function() {
+                  if (!scheduleModal.classList.contains('show')) {
+                    var scheduleNavigationTrigger = document.querySelector('#topnavbar a.nav-link[data-bs-target="#sendeplan_modal"]');
+                    if (scheduleNavigationTrigger !== null) {
+                      scheduleNavigationTrigger.click();
+                    }
+                  }
+                }, 0);
+              });
+
+              scheduleModal.addEventListener('shown.bs.modal', function() {
+                if (openCurrentScheduleDescription !== true) {
+                  return;
+                }
+
+                if (window.bootstrap && bootstrap.Tab && currentTab !== null) {
+                  bootstrap.Tab.getOrCreateInstance(currentTab).show();
+                }
+
+                var attempts = 0;
+                var expandCurrentDescription = function() {
+                  var currentEntry = markCurrentScheduleEntry();
+                  var description = currentEntry === null ? null : currentEntry.querySelector('.collapse');
+
+                  if (description !== null) {
+                    if (window.bootstrap && bootstrap.Collapse) {
+                      bootstrap.Collapse.getOrCreateInstance(description, {toggle: false}).show();
+                    }
+                    currentEntry.scrollIntoView({block: 'nearest'});
+                    openCurrentScheduleDescription = false;
+                    return;
+                  }
+
+                  attempts += 1;
+                  if (attempts < 5 && scheduleModal.classList.contains('show')) {
+                    window.setTimeout(expandCurrentDescription, 250);
+                  } else {
+                    openCurrentScheduleDescription = false;
+                  }
+                };
+
+                expandCurrentDescription();
+              });
+
+              scheduleModal.addEventListener('hidden.bs.modal', function() {
+                openCurrentScheduleDescription = false;
+              });
+            }
 
 
 </script>

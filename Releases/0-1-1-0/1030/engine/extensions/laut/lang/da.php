@@ -1,4 +1,14 @@
 <?php
+/*
+ * PanPlay language file
+ *
+ * ENCODING: UTF-8 only.
+ * Read and save this file as UTF-8. Keep Unicode characters literal.
+ * Do not replace them with escaped code points, HTML entities, or Latin-1.
+ * After every edit, verify that the integrity line below is still readable.
+ *
+ * INTEGRITY CHECK: æøå | ñáéíóú | 你好世界 | नमस्ते | مرحبا | äöüß
+ */
 $ext_lang = array(
 //basic
     'lng_title' => 'Dansk',
@@ -26,15 +36,15 @@ $ext_lang = array(
     'mi' => 'Onsdag',
     'do' => 'Torsdag',
     'fr' => 'Fredag',
-    'sa' => 'L&oslash;rdag',
-    'so' => 'S&oslash;ndag',
+    'sa' => 'Lørdag',
+    'so' => 'Søndag',
     'mo_s' => 'MAN',
     'di_s' => 'TIR',
     'mi_s' => 'ONS',
     'do_s' => 'TOR',
     'fr_s' => 'FRE',
-    'sa_s' => 'L&Oslash;R',
-    'so_s' => 'S&Oslash;N',
+    'sa_s' => 'LØR',
+    'so_s' => 'SØN',
     'nospecialshow' => 'Ingen specielle programmer',
     'sendeplan_laut' => 'Fuld sendeskema på laut.fm',
 
@@ -45,7 +55,7 @@ $ext_lang = array(
     'playwith_modal_title' => 'Skift Afspiller',
     'playwith_modal_topdesc' => 'Du kan åbne denne stream i andre applikationer eller eksterne afspilningsenheder. For at gøre det, vælg den passende afspilningsmulighed.',
     'playwith_modal_gcast_topdesc1' => 'Cast "',
-    'playwith_modal_gcast_topdesc2' => '" til en enhed, der understøtter Chromecast eller Google Cast. For at gøre det, klik på Google Cast-ikonet nederst til højre på hovedskærmen (<i class=“fab fa-chromecast”></i>)**',
+    'playwith_modal_gcast_topdesc2' => '" til en enhed, der understøtter Chromecast eller Google Cast. For at gøre det, klik på Google Cast-ikonet nederst til højre på hovedskærmen (<i class="fab fa-chromecast"></i>)**',
     'directstreamtobrowserdropdown' => 'Åbn stream-URL',
     'directstreamtobrowserdropdown_option1' => '<span class="badge bg-dark">m3u</span>-Stream',
     'directstreamtobrowserdropdown_option2' => '<span class="badge bg-dark">pls</span>-Stream',

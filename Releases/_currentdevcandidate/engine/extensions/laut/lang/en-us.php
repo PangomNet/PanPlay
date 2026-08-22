@@ -1,4 +1,14 @@
 <?php
+/*
+ * PanPlay language file
+ *
+ * ENCODING: UTF-8 only.
+ * Read and save this file as UTF-8. Keep Unicode characters literal.
+ * Do not replace them with escaped code points, HTML entities, or Latin-1.
+ * After every edit, verify that the integrity line below is still readable.
+ *
+ * INTEGRITY CHECK: æøå | ñáéíóú | 你好世界 | नमस्ते | مرحبا | äöüß
+ */
 $ext_lang = array(
 //basic
     'lng_title' => 'English',
@@ -45,7 +55,7 @@ $ext_lang = array(
     'playwith_modal_title' => 'Switch Player',
     'playwith_modal_topdesc' => 'You can open this stream in other applications or external playback devices. To do this, select the appropriate playback option.',
     'playwith_modal_gcast_topdesc1' => 'Cast  "',
-    'playwith_modal_gcast_topdesc2' => '" to a device that supports Chromecast or casting from Google. To do this, click on the Google Cast icon at the bottom right of the main screen (<i class=“fab fa-chromecast”></i>)**',
+    'playwith_modal_gcast_topdesc2' => '" to a device that supports Chromecast or casting from Google. To do this, click on the Google Cast icon at the bottom right of the main screen (<i class="fab fa-chromecast"></i>)**',
     'directstreamtobrowserdropdown' => 'Open stream URL / Download stream',
     'directstreamtobrowserdropdown_option1' => '<span class="badge bg-dark">m3u</span>-Stream',
     'directstreamtobrowserdropdown_option2' => '<span class="badge bg-dark">pls</span>-Stream',

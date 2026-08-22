@@ -1,74 +1,77 @@
 <?php
+/*
+ * PanPlay language file
+ *
+ * ENCODING: UTF-8 only.
+ * Read and save this file as UTF-8. Keep Unicode characters literal.
+ * Do not replace them with escaped code points, HTML entities, or Latin-1.
+ * After every edit, verify that the integrity line below is still readable.
+ *
+ * INTEGRITY CHECK: æøå | ñáéíóú | 你好世界 | नमस्ते | مرحبا | äöüß
+ */
 $ext_lang = array(
-//basic
-'lng_title' => 'Español (ES)',
-'extension_title' => 'Extensión de Laut.fm para PanPlay',
-'extension_credits' => 'Extensión de Laut.fm para PanPlay',
-'extension_credits_link' => 'https://laut.fm/?from=PanPlay-Extension',
+    // Basic
+    'lng_title' => 'Español (ES)',
+    'extension_title' => 'Extensión Baseaudio para PanPlay',
+    'extension_credits' => 'Extensión Baseaudio para PanPlay',
+    'extension_credits_link' => 'https://play.pangom.net/?from=PanPlay-Extension',
 
-//Topnavbar Linktitel
-'trackhistory_navbar_title' => 'Historial de canciones',
-'stationinfo_navbar_title' => 'Acerca de archivo',
-'sendeplan_navbar_title' => 'Horario de emisión',
-'playwith_navbar_title' => 'Cambiar de reproductor',
+    // Navigation
+    'stationinfo_navbar_title' => ' Acerca de la fuente de audio',
+    'playwith_navbar_title' => 'Cambiar de reproductor',
 
-//trackhistory modal
-'trackhistory_modal_title' => 'Historial de canciones',
-'current_song' => 'Actualmente suena:',
-'last_songs' => 'Anteriormente sonó:',
+    // Audio source information
+    'stationinfo_modal_title' => 'Información de la fuente de audio',
+    'stationinfo_modal_topdesc' => 'Actualmente no hay metadatos adicionales disponibles para esta fuente de audio.',
 
-//sendeplan modal
-'sendeplan_modal_title' => 'Horario de emisión',
-'today' => 'Hoy',
-'mo' => 'Lunes',
-'di' => 'Martes',
-'mi' => 'Miércoles',
-'do' => 'Jueves',
-'fr' => 'Viernes',
-'sa' => 'Sábado',
-'so' => 'Domingo',
-'mo_s' => 'LU',
-'di_s' => 'MA',
-'mi_s' => 'MI',
-'do_s' => 'JU',
-'fr_s' => 'VI',
-'sa_s' => 'SA',
-'so_s' => 'DO',
-'nospecialshow' => 'No hay programación especial.',
-'sendeplan_laut' => 'Horario completo en laut.fm',
+    // Metadatos del archivo
+    'metadata_file_details' => 'Detalles del archivo de audio',
+    'metadata_title_label' => 'Título',
+    'metadata_artist_label' => 'Artista',
+    'metadata_album_label' => 'Álbum',
+    'metadata_genre_label' => 'Género',
+    'metadata_year_label' => 'Año',
+    'metadata_duration_label' => 'Duración',
+    'metadata_format_label' => 'Formato y códec',
+    'metadata_bitrate_label' => 'Tasa de bits',
+    'metadata_sample_rate_label' => 'Frecuencia de muestreo',
+    'metadata_channels_label' => 'Canales',
+    'metadata_filesize_label' => 'Tamaño del archivo',
+    'metadata_source_label' => 'Fuente de audio',
+    'metadata_tags_unavailable' => 'PanPlay no pudo leer etiquetas adicionales de esta fuente. La reproducción sigue disponible con la información obtenida de la URL.',
 
-//Stationinfo modal
-'stationinfo_modal_title' => 'Acerca de archivo',
-'stationinfo_modal_topdesc' => 'Actualmente no se pueden encontrar más detalles sobre el archivo. Tendrá que esperar al desarrollo continuo de PanPlay. En el futuro, se planea la lectura de archivos, pero aún no se ha implementado.',
+    // External playback and Google Cast
+    'playwith_modal_title' => 'Cambiar de reproductor',
+    'playwith_modal_topdesc' => 'Puedes abrir esta fuente de audio en otra aplicación o en un dispositivo de reproducción externo.',
+    'playwith_modal_gcast_topdesc1' => 'Transmitir «',
+    'playwith_modal_gcast_topdesc2' => '» a un dispositivo Google Cast mediante el botón Cast del reproductor.',
+    'directstreamtobrowserdropdown' => 'Abrir fuente de audio',
 
-//playwith modal
-'playwith_modal_title' => 'Cambiar de reproductor',
-'playwith_modal_topdesc' => 'Puedes abrir este stream en otros servicios o dispositivos de reproducción externos. Elige la opción de reproducción correspondiente.',
-'playwith_modal_gcast_topdesc1' => 'Transmite "',
-'playwith_modal_gcast_topdesc2' => '" a un dispositivo compatible con Chromecast o Google Casting. Haz clic en el ícono de Google Cast en la esquina inferior derecha de la pantalla principal (<i class="fab fa-chromecast"></i>)**',
-'directstreamtobrowserdropdown' => 'URL del stream / Descargar stream',
-'directstreamtobrowserdropdown_option1' => 'Abrir / descargar stream <span class="badge bg-dark">m3u</span>',
-'directstreamtobrowserdropdown_option2' => 'Abrir / descargar stream <span class="badge bg-dark">pls</span>',
-'playwith_modal_bottomnote' => '* Si utiliza una aplicación final del servicio seleccionado en su dispositivo (por ejemplo, la aplicación de laut.fm en Android), esta aplicación podría interceptar la navegación a este servicio. El stream se abrirá directamente en la aplicación correspondiente.',
-'playwith_modal_cast_bottomnote1' => '** Google Cast no está disponible en todos los dispositivos o software. Los usuarios de Linux, Mac y Windows necesitan un navegador Chrome o basado en Chrome, como Microsoft Edge, Opera, Brave o Vivaldi. En macOS, es posible que también se requiera la aplicación oficial de Chromecast. Los usuarios de Android e iOS pueden necesitar la aplicación Google Home. Los requisitos completos del sistema para Google Cast se pueden encontrar ',
-'playwith_modal_cast_bottomnote_linktitle' => 'aquí',
+    // Content Protection Mechanism
+    'cpm_info_title' => 'Mecanismo de protección de contenido (CPM)',
+    'cpm_info_description' => 'PanPlay CPM comprueba la URL de baseaudio solicitada mediante reglas de filtrado locales y, opcionalmente, centrales.',
+    'cpm_info_scope' => 'Solo se comprueba baseaudio. El contenido bloqueado se detiene antes de cargar la interfaz del reproductor y se explica en una pantalla de error.',
+    'cpm_info_local_status' => 'CPM local',
+    'cpm_info_local_list' => 'Lista de filtros local',
+    'cpm_info_cdn_status' => 'CPM por CDN',
+    'cpm_info_cache_status' => 'Caché de la lista central',
+    'cpm_info_enabled' => 'Activado',
+    'cpm_info_disabled' => 'Desactivado',
+    'cpm_info_available' => 'Disponible',
+    'cpm_info_unavailable' => 'No disponible',
+    'cpm_info_last_sync' => 'Última sincronización',
+    'cpm_info_read_only' => 'Esta información es de solo lectura. Los operadores del servidor administran la configuración de CPM y las listas de filtros.',
+    'cpm_info_more_information' => 'Más información sobre PanPlay CPM',
 
-//net error modal
-'neterr_modal_title' => 'Error de reproducción',
-'neterr_desc_net_thinking' => 'Algo no va bien. Analizando datos...',
-'neterr_desc_net_okay1' => '<b>✔ Conexión correcta</b><hr> Todos los servidores necesarios para la reproducción están accesibles. <hr><i>Esto puede significar que tu conexión se interrumpió temporalmente, y por eso ves esta ventana. ¿La reproducción ha vuelto a funcionar? Para asegurarte de que ',
-'neterr_desc_net_okay2' => ' está transmitiendo, también puedes verificar su página en laut.fm',
-'neterr_desc_net_okay3' => 'Verificar',
-'neterr_console_net_okay' => '✔ Conexión correcta.',
-'neterr_desc_net_laut_not_okay1' => '<b>Conexión parcial a Internet</b><hr> No podemos alcanzar el servidor laut.fm de tu emisora. Es posible que se carguen pocos o ningún contenido de laut.fm.',
-'neterr_desc_net_laut_not_okay2' => '',
-'neterr_console_net_laut_not_okay' => '⚠ Error de conexión al recuperar el stream de Laut.fm',
-'neterr_desc_net_not_okay1' => '<b>Sin conexión a Internet</b><hr>Se han cortado todas las conexiones a Internet. La reproducción se ha detenido. Es poco probable, pero posible, que la reproducción se pueda reanudar sin recargar el reproductor. <br><br> En dispositivos móviles, este error puede ocurrir cuando cambias de red (por ejemplo, de Wi-Fi a datos móviles). En ese caso, puede ayudar simplemente recargar la página.',
-'neterr_desc_net_not_okay2' => '',
-'neterr_console_net_not_okay' => 'Error al recuperar el estado del servidor: ',
-
+    // Network and playback errors
+    'neterr_modal_title' => 'Error de reproducción',
+    'neterr_desc_net_thinking' => 'Comprobando la fuente de audio…',
+    'neterr_desc_net_okay1' => '<b>Conexión restablecida</b><hr>La fuente de audio vuelve a estar disponible. Si la reproducción no continúa automáticamente, recarga el reproductor.',
+    'neterr_desc_net_okay2' => '',
+    'neterr_console_net_okay' => 'La fuente de audio vuelve a estar disponible.',
+    'neterr_desc_net_not_okay1' => '<b>Fuente de audio no disponible</b><hr>No se pudo acceder a la fuente de audio solicitada. Comprueba tu conexión a Internet y recarga el reproductor después de un cambio de red.',
+    'neterr_desc_net_not_okay2' => '',
+    'neterr_console_net_not_okay' => 'Error al comprobar la fuente de audio: ',
 );
-
-
 
 ?>

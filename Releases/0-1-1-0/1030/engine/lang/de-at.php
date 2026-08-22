@@ -1,4 +1,14 @@
-﻿<?php
+<?php
+/*
+ * PanPlay language file
+ *
+ * ENCODING: UTF-8 only.
+ * Read and save this file as UTF-8. Keep Unicode characters literal.
+ * Do not replace them with escaped code points, HTML entities, or Latin-1.
+ * After every edit, verify that the integrity line below is still readable.
+ *
+ * INTEGRITY CHECK: æøå | ñáéíóú | 你好世界 | नमस्ते | مرحبا | äöüß
+ */
 $lang = array(
 //basic
     'lng_title' => 'Deutsch (Österreich)',
@@ -53,10 +63,10 @@ $lang = array(
 
     //about PanPlay
     'about_modal_title' => 'PanPlay',
-    'about_brand_phrase' => '<b><u>Der</u></b> HTML5-Audioplayer!</p>',
+    'about_brand_phrase' => '<b><u>Der</u></b> HTML5-Audioplayer!',
     'about_license_owner_is' => 'Lizensiert an',
     'about_license_datewording' => 'in der Fassung vom',
-    'about_prerelease_warning_title' => 'Unstabiler Prerelaese',
+    'about_prerelease_warning_title' => 'Instabile Vorabversion',
     'about_prerelease_warning_p1' => 'Diese Version von',
     'about_prerelease_warning_p2' => 'ist eine Vorabversion, die ausschließlich dazu dient, den Fortschritt der Entwicklung zu verfolgen. Eine produktive Nutzung wird nicht empfohlen.',
     'about_documentation_p1' => 'Weitere Informationen finden Sie auf der',

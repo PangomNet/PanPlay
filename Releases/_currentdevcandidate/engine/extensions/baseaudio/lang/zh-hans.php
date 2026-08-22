@@ -1,74 +1,77 @@
 <?php
+/*
+ * PanPlay language file
+ *
+ * ENCODING: UTF-8 only.
+ * Read and save this file as UTF-8. Keep Unicode characters literal.
+ * Do not replace them with escaped code points, HTML entities, or Latin-1.
+ * After every edit, verify that the integrity line below is still readable.
+ *
+ * INTEGRITY CHECK: æøå | ñáéíóú | 你好世界 | नमस्ते | مرحبا | äöüß
+ */
 $ext_lang = array(
+    // Basic
+    'lng_title' => '简体中文',
+    'extension_title' => 'PanPlay Baseaudio 扩展',
+    'extension_credits' => 'PanPlay Baseaudio 扩展',
+    'extension_credits_link' => 'https://play.pangom.net/?from=PanPlay-Extension',
 
-   //basic
-   'lng_title' => '德语',
-   'extension_title' => 'Laut.fm 扩展插件 for PanPlay',
-   'extension_credits' => 'Laut.fm 扩展插件 for PanPlay',
-   'extension_credits_link' => 'https://laut.fm/?from=PanPlay-Extension',
+    // Navigation
+    'stationinfo_navbar_title' => ' 关于音频源',
+    'playwith_navbar_title' => '切换播放器',
 
-   //Topnavbar Linktitel
-   'trackhistory_navbar_title' => '曲目历史',
-   'stationinfo_navbar_title' => ' 关于文件',
-   'sendeplan_navbar_title' => '节目单 ',
-   'playwith_navbar_title' => '切换播放器',
+    // Audio source information
+    'stationinfo_modal_title' => '音频源信息',
+    'stationinfo_modal_topdesc' => '此音频源目前没有可用的其他元数据。',
 
-   //trackhistory modal
-   'trackhistory_modal_title' => '曲目历史',
-   'current_song' => '当前播放：',
-   'last_songs' => '之前播放：',
-   'current_song_modallink' => '当前播放',
+    // 文件元数据
+    'metadata_file_details' => '音频文件详情',
+    'metadata_title_label' => '标题',
+    'metadata_artist_label' => '艺术家',
+    'metadata_album_label' => '专辑',
+    'metadata_genre_label' => '流派',
+    'metadata_year_label' => '年份',
+    'metadata_duration_label' => '时长',
+    'metadata_format_label' => '格式和编解码器',
+    'metadata_bitrate_label' => '比特率',
+    'metadata_sample_rate_label' => '采样率',
+    'metadata_channels_label' => '声道',
+    'metadata_filesize_label' => '文件大小',
+    'metadata_source_label' => '音频来源',
+    'metadata_tags_unavailable' => 'PanPlay 无法从此来源读取更多标签。播放器仍可使用网址中的信息进行播放。',
 
-   //sendeplan modal
-   'sendeplan_modal_title' => '节目单',
-   'today' => '今天',
-   'mo' => '星期一',
-   'di' => '星期二',
-   'mi' => '星期三',
-   'do' => '星期四',
-   'fr' => '星期五',
-   'sa' => '星期六',
-   'so' => '星期天',
-   'mo_s' => '周一',
-   'di_s' => '周二',
-   'mi_s' => '周三',
-   'do_s' => '周四',
-   'fr_s' => '周五',
-   'sa_s' => '周六',
-   'so_s' => '周日',
-   'nospecialshow' => '没有特别节目。',
-   'sendeplan_laut' => '在 laut.fm 上查看完整的节目单',
+    // External playback and Google Cast
+    'playwith_modal_title' => '切换播放器',
+    'playwith_modal_topdesc' => '您可以在其他应用或外部播放设备上打开此音频源。',
+    'playwith_modal_gcast_topdesc1' => '使用播放器中的 Cast 按钮将“',
+    'playwith_modal_gcast_topdesc2' => '”投送到 Google Cast 设备。',
+    'directstreamtobrowserdropdown' => '打开音频源',
 
-   //Stationinfo modal
-   'stationinfo_modal_title' => '关于文件',
-   'stationinfo_modal_topdesc' => '当前无法获取文件的详细信息。请等待 PanPlay 的进一步开发。未来计划从文件中读取数据，但目前尚未实现。',
+    // Content Protection Mechanism
+    'cpm_info_title' => '内容保护机制（CPM）',
+    'cpm_info_description' => 'PanPlay CPM 使用本地以及可选的中央过滤规则检查请求的 baseaudio URL。',
+    'cpm_info_scope' => '只有 baseaudio 会被检查。被阻止的内容会在播放器界面加载前停止，并在错误页面中说明原因。',
+    'cpm_info_local_status' => '本地 CPM',
+    'cpm_info_local_list' => '本地过滤列表',
+    'cpm_info_cdn_status' => '通过 CDN 的 CPM',
+    'cpm_info_cache_status' => '中央列表缓存',
+    'cpm_info_enabled' => '已启用',
+    'cpm_info_disabled' => '已禁用',
+    'cpm_info_available' => '可用',
+    'cpm_info_unavailable' => '不可用',
+    'cpm_info_last_sync' => '上次同步',
+    'cpm_info_read_only' => '此信息为只读。CPM 设置和过滤列表由服务器运营者管理。',
+    'cpm_info_more_information' => '了解有关 PanPlay CPM 的更多信息',
 
-   //playwith modal
-   'playwith_modal_title' => '切换播放器',
-   'playwith_modal_topdesc' => '您可以在其他服务或外部播放设备中打开此流。请选择相应的播放选项。',
-   'playwith_modal_gcast_topdesc1' => '将“',
-   'playwith_modal_gcast_topdesc2' => '”传输到支持 Chromecast 或 Google Casting 的设备。请在主屏幕右下角点击 Google Cast 图标 (<i class="fab fa-chromecast"></i>)**',
-   'directstreamtobrowserdropdown' => '流 URL / 下载流',
-   'directstreamtobrowserdropdown_option1' => '<span class="badge bg-dark">m3u</span> 流 / 打开 / 下载',
-   'directstreamtobrowserdropdown_option2' => '<span class="badge bg-dark">pls</span> 流 / 打开 / 下载',
-   'playwith_modal_bottomnote' => '* 如果您在设备上使用所选服务的终端应用程序（例如 Android 上的 laut.fm 应用程序），该应用程序可能会拦截到该服务的导航。然后流将直接在相应的应用程序中打开。',
-   'playwith_modal_cast_bottomnote1' => '** Google Cast 并非在所有设备或软件上都可用。Linux、Mac 和 Windows 用户需要使用 Chrome 或基于 Chrome 的浏览器，如 Microsoft Edge、Opera、Brave 或 Vivaldi。在 MacOS 上，可能还会使用官方的 Chromecast 应用程序。Android 和 iOS 用户可能需要 Google Home 应用程序。有关 Google Cast 的完整系统要求，请参阅',
-   'playwith_modal_cast_bottomnote_linktitle' => '这里',
-
-   //net error modal
-   'neterr_modal_title' => '播放错误',
-   'neterr_desc_net_thinking' => '发生了问题。分析数据！',
-   'neterr_desc_net_okay1' => '<b>✔ 连接正常</b><hr> 所有需要的服务器都可以访问。<hr><i>这可能意味着您的连接曾经中断，因此您看到了此窗口。播放恢复了吗？为了确保 ',
-   'neterr_desc_net_okay2' => ' 正在发送，您也可以检查他们的 Laut.fm 页面',
-   'neterr_desc_net_okay3' => '检查',
-   'neterr_console_net_okay' => '✔ 连接正常。',
-   'neterr_desc_net_laut_not_okay1' => '<b>互联网连接部分失败</b><hr> 我们无法连接到您的 Laut.fm 服务器。可能会有少量或没有内容从 Laut.fm 加载。',
-   'neterr_desc_net_laut_not_okay2' => '',
-   'neterr_console_net_laut_not_okay' => '⚠ 从 Laut.fm 获取流时发生连接错误',
-   'neterr_desc_net_not_okay1' => '<b>没有互联网连接</b><hr>所有互联网连接已断开。播放已中止。虽然不太可能，但可以在不重新加载播放器的情况下恢复播放。<br><br> 在移动设备上，网络切换（例如从 WLAN 切换到移动数据）可能会导致此错误。在这种情况下，刷新页面可能会有所帮助。',
-   'neterr_desc_net_not_okay2' => '',
-   'neterr_console_net_not_okay' => '获取服务器状态时出错：',
-        
+    // Network and playback errors
+    'neterr_modal_title' => '播放错误',
+    'neterr_desc_net_thinking' => '正在检查音频源…',
+    'neterr_desc_net_okay1' => '<b>连接已恢复</b><hr>音频源已恢复访问。如果播放未自动继续，请重新加载播放器。',
+    'neterr_desc_net_okay2' => '',
+    'neterr_console_net_okay' => '音频源已恢复访问。',
+    'neterr_desc_net_not_okay1' => '<b>音频源不可用</b><hr>无法访问请求的音频源。请检查互联网连接，并在网络切换后重新加载播放器。',
+    'neterr_desc_net_not_okay2' => '',
+    'neterr_console_net_not_okay' => '检查音频源时出错：',
 );
 
 ?>

@@ -6,7 +6,7 @@ _Free HTML5-based audio player with laut.fm integration._
 
 PanPlay is a web player based on HTML5 audio playback. It can be used as a playback interface for laut.fm stations and for direct audio files or streams through the baseaudio extension. PanPlay includes a modular extension structure, multilingual UI files, cast.js support, browser compatibility checks, and a growing configuration layer for self-hosted instances.
 
-PanPlay is open source and published under the MIT license. The project is still in public alpha, so the feature set is actively changing and some areas are still being rebuilt.
+PanPlay is open source and published under the MIT license. The current generation remains a public beta, with Everlasting serving as its supported long-term release while the next interface generation is developed.
 
 Find out more at [play.pangom.net](https://play.pangom.net/).
 
@@ -14,37 +14,28 @@ This project is tested with BrowserStack.
 
 ---
 
-## Current Stable Alpha
+## Current Stable Beta
 
-The current stable alpha release is [PanPlay 0.1.0.1 Dandelion Build 1029](https://github.com/PangomNet/PanPlay/releases/tag/v0.1.0.1).
+The current stable beta release is [PanPlay 0.1.1.0 Everlasting Build 1030](https://github.com/PangomNet/PanPlay/releases/tag/v0.1.1.0).
 
-Dandelion replaces 0.1.0.0 Cactus as the default version on the CDN and is the latest version intended for production use.
+Everlasting is the final release based on the long-running Bootstrap interface. It is intended as a dependable long-term baseline that can remain supported while the next PanPlay generation is developed.
 
 - Use PanPlay via CDN: [play.pangom.net/app](https://play.pangom.net/app?lfmstream=simliveradio)
 - Create a CDN link: [PanPlay Link Generator](https://play.pangom.net/create/)
 - Read the CDN guide: [Use PanPlay via CDN](https://play.pangom.net/getpanplay/cdn/)
 - Read the hosting guide: [How to host PanPlay](https://play.pangom.net/getpanplay/panplay-hosting/)
-- Download the current self-hosted files: [Releases/0-1-0-1/1029](https://github.com/PangomNet/PanPlay/tree/main/Releases/0-1-0-1/1029)
-- Read the release notes: [v0.1.0.1 release](https://github.com/PangomNet/PanPlay/releases/tag/v0.1.0.1)
-
-## Public Test Build
-
-The first visible test build for the Everlasting development cycle is Build 1030. It is available for public testing on the PanPlay CDN, but it is not a stable release and does not have a separate GitHub prerelease entry.
-
-- Test Build 1030 via CDN: [play.pangom.net/app/_currentdevcandidate](https://play.pangom.net/app/_currentdevcandidate/?lfmstream=zwei)
-- Browse the self-hosted test files: [Releases/0-1-0-2/1030](https://github.com/PangomNet/PanPlay/tree/main/Releases/0-1-0-2/1030)
-
-The CDN test folder may lag behind the newest local development candidate. For the newest development state, use the GitHub `_currentdevcandidate` folder and host it yourself.
+- Download the current self-hosted files: [Releases/0-1-1-0/1030](https://github.com/PangomNet/PanPlay/tree/main/Releases/0-1-1-0/1030)
+- Read the release notes: [v0.1.1.0 release](https://github.com/PangomNet/PanPlay/releases/tag/v0.1.1.0)
 
 ## Development Version
 
 Active development continues in [`Releases/_currentdevcandidate`](https://github.com/PangomNet/PanPlay/tree/main/Releases/_currentdevcandidate).
 
-The current development cycle is 0.1.1.0 Everlasting. Build 1030 is the first public test build, while `_currentdevcandidate` has moved on to Build 1031. This folder is a development candidate and should not be treated as a public stable release unless a release note explicitly says so.
+At the Everlasting release point, `_currentdevcandidate` may temporarily mirror Build 1030. It can diverge again when maintenance work or development of the successor generation begins. Published releases remain in their numbered release folders.
 
 ## Requirements
 
-Self-hosted PanPlay requires a PHP-capable web server. Dandelion is documented for PHP 7.0+.
+Self-hosted PanPlay requires a PHP-capable web server. Everlasting requires PHP 7.0+.
 
 The 2026 browser compatibility layer targets modern browser engines with ES2021+ and current security capabilities. The current baseline is Chrome 86+, Firefox 86+, Edge 91+, Safari 14+, Vivaldi 5+, and Opera 71+. Internet Explorer and legacy EdgeHTML are blocked server-side.
 
@@ -82,18 +73,16 @@ Useful starting points:
 
 The old `Releases/Master-Changelog.md` is obsolete. Current release notes are kept in the active release folder, on [play.pangom.net](https://play.pangom.net/), and in GitHub releases.
 
-## Highlights In 0.1.0.1 Dandelion
+## Highlights In 0.1.1.0 Everlasting
 
-- Browser compatibility check updated for the 2026 Pangom browser support service at [browser.pangom.net](https://browser.pangom.net/).
-- Compatibility failures now use the PanPlay Bluescreen interface with localized messages.
-- New URL parameter `lgc=on` bypasses the server-side compatibility check for debugging.
-- New URL parameter `lgc=netscape` forces the compatibility failure path for testing.
-- Central instance configuration moved into `/data/storage.php`.
-- `engine/config.php` is no longer part of the active initialization path.
-- Debug mode, legal document source switches, extension credits, language behavior, and attribution data are now controlled from storage.
-- Core PanPlay attribution is assembled from protected `pp_pro_*` values and checked through a SHA-256 integrity hash.
-- Privacy and imprint documents can be linked remotely or served locally as escaped plain text.
-- Laut.fm placeholder covers were removed; station logos are now used for cover and background imagery.
+- Final and feature-frozen release of the Bootstrap-based PanPlay interface, maintained as a long-term beta alongside development of the successor generation.
+- Eleven selectable legacy-interface themes, including the rebuilt Liquid Glass theme and the new Aqua, Windows XP Luna, and Deepin themes, plus extensive Aero, Windows 9x, Cosmo, Light, laut.fm, and accessibility fixes.
+- Rebuilt baseaudio interface with getID3 metadata, embedded artwork, safe remote analysis, browser Media Session metadata, and improved Google Cast metadata.
+- PanPlay Content Protection Mechanism for baseaudio with local filter lists, optional privacy-preserving CPM by CDN list synchronization, caching, exceptions, localized blocking messages, and public documentation.
+- Connected settings interface for language, theme, active-extension options, and URL/session parameters without exposing server administration to player users.
+- Repaired and verified literal UTF-8 language resources across the core, laut.fm, and baseaudio surfaces, including regional variants.
+- Expandable laut.fm programme descriptions, preserved API playlist colors, current-programme highlighting, and direct navigation from the main player to the running schedule entry.
+- More reliable network-error dialogs, localized Bluescreens and fatal error paths, optional Cast initialization, browser compatibility handling, legal-document source controls, and central instance configuration through `data/storage.php`.
 
 ## Languages
 

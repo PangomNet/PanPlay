@@ -1,73 +1,77 @@
 <?php
+/*
+ * PanPlay language file
+ *
+ * ENCODING: UTF-8 only.
+ * Read and save this file as UTF-8. Keep Unicode characters literal.
+ * Do not replace them with escaped code points, HTML entities, or Latin-1.
+ * After every edit, verify that the integrity line below is still readable.
+ *
+ * INTEGRITY CHECK: æøå | ñáéíóú | 你好世界 | नमस्ते | مرحبا | äöüß
+ */
 $ext_lang = array(
+    // Basic
+    'lng_title' => 'Dansk',
+    'extension_title' => 'Baseaudio-udvidelse til PanPlay',
+    'extension_credits' => 'Baseaudio-udvidelse til PanPlay',
+    'extension_credits_link' => 'https://play.pangom.net/?from=PanPlay-Extension',
 
-    //basic
-        'lng_title' => 'Dansk',
-        'extension_title' => 'Laut.fm-udvidelse til PanPlay',
-        'extension_credits' => 'Laut.fm-udvidelse til PanPlay',
-        'extension_credits_link' => 'https://laut.fm/?from=PanPlay-Extension',
-    
-        //Topnavbar Linktitel
-        'trackhistory_navbar_title' => 'Titelhistorik',
-        'stationinfo_navbar_title' => ' Om fil',
-        'sendeplan_navbar_title' => 'Programoversigt',
-        'playwith_navbar_title' => 'Skift afspiller',
-    
-        //trackhistory modal
-        'trackhistory_modal_title' => 'Titelhistorik',
-        'current_song' => 'Aktuelt afspilles:',
-        'last_songs' => 'Tidligere spillede:',
-    
-        //sendeplan modal
-        'sendeplan_modal_title' => 'Programoversigt',
-        'today' => 'I dag',
-        'mo' => 'Mandag',
-        'di' => 'Tirsdag',
-        'mi' => 'Onsdag',
-        'do' => 'Torsdag',
-        'fr' => 'Fredag',
-        'sa' => 'Lørdag',
-        'so' => 'Søndag',
-        'mo_s' => 'MA',
-        'di_s' => 'TI',
-        'mi_s' => 'ON',
-        'do_s' => 'TO',
-        'fr_s' => 'FR',
-        'sa_s' => 'LØ',
-        'so_s' => 'SØ',
-        'nospecialshow' => 'Ingen speciel udsendelse.',
-        'sendeplan_laut' => 'Komplet programoversigt på laut.fm',
-    
-        //Stationinfo modal
-        'stationinfo_modal_title' => 'Om fil',
-        'stationinfo_modal_topdesc' => 'Yderligere detaljer om filen er i øjeblikket ikke tilgængelige. Du skal vente på fremgangen i udviklingen af PanPlay. Fremadrettet er der planer om at udlæse fra filer. Men dette er endnu ikke implementeret.',
-    
-        //playwith modal
-        'playwith_modal_title' => 'Skift afspiller',
-        'playwith_modal_topdesc' => 'Du kan åbne denne stream i andre tjenester eller eksterne afspillere. Vælg den relevante afspilningsmulighed.',
-        'playwith_modal_gcast_topdesc1' => 'Overfør "',
-        'playwith_modal_gcast_topdesc2' => '" til en enhed, der understøtter Chromecast eller Google Casting. Klik på Google Cast-ikonet (<i class="fab fa-chromecast"></i>) nederst til højre på hovedskærmen**',
-        'directstreamtobrowserdropdown' => 'Stream-URL / Download stream',
-        'directstreamtobrowserdropdown_option1' => '<span class="badge bg-dark">m3u</span>-Stream åben / download',
-        'directstreamtobrowserdropdown_option2' => '<span class="badge bg-dark">pls</span>-Stream åben / download',
-        'playwith_modal_bottomnote' => '* Hvis du bruger en slutapplikation fra den valgte tjeneste på din enhed (f.eks. laut.fm-appen på Android), kan denne app håndtere navigeringen til denne tjeneste. I så fald åbnes streamen direkte i den relevante app.',
-        'playwith_modal_cast_bottomnote1' => '** Google Cast er ikke tilgængelig på alle enheder eller software. Brugere af Linux, Mac og Windows skal bruge en Chrome-browser eller en Chrome-baseret browser som Microsoft Edge, Opera, Brave eller Vivaldi. På MacOS kan den officielle Chromecast-app også blive brugt. Android- og iOS-brugere kan muligvis have brug for Google Home-appen. De komplette systemkrav til Google Cast finder du ',
-        'playwith_modal_cast_bottomnote_linktitle' => 'her',
-    
-        //net error modal
-        'neterr_modal_title' => 'Afspilningsfejl',
-        'neterr_desc_net_thinking' => 'Noget er galt. Analysere data!',
-        'neterr_desc_net_okay1' => '<b>✔ Forbindelse fejlfri</b><hr> Alle nødvendige servere til afspilning er tilgængelige. <hr><i>Dette kan betyde, at din forbindelse midlertidigt er blevet afbrudt, og derfor ser du denne vindue. Er afspilningen startet igen? For at sikre at ',
-        'neterr_desc_net_okay2' => ' sender, kan du også kontrollere deres Laut.fm-profil',
-        'neterr_desc_net_okay3' => 'Kontrollere',
-        'neterr_console_net_okay' => '✔ Forbindelse fejlfri.',
-        'neterr_desc_net_laut_not_okay1' => '<b>Internetforbindelse delvist fejlbehæftet</b><hr> Vi kan ikke nå laut.fm-serveren for din station. Det kan være, at få eller ingen indhold fra laut.fm kan blive indlæst.',
-        'neterr_desc_net_laut_not_okay2' => '',
-        'neterr_console_net_laut_not_okay' => '⚠ Forbindelsesfejl ved hentning af stream via Laut.fm',
-        'neterr_desc_net_not_okay1' => '<b>Ingen internetforbindelse</b><hr>Alle forbindelser til internettet er blevet afbrudt. Dette har forårsaget, at afspilningen er blevet afbrudt. Det er usandsynligt, men muligt, at afspilningen kan genoptages uden at genindlæse afspilleren. <br><br> På mobile enheder kan denne fejl opstå ved et netværksændring (f.eks. fra Wi-Fi til mobildata). I så fald hjælper det også generelt at genindlæse siden.',
-        'neterr_desc_net_not_okay2' => '',
-        'neterr_console_net_not_okay' => 'Fejl ved hentning af serverstatus: ',
-        
+    // Navigation
+    'stationinfo_navbar_title' => ' Om lydkilden',
+    'playwith_navbar_title' => 'Skift afspiller',
+
+    // Audio source information
+    'stationinfo_modal_title' => 'Oplysninger om lydkilden',
+    'stationinfo_modal_topdesc' => 'Der er endnu ingen yderligere metadata tilgængelige for denne lydkilde.',
+
+    // Filmetadata
+    'metadata_file_details' => 'Oplysninger om lydfilen',
+    'metadata_title_label' => 'Titel',
+    'metadata_artist_label' => 'Kunstner',
+    'metadata_album_label' => 'Album',
+    'metadata_genre_label' => 'Genre',
+    'metadata_year_label' => 'År',
+    'metadata_duration_label' => 'Varighed',
+    'metadata_format_label' => 'Format og codec',
+    'metadata_bitrate_label' => 'Bithastighed',
+    'metadata_sample_rate_label' => 'Samplingsfrekvens',
+    'metadata_channels_label' => 'Kanaler',
+    'metadata_filesize_label' => 'Filstørrelse',
+    'metadata_source_label' => 'Lydkilde',
+    'metadata_tags_unavailable' => 'PanPlay kunne ikke læse yderligere tags fra denne kilde. Afspilning er fortsat mulig med oplysningerne fra URL’en.',
+
+    // External playback and Google Cast
+    'playwith_modal_title' => 'Skift afspiller',
+    'playwith_modal_topdesc' => 'Du kan åbne denne lydkilde i en anden app eller på en ekstern afspilningsenhed.',
+    'playwith_modal_gcast_topdesc1' => 'Cast “',
+    'playwith_modal_gcast_topdesc2' => '” til en Google Cast-enhed med Cast-knappen i afspilleren.',
+    'directstreamtobrowserdropdown' => 'Åbn lydkilde',
+
+    // Content Protection Mechanism
+    'cpm_info_title' => 'Mekanisme til indholdsbeskyttelse (CPM)',
+    'cpm_info_description' => 'PanPlay CPM kontrollerer den ønskede baseaudio-URL mod lokale og valgfri centrale filterregler.',
+    'cpm_info_scope' => 'Kun baseaudio kontrolleres. Blokeret indhold stoppes, før playerens brugerflade indlæses, og forklares på en fejlskærm.',
+    'cpm_info_local_status' => 'Lokal CPM',
+    'cpm_info_local_list' => 'Lokal filterliste',
+    'cpm_info_cdn_status' => 'CPM via CDN',
+    'cpm_info_cache_status' => 'Cache for central liste',
+    'cpm_info_enabled' => 'Aktiveret',
+    'cpm_info_disabled' => 'Deaktiveret',
+    'cpm_info_available' => 'Tilgængelig',
+    'cpm_info_unavailable' => 'Ikke tilgængelig',
+    'cpm_info_last_sync' => 'Seneste synkronisering',
+    'cpm_info_read_only' => 'Disse oplysninger er skrivebeskyttede. Serveroperatører administrerer CPM-indstillinger og filterlister.',
+    'cpm_info_more_information' => 'Flere oplysninger om PanPlay CPM',
+
+    // Network and playback errors
+    'neterr_modal_title' => 'Afspilningsfejl',
+    'neterr_desc_net_thinking' => 'Kontrollerer lydkilden…',
+    'neterr_desc_net_okay1' => '<b>Forbindelsen er genoprettet</b><hr>Lydkilden kan nås igen. Genindlæs afspilleren, hvis afspilningen ikke fortsætter automatisk.',
+    'neterr_desc_net_okay2' => '',
+    'neterr_console_net_okay' => 'Lydkilden kan nås igen.',
+    'neterr_desc_net_not_okay1' => '<b>Lydkilden er ikke tilgængelig</b><hr>Den ønskede lydkilde kunne ikke nås. Kontrollér internetforbindelsen, og genindlæs afspilleren efter et netværksskift.',
+    'neterr_desc_net_not_okay2' => '',
+    'neterr_console_net_not_okay' => 'Fejl under kontrol af lydkilden: ',
 );
 
 ?>

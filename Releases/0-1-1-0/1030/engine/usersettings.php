@@ -112,8 +112,11 @@ panplaySettingsCard(
 $themes = [
     '' => 'Default',
     'light' => 'Light',
-    'glass' => 'Glass',
+    'glass' => 'Liquid Glass',
     'aero' => 'Aero',
+    'aqua' => 'Mac OS X Aqua',
+    'winxp' => 'Windows XP Luna',
+    'deepin' => 'Deepin Linux',
     'laut' => 'Laut',
     'hc-dark' => 'High Contrast Dark',
     'win9x' => 'Windows 9x',

@@ -25,7 +25,7 @@
             color-scheme: dark;
           }
 
-          .bg-success {rgb(55 59 75) !important;}
+          .bg-success {background-color: rgb(55 59 75) !important;}
           
           .modal-header {border-bottom: 0px;}
  
@@ -37,7 +37,7 @@
             background-size: cover;
         }
 
-        figcaption
+        figcaption {
             background-color: #ffffff00;
             color: $textColor !important;
             backdrop-filter: blur($blurfactor);
@@ -108,6 +108,20 @@
 
          #settings_oop_modal .modal-header {
          background: linear-gradient(135deg, rgb(143, 143, 143) 0%, rgb(0 0 0) 27%, rgb(217, 0, 0) 57%, rgb(1, 1, 1) 84%, rgb(107, 0, 62) 100%);}
+
+         #sendeplan_modal .panplay-schedule-entry {
+           color: #fff !important;
+           background-color: #0d0d0d !important;
+           border-color: #fff !important;
+         }
+         #sendeplan_modal .panplay-schedule-entry p,
+         #sendeplan_modal .panplay-schedule-entry small,
+         #sendeplan_modal .panplay-schedule-entry span[role='button'],
+         #sendeplan_modal .panplay-schedule-description,
+         #sendeplan_modal .panplay-schedule-entry span[role='button']:hover,
+         #sendeplan_modal .panplay-schedule-entry span[role='button']:active {
+           color: #fff !important;
+         }
 
         
      </style>";

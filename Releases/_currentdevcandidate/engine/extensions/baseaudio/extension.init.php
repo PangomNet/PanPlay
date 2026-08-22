@@ -21,14 +21,21 @@ if (isset($about_extension_link) && $about_extension_link) {
     require_once __DIR__ . '/cpm.php';
     panplayCpmEnforceBaseaudio($streamUrl);
 
+    require_once __DIR__ . '/metadata.php';
+    $baseaudioMetadata = panplayBaseaudioReadMetadata($streamUrl);
 
 
 
 
 
 
-        echo "<meta property='og:title' content='🎶" . $webstream . " - PanPlay' /> <meta property='og:type' content='audio.livestream' /> <meta property='og:url' content='" . $_SERVER['HTTP_HOST'] . "' /> <meta property='og:description' 
-        content='Höre " . $webstream ." in PanPlay!' />";
+
+        $baseaudioOgTitle = (string) ($baseaudioMetadata['title'] ?? $webstream);
+        $baseaudioOgUrl = (isset($_SERVER['HTTP_HOST']) ? '//' . $_SERVER['HTTP_HOST'] : '') . ($_SERVER['REQUEST_URI'] ?? '');
+        echo '<meta property="og:title" content="' . htmlspecialchars($baseaudioOgTitle . ' - PanPlay', ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '">';
+        echo '<meta property="og:type" content="music.song">';
+        echo '<meta property="og:url" content="' . htmlspecialchars($baseaudioOgUrl, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '">';
+        echo '<meta property="og:description" content="' . htmlspecialchars($baseaudioOgTitle . ' in PanPlay', ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '">';
         //require('engine/extensions/laut/lautapi.php');
 
 

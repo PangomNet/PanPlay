@@ -1,14 +1,14 @@
-# PanPlay CPM Concept
+# PanPlay CPM
 
-This document is a working technical concept for the PanPlay Content Protection Mechanism (CPM).
+This document describes the PanPlay Content Protection Mechanism (CPM) implemented for Everlasting Build 1030.
 
-CPM is planned for the baseaudio extension only. It is not intended for laut.fm streams because laut.fm playback already follows the laut.fm platform and API flow.
+CPM applies to the baseaudio extension only. It is not used for laut.fm streams because laut.fm playback already follows the laut.fm platform and API flow.
 
 ## Purpose
 
 CPM is not DRM and it is not a real copy-protection system. It is a player-side/server-side protection layer for PanPlay instances. Its goal is to prevent PanPlay baseaudio from being used as a simple playback frontend for URLs that are known, reported, or locally marked as copyright-infringing or otherwise disallowed.
 
-The system should:
+The system:
 
 - block known disallowed direct audio URLs before playback starts
 - support local self-hosted instance rules
@@ -30,13 +30,13 @@ The system should:
 
 ## Filter List Model
 
-CPM should be maintained through a filter-list style format inspired by adblocker lists, not through a simple table of exact URLs.
+CPM is maintained through a filter-list style format inspired by adblocker lists, not through a simple table of exact URLs.
 
 This keeps local and central lists easy to read, diff, review, sync, and edit manually.
 
-PanPlay should implement a limited CPM-specific subset instead of trying to support the full Adblock Plus syntax.
+PanPlay implements a limited CPM-specific subset instead of trying to support the full Adblock Plus syntax.
 
-### Proposed Rule Types
+### Supported Rule Types
 
 ```txt
 ! Comment line
@@ -58,13 +58,13 @@ Meaning:
 - A full `http://` or `https://` URL blocks that exact normalized URL.
 - `*keyword*` supports simple wildcard matching.
 - Lines starting with `@@` are exception rules and override matching block rules.
-- Lines starting with `!@import` are PanPlay CPM import directives. Normal adblock parsers should ignore them as comments, but PanPlay CPM should fetch and merge the referenced list during CDN-list synchronization.
+- Lines starting with `!@import` are PanPlay CPM import directives. Normal adblock parsers ignore them as comments; PanPlay CPM fetches and merges the referenced list during CDN-list synchronization.
 
 ### Rule Priority
 
-Exception rules should win over block rules.
+Exception rules win over block rules.
 
-Suggested order:
+Implemented order:
 
 1. Normalize requested URL.
 2. Check local exception rules.
@@ -75,9 +75,9 @@ Suggested order:
 
 ## URL Normalization
 
-Before matching, URLs should be normalized so rules behave predictably.
+Before matching, URLs are normalized so rules behave predictably.
 
-Suggested normalization:
+Implemented normalization:
 
 - trim whitespace
 - decode obvious HTML entities if needed
@@ -87,13 +87,9 @@ Suggested normalization:
 - remove URL fragments
 - preserve query strings by default
 
-Open decision:
+### Query Strings
 
-- Query strings may contain tracking or signatures. CPM must decide whether rules match full query strings, stripped query strings, or both.
-
-Suggested first implementation:
-
-- Match against both:
+- Query strings may contain tracking values or signatures. CPM matches against both:
   - full normalized URL
   - normalized URL without query string
 
@@ -101,7 +97,7 @@ This allows exact blocking where needed but keeps signed CDN URLs manageable.
 
 ## Local File Layout
 
-Planned files in this folder:
+Files used in this folder:
 
 ```txt
 data/cpm/README.md
@@ -110,19 +106,19 @@ data/cpm/local-filterlist.txt
 data/cpm/cdn-cache-filterlist.txt
 data/cpm/cdn-cache-meta.json
 data/cpm/cdn-fetch.lock
-data/cpm/cpm.log
+data/cpm/site/
+data/cpm/panplay-cpm-site.zip
 ```
 
-Suggested meaning:
+Meaning:
 
 - `local-filterlist.txt`: local instance rules maintained by the server operator.
 - `filterlist.txt`: template/source file for the central CPM list that can be uploaded to `https://play.pangom.net/cpm/filterlist.txt`.
 - `cdn-cache-filterlist.txt`: cached copy of the central CPM by CDN list.
-- `cdn-cache-meta.json`: cached list metadata such as last fetch time, ETag, Last-Modified, and source URL.
+- `cdn-cache-meta.json`: cached list metadata containing the source URL, last successful fetch time, and resolved imports.
 - `cdn-fetch.lock`: lock file used while refreshing the CDN cache.
-- `cpm.log`: optional local debug/audit log for CPM decisions.
-
-The first implementation can start with only `local-filterlist.txt`.
+- `site/`: source of the standalone multilingual public CPM information site.
+- `panplay-cpm-site.zip`: upload-ready archive of the public information site.
 
 ## Local Filter List Example
 
@@ -143,7 +139,7 @@ https://example.test/files/blocked-track.mp3
 
 CPM by CDN means that PanPlay uses a central Pangom/PanPlay list in addition to local rules.
 
-Important: CPM by CDN is not planned as a live URL-check service for every playback request.
+Important: CPM by CDN is not a live URL-check service for every playback request.
 
 The intended model is list synchronization:
 
@@ -152,11 +148,11 @@ The intended model is list synchronization:
 3. The playback URL is always checked locally against local rules and the cached CDN rules.
 4. The local instance refreshes the cached CDN list only when the cache is too old according to the configured freshness policy.
 5. If the CDN server cannot be reached, the local instance continues to use the cached CDN list if one exists.
-6. If a URL was newly blocked on the CDN but a local instance has not synced yet, that local instance may still allow playback until its cache refreshes. This is acceptable for the planned CPM model.
+6. If a URL was newly blocked on the CDN but a local instance has not synced yet, that local instance may still allow playback until its cache refreshes. This is acceptable for the CPM list-sync model.
 
 This keeps normal playback checks local and avoids sending every user-provided playback URL to Pangom/PanPlay infrastructure.
 
-The central list should be hosted under:
+The central list and information site are hosted under:
 
 ```txt
 https://play.pangom.net/cpm/
@@ -164,7 +160,7 @@ https://play.pangom.net/cpm/
 
 This keeps the central CPM area separated from the player application and avoids special handling for the official PanPlay CDN instance. If CPM by CDN is enabled on the official CDN/player instance, it can use the same public list URL as every other PanPlay instance.
 
-The first client-side implementation only needs to download/cache a text filter list from that location.
+The player downloads and caches the text filter list from that location.
 
 ### Privacy Notice
 
@@ -172,25 +168,20 @@ CPM by CDN is privacy-relevant, but the list-sync model keeps it much less invas
 
 In the intended default flow, the local instance downloads the CDN filter list and checks user-provided URLs locally. The playback URL is not sent to Pangom/PanPlay during normal playback checks.
 
-URLs are only sent to Pangom/PanPlay if a person explicitly submits a complaint through a contact form, email, or future central CPM page. That is outside the normal playback check.
+URLs are only sent to Pangom/PanPlay if a person explicitly submits a complaint through the contact route on the central CPM page or by email. That is outside the normal playback check.
 
-### Possible CDN Resources
+### CDN Resources
 
-Draft CDN shape:
+Current public resource:
 
 ```txt
 GET /cpm/filterlist.txt
-GET /cpm/status.json
 ```
 
-Possible responsibilities:
-
 - `filterlist.txt`: download/sync the public central CPM filter list in text format.
-- `status.json`: optional metadata such as list version, update timestamp, and suggested cache lifetime.
+- No live `check` endpoint exists. Playback checks remain local.
 
-The first implementation should only use a downloaded list. A live `check` endpoint is not part of the current plan.
-
-The `/cpm/` index page can be a normal information/contact page. It may later use WordPress or another website form so copyright owners can submit reports centrally.
+The standalone multilingual `/cpm/` information site is provided in `data/cpm/site/` and as the upload-ready `data/cpm/panplay-cpm-site.zip` archive. It explains the system, links the public list, and directs copyright complaints to the central contact route without requiring WordPress or a framework.
 
 ## Cache Freshness
 
@@ -203,9 +194,8 @@ Instead, it should use a cache with age checking, similar to feed/news cache scr
 - check the cached list age before refreshing
 - use a lock file during refresh so parallel requests do not all fetch the CDN list
 - use the old cached list when refresh fails
-- optionally use `ETag` and `Last-Modified` headers if the CDN provides them
 
-Suggested files:
+Cache files:
 
 ```txt
 data/cpm/cdn-cache-filterlist.txt
@@ -213,13 +203,12 @@ data/cpm/cdn-cache-meta.json
 data/cpm/cdn-fetch.lock
 ```
 
-Suggested freshness policy:
+Implemented freshness policy:
 
 - normal default: refresh after 6 hours
-- faster development/debug mode: refresh after 15 minutes
 - fallback: use stale cache if CDN is unavailable
 
-The exact threshold can become a storage setting later.
+The six-hour threshold is currently defined in the CPM interpreter and can become a storage setting in a later release if operators need it.
 
 ## Full URL vs Hash
 
@@ -227,7 +216,7 @@ For normal CPM by CDN playback checks, this question is avoided by design: playb
 
 For explicit copyright complaints, the full URL may be sent by email or through the central `/cpm/` contact page because a human needs to understand what should be reviewed.
 
-Suggested approach:
+Implemented approach:
 
 1. Local CPM: full URL processing stays on the local instance.
 2. CDN filter list sync: PanPlay downloads a central list and still checks locally.
@@ -256,42 +245,32 @@ Optional helper tools can be added later, for example a URL test/debug page that
 
 ## Default Behavior
 
-After CPM is implemented and tested, CPM by CDN should be enabled by default for new PanPlay builds.
+CPM and CPM by CDN are enabled by default for new PanPlay builds.
 
 Reason:
 
 - it gives self-hosted operators a shared baseline without requiring them to maintain everything themselves
 - it allows copyright complaints reported centrally through `play.pangom.net/cpm` to reach participating instances
-- operators who want full independence can disable CPM by CDN and maintain only their local list
-
-Until CPM is implemented, the runtime switches in `storage.php` may remain inactive to avoid advertising behavior that does not exist yet.
+- operators who want full independence, or whose jurisdiction requires different rules, can disable CPM by CDN and maintain only their local list
+- CPM does not apply rules by country; geographic policy remains the responsibility of each self-hosted instance operator
 
 ## Runtime Error Path
 
 When CPM blocks playback, PanPlay should not show the normal offline/net-error modal.
 
-Recommended behavior:
+Current behavior:
 
 - stop before playback
 - show a CPM-specific blocking message
 - explain that the content was blocked by the instance policy
 - do not accuse the user of wrongdoing
-- include whether the match came from local CPM or CPM by CDN, if safe to reveal
+- include whether the match came from local CPM or CPM by CDN
 - offer general help/documentation
+- use the shared PanPlay Bluescreen so fatal errors continue to have one maintainable interface
 
-Open decision:
+## Implementation Status
 
-- Use PanPlay Bluescreen for hard policy blocks.
-- Or use a normal modal in the player UI.
-
-Suggested first implementation:
-
-- Use a dedicated CPM error page/modal for baseaudio.
-- Keep Bluescreen for engine/core failures.
-
-## Implementation Phases
-
-### Phase 1: Local CPM Foundation
+### Completed: Local CPM Foundation
 
 - create `data/cpm/local-filterlist.txt`
 - implement URL normalization
@@ -301,14 +280,15 @@ Suggested first implementation:
 - block before player UI renders
 - show CPM-specific error message
 
-### Phase 2: Local Test/Debug Helper
+### Completed: Read-only Player Information
 
-- allow URL test against local rules
-- show which rule matched
-- show whether the match came from the local list or the cached CDN list
-- add privacy notes for CDN list sync
+- show whether local CPM and CPM by CDN are enabled
+- show local-list and central-cache availability
+- show the latest known cache synchronization time
+- link to the operator site or the central CPM information page
+- keep server configuration and list editing outside the public player settings
 
-### Phase 3: CDN List Sync
+### Completed: CDN List Sync
 
 - define central list URL under `https://play.pangom.net/cpm/`
 - download/cache central list locally
@@ -319,25 +299,25 @@ Suggested first implementation:
 - expose list version/date in logs or debug helper
 - fail gracefully if central sync is unavailable
 
-### Phase 4: Central CPM Contact Page
+### Completed: Central CPM Information Site Package
 
-- create an informational `/cpm/` page on play.pangom.net
-- provide a contact/report form or clear contact instructions
-- review accepted central complaints manually
-- maintain the central filter list manually at first
+- multilingual standalone site in `data/cpm/site/`
+- upload-ready archive in `data/cpm/panplay-cpm-site.zip`
+- language selection, contact guidance, privacy explanation, operator responsibility, rule examples, and source attribution
+- central complaints and accepted central rules remain manually reviewed
 
-### Phase 5: CDN List Service
+### Completed: CDN List Service Foundation
 
 - finish central CPM list hosting under `play.pangom.net/cpm`
 - provide filter list metadata/status
-- add moderation/review workflow outside PanPlay
+- keep moderation and review outside PanPlay
 - keep playback-time checks local unless a future reason requires otherwise
 
 ## Notes For Future Work
 
 - CPM must not break normal baseaudio playback for valid URLs.
 - CPM should be transparent enough for self-hosted operators to understand what is blocked.
-- CPM by CDN must be opt-in.
-- The first useful version should be local and simple.
+- CPM by CDN is enabled by default and can be disabled by self-hosted operators.
+- Local rules remain available independently of the central list.
 - CPM by CDN should sync/cache central lists instead of performing live checks for every playback URL.
-- The central service should not be rushed before local matching and cache workflows are stable.
+- A future URL test/debug helper may display the exact matching rule, but it is not required for normal operation.

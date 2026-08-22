@@ -1,4 +1,14 @@
 <?php
+/*
+ * PanPlay language file
+ *
+ * ENCODING: UTF-8 only.
+ * Read and save this file as UTF-8. Keep Unicode characters literal.
+ * Do not replace them with escaped code points, HTML entities, or Latin-1.
+ * After every edit, verify that the integrity line below is still readable.
+ *
+ * INTEGRITY CHECK: æøå | ñáéíóú | 你好世界 | नमस्ते | مرحبا | äöüß
+ */
 $ext_lang = array(
 //basic
     'lng_title' => 'Español (ES)',
@@ -26,7 +36,7 @@ $ext_lang = array(
     'mi' => 'Miércoles',
     'do' => 'Jueves',
     'fr' => 'Viernes',
-    'sa' => 'S&aacute;bado',
+    'sa' => 'Sábado',
     'so' => 'Domingo',
     'mo_s' => 'LUN',
     'di_s' => 'MAR',
@@ -45,7 +55,7 @@ $ext_lang = array(
     'playwith_modal_title' => 'Cambiar Reproductor',
     'playwith_modal_topdesc' => 'Puedes abrir esta transmisión en otras aplicaciones o dispositivos de reproducción externos. Para hacerlo, selecciona la opción de reproducción apropiada.',
     'playwith_modal_gcast_topdesc1' => 'Transmitir "',
-    'playwith_modal_gcast_topdesc2' => '" a un dispositivo compatible con Chromecast o Google Cast. Para hacerlo, haz clic en el icono de Google Cast en la parte inferior derecha de la pantalla principal (<i class=“fab fa-chromecast”></i>)**',
+    'playwith_modal_gcast_topdesc2' => '" a un dispositivo compatible con Chromecast o Google Cast. Para hacerlo, haz clic en el icono de Google Cast en la parte inferior derecha de la pantalla principal (<i class="fab fa-chromecast"></i>)**',
     'directstreamtobrowserdropdown' => 'Abrir URL de transmisión',
     'directstreamtobrowserdropdown_option1' => '<span class="badge bg-dark">m3u</span>-Stream',
     'directstreamtobrowserdropdown_option2' => '<span class="badge bg-dark">pls</span>-Stream',

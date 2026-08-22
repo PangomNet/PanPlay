@@ -116,7 +116,7 @@ $playwithmodal_content = <<<HTML
         </div>
         </div>
 
-        <p style="font-size: 12px;" class="">{$ext_lang["playwith_modal_bottomnote"]}<br>{$ext_lang["playwith_modal_cast_bottomnote1"]} <a target="_blank" href="../../../docs/chromecast.html#requirements">{$ext_lang["playwith_modal_cast_bottomnote_linktitle"]}</a></p>
+        <p style="font-size: 12px;" class="">{$ext_lang["playwith_modal_bottomnote"]}<br>{$ext_lang["playwith_modal_cast_bottomnote1"]} <a target="_blank" rel="noopener noreferrer" href="https://support.google.com/chromecast/answer/3209990">{$ext_lang["playwith_modal_cast_bottomnote_linktitle"]}</a></p>
       </div>
     </div>
   </div>

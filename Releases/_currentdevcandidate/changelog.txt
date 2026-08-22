@@ -1,92 +1,10 @@
-﻿0.1.1.0 Everlasting [Build 1031] (Prerelease development build, not for public use)
-- Completed changes in this development build:
-    -...
-- Build 1031 roadmap / open work:
-- Development target:
-    - Everlasting starts as the next development cycle after the public 0.1.0.1 Dandelion Build 1029 release.
-    - Everlasting was originally considered as 0.1.0.2, but the planned scope includes new feature systems, UI changes, CPM, metadata expansion, and theming architecture work. It is therefore treated as a minor feature release instead of a small patch update.
-    - The development time is expected to include more intermediate development builds than the last release cycle. Build 1030 started the Everlasting development track with CPM, net-error stabilization, and the first connected settings surface. Build 1031 continues the same version and release name with the remaining roadmap items below.
-    - This section is a working plan for the next days and weeks. Items listed here are not release-complete yet and should be checked off, rewritten, or moved into final release notes as they are implemented.
-- Stability and known bugs:
-    - Continue observing the offline/net-error modal in real connection-loss situations, because the original bug is hard to reproduce without actually interrupting the network.
-    - Verify whether the first modal mitigation fully fixes the stuck backdrop / non-scrollable backdrop problem.
-    - Review Safari-specific UI/backdrop issues from GitHub issue #6 together with the net-error modal behavior. This will happen in the last Patching Phase before Release through our Partner browserstack.org
-- GitHub issue planning:
-    - The open GitHub issues have been reviewed for the Everlasting development cycle.
-    - Issue #6, "Graphical Bugs (Backdrop and some FontAwesome-Icons) on Safari", should be handled early because it is related to the same stability/UI layer as the known offline modal backdrop problem. This will happen in the last Patching Phase before Release through our Partner browserstack.org
-    - Issue #7, "option to share this player on Facebook, Instagram, etc.", is already part of the planned share feature and should be implemented once the settings and parameter handling are stable enough.
-    - Issue #5, "Laut.fm - General ICY discussion", should be considered during the metadata work. The goal is not to force direct ICY extraction in the browser, but to improve the existing API-based metadata path for UI, Media Session, and Cast output.
-    - Issue #4, "English (and other languages) support and translation support", has already been partly addressed by the language system and Bluescreen localization work. Remaining language gaps should be cleaned up during Build 1031 when touched by new core features.
-    - Issue #12, "Related Stations-Box", should remain parked for now. It may become useful after the settings/parameter surface and laut.fm UI structure are clearer.
-    - Issue #1, "Implementation of Three.js Visualizations", should remain a future feature request. It is interesting, but too large and separate from the current CPM/settings/metadata focus of Everlasting.
-    - For Build 1031, the priority order from the issue list is therefore: finish stability/backdrop verification first, then continue language cleanup where needed, then implement share support, and only then revisit larger laut.fm UI expansion ideas.
-- CPM monitoring:
-    - CPM is implemented for baseaudio and should now stay under observation during the next test builds.
-    - Continue testing local rules, imported anti-piracy lists, CDN cache refresh behavior, and ordinary valid baseaudio URLs before treating CPM as release-stable.
-    - Watch for false positives, cache/update problems, slow list parsing, and confusing block messages.
-    - CPM by CDN must remain a list-sync/cache model. Playback URLs are checked locally against the downloaded list and must not be transmitted to Pangom/PanPlay during normal playback checks.
-    - The current CPM block path uses the PanPlay Bluescreen with localized CPM text. Revisit only if testing shows that a dedicated baseaudio CPM message view would be clearer.
-- Settings interface:
-    - Continue refining the first connected settings surface.
-    - Keep the settings dialog limited to user/session URL parameters. It must not become an admin panel and must not change server-side storage.php configuration.
-    - Continue reviewing labels and translations for extension-specific options during testing.
-    - Consider adding a copy/share-current-URL helper once the share feature is implemented.
-    - Review whether theme options should be discovered from available theme files instead of being listed manually.
-- Theme and design system work:
-    - Update the default Bootstrap-based theme further toward the Mica-inspired look that is already used in the current PanPlay UI.
-    - Improve small visual details such as subtle borders, depth, hover feedback, and shadow/light effects that react more like Windows 10 UWP-style transparent interfaces.
-    - Separate PanPlay's base interface rules from the theme-specific rules more clearly.
-    - Long-term goal: themes should not be forced to use Bootstrap as their base. A theme should eventually be able to use another foundation such as W3.CSS, Material, Tailwind, or a custom UI system.
-    - This is expected to be a larger architectural topic because the interface, Bootstrap markup, player components, and theme files are currently still closely connected.
-    - The long-term theming goal is to allow a theme to reshape the interface on a level closer to old Windows Media Player skins, not only recolor the existing interface.
-- Laut.fm schedule and metadata windows:
-    - Make shows listed in the laut.fm schedule clickable.
-    - Clicking a schedule entry should open a dedicated detail window for that show.
-    - The show detail window should include the available show data from the laut.fm show/schedule endpoints.
-    - A long-missing station/show description should finally be included where the API provides one.
-    - The current playback / now playing window should also be revised and expanded with additional song and broadcast metadata.
-    - Both the show detail window and the current playback window must only display values that are actually present in the laut.fm API response, are not empty, and contain logically useful information.
-    - The implementation should review the full set of values exposed by the relevant laut.fm endpoints for shows/schedule data and songs/current-song data, instead of only using the few fields PanPlay already displays today.
-- Laut.fm rich content tab:
-    - Extend the remote-source concept already used for legal documents to the laut.fm playback screen.
-    - Add a tab next to the album cover/station view that can show station-provided rich content.
-    - For security and predictability, the rich content source must be derived from a configured/known station website, not from arbitrary user input.
-    - Example: if a laut.fm station exposes its official website through the API as geilemukke.de, PanPlay should only attempt to load content from a controlled path such as geilemukke.de/playercontent.md.
-    - The station operator must prepare/configure the content intentionally. PanPlay should not scrape random station pages.
-    - The content format should be limited to Markdown so station operators can maintain it easily while PanPlay avoids loading arbitrary HTML, scripts, crypto links, or full embedded websites into the player.
-    - The Markdown renderer/sanitizer must be chosen carefully. The result should be useful rich content, but still safe and limited in scope.
-- Share feature:
-    - Add a parameter that controls whether a share icon appears in the top-right menu.
-    - When enabled, the share UI should allow the current player page/link to be shared through common social media and sharing targets.
-    - The feature should preserve the current playback URL parameters so shared links reproduce the intended player state.
-    - Browser-native sharing can be considered where available, with simple fallback links for desktop browsers that do not support it.
-- Baseaudio interface parity:
-    - Review the baseaudio playback UI against the current laut.fm playback UI.
-    - The baseaudio player currently still relies on the older placeholder cover/background approach and a very simple stream-title display, while the laut.fm UI already uses the newer cover wrapper, hover overlay, richer metadata areas, and updated station/player layout.
-    - Bring the baseaudio interface closer to the current PanPlay visual and structural standard before or during the getID3 metadata work.
-    - Avoid doing this as isolated cosmetic work too early. The baseaudio UI should be updated together with the metadata path so the redesigned surface can display real extracted title, artist, album, artwork, and source information where available.
-    - The updated baseaudio UI should still handle plain streams and direct files gracefully when no useful metadata or artwork can be extracted.
-- Baseaudio metadata and Media Session work:
-    - Finish more of the long-standing baseaudio extension work.
-    - Use getID3 in baseaudio to attempt metadata extraction from direct audio files entered by the user.
-    - Extracted metadata should be used in the player UI where possible.
-    - Extracted metadata should also be passed to Chromecast metadata, comparable to how the laut.fm extension already provides metadata through the laut.fm API.
-    - Extracted metadata should be passed to the browser Media Session API so operating systems and browser surfaces can show title/artist/album artwork where supported.
-    - This should bring baseaudio closer to the feature quality of the laut.fm module, while still respecting that direct files and streams may not always expose useful metadata.
-- Rough work order:
-    - First, complete stability verification for known modal/backdrop surfaces, especially offline connection error behavior and Safari-related UI issues.
-    - Next, clean up and connect small configuration/UI foundations that are already partly present, including extension settings groundwork and general parameter handling.
-    - Keep CPM in monitoring while the next test builds are developed.
-    - Then modernize the baseaudio playback UI and improve baseaudio metadata handling with getID3, connecting the results to UI, Chromecast, and Media Session output.
-    - In parallel or after that, expand the laut.fm schedule/show detail windows and the current playback metadata window based on all useful fields available from the laut.fm API.
-    - Then prototype the laut.fm rich content tab with strict Markdown loading and sanitization rules.
-    - Add the share parameter and share menu once the settings/parameter handling is stable enough to expose it cleanly.
-    - Treat theme architecture as a larger ongoing track. Small Mica polish can happen during Build 1031, while full theme-base independence will likely need multiple iterations and should not block smaller bugfixes.
-
------
-
-0.1.1.0 Everlasting [Build 1030] (Prerelease development build, not for public use)
-- Completed changes in this development build:
+﻿0.1.1.0 Everlasting [Build 1030] (Long-term beta release)
+- Release role and support target:
+    - Everlasting is the final PanPlay release based on the current Bootstrap interface and the last release of the long-running 0.x beta generation.
+    - Build 1030 is the completed Everlasting release. The previously planned follow-up build was folded back into Build 1030 because Build 1030 had not yet been published on GitHub.
+    - The goal is a dependable long-term beta baseline that can remain supported while the next PanPlay generation is developed.
+    - After release, this branch may continue to receive important bug, security, browser-compatibility, and service-integration fixes. It will not receive the later interface rewrite.
+- Completed changes in this release:
     - Fixed a net-error modal stability issue where repeated playback/network failures could leave the modal/backdrop in a broken state and force the user to reload the page.
     - The net-error modal now reuses a single Bootstrap modal instance instead of creating a new instance for every audio error, abort, or stalled event.
     - The net-error server-check interval is now stored and cleared safely. The previous code created intervalId inside showModalAndStartInterval(), but tried to stop it from closeModalAndStopInterval(), where that variable was not in scope.
@@ -120,7 +38,79 @@
     - The lbn switch was moved into its own playback-behavior section in the settings UI so it is no longer presented as a laut.fm feature window.
     - Added a default/reset button for laut.fm feature windows. It clears the global hide-all state and sets the individual feature-window switches back to visible before the user applies the settings.
     - Hindi and Chinese visible language names, settings descriptions, and About dialog texts were corrected where older mojibake strings were still rendered in the player.
+    - Completed a full localization repair across all 54 current language files: 18 core files, 18 laut.fm extension files, and 18 baseaudio extension files.
+    - Added the mandatory UTF-8 maintenance header and multilingual integrity-check line to every current language file.
+    - Removed UTF-8 BOM output, mojibake, legacy HTML entities, incorrect variable declarations, and copied extension-specific strings that did not belong to baseaudio.
+    - Added the missing Austrian German and Swiss German baseaudio language variants.
+    - Verified PHP syntax, UTF-8 integrity, language-key parity, and local rendering for every supported language in both laut.fm and baseaudio mode.
+    - Added a read-only CPM information/status card to the baseaudio settings surface.
+    - The CPM card shows whether local CPM and CPM by CDN are active, whether the local list and central cache are available, and when the central list was last synchronized.
+    - The card explains that CPM applies only to baseaudio, that blocked content uses the existing Bluescreen path, and that server operators maintain CPM configuration and filter lists.
+    - The CPM information surface does not trigger an additional CDN download and does not expose requested playback URLs or matching filter rules.
+    - When CPM by CDN is active, the card links to https://play.pangom.net/cpm/. Otherwise it uses the configured instance-operator website.
+    - Added the CPM information texts to all 18 baseaudio language variants and verified their rendered output through the local XAMPP instance.
+    - Added a standalone multilingual public CPM information site for deployment at https://play.pangom.net/cpm/.
+    - The public site explains local CPM, CPM by CDN, list synchronization, privacy behavior, operator responsibility, geographic limitations, complaints, supported filter syntax, and the external HaGeZi source used by the central list.
+    - The site has no WordPress, Bootstrap, Tailwind, or JavaScript dependency. Its maintained translations cover English, German, French, Italian, Danish, Spanish, Dutch, Simplified Chinese, and Hindi; PanPlay regional language codes map to the matching maintained translation.
+    - The upload-ready data/cpm/panplay-cpm-site.zip archive contains only the site files and therefore does not overwrite the separately maintained public filterlist.txt.
+    - Hardened CPM list synchronization before release. Remote lists are limited to public HTTPS targets, pinned to a validated public IPv4 address, restricted to four MiB per download and eight MiB after merging, and cannot follow redirects into another destination.
+    - CPM imports are limited to eight sources and three nesting levels. Rule parsing is limited to 150,000 rules and 4,096 bytes per rule, while stale-cache fallback remains available if a refresh fails.
+    - The CPM status card now uses the newer timestamp from either cache metadata or the actual cache file, so copied or manually refreshed caches do not display an obsolete synchronization time.
+    - Rebuilt the unfinished baseaudio presentation as a responsive playback interface with cover artwork, title, artist, album, source host, and compact optional format, duration, and bitrate indicators.
+    - Integrated the bundled getID3 1.9.23 library for baseaudio files. Extracted metadata is normalized once and reused by the player interface, the audio-details dialog, Open Graph output, the browser Media Session API, and Google Cast metadata.
+    - Baseaudio now supports title, artist, album, genre, year, duration, format, codec, bitrate, sample rate, channel count, file size, and embedded artwork when those values are actually available. Empty fields are omitted instead of rendering placeholder rows.
+    - Remote metadata analysis is non-fatal and guarded against unlimited or internal-network downloads. It accepts public HTTP/HTTPS file targets only, blocks private and reserved addresses, pins validated DNS results, allows at most three validated redirects, requires a finite file length, limits downloads to 32 MiB, limits embedded artwork to two MiB, and uses bounded positive and negative caches.
+    - Direct streams, oversized files, missing tags, unsupported formats, unavailable remote files, and metadata errors continue with safe URL-derived fallbacks and do not stop normal playback.
+    - Replaced the obsolete baseaudio fallback background containing old prerelease artwork with a new original dark aurora-style PanPlay background. Embedded artwork is used for the cover and background when present.
+    - Added localized baseaudio metadata labels to all 18 language variants and verified language-key parity, literal UTF-8 integrity, PHP syntax, and rendered metadata output.
+    - Repaired invalid or incomplete CSS declarations in all eight selectable legacy theme paths while preserving their established design direction. Fixes include missing properties/braces/semicolons, invalid Sass fragments, malformed !important declarations, broken selectors, and Safari backdrop-filter fallbacks.
+    - Added a scoped high-contrast metadata color to the always-dark baseaudio playback surface so the Light theme no longer renders black metadata on a dark translucent panel.
+    - Refined the legacy themes after a visual review of the baseaudio navigation, settings dialog, and About dialog. Baseaudio menu icons now have consistent spacing from their labels.
+    - Cosmo and Windows 9x now render fixed rectangular modal close controls instead of stretched oval buttons, and their settings controls follow the established theme style more consistently.
+    - The laut.fm theme now uses a reliable condensed system-font stack instead of falling back to a serif font when the previously requested font was unavailable.
+    - Aero now uses one coherent light-blue glass treatment for its bars, dialogs, settings cards, controls, and Windows 7-style close buttons. Dark text on dark controls, red text on light glass, and the differently colored Cast icon were corrected.
+    - Light now keeps navigation, footer, modal headings, About branding, and About text readable on their dark translucent surfaces.
+    - The existing glass theme is now presented as Liquid Glass while keeping the established theme=glass URL parameter for compatibility.
+    - Liquid Glass was rebuilt as a distinct interface treatment with floating translucent navigation and playback-control layers, adaptive blur and saturation, illuminated borders, capsule controls, consistent dialogs, and an opaque fallback for browsers without backdrop-filter support.
+    - Extended the Aero window treatment from About and Settings to every Bootstrap modal, including laut.fm station information, title history, schedule, current playback, play-with, metadata, and network-error surfaces.
+    - Aero now distinguishes the main window title bar from secondary modal toolbars, overrides the hardcoded red current-track history background, and restyles laut.fm metadata bubbles so their text remains readable.
+    - Aero modal close controls now use a complete Windows 7 Basic-style border because the current Bootstrap modal structure does not place them flush against the physical screen edge.
+    - Reworked the Aero player-control footer toward a Windows Media Player 11/12 transport-bar appearance with glossy blue play and Cast controls, a glass toolbar, and themed volume tracks and thumbs.
+    - The Aero font stack now prefers Frutiger when locally available and otherwise uses Segoe UI, Tahoma, or Arial without introducing a proprietary bundled font dependency.
+    - Expanded the public multilingual CPM site with a clear explanation of why CPM exists: it helps instance operators respond to rights-holder notices, takedown requests, and comparable copyright requirements without presenting CPM as an upload filter or proactive anti-piracy service.
+    - The public CPM documentation now states explicitly that a match only makes PanPlay refuse Baseaudio playback. It does not delete or seize the source file, make the source unavailable elsewhere, or automatically report users or URLs to rights holders, hosting providers, authorities, or other third parties.
+    - Made Google Cast initialization and play/pause synchronization optional. A missing or failed CastJS environment no longer interrupts normal local playback, while the custom receiver ID and normalized baseaudio metadata remain connected.
+    - Completed another cross-theme visual pass for the legacy interface. Windows 9x now applies its square close control to every modal, uses gray group boxes with black bitmap-style text, and renders laut.fm tags with readable classic-system colors.
+    - Cosmo now uses the same rectangular close control in every modal instead of limiting the fix to About and Settings. Light now enforces readable light text throughout the playback surface and every dark modal section.
+    - Aero now keeps playback text and active controls legible and places the dynamic station artwork behind a full-screen glass blur so small source images are no longer shown as a second sharp, pixelated background.
+    - Added three selectable legacy-interface themes: Mac OS X Aqua (`theme=aqua`), Windows XP Luna (`theme=winxp`), and Deepin Linux (`theme=deepin`). Each includes dedicated navigation, playback surface, modal, settings, tag, close-control, and footer styling.
+    - Completed a follow-up browser review of Aqua, Windows XP Luna, and Deepin in both Baseaudio and laut.fm mode. Circular Play, Cast, and close controls now use fixed square dimensions so Bootstrap padding cannot distort them into ovals.
+    - Windows XP Luna now uses a flat-sided green Luna transport control inspired by the classic Start button instead of a circular Play button. PanPlay navigation badges, About prerelease notices, and extension-credit badges now keep readable theme-appropriate foreground colors instead of inheriting dark link colors.
+    - Strengthened dynamic-artwork background blurring in Liquid Glass, Mac OS X Aqua, Windows XP Luna, and Deepin so small station images no longer remain visibly pixelated when enlarged to fill the viewport. Aqua retains its striped display texture above the stronger blur.
+    - Fixed the Aqua and XP "Switch player" Cast notice and provider-button contrast. The white laut.fm About credit is rendered dark on their light modal surfaces, while Baseaudio credit badges keep their light foreground color.
+    - Windows 9x now renders normal modal links in black without modern link underlines, keeps classic blue hover feedback, and prevents the footer Cast control from appearing underlined. White provider marks are adapted for the gray dialog without suppressing the original colored radio.de and Phonostar artwork.
+    - Completed a full browser matrix across all eleven selectable themes and the laut.fm main view, station information, title history, schedule, current playback, player-switch, Settings, and About surfaces, plus the Baseaudio main view, metadata, player-switch, Settings, and CPM information surfaces.
+    - Fixed remaining theme-specific cascade conflicts: Deepin station and CPM badge icons now use the intended dark foreground, Aqua badges consistently use white text and icons, and Aero no longer draws a second gradient capsule around icons inside station tags.
+    - Fixed the invisible white-on-white Baseaudio URL field in Light settings and restyled Baseaudio metadata badges as readable classic gray controls in Windows 9x.
+    - Completed a final theme polish pass: Aero provider buttons now use the readable blue action style, Aqua, XP Luna, and Deepin no longer underline the footer Cast control, XP Luna station badges use a consistent white foreground, and Windows 9x renders black modal close icons without underlining button links.
+    - Schedule color markers now retain the individual playlist colors supplied by the laut.fm API in every theme. Schedule entries with a non-empty API description can be expanded in place to show the programme description; entries without descriptions remain compact.
+    - The laut.fm, Bootstrap Cosmo, and High Contrast Dark themes now carry their dark modal styling into the schedule list and keep programme titles readable in normal, hover, active, and expanded states.
+    - Replaced the obsolete local Google Cast requirements link in the player-switch dialog with the official Google support page.
+    - The default theme now renders schedule entries transparently with readable white text. The currently running programme is marked with a subtle neutral radial highlight while its API-supplied playlist color remains unchanged.
+    - Clicking the current programme name in the main laut.fm player now opens the schedule on today's tab, identifies the running entry by playlist ID with a normalized-name fallback, and automatically expands its description when one is available. Opening the schedule through normal navigation keeps descriptions collapsed.
 
+-----
+
+0.1.1.0 Everlasting [Build 1030] (Long-term support notes)
+- Everlasting is feature-frozen as the final Bootstrap-based PanPlay release. Its eleven completed legacy-interface themes remain available, but future interface and theme architecture work belongs to the next PanPlay generation.
+- Build 1030 may receive focused maintenance builds for security, browser compatibility, service integrations, serious playback regressions, and other defects that affect dependable long-term operation.
+- CPM remains a local list-matching and optional central list-synchronization system. Normal playback URLs must continue to be checked locally and must not be transmitted to Pangom/PanPlay.
+- Baseaudio metadata extraction remains optional. Unsupported files, streams, failed metadata hosts, and analysis errors must continue with safe fallbacks instead of preventing otherwise valid playback.
+- Google Cast remains an optional enhancement. Missing Cast support or receiver errors must never interfere with normal local playback.
+- The settings dialog remains limited to user/session URL parameters and is not a public server-administration interface.
+- Language files remain literal UTF-8. Future maintenance must preserve their mandatory header and integrity-check line and must not introduce BOMs, mojibake, Unicode escape replacements, HTML entities, or Latin-1 rewrites.
+- Safari-specific backdrop and Font Awesome behavior from GitHub issue #6 remains a browser-specific maintenance item for BrowserStack testing.
+- Larger features such as the new Pangom Web Framework interface, extension manifests, server administration, richer station content, expanded current-playback data, sharing, related stations, and visualizations are deferred to the successor generation unless a narrowly scoped maintenance reason requires otherwise.
 0.1.0.1 Dandelion [Build 1029]
 - Internal Git and repository structure:
     - The old Master-Changelog file is no longer treated as part of each release. It is obsolete and will no longer be maintained. Current development notes are kept in the changelog of the active release folder, on https://play.pangom.net/, and in the GitHub release notes. The Master-Changelog was created before PanPlay became a separate GitHub project and is no longer relevant for release packaging.

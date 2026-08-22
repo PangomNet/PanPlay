@@ -1,13 +1,23 @@
-﻿<?php
+<?php
+/*
+ * PanPlay language file
+ *
+ * ENCODING: UTF-8 only.
+ * Read and save this file as UTF-8. Keep Unicode characters literal.
+ * Do not replace them with escaped code points, HTML entities, or Latin-1.
+ * After every edit, verify that the integrity line below is still readable.
+ *
+ * INTEGRITY CHECK: æøå | ñáéíóú | 你好世界 | नमस्ते | مرحبا | äöüß
+ */
 $lang = array(
     //basic
     'lng_title' => 'English (USA)',
-    'welcome' => 'Welcom',
+    'welcome' => 'Welcome',
     'page_title' => 'Page Title',
     'select_language' => 'Select Language:',
-    'remember_language' => 'Remeber this Language',
-    'apply' => 'Anwenden',
-    'current_language' => '<span class="badge bg-danger">EN</span> Englisch (USA)',
+    'remember_language' => 'Remember this language',
+    'apply' => 'Apply',
+    'current_language' => '<span class="badge bg-danger">EN-US</span> English (United States)',
 
     //basic-words
     'from' => 'from',
@@ -15,7 +25,7 @@ $lang = array(
     'about' => 'About',
     'close' => 'Close',
     'reload_player' => 'Reload player',
-    'uhr' => 'o&grave;clock',
+    'uhr' => 'o\'clock',
 
     //centralerrorlog
     'centralerrorlog_error_occured' => 'Sample error message while loading the page.',
@@ -53,10 +63,10 @@ $lang = array(
 
     //about PanPlay
     'about_modal_title' => 'PanPlay',
-    'about_brand_phrase' => '<b><u>The</u></b> HTML5-Audioplayer!</p>',
+    'about_brand_phrase' => '<b><u>The</u></b> HTML5-Audioplayer!',
     'about_license_owner_is' => 'Licensed to',
     'about_license_datewording' => 'in its version from',
-    'about_prerelease_warning_title' => 'Unstable Prerelaese',
+    'about_prerelease_warning_title' => 'Unstable prerelease',
     'about_prerelease_warning_p1' => 'This version of',
     'about_prerelease_warning_p2' => 'is a pre-release intended solely for tracking the progress of development. Productive use is not recommended.',
     'about_documentation_p1' => 'Further information can be found on the',

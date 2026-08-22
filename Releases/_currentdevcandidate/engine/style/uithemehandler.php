@@ -31,6 +31,18 @@ if (isset($_GET['theme']) && $_GET['theme'] !== '') {
         include 'theme/aero.php';
         echo "<link rel='stylesheet' href='engine/style/styles.css'>"; // LEGEACY-SERVICE ROW 
     }
+    elseif ($theme === 'aqua') {
+        include 'theme/aqua.php';
+        echo "<link rel='stylesheet' href='engine/style/styles.css'>";
+    }
+    elseif ($theme === 'winxp') {
+        include 'theme/winxp.php';
+        echo "<link rel='stylesheet' href='engine/style/styles.css'>";
+    }
+    elseif ($theme === 'deepin') {
+        include 'theme/deepin.php';
+        echo "<link rel='stylesheet' href='engine/style/styles.css'>";
+    }
 
         // Überprüfen, ob es sich um die Variante "variante3" handelt
         elseif ($theme === 'laut') {

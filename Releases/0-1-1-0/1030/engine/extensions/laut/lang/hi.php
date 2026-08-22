@@ -1,9 +1,17 @@
-PHP
-
 <?php
+/*
+ * PanPlay language file
+ *
+ * ENCODING: UTF-8 only.
+ * Read and save this file as UTF-8. Keep Unicode characters literal.
+ * Do not replace them with escaped code points, HTML entities, or Latin-1.
+ * After every edit, verify that the integrity line below is still readable.
+ *
+ * INTEGRITY CHECK: æøå | ñáéíóú | 你好世界 | नमस्ते | مرحبا | äöüß
+ */
 $ext_lang = array(
 //basic
-    'lng_title' => 'अंग्रेजी',
+    'lng_title' => 'हिन्दी',
     'extension_title' => 'पैनप्ले के लिए Laut.fm एक्सटेंशन',
     'extension_credits' => 'पैनप्ले के लिए Laut.fm एक्सटेंशन',
     'extension_credits_link' => 'https://laut.fm/?from=PanPlay-Extension',
@@ -47,7 +55,7 @@ $ext_lang = array(
     'playwith_modal_title' => 'प्लेयर बदलें',
     'playwith_modal_topdesc' => 'आप इस स्ट्रीम को अन्य अनुप्रयोगों या बाहरी प्लेबैक उपकरणों में खोल सकते हैं। ऐसा करने के लिए, उपयुक्त प्लेबैक विकल्प का चयन करें।',
     'playwith_modal_gcast_topdesc1' => 'कास्ट  "',
-    'playwith_modal_gcast_topdesc2' => '" एक ऐसे उपकरण पर जो क्रोमकास्ट या Google से कास्टिंग का समर्थन करता है। ऐसा करने के लिए, मुख्य स्क्रीन के निचले दाएं कोने पर Google कास्ट आइकन (<i class=“fab fa-chromecast”></i>)** पर क्लिक करें',
+    'playwith_modal_gcast_topdesc2' => '" एक ऐसे उपकरण पर जो क्रोमकास्ट या Google से कास्टिंग का समर्थन करता है। ऐसा करने के लिए, मुख्य स्क्रीन के निचले दाएं कोने पर Google कास्ट आइकन (<i class="fab fa-chromecast"></i>)** पर क्लिक करें',
     'directstreamtobrowserdropdown' => 'स्ट्रीम URL खोलें',
     'directstreamtobrowserdropdown_option1' => '<span class="badge bg-dark">m3u</span>-स्ट्रीम',
     'directstreamtobrowserdropdown_option2' => '<span class="badge bg-dark">pls</span>-स्ट्रीम',

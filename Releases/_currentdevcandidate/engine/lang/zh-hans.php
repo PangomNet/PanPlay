@@ -1,4 +1,14 @@
-﻿<?php
+<?php
+/*
+ * PanPlay language file
+ *
+ * ENCODING: UTF-8 only.
+ * Read and save this file as UTF-8. Keep Unicode characters literal.
+ * Do not replace them with escaped code points, HTML entities, or Latin-1.
+ * After every edit, verify that the integrity line below is still readable.
+ *
+ * INTEGRITY CHECK: æøå | ñáéíóú | 你好世界 | नमस्ते | مرحبا | äöüß
+ */
 $lang = array(
 //basic
 'lng_title' => '简体中文',
@@ -18,13 +28,13 @@ $lang = array(
 'uhr' => '时',
 
 //centralerrorlog
-'centralerrorlog_error_occured' => 'ç¤ºä¾‹é”™è¯¯ä¿¡æ¯ï¼ŒåŠ è½½é¡µé¢æ—¶å‘ç”Ÿé”™è¯¯ã€‚',
-'centralerrorlog_neterror_occured' => 'åŠ è½½æ—¶å‘ç”Ÿç½‘ç»œé”™è¯¯ ',
-'centralerrorlog_modal_title' => 'é”™è¯¯æŽ§åˆ¶å°',
-'centralerrorlog_modal_desc' => 'å¦‚æžœæ‚¨çœ‹åˆ°æ­¤çª—å£ï¼Œåˆ™å¯èƒ½å‘ç”Ÿäº†å…³é”®é”™è¯¯ï¼ˆå¾ˆå¯èƒ½æ˜¯è¿žæŽ¥é”™è¯¯ï¼‰ã€‚è¿™äº›é”™è¯¯å¯èƒ½ä¼šè½»å¾®æˆ–ä¸¥é‡åœ°å½±å“â€œPanPlayâ€çš„è¿›ä¸€æ­¥è¿è¡Œï¼Œå¹¶å¯¼è‡´å´©æºƒã€‚è¯·ä¿æŒè­¦æƒ•ã€‚å¦‚æžœæ‚¨ç†Ÿæ‚‰è®¾å¤‡çš„å¼€å‘å·¥å…·ï¼Œæˆ‘ä»¬å»ºè®®æ‚¨ä¹Ÿåœ¨å¼€å‘å·¥å…·ä¸­æŸ¥æ‰¾å…¶ä»–é”™è¯¯ã€‚è¿™äº›é”™è¯¯å¯èƒ½æ˜¯å¯ä»¥ä¿®å¤çš„ã€‚',
-'centralerrorlog_occuring_modal_title' => 'é”™è¯¯æŽ§åˆ¶å°',
-'centralerrorlog_occuring_modal_desc1' => 'å‘ç”Ÿäº†é”™è¯¯ï¼å¯èƒ½ä¼šä¸¢å¤±è¿žæŽ¥ï¼è¯·æ£€æŸ¥',
-'centralerrorlog_occuring_modal_desc2' => 'é”™è¯¯æŽ§åˆ¶å°',
+'centralerrorlog_error_occured' => '示例错误信息，加载页面时发生错误。',
+'centralerrorlog_neterror_occured' => '加载时发生网络错误 ',
+'centralerrorlog_modal_title' => '错误控制台',
+'centralerrorlog_modal_desc' => '如果您看到此窗口，则可能发生了关键错误（很可能是连接错误）。这些错误可能会轻微或严重地影响“PanPlay”的进一步运行，并导致崩溃。请保持警惕。如果您熟悉设备的开发工具，我们建议您也在开发工具中查找其他错误。这些错误可能是可以修复的。',
+'centralerrorlog_occuring_modal_title' => '错误控制台',
+'centralerrorlog_occuring_modal_desc1' => '发生了错误！可能会丢失连接！请检查',
+'centralerrorlog_occuring_modal_desc2' => '错误控制台',
 
 //settingspanel PanPlay
 'settingspanel_modal_title' => '设置',
@@ -53,7 +63,7 @@ $lang = array(
 
 //about PanPlay
     'about_modal_title' => 'PanPlay',
-'about_brand_phrase' => '<b><u>HTML5</u></b> 音频播放器！</p>',
+'about_brand_phrase' => '<b><u>HTML5</u></b> 音频播放器！',
 'about_license_owner_is' => '授权给',
 'about_license_datewording' => '版本日期',
 'about_prerelease_warning_title' => '不稳定的预发布版本',
@@ -72,29 +82,29 @@ $lang = array(
 'about_legal_p8' => '在这里',
 'about_legal_p9' => '查看。',
     
-    'bluescreen_heading' => '%s å¯¼è‡´äº†æœåŠ¡å™¨é”™è¯¯',
-    'bluescreen_exception_label' => 'æœåŠ¡å™¨å¼‚å¸¸',
-    'bluescreen_explanation_label' => 'è¯´æ˜Ž',
-    'bluescreen_operator_hint' => 'è¯·è¿”å›žä¸Šä¸€é¡µã€‚å¦‚æžœé—®é¢˜ä»ç„¶å­˜åœ¨ï¼Œè¯·é€šçŸ¥æœåŠ¡å™¨è¿è¥è€…ï¼ˆ%sï¼‰ã€‚',
-    'cpm_block_headline' => 'å†…å®¹å·²è¢« PanPlay CPM é˜»æ­¢',
-    'cpm_block_desc' => 'è¯·æ±‚çš„ baseaudio URL å·²è¢«æ­¤ PanPlay å®žä¾‹çš„ç­–ç•¥é˜»æ­¢ã€‚',
-    'cpm_block_source' => 'åŒ¹é…çš„è§„åˆ™åˆ—è¡¨',
-    'cpm_block_rule' => 'åŒ¹é…çš„è§„åˆ™',
-    'cpm_more_info' => 'æœ‰å…³æ­¤å†…å®¹ç­–ç•¥çš„æ›´å¤šä¿¡æ¯',
-    'compat_meta_title' => 'é”™è¯¯ï¼šå†…å®¹ä¸å—æ”¯æŒ - PanPlay',
-    'compat_headline' => 'å†…å®¹ä¸å—æ”¯æŒï¼',
-    'compat_sub_headline' => 'è¯·æ±‚çš„å†…å®¹ä¸å—æ‚¨çš„è®¾å¤‡æˆ–è½¯ä»¶æ”¯æŒã€‚',
-    'compat_desc_1' => 'æœ¬ç½‘ç«™é¢å‘å¹¿æ³›ç”¨æˆ·æä¾›å†…å®¹ï¼Œä¹Ÿæ”¯æŒä¸€äº›è¾ƒæ—§çš„æµè§ˆå™¨ã€‚',
-    'compat_desc_2' => 'ä½†æ˜¯ï¼Œæ‚¨å½“å‰çš„è½¯ä»¶è¢«åˆ¤å®šä¸ºé«˜åº¦ä¸å…¼å®¹ä¸”ä¸å®‰å…¨ã€‚å› æ­¤å†…å®¹æœªè¢«æä¾›ã€‚',
-    'compat_ts_title' => 'æ•…éšœæŽ’é™¤ä¿¡æ¯',
-    'compat_ts_desc' => 'ç³»ç»Ÿè¯†åˆ«åˆ°ä»¥ä¸‹æŠ€æœ¯ç»†èŠ‚ï¼š',
-    'compat_detected_browser' => 'æ£€æµ‹åˆ°çš„æµè§ˆå™¨',
-    'compat_user_agent' => 'å®Œæ•´çš„ User-Agent å­—ç¬¦ä¸²',
-    'compat_back' => 'è¿”å›ž',
-    'compat_recommended_action' => 'å»ºè®®æ“ä½œ',
-    'compat_recommended_desc' => 'è¯·ä½¿ç”¨çŽ°ä»£æµè§ˆå™¨è½¯ä»¶è®¿é—®æ­¤ PanPlay å®žä¾‹ã€‚',
-    'compat_more_help' => 'æ›´å¤šå¸®åŠ©å’ŒèƒŒæ™¯ä¿¡æ¯',
-    'compat_detected_browser_link' => 'æ‰“å¼€æ£€æµ‹åˆ°çš„æµè§ˆå™¨ç½‘ç«™',
+    'bluescreen_heading' => '%s 导致了服务器错误',
+    'bluescreen_exception_label' => '服务器异常',
+    'bluescreen_explanation_label' => '说明',
+    'bluescreen_operator_hint' => '请返回上一页。如果问题仍然存在，请通知服务器运营者（%s）。',
+    'cpm_block_headline' => '内容已被 PanPlay CPM 阻止',
+    'cpm_block_desc' => '请求的 baseaudio URL 已被此 PanPlay 实例的策略阻止。',
+    'cpm_block_source' => '匹配的规则列表',
+    'cpm_block_rule' => '匹配的规则',
+    'cpm_more_info' => '有关此内容策略的更多信息',
+    'compat_meta_title' => '错误：内容不受支持 - PanPlay',
+    'compat_headline' => '内容不受支持！',
+    'compat_sub_headline' => '请求的内容不受您的设备或软件支持。',
+    'compat_desc_1' => '本网站面向广泛用户提供内容，也支持一些较旧的浏览器。',
+    'compat_desc_2' => '但是，您当前的软件被判定为高度不兼容且不安全。因此内容未被提供。',
+    'compat_ts_title' => '故障排除信息',
+    'compat_ts_desc' => '系统识别到以下技术细节：',
+    'compat_detected_browser' => '检测到的浏览器',
+    'compat_user_agent' => '完整的 User-Agent 字符串',
+    'compat_back' => '返回',
+    'compat_recommended_action' => '建议操作',
+    'compat_recommended_desc' => '请使用现代浏览器软件访问此 PanPlay 实例。',
+    'compat_more_help' => '更多帮助和背景信息',
+    'compat_detected_browser_link' => '打开检测到的浏览器网站',
 );
 
 ?>

@@ -15,7 +15,7 @@
             color-scheme: dark;
           }
 
-          .bg-success {rgb(55 59 75) !important;}
+          .bg-success {background-color: rgb(55 59 75) !important;}
           
           .modal-header {border-bottom: 0px;}
  
@@ -27,7 +27,7 @@
             background-size: cover;
         }
 
-        figcaption
+        figcaption {
             background-color: #ffffff00;
             color: $textColor !important;
             backdrop-filter: blur($blurfactor);
@@ -68,11 +68,11 @@
          #topnavbar, #playercontrolbar, .modal-content, .modal-footer, .modal-header, #oop_player{
              background-color:rgba($baropacity) !important;
              -webkit-backdrop-filter: blur(100px);
-             backdrop-filter: blur(100px)
+             backdrop-filter: blur(100px);
          }
  
          #oolfm_currentshow, #oolfm_songcover, #oolfm_current_song { 
-             rgb(255 255 255 / 0%)
+             background: rgb(255 255 255 / 0%);
          }
  
  
@@ -92,6 +92,24 @@
 
          #settings_oop_modal .modal-header, #about_oop_modal .modal-header {
          background: linear-gradient(135deg, rgb(143, 143, 143) 0%, rgb(0 0 0) 27%, rgb(217, 0, 0) 57%, rgb(1, 1, 1) 84%, rgb(107, 0, 62) 100%);}
+
+         #sendeplan_modal .panplay-schedule-entry {
+             color: #fff !important;
+             background: transparent !important;
+             border-color: rgba(255, 255, 255, 0.2) !important;
+         }
+
+         #sendeplan_modal .panplay-schedule-entry p,
+         #sendeplan_modal .panplay-schedule-entry small,
+         #sendeplan_modal .panplay-schedule-entry span[role='button'],
+         #sendeplan_modal .panplay-schedule-description {
+             color: #fff !important;
+         }
+
+         #sendeplan_modal .panplay-current-schedule-entry {
+             background: radial-gradient(circle at center, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.035) 58%, rgba(255, 255, 255, 0) 100%) !important;
+             box-shadow: inset 0 0 14px rgba(255, 255, 255, 0.08), 0 2px 10px rgba(0, 0, 0, 0.18);
+         }
 
   
 

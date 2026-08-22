@@ -2,74 +2,96 @@
 
 // Wait for user interaction
 document.getElementById('cast').addEventListener('click', function() {
+
     // Check if casting is available
     if (cjs.available) {
+
         // URL-Parameter überprüfen
-        const lfmstream = new URLSearchParams(window.location.search).get('lfmstream');
-        const webstream = new URLSearchParams(window.location.search).get('webstream');
+        const urlParams = new URLSearchParams(window.location.search);
+        const lfmstream = urlParams.get('lfmstream');
+        const webstream = urlParams.get('webstream');
 
         // Streaming-URL erstellen
-        const streamUrl = lfmstream ? `https://stream.laut.fm/${lfmstream}` : webstream;
+        const streamUrl = lfmstream
+            ? `https://stream.laut.fm/${lfmstream}`
+            : webstream;
+
+        // Debug-Ausgabe für unseren Custom-Receiver-Test
+        console.log('PanPlay Cast wird gestartet');
+        console.log('Stream:', streamUrl);
+        console.log('Receiver:', cjs.receiver);
 
         // Initiate new cast session with the streaming URL
+        // Castjs 5.1.0 gibt hier KEIN Promise zurück,
+        // deshalb kein .then() / .catch().
         cjs.cast(streamUrl, {
-            // Weitere Optionen wie Poster, Titel und Beschreibung können hier hinzugefügt werden
             poster: currentAlbumArtUrl,
-            title: currentArtistName + " -" + currentSongTitle  ,
-            description: '<?php echo $lfmstream; ?>  @laut.fm',
-        }).then(() => {
-            console.log('Casting erfolgreich');
-        }).catch(error => {
-            console.error('Fehler beim Casting:', error);
-            handleCastingError();
+            title: currentArtistName + " - " + currentSongTitle,
+            description: lfmstream
+                ? lfmstream + ' @laut.fm'
+                : 'PanPlay'
         });
+
+    } else {
+        console.warn('Casting ist derzeit nicht verfügbar');
     }
 });
 
-function handleCastingError() {
-    // Hier wird die Fehlerbehandlung für das Casting durchgeführt
-    // Zum Beispiel: Neuer Versuch, Casting zu starten oder alternative Aktion
-    console.error('Casting Error occurred');
-}
 
-if (typeof cast !== 'undefined' && cast.framework && cast.framework.RemotePlayerEventType) {
-    cjs.addEventListener(
-        cast.framework.RemotePlayerEventType.MEDIA_INFO_CHANGED, function() {
-            // Use the current session to get an up to date media status.
-            let session = cast.framework.CastContext.getInstance().getCurrentSession();
+/////////// Cast-JS Events
 
-            if (!session) {
-                return;
-            }
+// Castjs besitzt ein eigenes Event-System.
+// Das ist hier zuverlässiger als direkt beim Seitenstart auf
+// cast.framework.RemotePlayerEventType zuzugreifen.
+if (typeof cjs.on === 'function') {
 
-            // Contains information about the playing media including currentTime.
-            let mediaStatus = session.getMediaSession();
-            if (!mediaStatus) {
-                return;
-            }
+    cjs.on('connect', function() {
+        console.log('Casting erfolgreich verbunden');
+        console.log('Cast-Gerät:', cjs.device);
+        console.log('Receiver:', cjs.receiver);
+    });
 
-            // mediaStatus also contains the mediaInfo containing metadata and other
-            // information about the in progress content.
-            let mediaInfo = mediaStatus.media;
-        });
+    cjs.on('playing', function() {
+        console.log('Chromecast spielt');
+        console.log('Stream:', cjs.src);
+    });
+
+    cjs.on('disconnect', function() {
+        console.log('Cast-Verbindung getrennt');
+    });
+
+    cjs.on('error', function(error) {
+        console.error('Fehler beim Casting:', error);
+        handleCastingError(error);
+    });
+
 } else {
-    console.warn('Cast framework or RemotePlayerEventType is not available');
+    console.warn('Castjs Event-System ist nicht verfügbar');
 }
+
+
+function handleCastingError(error) {
+    console.error('Casting Error occurred', error || '');
+}
+
 
 /////////// UPDATE CONTENT function
+
 function updateContent(elementId, newContent) {
     var element = document.getElementById(elementId);
     if (!element) return; // Element nicht gefunden
 
     var transitionDuration = 500; // Übergangsdauer in Millisekunden
-    var fadeOutDuration = transitionDuration * 0.4; // Dauer des Ausblendeffekts
-    var fadeInDuration = transitionDuration * 0.6; // Dauer des Einblendeffekts
+    var fadeOutDuration = transitionDuration * 0.4; // Dauer des Ausblendeeffekts
+    var fadeInDuration = transitionDuration * 0.6; // Dauer des Einblendeeffekts
 
     // Führe den Ausblendeeffekt durch
     element.style.opacity = 0;
+
     setTimeout(function() {
         // Aktualisiere den Inhalt nach dem Ausblendeeffekt
         element.innerHTML = newContent;
+
         // Führe den Einblendeeffekt durch
         element.style.opacity = 1;
     }, fadeOutDuration);

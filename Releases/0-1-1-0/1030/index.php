@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
         <div class="col-2 col-md" style=" margin-left: auto;">
             <!-- Hier kommt das dritte Element (20%) flex: 0 0 10%; -->
-            <a id="cast" class="btn btn-link float-end" href="#" onclick="playPause()"><i class="fab fa-chromecast" style="font-size: 1.4em; float: right;"></i></a>
+            <a id="cast" class="btn btn-link float-end" href="#"><i class="fab fa-chromecast" style="font-size: 1.4em; float: right;"></i></a>
         </div>
     </div>
 </div>
@@ -223,7 +223,16 @@ if (file_exists($custom_neterr)) {
 
 //////////////////////  .:.  SET VARIABLES evtl. values (var and const)
 /////////// For Cast-JS:
-const cjs = new Castjs();
+var cjs = null;
+if (typeof Castjs === 'function') {
+    try {
+        cjs = new Castjs({
+            receiver: 'DA6AE6DC'
+        });
+    } catch (error) {
+        console.warn('PanPlay Cast is unavailable.', error);
+    }
+}
 /////////// For the PlayerControls:
 var mediaClip = document.getElementById("oop_audio").value;
 
@@ -308,7 +317,9 @@ oop_audio.addEventListener("error", function() {
 // Eventlistener für das 'play'-Event hinzufügen
 oop_audio.addEventListener('play', function() {
   // Setze die Metadaten für die Media Session, sobald die Wiedergabe beginnt
-  getCurrentSongInfoFromUI();
+  if (typeof getCurrentSongInfoFromUI === 'function') {
+    getCurrentSongInfoFromUI();
+}
 });
 
 // Event-Listener für das "abort"-Ereignis des Audioelements
@@ -385,12 +396,16 @@ function updatePlayPauseButton() {
 oop_audio.addEventListener("play", function() {
     updatePlayPauseButton();
     autoplayCheck();
-    cjs.play();
+    if (cjs && typeof cjs.play === 'function') {
+        cjs.play();
+    }
 });
 
 oop_audio.addEventListener("pause", function() {
     updatePlayPauseButton();
-    cjs.pause();
+    if (cjs && typeof cjs.pause === 'function') {
+        cjs.pause();
+    }
 });
 
 // Initialisierung des Play/Pause-Buttons

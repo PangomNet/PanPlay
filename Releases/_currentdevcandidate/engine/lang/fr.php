@@ -1,35 +1,45 @@
-﻿<?php
+<?php
+/*
+ * PanPlay language file
+ *
+ * ENCODING: UTF-8 only.
+ * Read and save this file as UTF-8. Keep Unicode characters literal.
+ * Do not replace them with escaped code points, HTML entities, or Latin-1.
+ * After every edit, verify that the integrity line below is still readable.
+ *
+ * INTEGRITY CHECK: æøå | ñáéíóú | 你好世界 | नमस्ते | مرحبا | äöüß
+ */
 $lang = array(
 //basic
-'lng_title' => 'FranÃ§ais',
+'lng_title' => 'Français',
 'welcome' => 'Bienvenue sur notre site Web !',
 'page_title' => 'PanPlay',
-'select_language' => 'SÃ©lectionner la langue :',
+'select_language' => 'Sélectionner la langue :',
 'remember_language' => 'Se souvenir de cette langue',
 'apply' => 'Appliquer',
-'current_language' => '<span class="badge bg-danger">FR</span> FranÃ§ais',
+'current_language' => '<span class="badge bg-danger">FR</span> Français',
 
 //basic-words
 'from' => 'de',
 'from_who' => 'de',
-'about' => 'Ã€ propos',
+'about' => 'À propos',
     'close' => 'Fermer',
     'reload_player' => 'Recharger le lecteur',
 'uhr' => 'Heure',
 
 //centralerrorlog
-'centralerrorlog_error_occured' => 'Message dâ€™erreur exemple lors du chargement de la page.',
-'centralerrorlog_neterror_occured' => 'Erreur rÃ©seau lors du chargement de ',
-'centralerrorlog_modal_title' => 'Console dâ€™erreurs',
-'centralerrorlog_modal_desc' => 'Si vous avez accÃ¨s Ã  cette fenÃªtre, des erreurs critiques (probablement des erreurs de connexion) se sont produites. Ces erreurs pourraient perturber le bon fonctionnement de "PanPlay" de maniÃ¨re mineure ou significative et entraÃ®ner un plantage. Veuillez Ãªtre attentif. Si vous Ãªtes familier avec les outils de dÃ©veloppement de votre appareil, nous vous recommandons Ã©galement de rechercher dâ€™autres erreurs. Les erreurs peuvent Ã©ventuellement Ãªtre corrigÃ©es.',
-'centralerrorlog_occuring_modal_title' => 'Console dâ€™erreurs',
-'centralerrorlog_occuring_modal_desc1' => 'Des erreurs se sont produites ! Il pourrait y avoir une perte de connexion ! Veuillez vÃ©rifier la',
-'centralerrorlog_occuring_modal_desc2' => 'Console dâ€™erreurs',
+'centralerrorlog_error_occured' => 'Message d’erreur exemple lors du chargement de la page.',
+'centralerrorlog_neterror_occured' => 'Erreur réseau lors du chargement de ',
+'centralerrorlog_modal_title' => 'Console d’erreurs',
+'centralerrorlog_modal_desc' => 'Si vous avez accès à cette fenêtre, des erreurs critiques (probablement des erreurs de connexion) se sont produites. Ces erreurs pourraient perturber le bon fonctionnement de "PanPlay" de manière mineure ou significative et entraîner un plantage. Veuillez être attentif. Si vous êtes familier avec les outils de développement de votre appareil, nous vous recommandons également de rechercher d’autres erreurs. Les erreurs peuvent éventuellement être corrigées.',
+'centralerrorlog_occuring_modal_title' => 'Console d’erreurs',
+'centralerrorlog_occuring_modal_desc1' => 'Des erreurs se sont produites ! Il pourrait y avoir une perte de connexion ! Veuillez vérifier la',
+'centralerrorlog_occuring_modal_desc2' => 'Console d’erreurs',
 
 //settingspanel PanPlay
-'settingspanel_modal_title' => 'ParamÃ¨tres',
+'settingspanel_modal_title' => 'Paramètres',
 'settingspanel_lang_title' => 'Langue',
-'settingspanel_lang_desc' => 'Choisissez une autre langue pour lâ€™interface utilisateur.',
+'settingspanel_lang_desc' => 'Choisissez une autre langue pour l’interface utilisateur.',
 'settingspanel_lang_ext_desc' => 'Les extensions fonctionnent parfois avec leurs propres fichiers de langue et peuvent ne pas fonctionner dans toutes les langues.',
     'settingspanel_theme_title' => 'Theme',
     'settingspanel_theme_desc' => 'Choisissez un theme visuel pour cette URL du lecteur. Cela modifie uniquement le parametre URL et ne change pas la configuration du serveur.',
@@ -53,21 +63,21 @@ $lang = array(
 
 //about PanPlay
 'about_modal_title' => 'PanPlay',
-'about_brand_phrase' => '<b><u>Le</u></b> lecteur audio HTML5 !</p>',
-'about_license_owner_is' => 'Licence accordÃ©e Ã ',
+'about_brand_phrase' => '<b><u>Le</u></b> lecteur audio HTML5 !',
+'about_license_owner_is' => 'Licence accordée à',
 'about_license_datewording' => 'dans la version du',
-'about_prerelease_warning_title' => 'PrÃ©-version instable',
+'about_prerelease_warning_title' => 'Pré-version instable',
 'about_prerelease_warning_p1' => 'Cette version de',
-'about_prerelease_warning_p2' => 'est une version prÃ©liminaire destinÃ©e uniquement Ã  suivre lâ€™avancement du dÃ©veloppement. Une utilisation productive nâ€™est pas recommandÃ©e.',
-'about_documentation_p1' => 'Pour plus dâ€™informations, consultez la',
+'about_prerelease_warning_p2' => 'est une version préliminaire destinée uniquement à suivre l’avancement du développement. Une utilisation productive n’est pas recommandée.',
+'about_documentation_p1' => 'Pour plus d’informations, consultez la',
 'about_documentation_p2' => 'documentation',
 'about_documentation_p3' => '.',
 'about_legal_p1' => 'Les',
-'about_legal_p2' => 'confidentialitÃ©',
+'about_legal_p2' => 'confidentialité',
 'about_legal_p3' => 'et le',
 'about_legal_p4' => 'impressum',
-'about_legal_p5' => 'sâ€™appliquent. En outre, les',
-'about_legal_p6' => 'conditions dâ€™utilisation',
+'about_legal_p5' => 's’appliquent. En outre, les',
+'about_legal_p6' => 'conditions d’utilisation',
 'about_legal_p7' => 'que vous pouvez',
 'about_legal_p8' => 'trouver ici',
 'about_legal_p9' => '.',

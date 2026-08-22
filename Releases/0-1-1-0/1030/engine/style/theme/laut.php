@@ -25,7 +25,7 @@
             color-scheme: dark;
           }
 
-          .bg-success {rgb(55 59 75) !important;}
+          .bg-success {background-color: rgb(55 59 75) !important;}
           
           .modal-header {border-bottom: 0px;}
  
@@ -37,7 +37,7 @@
             background-size: cover;
         }
 
-        figcaption
+        figcaption {
             background-color: #ffffff00;
             color: $textColor !important;
             backdrop-filter: blur($blurfactor);
@@ -79,7 +79,7 @@
              background-color:rgba($baropacity) !important;
          }
         
-         #playercontrolbar {background: 1d2133;}
+         #playercontrolbar {background: #1d2133;}
  
          #oolfm_currentshow, #oolfm_songcover, #oolfm_current_song { 
              background: rgb(255 255 255 / 0%);
@@ -98,8 +98,12 @@
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
  
-.text, html, a, nav, p, span, h1, h2, h3, h4, h5 {
-    font-family: Fira Sans Condensed, sans !important;
+.text, html, body, button, input, select, textarea, a, nav, p, span, h1, h2, h3, h4, h5 {
+    font-family: 'Arial Narrow', 'Roboto Condensed', 'Helvetica Neue Condensed', 'Segoe UI', Arial, sans-serif !important;
+}
+
+.pangomfont {
+    font-family: 'Rondalo', 'Segoe UI', Arial, sans-serif !important;
 }
 
          #blurlayer {
@@ -124,6 +128,20 @@
 
          #settings_oop_modal .modal-header {
          background: linear-gradient(135deg, rgb(143, 143, 143) 0%, rgb(0 0 0) 27%, rgb(217, 0, 0) 57%, rgb(1, 1, 1) 84%, rgb(107, 0, 62) 100%);}
+
+         #sendeplan_modal .panplay-schedule-entry {
+           color: #f4f5f8 !important;
+           background-color: #2b2f40 !important;
+           border-color: #5a6075 !important;
+         }
+         #sendeplan_modal .panplay-schedule-entry p,
+         #sendeplan_modal .panplay-schedule-entry small,
+         #sendeplan_modal .panplay-schedule-entry span[role='button'],
+         #sendeplan_modal .panplay-schedule-description,
+         #sendeplan_modal .panplay-schedule-entry span[role='button']:hover,
+         #sendeplan_modal .panplay-schedule-entry span[role='button']:active {
+           color: #f4f5f8 !important;
+         }
 
         
      </style>";

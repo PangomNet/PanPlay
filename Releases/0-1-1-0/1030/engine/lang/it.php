@@ -1,4 +1,14 @@
-﻿<?php
+<?php
+/*
+ * PanPlay language file
+ *
+ * ENCODING: UTF-8 only.
+ * Read and save this file as UTF-8. Keep Unicode characters literal.
+ * Do not replace them with escaped code points, HTML entities, or Latin-1.
+ * After every edit, verify that the integrity line below is still readable.
+ *
+ * INTEGRITY CHECK: æøå | ñáéíóú | 你好世界 | नमस्ते | مرحبا | äöüß
+ */
 $lang = array(
     //basic
     'lng_title' => 'Italiano',
@@ -15,13 +25,13 @@ $lang = array(
     'about' => 'Informazioni',
     'close' => 'Chiudi',
     'reload_player' => 'Ricarica lettore',
-    'uhr' => '&nbsp;',
+    'uhr' => ' ',
 
     //centralerrorlog
     'centralerrorlog_error_occured' => 'Messaggio di errore di esempio durante il caricamento della pagina.',
     'centralerrorlog_neterror_occured' => 'Errore di rete durante il caricamento ',
     'centralerrorlog_modal_title' => 'Console degli Errori',
-    'centralerrorlog_modal_desc' => 'Se hai accesso a questa finestra, sono avvenuti errori critici (probabilmente errori di connessione). Questi errori potrebbero interrompere leggermente o significativamente il funzionamento di "PanPlay" e causare un crash. Si prega di essere attenti. Se hai familiarit&agrave; con gli strumenti per sviluppatori del tuo dispositivo, ti consigliamo di cercare ulteriori errori l&igrave;. Gli errori potrebbero essere risolvibili.',
+    'centralerrorlog_modal_desc' => 'Se hai accesso a questa finestra, sono avvenuti errori critici (probabilmente errori di connessione). Questi errori potrebbero interrompere leggermente o significativamente il funzionamento di "PanPlay" e causare un crash. Si prega di essere attenti. Se hai familiarità con gli strumenti per sviluppatori del tuo dispositivo, ti consigliamo di cercare ulteriori errori lì. Gli errori potrebbero essere risolvibili.',
     'centralerrorlog_occuring_modal_title' => 'Console degli Errori',
     'centralerrorlog_occuring_modal_desc1' => 'Si sono verificati degli errori! Potrebbe esserci una perdita di connessione! Si prega di controllare la',
     'centralerrorlog_occuring_modal_desc2' => 'Console degli Errori',
@@ -53,12 +63,12 @@ $lang = array(
 
     //about PanPlay
     'about_modal_title' => 'PanPlay',
-    'about_brand_phrase' => '<b><u>Il</u></b> lettore audio HTML5!</p>',
+    'about_brand_phrase' => '<b><u>Il</u></b> lettore audio HTML5!',
     'about_license_owner_is' => 'Concesso in licenza a',
     'about_license_datewording' => 'nella sua versione da',
     'about_prerelease_warning_title' => 'Prerilascio Instabile',
     'about_prerelease_warning_p1' => 'Questa versione di',
-    'about_prerelease_warning_p2' => '&egrave; un prerilascio destinato esclusivamente a tracciare i progressi dello sviluppo. L\'uso produttivo non &egrave; raccomandato.',
+    'about_prerelease_warning_p2' => 'è un prerilascio destinato esclusivamente a tracciare i progressi dello sviluppo. L\'uso produttivo non è raccomandato.',
     'about_documentation_p1' => 'Ulteriori informazioni possono essere trovate sulla',
     'about_documentation_p2' => 'documentazione',
     'about_documentation_p3' => '.',
