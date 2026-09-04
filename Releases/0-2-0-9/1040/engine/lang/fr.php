@@ -1,0 +1,114 @@
+<?php
+/*
+ * PanPlay language file
+ *
+ * ENCODING: UTF-8 only.
+ * Read and save this file as UTF-8. Keep Unicode characters literal.
+ * Do not replace them with escaped code points, HTML entities, or Latin-1.
+ * After every edit, verify that the integrity line below is still readable.
+ *
+ * INTEGRITY CHECK: æøå | ñáéíóú | 你好世界 | नमस्ते | مرحبا | äöüß
+ */
+$lang = array(
+//basic
+'lng_title' => 'Français',
+'welcome' => 'Bienvenue sur notre site Web !',
+'page_title' => 'PanPlay',
+'select_language' => 'Sélectionner la langue :',
+'remember_language' => 'Se souvenir de cette langue',
+'apply' => 'Appliquer',
+'current_language' => '<span class="badge bg-danger">FR</span> Français',
+
+//basic-words
+'from' => 'de',
+'from_who' => 'de',
+'about' => 'À propos',
+    'close' => 'Fermer',
+    'reload_player' => 'Recharger le lecteur',
+'uhr' => 'Heure',
+
+//centralerrorlog
+'centralerrorlog_error_occured' => 'Message d’erreur exemple lors du chargement de la page.',
+'centralerrorlog_neterror_occured' => 'Erreur réseau lors du chargement de ',
+'centralerrorlog_modal_title' => 'Console d’erreurs',
+'centralerrorlog_modal_desc' => 'Si vous avez accès à cette fenêtre, des erreurs critiques (probablement des erreurs de connexion) se sont produites. Ces erreurs pourraient perturber le bon fonctionnement de "PanPlay" de manière mineure ou significative et entraîner un plantage. Veuillez être attentif. Si vous êtes familier avec les outils de développement de votre appareil, nous vous recommandons également de rechercher d’autres erreurs. Les erreurs peuvent éventuellement être corrigées.',
+'centralerrorlog_occuring_modal_title' => 'Console d’erreurs',
+'centralerrorlog_occuring_modal_desc1' => 'Des erreurs se sont produites ! Il pourrait y avoir une perte de connexion ! Veuillez vérifier la',
+'centralerrorlog_occuring_modal_desc2' => 'Console d’erreurs',
+
+//settingspanel PanPlay
+'settingspanel_modal_title' => 'Paramètres',
+'settingspanel_lang_title' => 'Langue',
+'settingspanel_lang_desc' => 'Choisissez une autre langue pour l’interface utilisateur.',
+'settingspanel_lang_ext_desc' => 'Les extensions fonctionnent parfois avec leurs propres fichiers de langue et peuvent ne pas fonctionner dans toutes les langues.',
+    'settingspanel_theme_title' => 'Theme',
+    'settingspanel_theme_desc' => 'Choisissez un theme visuel pour cette URL du lecteur. Cela modifie uniquement le parametre URL et ne change pas la configuration du serveur.',
+    'settingspanel_extension_title' => 'Parametres de l extension',
+    'settingspanel_baseaudio_desc' => 'Modifiez l URL audio directe utilisee par baseaudio. L application recharge le lecteur avec un nouveau parametre webstream.',
+    'settingspanel_laut_desc' => 'Modifiez les options d affichage laut.fm pour cette URL du lecteur. L application recharge le lecteur avec le parametre URL correspondant.',
+    'settingspanel_on' => 'Active',
+    'settingspanel_off' => 'Desactive',
+    'settingspanel_laut_feature_windows' => 'Fenetres de fonctions laut.fm',
+    'settingspanel_laut_use_selected' => 'Utiliser les options selectionnees',
+    'settingspanel_laut_hide_all' => 'Tout masquer',
+    'settingspanel_laut_default_windows' => 'Par defaut : afficher toutes les fenetres',
+    'settingspanel_laut_playback_behavior' => 'Comportement de lecture',
+    'settingspanel_laut_schedule' => 'Programme',
+    'settingspanel_laut_currentsongmodal' => 'Fenetre du titre actuel',
+    'settingspanel_laut_lbn' => 'Live par nom',
+    'settingspanel_laut_trackhistory' => 'Historique des titres',
+    'settingspanel_laut_playwith' => 'Changer de lecteur',
+    'settingspanel_laut_global_override_note' => 'Toutes les fenetres de fonctions laut.fm sont actuellement desactivees par le commutateur global nolfmw. Les reglages individuels des fenetres sont ignores tant que ce commutateur n est pas modifie.',
+    'settingspanel_laut_stationinfo' => 'Informations sur la station',
+
+//about PanPlay
+'about_modal_title' => 'PanPlay',
+'about_brand_phrase' => '<b><u>Le</u></b> lecteur audio HTML5 !',
+'about_license_owner_is' => 'Licence accordée à',
+'about_license_datewording' => 'dans la version du',
+'about_prerelease_warning_title' => 'Pré-version instable',
+'about_prerelease_warning_p1' => 'Cette version de',
+'about_prerelease_warning_p2' => 'est une version préliminaire destinée uniquement à suivre l’avancement du développement. Une utilisation productive n’est pas recommandée.',
+'about_documentation_p1' => 'Pour plus d’informations, consultez la',
+'about_documentation_p2' => 'documentation',
+'about_documentation_p3' => '.',
+'about_legal_p1' => 'Les',
+'about_legal_p2' => 'confidentialité',
+'about_legal_p3' => 'et le',
+'about_legal_p4' => 'impressum',
+'about_legal_p5' => 's’appliquent. En outre, les',
+'about_legal_p6' => 'conditions d’utilisation',
+'about_legal_p7' => 'que vous pouvez',
+'about_legal_p8' => 'trouver ici',
+'about_legal_p9' => '.',
+'bluescreen_heading' => '%s a provoque une erreur du serveur',
+'bluescreen_exception_label' => 'Exception du serveur',
+'bluescreen_explanation_label' => 'Explication',
+'bluescreen_operator_hint' => 'Retournez a la page precedente. Si le probleme persiste, informez l operateur du serveur (%s).',
+    'cpm_block_headline' => 'Contenu bloque par PanPlay CPM',
+    'cpm_block_desc' => 'L URL baseaudio demandee est bloquee par la politique de cette instance PanPlay.',
+    'cpm_block_source' => 'Liste de regles correspondante',
+    'cpm_block_rule' => 'Regle correspondante',
+    'cpm_more_info' => 'Plus d informations sur cette politique de contenu',
+'compat_meta_title' => 'Erreur : contenu non pris en charge - PanPlay',
+'compat_headline' => 'Contenu non pris en charge !',
+'compat_sub_headline' => 'Le contenu demande n est pas pris en charge par votre appareil ou votre logiciel.',
+'compat_desc_1' => 'Ce site fournit son contenu a un large public et prend egalement en charge des navigateurs plus anciens.',
+'compat_desc_2' => 'Cependant, votre logiciel actuel est classe comme fortement incompatible et non securise. Le contenu n a donc pas ete fourni.',
+'compat_ts_title' => 'Informations de depannage',
+'compat_ts_desc' => 'Le systeme a identifie les details techniques suivants :',
+'compat_detected_browser' => 'Navigateur detecte',
+'compat_user_agent' => 'Chaine User-Agent complete',
+'compat_back' => 'Retour',
+'compat_recommended_action' => 'Action recommandee',
+'compat_recommended_desc' => 'Veuillez utiliser un navigateur moderne pour acceder a cette instance PanPlay.',
+'compat_more_help' => 'Aide supplementaire et informations de contexte',
+'compat_detected_browser_link' => 'Ouvrir le site web du navigateur detecte',
+
+
+    
+
+    
+);
+
+?>

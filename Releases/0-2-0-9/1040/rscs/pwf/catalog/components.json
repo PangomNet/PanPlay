@@ -1,0 +1,250 @@
+{
+  "$schema": "../schemas/component-catalog.schema.json",
+  "schemaVersion": 1,
+  "components": [
+    {
+      "id": "button",
+      "status": "experimental",
+      "css": ["pwf-button", "pwf-button--secondary", "pwf-button--quiet", "pwf-button--success", "pwf-button--warning", "pwf-button--danger", "pwf-button-group"],
+      "javascript": null,
+      "semantics": "Use button for actions and a for navigation.",
+      "documentation": "docs/components/foundation.md#button"
+    },
+    {
+      "id": "panel",
+      "status": "experimental",
+      "css": ["pwf-panel", "pwf-panel--solid", "pwf-panel__title"],
+      "javascript": null,
+      "semantics": "Use the landmark or sectioning element appropriate to the content.",
+      "documentation": "docs/components/foundation.md#panel"
+    },
+    {
+      "id": "form-field",
+      "status": "experimental",
+      "css": ["pwf-field", "pwf-label", "pwf-input", "pwf-select", "pwf-textarea", "pwf-choice", "pwf-input-group", "pwf-input-group__addon", "pwf-switch"],
+      "javascript": null,
+      "semantics": "Associate every control with a label and hints or errors through aria-describedby.",
+      "documentation": "docs/components/foundation.md#form-field"
+    },
+    {
+      "id": "dialog",
+      "status": "experimental",
+      "css": ["pwf-dialog", "pwf-dialog__body", "pwf-dialog__footer"],
+      "javascript": "initDialogs",
+      "semantics": "Prefer the native dialog element with an accessible name.",
+      "documentation": "docs/components/foundation.md#dialog",
+      "enhancement": "data-pwf-dialog-open and data-pwf-dialog-close connect controls without inline script."
+    },
+    {
+      "id": "tabs",
+      "status": "experimental",
+      "css": ["pwf-tabs__list", "pwf-tabs__tab", "pwf-tabs__panel"],
+      "javascript": "initTabs",
+      "semantics": "Use tablist, tab, and tabpanel roles with aria-controls and labelled panels.",
+      "documentation": "docs/components/foundation.md#tabs",
+      "enhancement": "Arrow keys, Home, and End select tabs. Without JavaScript, panels remain visible."
+    },
+    {
+      "id": "table",
+      "status": "experimental",
+      "css": ["pwf-table-scroll", "pwf-table"],
+      "javascript": null,
+      "semantics": "Use caption and scoped header cells; the wrapper only provides horizontal overflow.",
+      "documentation": "docs/components/foundation.md#table"
+    },
+    {
+      "id": "loader",
+      "status": "experimental",
+      "css": ["pwf-loader"],
+      "javascript": null,
+      "semantics": "Place the visual loader inside an element with role=status and meaningful text.",
+      "documentation": "docs/components/foundation.md#loader"
+    },
+    {
+      "id": "toast",
+      "status": "experimental",
+      "css": ["pwf-toast-region", "pwf-toast", "pwf-toast__close"],
+      "javascript": "showToast",
+      "semantics": "Messages use polite status announcements; danger messages use alert.",
+      "documentation": "docs/components/foundation.md#toast",
+      "enhancement": "The API inserts text with textContent and never accepts HTML."
+    },
+    {
+      "id": "status",
+      "status": "experimental",
+      "css": ["pwf-alert", "pwf-alert--info", "pwf-alert--success", "pwf-alert--warning", "pwf-alert--danger", "pwf-badge", "pwf-progress", "pwf-progress__bar"],
+      "javascript": null,
+      "semantics": "Use visible text and an appropriate status or alert role; color and icons only supplement meaning.",
+      "documentation": "docs/components/foundation.md#status-alerts-badges-and-progress"
+    },
+    {
+      "id": "card",
+      "status": "experimental",
+      "css": ["pwf-card", "pwf-card__header", "pwf-card__body", "pwf-card__footer", "pwf-card--interactive", "pwf-card-grid"],
+      "javascript": null,
+      "semantics": "Choose an article or section for content cards and an anchor for a fully navigable card.",
+      "documentation": "docs/components/foundation.md#card"
+    },
+    {
+      "id": "disclosure",
+      "status": "experimental",
+      "css": ["pwf-accordion", "pwf-accordion__item", "pwf-dropdown", "pwf-dropdown__menu"],
+      "javascript": null,
+      "semantics": "Use native details and summary for collapsible content and simple contextual dropdowns.",
+      "documentation": "docs/components/foundation.md#dropdown-and-accordion"
+    },
+    {
+      "id": "navigation-list",
+      "status": "experimental",
+      "css": ["pwf-list-group", "pwf-list-group__item", "pwf-pagination"],
+      "javascript": null,
+      "semantics": "Wrap pagination in a named nav, use list markup, and mark the current destination with aria-current.",
+      "documentation": "docs/components/foundation.md#list-group-and-pagination"
+    },
+    {
+      "id": "page-patterns",
+      "status": "experimental",
+      "css": ["pwf-navbar", "pwf-nav", "pwf-hero", "pwf-stats", "pwf-stat", "pwf-toolbar"],
+      "javascript": null,
+      "semantics": "Use labelled sections for heroes and named nav landmarks containing ordinary anchors for every navigation pattern.",
+      "documentation": "docs/components/foundation.md#page-and-content-patterns"
+    },
+    {
+      "id": "content-patterns",
+      "status": "experimental",
+      "css": ["pwf-avatar", "pwf-avatar-group", "pwf-media-object", "pwf-steps", "pwf-timeline", "pwf-ratio", "pwf-figure", "pwf-gallery"],
+      "javascript": null,
+      "semantics": "Choose lists, figures, articles, time elements, and headings according to the content; presentation classes do not replace document semantics.",
+      "documentation": "docs/components/foundation.md#page-and-content-patterns"
+    },
+    {
+      "id": "loading-empty",
+      "status": "experimental",
+      "css": ["pwf-placeholder", "pwf-placeholder--text", "pwf-placeholder--media", "pwf-empty"],
+      "javascript": null,
+      "semantics": "Give busy regions a meaningful accessible name and aria-busy; empty states remain labelled sections with visible next actions.",
+      "documentation": "docs/components/foundation.md#loading-empty-state-and-side-sheet"
+    },
+    {
+      "id": "side-sheet",
+      "status": "experimental",
+      "css": ["pwf-sheet", "pwf-sheet__header", "pwf-sheet__body", "pwf-sheet__footer", "pwf-close"],
+      "javascript": "initDialogs",
+      "semantics": "Use a named native dialog and retain a complete-page route for important sheet content.",
+      "documentation": "docs/components/foundation.md#loading-empty-state-and-side-sheet",
+      "enhancement": "The normal PWF dialog data attributes open and close the side-sheet presentation."
+    },
+    {
+      "id": "dismissible",
+      "status": "experimental",
+      "css": ["pwf-close", "pwf-alert__actions"],
+      "javascript": "initDismissibles",
+      "semantics": "Use a button with an explicit accessible label; dismissal hides only the closest declared component.",
+      "documentation": "docs/components/foundation.md#status-alerts-badges-and-progress",
+      "enhancement": "data-pwf-dismiss emits pwf:dismiss and never removes server data."
+    },
+    {
+      "id": "theme-manager",
+      "status": "experimental",
+      "css": [],
+      "javascript": "createThemeManager",
+      "semantics": "Theme selection changes tokens and scoped presentation only; supported color modes are resolved without changing document meaning or application data.",
+      "documentation": "docs/themes.md#authoring-a-pwf-theme",
+      "enhancement": "Registered theme styles load on demand and remain independently removable; getThemeModeState prevents fixed historical designs from mixing color schemes."
+    },
+    {
+      "id": "addon-registry",
+      "status": "experimental",
+      "css": [],
+      "javascript": "createAddonRegistry",
+      "semantics": "Applications explicitly register packages and grant capabilities before activation.",
+      "documentation": "docs/addons.md#add-ons-and-the-first-media-package",
+      "enhancement": "Activation checks dependencies and capabilities and supports cleanup during deactivation."
+    },
+    {
+      "id": "media-player-addon",
+      "status": "experimental",
+      "css": ["pwf-player", "pwf-player__stage", "pwf-player__controls", "pwf-player__timeline", "pwf-player__queue"],
+      "javascript": "initMediaPlayers",
+      "semantics": "Keep a native audio or video element as the playback baseline and label every custom control.",
+      "documentation": "docs/addons.md#media-player-alpha-contract",
+      "enhancement": "Optional controls synchronize playback, mute, timeline, queue changes, and explicitly enabled Media Session actions."
+    },
+    {
+      "id": "app-shell",
+      "status": "experimental",
+      "css": ["pwf-app", "pwf-app__header", "pwf-app__header-primary", "pwf-app__main", "pwf-app__stage", "pwf-app__content", "pwf-app__framework-divider", "pwf-app__footer"],
+      "javascript": null,
+      "semantics": "Compose one banner, one main landmark, and one contentinfo landmark around complete page content.",
+      "documentation": "docs/components/shell.md#application-shell"
+    },
+    {
+      "id": "page-navigation",
+      "status": "experimental",
+      "css": ["pwf-app__tabs", "pwf-app__tab", "pwf-app__mobile-pages", "pwf-breadcrumb", "pwf-context-nav"],
+      "javascript": null,
+      "semantics": "Every destination is an ordinary link; aria-current identifies the current page or location.",
+      "documentation": "docs/components/shell.md#page-navigation"
+    },
+    {
+      "id": "page-hero",
+      "status": "experimental",
+      "css": ["pwf-page-hero", "pwf-eyebrow", "pwf-status-badge"],
+      "javascript": null,
+      "semantics": "Use a section linked to the page heading and keep status text readable without relying on color.",
+      "documentation": "docs/components/shell.md#page-hero"
+    },
+    {
+      "id": "navigation-card",
+      "status": "experimental",
+      "css": ["pwf-nav-grid", "pwf-nav-card", "pwf-nav-card__icon"],
+      "javascript": null,
+      "semantics": "Use an anchor for page destinations and preserve a descriptive accessible name.",
+      "documentation": "docs/components/shell.md#navigation-cards"
+    },
+    {
+      "id": "settings-layout",
+      "status": "experimental",
+      "css": ["pwf-settings-layout", "pwf-settings-nav", "pwf-settings-section", "pwf-setting-row"],
+      "javascript": null,
+      "semantics": "Expose large settings groups as linkable sections on a complete page with native form controls.",
+      "documentation": "docs/components/shell.md#settings-page"
+    },
+    {
+      "id": "overlay",
+      "status": "experimental",
+      "css": ["pwf-overlay", "pwf-overlay__header", "pwf-overlay__body", "pwf-search-field", "pwf-search-result", "pwf-launcher-grid", "pwf-quick-settings"],
+      "javascript": "initDialogs",
+      "semantics": "Use a native named dialog for transient tools; keep every navigational result as an ordinary anchor and link quick settings to the complete settings page.",
+      "documentation": "docs/components/shell.md#overlays",
+      "enhancement": "data-pwf-overlay-placement selects search, top-end launcher, or bottom quick-settings geometry without changing dialog behavior."
+    },
+    {
+      "id": "scroll-rail",
+      "status": "experimental",
+      "css": ["pwf-scroll-rail", "pwf-scroll-rail__viewport", "pwf-scroll-rail__track", "pwf-scroll-rail__thumb"],
+      "javascript": "initScrollRails",
+      "semantics": "Keep the underlying region natively scrollable and give the scrollbar thumb an accessible name plus aria-controls.",
+      "documentation": "docs/components/scroll-rail.md#scroll-rail",
+      "enhancement": "Pointer drag, track clicks, vertical wheel input, resize updates, and horizontal scrollbar keyboard commands enhance the same overflow viewport."
+    },
+    {
+      "id": "app-launcher-pins",
+      "status": "experimental",
+      "css": ["pwf-launcher-item", "pwf-launcher-card", "pwf-launcher-pin"],
+      "javascript": "initLaunchers",
+      "semantics": "Keep every destination as an anchor and expose pin state through a separate button with aria-pressed.",
+      "documentation": "docs/components/shell.md#launcher-pins",
+      "enhancement": "Pinning works in memory by default and persists only when the application injects a Storage-compatible adapter."
+    },
+    {
+      "id": "markdown-viewer",
+      "status": "experimental",
+      "css": ["pwf-document-layout", "pwf-document-nav", "pwf-markdown"],
+      "javascript": "initMarkdownViewers",
+      "semantics": "Render allowlisted Markdown into an article inside the application shell and retain a direct source link as the failure fallback.",
+      "documentation": "docs/components/markdown-viewer.md#markdown-viewer",
+      "enhancement": "The safe renderer creates DOM nodes without innerHTML and emits pwf:markdown-ready or pwf:markdown-error."
+    }
+  ]
+}

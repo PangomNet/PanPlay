@@ -1,0 +1,113 @@
+<?php
+/*
+ * PanPlay language file
+ *
+ * ENCODING: UTF-8 only.
+ * Read and save this file as UTF-8. Keep Unicode characters literal.
+ * Do not replace them with escaped code points, HTML entities, or Latin-1.
+ * After every edit, verify that the integrity line below is still readable.
+ *
+ * INTEGRITY CHECK: æøå | ñáéíóú | 你好世界 | नमस्ते | مرحبا | äöüß
+ */
+$lang = array(
+//basic
+'lng_title' => 'Nederlands',
+'welcome' => 'Welkom op onze website!',
+'page_title' => 'PanPlay',
+'select_language' => 'Selecteer taal:',
+'remember_language' => 'Onthoud deze taal',
+'apply' => 'Toepassen',
+'current_language' => '<span class="badge bg-danger">NL-BE</span> Nederlands',
+
+//basic-words
+'from' => 'van',
+'from_who' => 'van',
+'about' => 'Over',
+    'close' => 'Sluiten',
+    'reload_player' => 'Speler herladen',
+'uhr' => 'uur',
+
+//centralerrorlog
+'centralerrorlog_error_occured' => 'Voorbeeld foutmelding bij het laden van de pagina.',
+'centralerrorlog_neterror_occured' => 'Netwerkfout bij het laden van ',
+'centralerrorlog_modal_title' => 'Foutenconsole',
+'centralerrorlog_modal_desc' => 'Als u toegang hebt tot dit venster, zijn er kritieke fouten (hoogstwaarschijnlijk verbindingsfouten) opgetreden. Deze fouten kunnen de verdere werking van "PanPlay" licht of aanzienlijk verstoren en mogelijk tot een crash leiden. Wees alert. Als u bekend bent met de ontwikkelaarstools van uw apparaat, raden we u aan ook daar op zoek te gaan naar aanvullende fouten. Mogelijk kunnen deze fouten worden verholpen.',
+'centralerrorlog_occuring_modal_title' => 'Foutenconsole',
+'centralerrorlog_occuring_modal_desc1' => 'Er zijn fouten opgetreden! Mogelijk is er sprake van een verbindingsverlies! Controleer de',
+'centralerrorlog_occuring_modal_desc2' => 'foutenconsole',
+
+//settingspanel PanPlay
+'settingspanel_modal_title' => 'Instellingen',
+'settingspanel_lang_title' => 'Taal',
+'settingspanel_lang_desc' => 'Kies een andere taal voor de gebruikersinterface.',
+'settingspanel_lang_ext_desc' => 'Extensies werken mogelijk zonder of met eigen taalbestanden en functioneren mogelijk niet in elke taal.',
+    'settingspanel_theme_title' => 'Thema',
+    'settingspanel_theme_desc' => 'Kies een visueel thema voor deze player-URL. Dit wijzigt alleen de URL-parameter en niet de serverconfiguratie.',
+    'settingspanel_extension_title' => 'Extensie-instellingen',
+    'settingspanel_baseaudio_desc' => 'Wijzig de directe audio-URL die baseaudio gebruikt. Toepassen herlaadt de player met een nieuwe webstream-parameter.',
+    'settingspanel_laut_desc' => 'Wijzig laut.fm-weergaveopties voor deze player-URL. Toepassen herlaadt de player met de bijbehorende URL-parameter.',
+    'settingspanel_on' => 'Aan',
+    'settingspanel_off' => 'Uit',
+    'settingspanel_laut_feature_windows' => 'laut.fm-functievensters',
+    'settingspanel_laut_use_selected' => 'Geselecteerde opties gebruiken',
+    'settingspanel_laut_hide_all' => 'Alles verbergen',
+    'settingspanel_laut_default_windows' => 'Standaard: alle vensters tonen',
+    'settingspanel_laut_playback_behavior' => 'Afspeelgedrag',
+    'settingspanel_laut_schedule' => 'Programma',
+    'settingspanel_laut_currentsongmodal' => 'Venster huidig nummer',
+    'settingspanel_laut_lbn' => 'Live op naam',
+    'settingspanel_laut_trackhistory' => 'Trackgeschiedenis',
+    'settingspanel_laut_playwith' => 'Speler wisselen',
+    'settingspanel_laut_global_override_note' => 'Alle laut.fm-functievensters zijn momenteel uitgeschakeld door de globale nolfmw-schakelaar. De afzonderlijke vensterinstellingen worden genegeerd totdat deze schakelaar weer wordt gewijzigd.',
+    'settingspanel_laut_stationinfo' => 'Zenderinformatie',
+
+//about PanPlay
+    'about_modal_title' => 'PanPlay',
+'about_brand_phrase' => '<b><u>De</u></b> HTML5-audioplayer!',
+'about_license_owner_is' => 'Gelicenseerd aan',
+'about_license_datewording' => 'in de versie van',
+'about_prerelease_warning_title' => 'Onstabiele pre-release',
+'about_prerelease_warning_p1' => 'Deze versie van',
+'about_prerelease_warning_p2' => 'is een pre-release versie, bedoeld om de voortgang van de ontwikkeling te volgen. Productief gebruik wordt niet aanbevolen.',
+'about_documentation_p1' => 'Meer informatie vindt u op de',
+'about_documentation_p2' => 'documentatie',
+'about_documentation_p3' => '.',
+'about_legal_p1' => 'De',
+'about_legal_p2' => 'privacy',
+'about_legal_p3' => 'en de',
+'about_legal_p4' => 'impressum',
+'about_legal_p5' => 'zijn van toepassing. Verder zijn de',
+'about_legal_p6' => 'gebruiksvoorwaarden',
+'about_legal_p7' => 'van toepassing die u',
+'about_legal_p8' => 'hier',
+'about_legal_p9' => ' kunt vinden.',
+'bluescreen_heading' => '%s heeft een serverfout veroorzaakt',
+'bluescreen_exception_label' => 'Serveruitzondering',
+'bluescreen_explanation_label' => 'Uitleg',
+'bluescreen_operator_hint' => 'Ga terug naar de vorige pagina. Als het probleem blijft bestaan, informeer dan de serverbeheerder (%s).',
+    'cpm_block_headline' => 'Inhoud geblokkeerd door PanPlay CPM',
+    'cpm_block_desc' => 'De gevraagde baseaudio-URL is geblokkeerd door het beleid van deze PanPlay-instantie.',
+    'cpm_block_source' => 'Overeenkomende regellijst',
+    'cpm_block_rule' => 'Overeenkomende regel',
+    'cpm_more_info' => 'Meer informatie over dit inhoudsbeleid',
+'compat_meta_title' => 'Fout: inhoud wordt niet ondersteund - PanPlay',
+'compat_headline' => 'Inhoud wordt niet ondersteund!',
+'compat_sub_headline' => 'De gevraagde inhoud wordt niet ondersteund door uw apparaat of software.',
+'compat_desc_1' => 'Deze website biedt inhoud aan een breed publiek en ondersteunt ook oudere browsers.',
+'compat_desc_2' => 'Uw huidige software is echter geclassificeerd als zeer incompatibel en onveilig. Daarom is de inhoud niet geleverd.',
+'compat_ts_title' => 'Informatie voor probleemoplossing',
+'compat_ts_desc' => 'Het systeem heeft de volgende technische details geidentificeerd:',
+'compat_detected_browser' => 'Gedetecteerde browser',
+'compat_user_agent' => 'Volledige User-Agent-string',
+'compat_back' => 'Terug',
+'compat_recommended_action' => 'Aanbevolen actie',
+'compat_recommended_desc' => 'Gebruik moderne browsersoftware om toegang te krijgen tot deze PanPlay-instantie.',
+'compat_more_help' => 'Meer hulp en achtergrondinformatie',
+'compat_detected_browser_link' => 'Open de website van de gedetecteerde browser',
+
+    
+
+    
+);
+
+?>

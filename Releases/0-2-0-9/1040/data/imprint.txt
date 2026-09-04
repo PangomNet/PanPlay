@@ -1,0 +1,4 @@
+Imprint has not been configured yet.
+
+Replace this file with the plain text version of the imprint or legal notice for this PanPlay instance.
+Do not use HTML formatting here. The player renders this text inside its legal document interface.

@@ -1,0 +1,110 @@
+<?php
+/*
+ * PanPlay language file
+ *
+ * ENCODING: UTF-8 only.
+ * Read and save this file as UTF-8. Keep Unicode characters literal.
+ * Do not replace them with escaped code points, HTML entities, or Latin-1.
+ * After every edit, verify that the integrity line below is still readable.
+ *
+ * INTEGRITY CHECK: æøå | ñáéíóú | 你好世界 | नमस्ते | مرحبا | äöüß
+ */
+$lang = array(
+//basic
+'lng_title' => '简体中文',
+'welcome' => '欢迎使用 PanPlay！',
+'page_title' => 'PanPlay',
+'select_language' => '选择语言：',
+'remember_language' => '记住此语言',
+'apply' => '应用',
+'current_language' => '<span class="badge bg-danger">CN</span> 简体中文',
+
+//basic-words
+'from' => '来自',
+'from_who' => '来自',
+'about' => '关于',
+    'close' => '关闭',
+    'reload_player' => '重新加载播放器',
+'uhr' => '时',
+
+//centralerrorlog
+'centralerrorlog_error_occured' => '示例错误信息，加载页面时发生错误。',
+'centralerrorlog_neterror_occured' => '加载时发生网络错误 ',
+'centralerrorlog_modal_title' => '错误控制台',
+'centralerrorlog_modal_desc' => '如果您看到此窗口，则可能发生了关键错误（很可能是连接错误）。这些错误可能会轻微或严重地影响“PanPlay”的进一步运行，并导致崩溃。请保持警惕。如果您熟悉设备的开发工具，我们建议您也在开发工具中查找其他错误。这些错误可能是可以修复的。',
+'centralerrorlog_occuring_modal_title' => '错误控制台',
+'centralerrorlog_occuring_modal_desc1' => '发生了错误！可能会丢失连接！请检查',
+'centralerrorlog_occuring_modal_desc2' => '错误控制台',
+
+//settingspanel PanPlay
+'settingspanel_modal_title' => '设置',
+'settingspanel_lang_title' => '语言',
+'settingspanel_lang_desc' => '为用户界面选择另一种语言。',
+'settingspanel_lang_ext_desc' => '扩展可能使用自己的语言文件，因此不一定在所有语言中完整可用。',
+    'settingspanel_theme_title' => '主题',
+    'settingspanel_theme_desc' => '为此播放器 URL 选择视觉主题。这只会更改生成的 URL 参数，不会更改服务器配置。',
+    'settingspanel_extension_title' => '扩展设置',
+    'settingspanel_baseaudio_desc' => '更改 baseaudio 使用的直接音频 URL。应用后，播放器会使用新的 webstream URL 参数重新加载。',
+    'settingspanel_laut_desc' => '更改此播放器 URL 的 laut.fm 显示选项。应用设置后，播放器会使用对应的 URL 参数重新加载。',
+    'settingspanel_on' => '开启',
+    'settingspanel_off' => '关闭',
+    'settingspanel_laut_feature_windows' => 'laut.fm 功能窗口',
+    'settingspanel_laut_use_selected' => '使用所选选项',
+    'settingspanel_laut_hide_all' => '全部隐藏',
+    'settingspanel_laut_default_windows' => '默认：显示所有窗口',
+    'settingspanel_laut_playback_behavior' => '播放行为',
+    'settingspanel_laut_schedule' => '节目表',
+    'settingspanel_laut_currentsongmodal' => '当前歌曲窗口',
+    'settingspanel_laut_lbn' => '按名称直播',
+    'settingspanel_laut_trackhistory' => '曲目历史',
+    'settingspanel_laut_playwith' => '切换播放器',
+    'settingspanel_laut_global_override_note' => '所有 laut.fm 功能窗口目前已由全局 nolfmw 开关禁用。在此开关恢复之前，单独的窗口设置会被忽略。',
+    'settingspanel_laut_stationinfo' => '电台信息',
+
+//about PanPlay
+    'about_modal_title' => 'PanPlay',
+'about_brand_phrase' => '<b><u>HTML5</u></b> 音频播放器！',
+'about_license_owner_is' => '授权给',
+'about_license_datewording' => '版本日期',
+'about_prerelease_warning_title' => '不稳定的预发布版本',
+'about_prerelease_warning_p1' => '此版本的',
+'about_prerelease_warning_p2' => '是用于跟踪开发进度的预发布版本。不建议用于生产环境。',
+'about_documentation_p1' => '更多信息请参阅',
+'about_documentation_p2' => '文档',
+'about_documentation_p3' => '。',
+'about_legal_p1' => '适用',
+'about_legal_p2' => '隐私政策',
+'about_legal_p3' => '和',
+'about_legal_p4' => '法律声明',
+'about_legal_p5' => '。此外，还适用',
+'about_legal_p6' => '使用条款',
+'about_legal_p7' => '，您可以',
+'about_legal_p8' => '在这里',
+'about_legal_p9' => '查看。',
+    
+    'bluescreen_heading' => '%s 导致了服务器错误',
+    'bluescreen_exception_label' => '服务器异常',
+    'bluescreen_explanation_label' => '说明',
+    'bluescreen_operator_hint' => '请返回上一页。如果问题仍然存在，请通知服务器运营者（%s）。',
+    'cpm_block_headline' => '内容已被 PanPlay CPM 阻止',
+    'cpm_block_desc' => '请求的 baseaudio URL 已被此 PanPlay 实例的策略阻止。',
+    'cpm_block_source' => '匹配的规则列表',
+    'cpm_block_rule' => '匹配的规则',
+    'cpm_more_info' => '有关此内容策略的更多信息',
+    'compat_meta_title' => '错误：内容不受支持 - PanPlay',
+    'compat_headline' => '内容不受支持！',
+    'compat_sub_headline' => '请求的内容不受您的设备或软件支持。',
+    'compat_desc_1' => '本网站面向广泛用户提供内容，也支持一些较旧的浏览器。',
+    'compat_desc_2' => '但是，您当前的软件被判定为高度不兼容且不安全。因此内容未被提供。',
+    'compat_ts_title' => '故障排除信息',
+    'compat_ts_desc' => '系统识别到以下技术细节：',
+    'compat_detected_browser' => '检测到的浏览器',
+    'compat_user_agent' => '完整的 User-Agent 字符串',
+    'compat_back' => '返回',
+    'compat_recommended_action' => '建议操作',
+    'compat_recommended_desc' => '请使用现代浏览器软件访问此 PanPlay 实例。',
+    'compat_more_help' => '更多帮助和背景信息',
+    'compat_detected_browser_link' => '打开检测到的浏览器网站',
+);
+
+?>
