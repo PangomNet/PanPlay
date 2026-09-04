@@ -20,9 +20,9 @@ Inspired by Flowers 🌹🌷
 - 0.1.0.0  1028  Cactus
 - 0.1.0.1  1029  Dandelion
 - 0.1.0.1  1030  Dandelion
-- 0.1.0.?  10??  Everlasting
-- ?.?.?.?    Fennel
-- ?.?.?.?    Fieldrush
+- 0.1.0.2  1031  Everlasting
+- 0.2.0.9  1040  Fennel
+- 0.2.1.1  ????  Fieldrush
 - ?.?.?.?    Foxglove
 - ?.?.?.?    Goosefoot
 - ?.?.?.?    Holly
