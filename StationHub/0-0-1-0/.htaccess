@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# Übergibt den Pfad nach /l/ direkt als Variable "path" an die index.php
+RewriteRule ^(.*)$ index.php?path=$1 [QSA,L]

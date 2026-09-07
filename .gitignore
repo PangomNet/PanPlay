@@ -1,0 +1,6 @@
+# Den gesamten Ordner "internal" inklusive aller Inhalte ignorieren
+internal/
+
+# StationHub-Linkdatenbank enthält echte Sender-/Nutzerdaten und wird nicht versioniert;
+# links.example.json im selben Ordner dient als Vorlage für die erwartete Struktur.
+StationHub/*/links.json

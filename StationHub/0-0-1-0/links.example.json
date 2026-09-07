@@ -1,0 +1,20 @@
+{
+    "hashes": {
+        "examplestation": {
+            "a1b2c": {
+                "version": "",
+                "params": {
+                    "theme": "glass"
+                }
+            }
+        }
+    },
+    "defaults": {
+        "examplestation": {
+            "version": "",
+            "params": {
+                "theme": "hc-dark"
+            }
+        }
+    }
+}
