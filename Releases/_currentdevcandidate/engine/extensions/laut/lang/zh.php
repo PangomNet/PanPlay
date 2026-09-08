@@ -77,5 +77,27 @@ $ext_lang = array(
 'neterr_desc_net_not_okay2' => '',
 'neterr_console_net_not_okay' => '获取服务器状态时出错：',
 
+
+    //PWF app shell (0.3.0.0 Fieldrush) -- added by Claude Code, see AI-HANDOFF.md
+    'stationinfo_tab_title' => '电台信息',
+    'stationinfo_heading' => '电台信息',
+    'station_summary_heading' => '关于该电台',
+    'station_rich_content_heading' => '来自电台',
+    'empty_state_title' => '暂无数据',
+    'history_loading_desc' => '正在加载播放历史。',
+    'schedule_loading_desc' => '正在加载每周节目表。',
+    'station_djs_heading' => 'DJ',
+    'station_location_heading' => '位置',
+    'station_genres_heading' => '风格',
+    'station_top_artists_heading' => '常播艺人',
+    'current_song_lastfm_link' => '在 Last.fm 上搜索',
+    'disable_station_accent_label' => '禁用由电台标志自动提取的强调色',
+    'live_by_name_checkbox_label' => '也根据节目名称推断直播状态',
+    'station_source_suffix' => '（laut.fm）',
+    'station_description_fallback' => '该电台暂无介绍。',
+    'station_data_unavailable_status' => '电台数据暂不可用',
+    'station_format_prefix' => '类型',
+    'station_listeners_suffix' => '位听众',
+    'station_rank_prefix' => '排名',
 );
 ?>

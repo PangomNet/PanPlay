@@ -18,10 +18,10 @@ $firstrundone = true;
 $pro_name           = '<i class="fas fa-music"></i> Pan<span class="pangomfont text-danger">Play</span>'; //⚠
 $pro_name_noformat  = '<i class="fas fa-music"></i> PanPlay'; //⚠
 $pro_name_cleartext = 'PanPlay'; //⚠
-$pro_version        = '0.2.0.9'; //⚠
-$pro_buildversion   = '1040'; //⚠
-$pro_version_name   = 'Fennel'; //⚠
-$pro_releasedate    = '04.09.2026'; //⚠
+$pro_version        = '0.3.0.0'; //⚠
+$pro_buildversion   = '1050'; //⚠
+$pro_version_name   = 'Fieldrush'; //⚠
+$pro_releasedate    = 'TBD – in development'; //⚠ Not an actual date while the build is in progress. Set this to the real release date (the day it actually ships) once 0.3.0.0/Build 1050/Fieldrush is finished — not before.
 $is_prerelase       = true; // Set to true only for unstable test builds that should show the prerelease warning.
 
 // --- Vendor & Hoster Info ---

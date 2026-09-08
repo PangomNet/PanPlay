@@ -77,6 +77,28 @@ $ext_lang = array(
     'neterr_desc_net_not_okay2' => '',
     'neterr_console_net_not_okay' => 'Fehler beim Abrufen des Serverstatus: ',
     
+
+    //PWF app shell (0.3.0.0 Fieldrush) -- added by Claude Code, see AI-HANDOFF.md
+    'stationinfo_tab_title' => 'Senderinfo',
+    'stationinfo_heading' => 'Senderinformation',
+    'station_summary_heading' => 'Über den Sender',
+    'station_rich_content_heading' => 'Vom Sender',
+    'empty_state_title' => 'Noch keine Daten',
+    'history_loading_desc' => 'Die Titelhistorie wird geladen.',
+    'schedule_loading_desc' => 'Der Wochenplan wird geladen.',
+    'station_djs_heading' => 'DJs',
+    'station_location_heading' => 'Standort',
+    'station_genres_heading' => 'Genres',
+    'station_top_artists_heading' => 'Häufig gespielte Artists',
+    'current_song_lastfm_link' => 'Auf Last.fm suchen',
+    'disable_station_accent_label' => 'Automatische Akzentfarbe aus dem Senderlogo ausschalten',
+    'live_by_name_checkbox_label' => 'Live-Status zusätzlich aus dem Sendungsnamen ableiten',
+    'station_source_suffix' => 'auf laut.fm',
+    'station_description_fallback' => 'Für diesen Sender ist keine Beschreibung hinterlegt.',
+    'station_data_unavailable_status' => 'Senderdaten derzeit nicht erreichbar',
+    'station_format_prefix' => 'Format',
+    'station_listeners_suffix' => 'Hörer',
+    'station_rank_prefix' => 'Rang',
 );
 
 ?>

@@ -1,0 +1,17 @@
+[Adblock Plus]
+! Title: PanPlay CPM Local Filter List
+! Description: Local CPM rules for this PanPlay instance.
+! Maintainer: Local PanPlay instance operator
+! Syntax: AdBlock compatible subset
+!
+! This file is maintained by the local server operator.
+! Add local block or exception rules below.
+!
+! Examples:
+! ||example-piracy-site.test^
+! ||cdn.example.test/leaks/*
+! https://example.test/files/blocked-track.mp3
+! *unreleased-album-name*
+!
+! Exception example:
+! @@https://example.test/files/cleared-demo.mp3

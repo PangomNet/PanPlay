@@ -1,0 +1,463 @@
+<?php
+require __DIR__ . '/index-alpha.php';
+exit;
+
+// init page
+$initFile = __DIR__ . '/engine/init.php';
+
+if (!file_exists($initFile)) {
+    die("<b style='color:red;'>Error:</b> The file engine/init.php was not found at $initFile.");
+}
+
+// Lädt alle Variablen (pro_, cfg_, pp_, etc.)
+require_once $initFile;
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!----------------------------------------------- PLAYER-PAGE-BASE ------------------------------------->
+
+
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="rscs/favicons/favicon.png">
+    <link rel="apple-touch-icon" href="rscs/favicons/apple-touch-icon.png">
+    
+
+<link rel="stylesheet" href="engine/style/conveyor.css">
+<link rel="stylesheet" href="engine/style/loader.min.css">
+<link rel="stylesheet" href="engine/style/animate.min.css">
+
+<meta property="og:site_name" content="PanPlay by Pangom" />
+<meta property="og:image" content="rscs/favicons/apple-touch-icon.png" />
+
+
+
+<!----------------------------------------------- UITHEMEHANDLER ------------------------------------->
+<?php require('engine/style/uithemehandler.php');?>
+
+
+<!--- ICONLIBLOADER ------->
+<!-- Füge ein unsichtbares iframe-Element hinzu, das die iconlibloader.php-Datei aufruft -->
+<link rel="stylesheet" href="engine/style/iconlib.css">
+
+
+
+
+
+
+
+
+</head>
+<body id="oop_body">
+<!-- <div class="loader-body" id="loader">
+	<div class="loader"></div>
+</div> -->
+
+<oop_div id="oop_base-container" class="container-fluid">
+    
+<?php
+    require('engine/extensions/' . $playermode . '/topnavbar.php');
+?>
+    
+  
+    
+    
+ <!---------------------------- PLAYER PLAYER PLAYER MAIN PLAYER -------------------->   
+
+          
+<div id="blurlayer" > 
+</div>   
+<oop_div id="oop_player" class="position-absolute top-50 start-50 translate-middle"> 
+    <?php require('engine/extensions/' . $playermode . '/playerui.php'); ?>
+    <!-- PLAYER AUDIO OBJECT -->
+    <audio id="oop_audio" preload="none" volume="0.5">
+        <source src="<?php echo htmlspecialchars($streamUrl); ?>" type="audio/mpeg">
+        It seems your browser does not support the audio element. Consider Help on the Web or contact the Panlay-Developer on <a href="https://github.com/PangomNet/PanPlay/">GitHub</a>.
+    </audio>
+    <div id="oop_player-controls text-center" class="btn-group" role="group" aria-label="Basic example" style=" width:90%">
+        <!-- DEBUG BUTTONS -->
+        <!-- <button onclick="document.getElementById('oop_audio').pause()">Pause</button> -->
+        <!-- <button onclick="document.getElementById('oop_audio').volume += 0.1">Vol +</button> -->
+        <!-- <button onclick="document.getElementById('oop_audio').volume -= 0.1">Vol -</button> -->
+    </div>
+</oop_div>
+    
+    <?php
+    require('engine/extensions/' . $playermode . '/playermodals.php');
+?>
+
+
+
+<!---------------------------- LABOUT OOP MODAL -------------------->
+
+
+<div class="modal fade" id="about_oop_modal" tabindex="-1" aria-labelledby="about_oop_modal" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable modal-fullscreen-md-down">
+    <div class="modal-content">
+     <div class="modal-header">
+         <h5 class="modal-title" sytle="display: inline; " id="exampleModalLabel"> <?php echo $pro_name_cleartext; ?> </h5>
+         <button type="button" class="btn btn-outline-danger rounded-circle" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+     
+            <?php require('engine/ver.php');?>
+            <br><br>
+            <!--<button type="button" class="btn btn-outline-danger bg-dark" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i> <?php echo $lang['close']; ?></button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!---------------------------- SETTINGS OOP MODAL -------------------->
+
+
+<div class="modal fade" id="settings_oop_modal" tabindex="-1" aria-labelledby="settings_oop_modal" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen modal-dialog-centered modal-dialog-scrollable modal-lg">
+    <form id="panplay-settings-form" class="modal-content" method="get" action="">
+     <div class="modal-header text-white bg-danger">
+        <h5 class="modal-title" sytle="display: inline; " id="exampleModalLabel"><a href="#" class="text-decoration-none" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-chevron-left"></i>&nbsp; <?php echo $lang['settingspanel_modal_title']; ?></a></h5>
+        <button type="button" class="btn btn-block btn-outline-light rounded-circle" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
+         
+      </div> 
+      <div class="modal-body">
+      <div class="container-sm">
+     
+            <?php require('engine/usersettings.php');?>
+     </div>
+      </div>
+      <div class="modal-footer bg-dark">
+        <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal"><?php echo $lang['close']; ?></button>
+        <button type="submit" class="btn btn-danger"><i class="fas fa-check"></i>&nbsp; <?php echo $lang['apply']; ?></button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<?php if (isset($_GET['settings']) && $_GET['settings'] === 'open') : ?>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var settingsElement = document.getElementById('settings_oop_modal');
+    if (settingsElement && window.bootstrap && bootstrap.Modal) {
+        bootstrap.Modal.getOrCreateInstance(settingsElement).show();
+    }
+    if (window.history && window.URL) {
+        var cleanUrl = new URL(window.location.href);
+        cleanUrl.searchParams.delete('settings');
+        window.history.replaceState({}, document.title, cleanUrl.toString());
+    }
+});
+</script>
+<?php endif; ?>
+
+
+<nav id="playercontrolbar" class=" fixed-bottom navbar-dark bg-dark">
+<div class="container-fluid">
+    <div class="row align-items-center">
+        <div class="col-2 col-md" >
+            <!-- Hier kommt das erste Element (20%) style="flex: 0 0 10%;" -->
+            <button style="font-size: 2em;" class="btn " id="playpausebtn" onclick="playPause()" href="#">▷</button>
+            </div>
+        <div class="col col-sm-8 col-md-10 d-flex justify-content-center" style="margin-top: 6px;">
+            <!-- Hier kommt das zweite Element (60%) style="flex: 0 0 70%;" -->
+            
+            <label id="muter" for="volume1" class="form-label" style="cursor: pointer;"><i class="fas fa-volume-up"></i> </label>
+            <input class="btn btn-block form-range " type="range" onchange="setVolume()" style="width: min(80%, 640px);" id='volume1' min="0" max="1" step="0.05" value="0.5"/>
+        </div>
+        <div class="col-2 col-md" style=" margin-left: auto;">
+            <!-- Hier kommt das dritte Element (20%) flex: 0 0 10%; -->
+            <a id="cast" class="btn btn-link float-end" href="#"><i class="fab fa-chromecast" style="font-size: 1.4em; float: right;"></i></a>
+        </div>
+    </div>
+</div>
+</nav>
+
+
+<!----------------------------------------------- ENGINE NET-ERR HANDLER ----------------------------------->
+<?php 
+$custom_neterr = "engine/extensions/" . $playermode . "/pages/neterr.php";
+$default_neterr = "engine/error/neterr.php";
+
+if (file_exists($custom_neterr)) {
+    require($custom_neterr);
+} else {
+    require($default_neterr);
+}
+
+?>
+
+
+
+
+<!-- LOADING POST LOADING ENGINE 
+<php require('engine/post-init.php');?> -->
+
+
+
+
+
+
+    
+<!---------------------------- LOAD ALL FPR MAINPACKAGE JS ------------------->
+<!---------------------------.... LOAD boostrapbundle js ---------------------->
+<script src="rscs/javascript/bootstrapbundel.js" ></script>
+<!-----------------------.......-- LOAD CAST JS ---------------------------------->
+ <script src="engine/castlibloader.php"></script>
+
+ <!----------------------------------- LOAD MAINPACKAGE JS ------------------->
+<script>
+
+//////////////////////  .:.  THIS IS THE JAVASCRIPT-MAIN-PACKAGE FOR PanPlay - Last Updated on 14. Feb. 2024 18:00  by PS(Pangom)
+
+//////////////////////  .:.  SET VARIABLES evtl. values (var and const)
+/////////// For Cast-JS:
+var cjs = null;
+if (typeof Castjs === 'function') {
+    try {
+        cjs = new Castjs({
+            receiver: 'DA6AE6DC'
+        });
+    } catch (error) {
+        console.warn('PanPlay Cast is unavailable.', error);
+    }
+}
+/////////// For the PlayerControls:
+var mediaClip = document.getElementById("oop_audio").value;
+
+</script>
+<script>
+
+
+
+//////////////////////  .:.  RUN CODE
+
+
+
+
+
+
+
+
+
+
+/////////// Enable Tooltips
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+});
+
+</script>
+
+<script>
+  
+/////////// PlayerControls-JS:
+
+
+var slider = document.getElementById("volume1");
+var currentslidervomulevalue = slider.value
+slider.addEventListener("wheel", function(e){
+  if (e.deltaY < 0){
+    slider.valueAsNumber += 0.05;
+  }else{
+    slider.value -= 0.05;
+  }
+  setVolume();
+  e.preventDefault();
+  e.stopPropagation();
+})
+
+const sound = document.getElementById('oop_audio');
+const volumeControl = document.getElementById('volume1');
+
+document.getElementById("muter").addEventListener("click", function() {
+  if (sound.muted) {
+    this.innerHTML = "<i class='fas fa-volume-up'></i>";
+    volumeControl.disabled = false;  // Volume-Regler aktivieren
+  } else {
+    this.innerHTML = "<i class='fas fa-volume-mute'></i>";
+    volumeControl.disabled = true;  // Volume-Regler deaktivieren
+  }
+  sound.muted = !sound.muted;
+});
+
+
+
+    
+window.onload = function() {
+    var backgroundAudio=document.getElementById("oop_audio");
+    backgroundAudio.volume=0.3;
+}
+    
+
+
+
+
+
+
+// Event-Listener für das "error"-Ereignis des Audioelements
+oop_audio.addEventListener("error", function() {
+    console.log('Fehler: Der Audiostream konnte nicht geladen werden.');
+    showModalAndStartInterval();
+    handlePlaybackError();
+    getCurrentSongInfoFromUI();
+});
+
+// Eventlistener für das 'play'-Event hinzufügen
+oop_audio.addEventListener('play', function() {
+  // Setze die Metadaten für die Media Session, sobald die Wiedergabe beginnt
+  if (typeof getCurrentSongInfoFromUI === 'function') {
+    getCurrentSongInfoFromUI();
+}
+});
+
+// Event-Listener für das "abort"-Ereignis des Audioelements
+oop_audio.addEventListener("abort", function() {
+    console.log('Audiostream abgebrochen.');
+    showModalAndStartInterval();
+    getCurrentSongInfoFromUI();
+    // Weitere Behandlung hier
+});
+
+// Event-Listener für das "stalled"-Ereignis des Audioelements
+oop_audio.addEventListener("stalled", function() {
+    console.log('Audiostream konnte nicht weitergeladen werden.');
+    showModalAndStartInterval();
+    getCurrentSongInfoFromUI();
+    // Weitere Behandlung hier
+});
+
+// Event-Listener für das Schließen des Modals
+document.getElementById("neterror-container").addEventListener("hidden.bs.modal", function () {
+  closeModalAndStopInterval();
+});
+
+function handlePlaybackError() {
+    // Hier wird die Wiedergabe des Audiostreams neu gestartet
+    oop_audio.load(); // Stoppt die Wiedergabe und lädt den Audiostream neu
+    oop_audio.play(); // Startet die Wiedergabe erneut
+}
+
+</script>
+<script>
+
+
+    function setVolume() {
+   document.getElementById("oop_audio").value = oop_audio;
+   oop_audio.volume = document.getElementById("volume1").value;
+
+}
+
+
+function playPause() {
+    if (oop_audio.paused) {
+        oop_audio.play();   
+    } else {
+        oop_audio.pause();
+    }
+    updatePlayPauseButton();
+}
+
+function updatePlayPauseButton() {
+    var playpauseb = document.getElementById("playpausebtn");
+    var overlayIcon = document.getElementById("pp-overlay-icon");
+    
+    var isPaused = oop_audio.paused;
+
+    // 1. Hauptbutton (unten)
+    if (playpauseb) {
+        playpauseb.innerHTML = '';
+        var iconElement = document.createElement("i");
+        iconElement.classList.add("far");
+        iconElement.classList.add(isPaused ? "fa-play-circle" : "fa-pause-circle");
+        iconElement.style.color = "#ffffff";
+        playpauseb.appendChild(iconElement);
+    }
+
+    // 2. Overlay-Icon (auf dem Bild)
+    if (overlayIcon) {
+        // Wir wechseln zwischen fas (solid) play und pause
+        overlayIcon.className = isPaused ? "fas fa-play" : "fas fa-pause";
+    }
+}
+
+// Event-Listener für Änderungen des Audio-Status
+oop_audio.addEventListener("play", function() {
+    updatePlayPauseButton();
+    autoplayCheck();
+    if (cjs && typeof cjs.play === 'function') {
+        cjs.play();
+    }
+});
+
+oop_audio.addEventListener("pause", function() {
+    updatePlayPauseButton();
+    if (cjs && typeof cjs.pause === 'function') {
+        cjs.pause();
+    }
+});
+
+// Initialisierung des Play/Pause-Buttons
+updatePlayPauseButton();
+
+// Überprüfung des Autoplay-Status nach einer kurzen Verzögerung
+setTimeout(autoplayCheck, 1000);
+
+function autoplayCheck() {
+    if (oop_audio.autoplay && oop_audio.paused) {
+        oop_audio.play()
+            .then(() => {
+                updatePlayPauseButton();
+            })
+            .catch(error => {
+                if (error.name === 'NotAllowedError') {
+                    console.log('Autoplay nicht erlaubt:', error);
+                    event.preventDefault(); // Unterdrückt das Standardverhalten des unhandledrejection-Events
+                } else {
+                    console.log('Fehler beim Abspielen des Audios:', error);
+                }
+            });
+    }
+}
+
+// Globaler Handler für nicht abgefangene Promise Rejections
+window.addEventListener('unhandledrejection', function(event) {
+    console.log('Unhandled Promise Rejection:', event.reason);
+    event.preventDefault(); // Unterdrückt das Standardverhalten des unhandledrejection-Events
+});
+
+</script>
+
+<script>
+<?php
+    require('engine/extensions/' . $playermode . '/cast.js');
+?>
+</script>
+
+     <?php
+    require('engine/extensions/' . $playermode . '/script_loader.php');
+?>
+
+
+
+
+
+
+</body>
+<!--<script src="rscs/javascript/loader.js"></script> -->
+
+</html>
